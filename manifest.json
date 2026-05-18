@@ -1,0 +1,19 @@
+{
+  "name": "ClaudiShop Livreur",
+  "short_name": "CS Livreur",
+  "description": "Application de livraison ClaudiShop pour livreurs",
+  "start_url": "driver/dashboard.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2937",
+  "orientation": "portrait",
+  "scope": ".",
+  "icons": [
+    {
+      "src": "assets/images/brand/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

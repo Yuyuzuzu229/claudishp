@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="512" height="341">
+  <rect x="0" y="0" width="1536" height="1024" fill="#f8f9fa"/>
+  <rect x="15" y="532" width="241" height="24" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="23" y="552" font-family="monospace" font-size="14" fill="#666">241x24</text>
+  <rect x="1013" y="716" width="170" height="22" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1021" y="736" font-family="monospace" font-size="14" fill="#666">170x22</text>
+  <rect x="1013" y="716" width="170" height="32" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1021" y="736" font-family="monospace" font-size="14" fill="#666">170x32</text>
+  <rect x="1014" y="714" width="169" height="24" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1022" y="734" font-family="monospace" font-size="14" fill="#666">169x24</text>
+  <rect x="1014" y="714" width="169" height="34" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1022" y="734" font-family="monospace" font-size="14" fill="#666">169x34</text>
+  <rect x="1015" y="712" width="166" height="26" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1023" y="732" font-family="monospace" font-size="14" fill="#666">166x26</text>
+  <rect x="1015" y="712" width="166" height="36" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1023" y="732" font-family="monospace" font-size="14" fill="#666">166x36</text>
+  <rect x="1018" y="710" width="161" height="28" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1026" y="730" font-family="monospace" font-size="14" fill="#666">161x28</text>
+  <rect x="1018" y="710" width="161" height="38" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="1026" y="730" font-family="monospace" font-size="14" fill="#666">161x38</text>
+  <rect x="1402" y="26" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="1400" y="28" width="15" height="3" fill="#333" rx="1"/>
+  <rect x="41" y="30" width="10" height="3" fill="#333" rx="1"/>
+  <rect x="113" y="30" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="1399" y="32" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="1398" y="34" width="10" height="3" fill="#333" rx="1"/>
+  <rect x="1395" y="36" width="10" height="3" fill="#333" rx="1"/>
+  <rect x="1387" y="52" width="20" height="3" fill="#333" rx="1"/>
+  <rect x="1457" y="66" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="334" y="74" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="349" y="74" width="12" height="3" fill="#333" rx="1"/>
+  <rect x="368" y="74" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="386" y="74" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="430" y="74" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="1328" y="112" width="14" height="3" fill="#333" rx="1"/>
+  <rect x="152" y="118" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="133" y="122" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="122" y="288" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="32" y="290" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="107" y="290" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="68" y="378" width="9" height="3" fill="#333" rx="1"/>
+  <rect x="31" y="382" width="14" height="3" fill="#333" rx="1"/>
+  <rect x="934" y="444" width="12" height="3" fill="#333" rx="1"/>
+  <rect x="981" y="444" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="1003" y="444" width="10" height="3" fill="#333" rx="1"/>
+  <rect x="1069" y="444" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="1082" y="444" width="11" height="3" fill="#333" rx="1"/>
+  <rect x="15" y="540" width="20" height="3" fill="#333" rx="1"/>
+  <rect x="15" y="542" width="18" height="3" fill="#333" rx="1"/>
+  <rect x="15" y="544" width="17" height="3" fill="#333" rx="1"/>
+  <rect x="44" y="544" width="23" height="3" fill="#333" rx="1"/>
+  <rect x="73" y="544" width="36" height="3" fill="#333" rx="1"/>
+</svg>
