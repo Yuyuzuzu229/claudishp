@@ -45,7 +45,7 @@ class Utilisateur {
         return $this->db->query("SELECT COUNT(*) FROM utilisateur WHERE est_actif = 1")->fetchColumn();
     }
 
-    public function inscrire($nom, $prenom, $email, $motDePasse, $telephone, $role = 'user') {
+    public function inscrire($nom, $prenom, $email, $motDePasse, $telephone, $role = 'client') {
         if ($this->getByEmail($email)) {
             return ['success' => false, 'message' => 'Cet email est déjà utilisé.'];
         }
