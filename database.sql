@@ -1,6 +1,6 @@
 -- ============================================================
 -- CLAUDISHOP - Schéma de base de données MySQL/MariaDB
--- Version : 1.1.0
+-- Version : 1.2.0
 -- ============================================================
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -20,6 +20,7 @@ CREATE TABLE `utilisateur` (
   `telephone`        VARCHAR(20) DEFAULT NULL,
   `role`             ENUM('client','admin','gestionnaire','livreur','support','comptable','logistique') NOT NULL DEFAULT 'client',
   `est_actif`        TINYINT(1) NOT NULL DEFAULT 1,
+  `google_id`        VARCHAR(255) DEFAULT NULL UNIQUE,
   `reset_token`      VARCHAR(64) DEFAULT NULL,
   `reset_expire`     DATETIME DEFAULT NULL,
   `derniere_connexion` DATETIME DEFAULT NULL,
@@ -38,10 +39,13 @@ CREATE TABLE `categorie` (
   `nom`         VARCHAR(100) NOT NULL,
   `description` TEXT DEFAULT NULL,
   `image`       VARCHAR(255) DEFAULT NULL,
+  `parent_id`   INT UNSIGNED DEFAULT NULL,
   `statut`      TINYINT(1) NOT NULL DEFAULT 1,
   `date_creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idx_parent` (`parent_id`),
+  CONSTRAINT `fk_categorie_parent` FOREIGN KEY (`parent_id`) REFERENCES `categorie` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================
@@ -52,7 +56,7 @@ CREATE TABLE `produit` (
   `nom`             VARCHAR(200) NOT NULL,
   `description`     TEXT DEFAULT NULL,
   `prix`            DECIMAL(12,2) NOT NULL,
-  `prix_promo`      DECIMAL(12,2) DEFAULT NULL,
+  `solde_prix`      DECIMAL(12,2) DEFAULT NULL,
   `stock`           INT NOT NULL DEFAULT 0,
   `qte_min`         INT NOT NULL DEFAULT 1,
   `qte_alerte`      INT NOT NULL DEFAULT 5,
@@ -65,6 +69,8 @@ CREATE TABLE `produit` (
   `couleur`         VARCHAR(100) DEFAULT NULL,
   `matiere`         VARCHAR(100) DEFAULT NULL,
   `photo`           VARCHAR(255) DEFAULT NULL,
+  `images`          TEXT DEFAULT NULL,
+  `note_moyenne`    DECIMAL(2,1) DEFAULT 0.0,
   `date_creation`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -96,8 +102,11 @@ CREATE TABLE `zone_livraison` (
   `description` TEXT DEFAULT NULL,
   `communes`    TEXT DEFAULT NULL,
   `frais`       DECIMAL(10,2) NOT NULL DEFAULT 0,
+  `tarif`       DECIMAL(10,2) NOT NULL DEFAULT 0,
   `delai_min`   INT DEFAULT 1,
   `delai_max`   INT DEFAULT 4,
+  `latitude`    DECIMAL(10,7) DEFAULT NULL,
+  `longitude`   DECIMAL(10,7) DEFAULT NULL,
   `statut`      TINYINT(1) NOT NULL DEFAULT 1,
   `date_creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -113,10 +122,13 @@ CREATE TABLE `livreur` (
   `telephone`     VARCHAR(20) NOT NULL,
   `email`         VARCHAR(180) DEFAULT NULL UNIQUE,
   `mot_de_passe`  VARCHAR(255) NOT NULL,
-  `vehicule`      ENUM('moto','voiture','tricycle','velo','pied') NOT NULL DEFAULT 'moto',
-  `type_livraison` ENUM('express','standard','tous') NOT NULL DEFAULT 'tous',
-  `statut`        ENUM('disponible','en_livraison','inactif') NOT NULL DEFAULT 'disponible',
+  `vehicule`      VARCHAR(50) NOT NULL DEFAULT 'moto',
+  `type_livraison` VARCHAR(20) NOT NULL DEFAULT 'tous',
+  `statut`        VARCHAR(20) NOT NULL DEFAULT 'disponible',
   `est_actif`     TINYINT(1) NOT NULL DEFAULT 1,
+  `zone_affectation` VARCHAR(255) DEFAULT NULL,
+  `whatsapp`      VARCHAR(20) DEFAULT NULL,
+  `fcm_token`     VARCHAR(255) DEFAULT NULL,
   `photo`         VARCHAR(255) DEFAULT NULL,
   `note`          TEXT DEFAULT NULL,
   `date_embauche` DATE DEFAULT NULL,
@@ -177,14 +189,18 @@ CREATE TABLE `commande` (
   `reference`          VARCHAR(20) NOT NULL UNIQUE,
   `utilisateur_id`     INT UNSIGNED NOT NULL,
   `date_commande`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `mode_retrait`       ENUM('livraison','boutique') NOT NULL DEFAULT 'livraison',
+  `mode_retrait`       VARCHAR(50) NOT NULL DEFAULT 'livraison',
   `montant_total`      DECIMAL(12,2) NOT NULL,
   `adresse_livraison`  TEXT DEFAULT NULL,
+  `nom_complet`        VARCHAR(255) DEFAULT NULL,
+  `telephone`          VARCHAR(20) DEFAULT NULL,
   `latitude_client`    DECIMAL(10,7) DEFAULT NULL,
   `longitude_client`   DECIMAL(10,7) DEFAULT NULL,
   `precision_gps`      FLOAT DEFAULT NULL,
+  `precision_geoloc`   INT DEFAULT NULL,
   `zone_id`            INT UNSIGNED DEFAULT NULL,
-  `statut`             ENUM('En attente','Confirmée','En préparation','En route','Livrée','Annulée') NOT NULL DEFAULT 'En attente',
+  `id_zone`            INT UNSIGNED DEFAULT NULL,
+  `statut`             VARCHAR(50) NOT NULL DEFAULT 'En attente',
   `instructions`       TEXT DEFAULT NULL,
   `date_creation`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -221,9 +237,11 @@ CREATE TABLE `paiement` (
   `id`                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `commande_id`         INT UNSIGNED NOT NULL,
   `montant`             DECIMAL(12,2) NOT NULL,
-  `mode`                ENUM('mtn_momo','moov_money') NOT NULL,
+  `mode`                VARCHAR(50) NOT NULL,
   `telephone_paiement`  VARCHAR(20) DEFAULT NULL,
-  `statut`              ENUM('en_attente','Confirmé','Échoué','Remboursé') NOT NULL DEFAULT 'en_attente',
+  `statut`              VARCHAR(20) NOT NULL DEFAULT 'en_attente',
+  `token`               VARCHAR(100) DEFAULT NULL,
+  `fedacheckout_token`  VARCHAR(255) DEFAULT NULL,
   `reference_transaction` VARCHAR(100) DEFAULT NULL UNIQUE,
   `date_paiement`       DATETIME DEFAULT NULL,
   `date_creation`       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -243,9 +261,15 @@ CREATE TABLE `livraison` (
   `zone_id`       INT UNSIGNED DEFAULT NULL,
   `frais`         DECIMAL(10,2) NOT NULL DEFAULT 0,
   `creneau`       VARCHAR(100) DEFAULT NULL,
-  `statut`        ENUM('En attente','Prêt à expédier','En cours','Livrée','Annulée','Échouée') NOT NULL DEFAULT 'En attente',
+  `statut`        VARCHAR(50) NOT NULL DEFAULT 'En attente',
   `date_prevue`   DATE DEFAULT NULL,
   `date_livraison` DATETIME DEFAULT NULL,
+  `adresse`       TEXT DEFAULT NULL,
+  `distance_km`   DECIMAL(10,2) DEFAULT NULL,
+  `token_acces`   VARCHAR(64) DEFAULT NULL,
+  `latitude_livreur`  DECIMAL(10,7) DEFAULT NULL,
+  `longitude_livreur` DECIMAL(10,7) DEFAULT NULL,
+  `derniere_position` DATETIME DEFAULT NULL,
   `signature`     VARCHAR(255) DEFAULT NULL,
   `prevision`     TEXT DEFAULT NULL,
   `date_creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -260,6 +284,22 @@ CREATE TABLE `livraison` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================
+-- TABLE : adresse
+-- ============================================================
+CREATE TABLE `adresse` (
+  `id`              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `utilisateur_id`  INT UNSIGNED NOT NULL,
+  `quartier`        VARCHAR(150) NOT NULL,
+  `ville`           VARCHAR(100) NOT NULL,
+  `point_repere`    VARCHAR(255) DEFAULT NULL,
+  `est_principale`  TINYINT(1) NOT NULL DEFAULT 0,
+  `date_creation`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_adresse_user` (`utilisateur_id`),
+  CONSTRAINT `fk_adresse_user` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateur` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============================================================
 -- TABLE : avis
 -- ============================================================
 CREATE TABLE `avis` (
@@ -268,7 +308,7 @@ CREATE TABLE `avis` (
   `produit_id`   INT UNSIGNED NOT NULL,
   `note`         TINYINT UNSIGNED NOT NULL CHECK (`note` BETWEEN 1 AND 5),
   `commentaire`  TEXT DEFAULT NULL,
-  `statut`       ENUM('en_moderation','Publié','Refusé') NOT NULL DEFAULT 'en_moderation',
+  `statut`       VARCHAR(20) NOT NULL DEFAULT 'en_moderation',
   `date_creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -285,10 +325,10 @@ CREATE TABLE `notification` (
   `id`             INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `utilisateur_id` INT UNSIGNED DEFAULT NULL,
   `commande_id`    INT UNSIGNED DEFAULT NULL,
-  `canal`          ENUM('sms','email','push','interne') NOT NULL DEFAULT 'interne',
+  `canal`          VARCHAR(50) NOT NULL DEFAULT 'interne',
   `titre`          VARCHAR(200) NOT NULL,
   `message`        TEXT NOT NULL,
-  `statut`         ENUM('Non lue','Lue','Archivée','Envoyé') NOT NULL DEFAULT 'Non lue',
+  `statut`         VARCHAR(20) NOT NULL DEFAULT 'Non lue',
   `date_envoi`     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `idx_notif_user`     (`utilisateur_id`),
@@ -309,12 +349,12 @@ INSERT INTO `categorie` (`nom`,`description`,`statut`) VALUES
 ('Beauté & Santé','Soins et cosmétiques',1),
 ('Soldes','Articles en promotion',0);
 
-INSERT INTO `zone_livraison` (`nom`,`description`,`frais`,`delai_min`,`delai_max`,`statut`) VALUES
-('Cotonou Zone 1','Centre-ville et Plateau',1500,1,2,1),
-('Cotonou Zone 2','Akpakpa, Aidjèdo, Cadjèhoun',2000,1,3,1),
-('Abomey-Calavi','Abomey-Calavi et environs',2500,2,4,1),
-('Porto-Novo','Capitale administrative',3500,3,6,1),
-('Parakou','Nord Bénin – ville principale',5000,6,12,0);
+INSERT INTO `zone_livraison` (`nom`,`description`,`frais`,`tarif`,`delai_min`,`delai_max`,`statut`) VALUES
+('Cotonou Zone 1','Centre-ville et Plateau',1500,1500,1,2,1),
+('Cotonou Zone 2','Akpakpa, Aidjèdo, Cadjèhoun',2000,2000,1,3,1),
+('Abomey-Calavi','Abomey-Calavi et environs',2500,2500,2,4,1),
+('Porto-Novo','Capitale administrative',3500,3500,3,6,1),
+('Parakou','Nord Bénin – ville principale',5000,5000,6,12,0);
 
 -- Mots de passe : admin123 / user123
 INSERT INTO `utilisateur` (`nom`,`prenom`,`email`,`mot_de_passe`,`telephone`,`role`,`est_actif`) VALUES
@@ -332,15 +372,12 @@ INSERT INTO `livreur` (`nom`,`telephone`,`email`,`mot_de_passe`,`vehicule`,`stat
 INSERT INTO `livreur_zone` (`livreur_id`,`zone_id`) VALUES
 (1,1),(2,1),(2,2),(3,3),(4,4);
 
-INSERT INTO `produit` (`nom`,`description`,`prix`,`stock`,`qte_alerte`,`sku`,`categorie_id`,`statut`,`taille_disponible`) VALUES
-('Robe Wax fleurie','Superbe robe en Wax aux couleurs vives',32500,18,5,'RWX-00142',1,1,'S,M,L,XL'),
-('Chemise Homme Slim','Chemise coupe slim, tissu premium',18000,35,5,'CHS-00141',2,1,'S,M,L,XL,XXL'),
-('Basket cuir mixte','Basket en cuir véritable, confortable',45000,12,5,'BSK-00140',4,1,'39,40,41,42,43'),
-('Sac à main Élégance','Sac à main cuir élégant',28500,8,3,'SAC-00139',4,1,''),
-('Parfum Musc Royal','Parfum oriental longue durée',22000,26,5,'PAR-00138',5,1,''),
-('Ensemble Wax enfant','Ensemble deux pièces en Wax pour enfant',8900,30,10,'EWX-00135',3,1,'3,4,5,6,7,8'),
-('Jean Slim Fit','Jean slim en denim de qualité',21500,19,5,'JNS-00134',2,1,'28,30,32,34,36'),
-('Ceinture en cuir','Ceinture cuir véritable, boucle dorée',9900,31,5,'CEN-00133',4,1,'');
-
--- Réinitialiser les auto-incréments après les INSERT
--- (optionnel, InnoDB gère automatiquement)
+INSERT INTO `produit` (`nom`,`description`,`prix`,`stock`,`qte_alerte`,`sku`,`categorie_id`,`statut`,`taille_disponible`,`photo`) VALUES
+('Robe Wax fleurie','Superbe robe en Wax aux couleurs vives',32500,18,5,'RWX-00142',1,1,'S,M,L,XL','produits/robe.jpg'),
+('Chemise Homme Slim','Chemise coupe slim, tissu premium',18000,35,5,'CHS-00141',2,1,'S,M,L,XL,XXL','produits/chemise.jpg'),
+('Basket cuir mixte','Basket en cuir véritable, confortable',45000,12,5,'BSK-00140',4,1,'39,40,41,42,43','produits/chaussures.jpg'),
+('Sac à main Élégance','Sac à main cuir élégant',28500,8,3,'SAC-00139',4,1,'','produits/sac.jpg'),
+('Parfum Musc Royal','Parfum oriental longue durée',22000,26,5,'PAR-00138',5,1,'','produits/montre.jpg'),
+('Ensemble Wax enfant','Ensemble deux pièces en Wax pour enfant',8900,30,10,'EWX-00135',3,1,'3,4,5,6,7,8','produits/robe_enfant.jpg'),
+('Jean Slim Fit','Jean slim en denim de qualité',21500,19,5,'JNS-00134',2,1,'28,30,32,34,36','produits/jean.jpg'),
+('Ceinture en cuir','Ceinture cuire véritable, boucle dorée',9900,31,5,'CEN-00133',4,1,'','produits/ceinture.jpg');

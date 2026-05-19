@@ -1,4 +1,5 @@
 <?php
+session_name('CLAUDISHOP_SESSION');
 session_start();
 error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
