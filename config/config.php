@@ -7,11 +7,21 @@ $basePath = str_replace('\\', '/', dirname(__DIR__));
 $docRoot = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? 'C:\\wamp64\\www'), '/');
 $relativePath = str_ireplace($docRoot, '', $basePath);
 
+// ── SESSION ISOLATION ────────────────────────────────────────────
+// Garantit que les cookies de session sont strictement limités
+// au chemin de CE projet. Sans cela, deux projets sur le même
+// localhost (ex: WAMP/XAMPP) partagent leurs cookies de session
+// et se connectent automatiquement au même compte.
+$_sessionPath = ($relativePath !== '') ? rtrim($relativePath, '/') . '/' : '/';
 session_set_cookie_params([
-    'path'     => $relativePath ?: '/',
+    'path'     => $_sessionPath,
     'httponly' => true,
+    'samesite' => 'Lax',
 ]);
-session_name('CLAUDISHOP_SESSION');
+// Le nom de session inclut le chemin du projet pour l'isoler
+// des autres projets tournant sur le même serveur local.
+$_sessionName = 'CLAUDISHOP_' . md5($relativePath ?: '/');
+session_name($_sessionName);
 session_start();
 define('BASE_URL', $protocol . '://' . $host . $relativePath);
 define('PUBLIC_URL', BASE_URL);
