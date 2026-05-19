@@ -1,0 +1,49 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: CLAUDISHOP
+        - generic [ref=e8]: Espace client
+      - heading "Bon retour parmi nous !" [level=2] [ref=e9]
+      - paragraph [ref=e10]: Connectez-vous pour accéder à votre espace personnel, vos commandes et vos avis.
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: 
+          - generic [ref=e14]: Suivre vos commandes en temps réel
+        - generic [ref=e15]:
+          - generic [ref=e16]: 
+          - generic [ref=e17]: Paiement MTN MoMo & Moov Money
+        - generic [ref=e18]:
+          - generic [ref=e19]: 
+          - generic [ref=e20]: Livraison rapide partout au Bénin
+      - generic [ref=e21]: © 2026 ClaudiShop – Tous droits réservés
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - heading "Se connecter" [level=2] [ref=e25]
+        - paragraph [ref=e26]: Bienvenue ! Entrez vos identifiants pour continuer.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Adresse email
+          - generic [ref=e30]:
+            - generic:
+              - generic: 
+            - textbox "votre@email.com" [active] [ref=e31]: adminclaudishop@gmail.com
+        - generic [ref=e32]:
+          - generic [ref=e33]: Mot de passe
+          - generic [ref=e34]:
+            - generic:
+              - generic: 
+            - textbox "••••••••••••" [ref=e35]: claudishop123
+        - link "Mot de passe oublié ?" [ref=e37] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/mot_de_passe_oublie.php
+        - button "Se connecter" [ref=e38] [cursor=pointer]
+      - generic [ref=e39]: ou
+      - generic [ref=e41]:
+        - text: Pas encore de compte ?
+        - link "Créer un compte" [ref=e42] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/inscription.php
+      - link " Retour à la boutique" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e45]: 
+        - text: Retour à la boutique

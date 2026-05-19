@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Client
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/dashboard.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Mon compte
+        - link " Mon profil" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/profil.php
+          - generic [ref=e20]: 
+          - text: Mon profil
+        - link " Mon panier" [ref=e21] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e22]: 
+          - text: Mon panier
+        - link " Paiement" [ref=e23] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+          - generic [ref=e24]: 
+          - text: Paiement
+        - generic [ref=e25]: Mes commandes
+        - link " Mes commandes" [ref=e26] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+          - generic [ref=e27]: 
+          - text: Mes commandes
+        - link " Suivi livraison" [ref=e28] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/suivi_livraison.php
+          - generic [ref=e29]: 
+          - text: Suivi livraison
+        - generic [ref=e30]: Avis & Communication
+        - link " Mes avis" [ref=e31] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+          - generic [ref=e32]: 
+          - text: Mes avis
+        - link " Mes notifications" [ref=e33] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e34]: 
+          - text: Mes notifications
+      - generic [ref=e35]:
+        - link " Retourner au site" [ref=e36] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e37]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e38] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e39]: 
+          - text: Déconnexion
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: Monday 18 May 2026
+        - link "" [ref=e43] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e44]: 
+        - generic [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]: S
+          - text:      
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: Livraison
+          - heading "Suivi de livraison" [level=1] [ref=e50]
+          - paragraph [ref=e51]: Suivez l'état de vos colis en temps réel
+        - generic [ref=e52]:
+          - generic [ref=e53]: 
+          - paragraph [ref=e54]: Aucune livraison en cours.
+          - paragraph [ref=e55]: Passez une commande pour voir le suivi ici.
+          - link " Commander" [ref=e56] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/boutique.php
+            - generic [ref=e57]: 
+            - text: Commander
+      - generic [ref=e58]:
+        - generic [ref=e59]: v1.0.0 • ClaudiShop
+        - generic [ref=e60]: © 2026 ClaudiShop
+        - generic [ref=e61]: v1.0.0

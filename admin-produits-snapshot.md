@@ -1,0 +1,55 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]
+      - generic [ref=e51]: Monday 18 May 2026
+      - link "" [ref=e52] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+      - generic [ref=e54] [cursor=pointer]
+    - generic [ref=e56]:
+      - generic [ref=e57]
+      - generic [ref=e61]
+      - generic [ref=e86]
+    - generic [ref=e1720]:
+      - generic [ref=e1721]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e1722]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e1723]: v1.0.0

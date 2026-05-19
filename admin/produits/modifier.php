@@ -76,7 +76,21 @@ $adminPage = 'produits';
                 <div class="form-group" style="margin-top:14px;"><label>Catégorie</label><select name="categorie_id" class="form-control"><option value="">Sélectionner...</option><?php foreach ($categories as $cat): ?><option value="<?= $cat['id'] ?>" <?= $cat['id'] == $produit['categorie_id'] ? 'selected' : '' ?>><?= securiser($cat['nom']) ?></option><?php endforeach; ?></select></div>
                 <div class="form-group"><label>Taille(s) disponibles <span class="text-muted">(optionnel)</span></label><input type="text" name="taille" class="form-control" value="<?= securiser($produit['taille_disponible'] ?? '') ?>" placeholder="Ex: XS, S, M, L, XL — laisser vide pour les accessoires"></div>
                 <div class="form-group"><label>Description</label><textarea name="description" class="form-control" rows="3"><?= securiser($produit['description'] ?? '') ?></textarea></div>
-                <div class="form-group"><label>Photo</label><input type="file" name="photo" class="form-control" accept="image/*"></div>
+                <div class="form-group">
+                    <label>Photo</label>
+                    <div>
+                        <label for="photoProduitModifInput" class="btn btn-dark" style="cursor:pointer;margin-bottom:0;">Choisir un fichier</label>
+                        <span id="photoProduitModifFileName" style="margin-left:10px;font-size:.8rem;color:#888;"><?= $produit['photo'] ? basename($produit['photo']) : 'Aucune image' ?></span>
+                    </div>
+                    <input type="file" name="photo" id="photoProduitModifInput" accept="image/*" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px;">
+                    <?php if ($produit['photo']): ?><div style="margin-top:8px;"><img src="<?= UPLOADS_URL . '/' . securiser($produit['photo']) ?>" alt="" style="width:60px;height:60px;border-radius:6px;object-fit:cover;"></div><?php endif; ?>
+                </div>
+                <script>
+                document.getElementById('photoProduitModifInput').addEventListener('change', function(e) {
+                    var span = document.getElementById('photoProduitModifFileName');
+                    if (span && this.files && this.files[0]) span.textContent = this.files[0].name;
+                });
+                </script>
                 <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
                     <a href="<?= BASE_URL ?>/admin/produits.php" class="btn btn-outline-dark">Annuler</a>
                     <button type="submit" class="btn btn-dark">Enregistrer</button>

@@ -101,11 +101,11 @@ $livreursDispo = $livreurObj->getDisponibles();
         <p class="dash-page-sub">GÃ©rez et suivez les livraisons en cours</p>
     </div>
 
-    <div class="kpi-grid kpi-grid-4" style="margin-bottom:20px;">
-        <div class="kpi-card"><div><div class="kpi-label">Total livraisons</div><div class="kpi-value"><?= count($livraisons) ?></div></div><i class="fas fa-truck kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">En cours</div><div class="kpi-value" style="color:var(--warning);"><?= $livraisonObj->getEnCours() ?></div></div><i class="fas fa-clock kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">LivrÃ©es</div><div class="kpi-value" style="color:var(--success);"><?= $livraisonObj->getLivrees() ?></div></div><i class="fas fa-check kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Livreurs dispo</div><div class="kpi-value"><?= count($livreursDispo) ?></div><div class="kpi-sub text-muted">prÃªts</div></div><i class="fas fa-motorcycle kpi-icon"></i></div>
+    <div class="kpi-grid">
+        <div class="kpi-card kpi-card--navy"><div><div class="kpi-label">Total livraisons</div><div class="kpi-value"><?= count($livraisons) ?></div></div><i class="fas fa-truck kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--amber"><div><div class="kpi-label">En cours</div><div class="kpi-value"><?= $livraisonObj->getEnCours() ?></div></div><i class="fas fa-clock kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--green"><div><div class="kpi-label">Livrées</div><div class="kpi-value"><?= $livraisonObj->getLivrees() ?></div></div><i class="fas fa-check kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--red"><div><div class="kpi-label">Livreurs dispo</div><div class="kpi-value"><?= count($livreursDispo) ?></div><div class="kpi-sub text-muted">prêts</div></div><i class="fas fa-motorcycle kpi-icon"></i></div>
     </div>
 
     <div class="table-card">

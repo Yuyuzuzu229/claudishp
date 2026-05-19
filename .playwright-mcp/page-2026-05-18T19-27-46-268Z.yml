@@ -1,0 +1,164 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e18]: 
+        - text: Utilisateurs
+        - generic [ref=e19]: "3"
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e21]: 
+        - text: Produits
+        - generic [ref=e22]: "69"
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e24]: 
+        - text: Catégories
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e26]: 
+        - text: Commandes
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e29]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e31]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e33]: 
+        - text: Livreurs
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e36]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e38]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e40]: 
+        - text: Notifications
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e43]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e45]: 
+        - text: Déconnexion
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: 
+        - textbox "Rechercher..." [ref=e50]
+      - generic [ref=e51]: Monday 18 May 2026
+      - link "" [ref=e52] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e53]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: S
+        - text:     
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: Logistique
+        - heading "Livraisons" [level=1] [ref=e59]
+        - paragraph [ref=e60]: GÃ©rez et suivez les livraisons en cours
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: Total livraisons
+            - generic [ref=e65]: "2"
+          - generic [ref=e66]: 
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: En cours
+            - generic [ref=e70]: "0"
+          - generic [ref=e71]: 
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: Livrées
+            - generic [ref=e75]: "2"
+          - generic [ref=e76]: 
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: Livreurs dispo
+            - generic [ref=e80]: "4"
+            - generic [ref=e81]: prêts
+          - generic [ref=e82]: 
+      - generic [ref=e83]:
+        - generic [ref=e85]: Toutes les livraisons
+        - table [ref=e86]:
+          - rowgroup [ref=e87]:
+            - row "# Commande Client Livreur Adresse Position livreur Partage Statut Actions" [ref=e88]:
+              - columnheader "#" [ref=e89]
+              - columnheader "Commande" [ref=e90]
+              - columnheader "Client" [ref=e91]
+              - columnheader "Livreur" [ref=e92]
+              - columnheader "Adresse" [ref=e93]
+              - columnheader "Position livreur" [ref=e94]
+              - columnheader "Partage" [ref=e95]
+              - columnheader "Statut" [ref=e96]
+              - columnheader "Actions" [ref=e97]
+          - rowgroup [ref=e98]:
+            - 'row "#0015 #CMD-000015 TheVoice Stone Test Livreur Cotonou - Akpakpa â€” â€” Livrée  " [ref=e99]':
+              - cell "#0015" [ref=e100]:
+                - strong [ref=e101]: "#0015"
+              - cell "#CMD-000015" [ref=e102]
+              - cell "TheVoice Stone" [ref=e103]
+              - cell "Test Livreur" [ref=e104]
+              - cell "Cotonou - Akpakpa" [ref=e105]
+              - cell "â€”" [ref=e106]
+              - cell "â€”" [ref=e107]
+              - cell "Livrée" [ref=e108]:
+                - generic [ref=e109]: Livrée
+              - cell " " [ref=e110]:
+                - generic [ref=e111]:
+                  - button "" [ref=e112] [cursor=pointer]:
+                    - generic [ref=e113]: 
+                  - button "" [ref=e114] [cursor=pointer]:
+                    - generic [ref=e115]: 
+            - 'row "#0014 #CMD-000014 Uziel de SOUZA ANDOCHE LOLO Position GPS: 6.3669644089561, 2.39 â€” â€” Livrée  " [ref=e116]':
+              - cell "#0014" [ref=e117]:
+                - strong [ref=e118]: "#0014"
+              - cell "#CMD-000014" [ref=e119]
+              - cell "Uziel de SOUZA" [ref=e120]
+              - cell "ANDOCHE LOLO" [ref=e121]
+              - 'cell "Position GPS: 6.3669644089561, 2.39" [ref=e122]'
+              - cell "â€”" [ref=e123]
+              - cell "â€”" [ref=e124]
+              - cell "Livrée" [ref=e125]:
+                - generic [ref=e126]: Livrée
+              - cell " " [ref=e127]:
+                - generic [ref=e128]:
+                  - button "" [ref=e129] [cursor=pointer]:
+                    - generic [ref=e130]: 
+                  - button "" [ref=e131] [cursor=pointer]:
+                    - generic [ref=e132]: 
+        - generic [ref=e133]: "Total : 2 livraisons"
+    - generic [ref=e134]:
+      - generic [ref=e135]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e136]: © 2026 ClaudiShop – Tous droits rÃ©servÃ©s
+      - generic [ref=e137]: v1.0.0

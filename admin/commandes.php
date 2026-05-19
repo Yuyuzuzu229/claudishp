@@ -22,14 +22,19 @@ $adminPage = 'commandes';
     <?php
     require_once __DIR__ . '/../classes/Commande.php';
     $commandeObj = new Commande();
-    $commandes = $commandeObj->getDernieresCommandes(50);
+    $search = isset($_GET['q']) ? securiser($_GET['q']) : '';
+    if ($search) {
+        $commandes = $commandeObj->search($search);
+    } else {
+        $commandes = $commandeObj->getDernieresCommandes(50);
+    }
     $nbCommandes = $commandeObj->getNombre();
     ?>
-    <div class="kpi-grid kpi-grid-4" style="margin-bottom:20px;">
-        <div class="kpi-card"><div><div class="kpi-label">Commandes totales</div><div class="kpi-value"><?= $nbCommandes ?></div></div><i class="fas fa-receipt kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Livrées</div><div class="kpi-value" style="color:var(--success);">—</div></div><i class="fas fa-check kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">En cours</div><div class="kpi-value" style="color:var(--warning);">—</div></div><i class="fas fa-clock kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Annulées</div><div class="kpi-value" style="color:var(--danger);">—</div></div><i class="fas fa-times kpi-icon"></i></div>
+    <div class="kpi-grid">
+        <div class="kpi-card kpi-card--navy"><div><div class="kpi-label">Commandes totales</div><div class="kpi-value"><?= $nbCommandes ?></div></div><i class="fas fa-receipt kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--green"><div><div class="kpi-label">Livrées</div><div class="kpi-value">—</div></div><i class="fas fa-check kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--amber"><div><div class="kpi-label">En cours</div><div class="kpi-value">—</div></div><i class="fas fa-clock kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--red"><div><div class="kpi-label">Annulées</div><div class="kpi-value">—</div></div><i class="fas fa-times kpi-icon"></i></div>
     </div>
     <div class="table-card">
         <div class="table-card-header">

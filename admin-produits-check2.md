@@ -1,0 +1,215 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - generic [ref=e6]:
+      - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e8]: CLAUDISHOP
+      - generic [ref=e9]: Espace Admin
+    - generic [ref=e10]:
+      - generic [ref=e11]: S
+      - generic [ref=e12]:
+        - generic [ref=e13]: Super Super Admin
+        - generic [ref=e14]: adminclaudishop@gmail.com
+    - navigation [ref=e15]:
+      - link " Dashboard" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e17]: 
+        - text: Dashboard
+      - generic [ref=e18]: Gestion
+      - link " Utilisateurs 3" [ref=e19] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e20]: 
+        - text: Utilisateurs
+        - generic [ref=e21]: "3"
+      - link " Produits 69" [ref=e22] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e23]: 
+        - text: Produits
+        - generic [ref=e24]: "69"
+      - link " Catégories" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e26]: 
+        - text: Catégories
+      - link " Commandes 1" [ref=e27] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e28]: 
+        - text: Commandes
+        - generic [ref=e29]: "1"
+      - generic [ref=e30]: Logistique
+      - link " Livraisons" [ref=e31] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e32]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e33] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e34]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e36]: 
+        - text: Livreurs
+      - generic [ref=e37]: Finance & Comm.
+      - link " Paiements" [ref=e38] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e39]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e40] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e41]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e43]: 
+        - text: Notifications
+    - generic [ref=e44]:
+      - link " Retourner au site" [ref=e45] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e46]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e47] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e48]: 
+        - text: Déconnexion
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]: Monday 18 May 2026
+      - link "" [ref=e52] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e53]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: S
+        - text:     
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: Gestion
+        - heading "Produits" [level=1] [ref=e59]
+        - paragraph [ref=e60]: Gérez votre catalogue de produits
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: Produits totaux
+            - generic [ref=e65]: "69"
+            - generic [ref=e66]: Tous produits confondus
+          - generic [ref=e67]: 
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Produits actifs
+            - generic [ref=e71]: "62"
+            - generic [ref=e72]: 90.1% des produits
+          - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: Produits inactifs
+            - generic [ref=e77]: "7"
+            - generic [ref=e78]: 9.9% des produits
+          - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - generic [ref=e82]: En promo
+            - generic [ref=e83]: "11"
+            - generic [ref=e84]: 16.2% des produits
+          - generic [ref=e85]: 
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - generic [ref=e89]
+            - combobox [ref=e92] [cursor=pointer]
+            - combobox [ref=e93] [cursor=pointer]
+            - combobox [ref=e94] [cursor=pointer]
+          - link "+ Ajouter un produit" [ref=e96] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e97]: +
+            - text: Ajouter un produit
+        - table [ref=e98]:
+          - rowgroup [ref=e99]:
+            - row "ID Produit Catégorie Prix (FCFA) Solde Stock Statut Créé le Actions" [ref=e100]
+          - rowgroup [ref=e110]:
+            - 'row "#P91 NHGTYUIKL.?JNHB SKU : NHG-00091 Homme 120 000 — 3000 ✓ Actif 18/05/26 à 21:59  " [ref=e111]'
+            - 'row "#P41 Jupe courte en jean SKU : JUP-00041 Femme 12 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e132]'
+            - 'row "#P42 Robe d''été fleurie SKU : ROB-00042 Femme 18 500 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e153]'
+            - 'row "#P44 T-shirt basique femme SKU : T-S-00044 Femme 7 500 — 499 ✓ Actif 18/05/26 à 21:59  " [ref=e174]'
+            - 'row "#P45 Jean slim femme SKU : JEA-00045 Femme 18 500 — 3 ✓ Actif 18/05/26 à 21:59  " [ref=e195]'
+            - 'row "#P46 Manteau d''hiver femme SKU : MAN-00046 Femme 35 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e216]'
+            - 'row "#P47 Short en jean femme SKU : SHO-00047 Femme 11 000 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e237]'
+            - 'row "#P48 Chemisier blanc femme SKU : CHE-00048 Femme 14 500 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e258]'
+            - 'row "#P49 Legging sport femme SKU : LEG-00049 Femme 9 500 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e279]'
+            - 'row "#P50 Débardeur femme SKU : Dé-00050 Femme 6 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e300]'
+            - 'row "#P51 Chemise en lin homme SKU : CHE-00051 Homme 15 500 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e321]'
+            - 'row "#P53 Jean droit homme SKU : JEA-00053 Homme 19 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e342]'
+            - 'row "#P57 Short de sport homme SKU : SHO-00057 Homme 9 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e363]'
+            - 'row "#P58 Manteau homme SKU : MAN-00058 Homme 38 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e384]'
+            - 'row "#P60 Débardeur sport homme SKU : Dé-00060 Homme 7 000 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e405]'
+            - 'row "#P66 Ensemble sport enfant SKU : ENS-00066 Enfant 12 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e426]'
+            - 'row "#P70 T-shirt fille enfant SKU : T-S-00070 Enfant 5 500 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e447]'
+            - 'row "#P71 Sac à main en cuir SKU : SAC-00071 Accessoires 25 000 -20% 15 ✓ Actif 18/05/26 à 21:59  " [ref=e468]'
+            - 'row "#P72 Sac à dos urbain SKU : SAC-00072 Accessoires 18 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e490]'
+            - 'row "#P73 Montre homme SKU : MON-00073 Accessoires 22 000 -30% 15 ✓ Actif 18/05/26 à 21:59  " [ref=e511]'
+            - 'row "#P75 Ceinture cuir homme SKU : CEI-00075 Accessoires 9 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e533]'
+            - 'row "#P77 Écharpe en laine SKU : ÉC-00077 Accessoires 8 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e554]'
+            - 'row "#P78 Chapeau casquette SKU : CHA-00078 Accessoires 6 500 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e575]'
+            - 'row "#P79 Bijoux collier SKU : BIJ-00079 Accessoires 5 500 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e596]'
+            - 'row "#P81 Chaussures homme SKU : CHA-00081 Chaussures 25 000 -35% 20 ✓ Actif 18/05/26 à 21:59  " [ref=e617]'
+            - 'row "#P82 Baskets femme SKU : BAS-00082 Chaussures 18 500 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e639]'
+            - 'row "#P83 Sandales femme SKU : SAN-00083 Chaussures 12 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e660]'
+            - 'row "#P84 Baskets enfant SKU : BAS-00084 Chaussures 9 500 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e681]'
+            - 'row "#P85 Chaussures habillées homme SKU : CHA-00085 Chaussures 32 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e702]'
+            - 'row "#P86 Tongs homme SKU : TON-00086 Chaussures 3 500 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e723]'
+            - 'row "#P87 Mocassins femme SKU : MOC-00087 Chaussures 15 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e744]'
+            - 'row "#P88 Baskets sport SKU : BAS-00088 Chaussures 22 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e765]'
+            - 'row "#P89 Bottes pluie enfant SKU : BOT-00089 Chaussures 7 500 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e786]'
+            - 'row "#P90 Chaussons maison SKU : CHA-00090 Chaussures 5 500 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e807]'
+            - 'row "#P1 Sac à main cuir SKU : SAC-00001 Accessoires 25 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e828]'
+            - 'row "#P2 Montre homme classique SKU : MON-00002 Accessoires 35 000 — 10 ✓ Actif 18/05/26 à 21:59  " [ref=e849]'
+            - 'row "#P3 Lunettes de soleil SKU : LUN-00003 Accessoires 8 500 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e870]'
+            - 'row "#P4 Ceinture homme cuir SKU : CEI-00004 Accessoires 9 000 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e891]'
+            - 'row "#P6 Sac à dos SKU : SAC-00006 Accessoires 15 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e912]'
+            - 'row "#P7 Portefeuille homme SKU : POR-00007 Accessoires 8 000 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e933]'
+            - 'row "#P8 Chapeau femme SKU : CHA-00008 Accessoires 5 500 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e954]'
+            - 'row "#P9 Bijoux fantaisie SKU : BIJ-00009 Accessoires 4 000 — 60 ✓ Actif 18/05/26 à 21:59  " [ref=e975]'
+            - 'row "#P10 Montre femme SKU : MON-00010 Accessoires 20 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e996]'
+            - 'row "#P11 T-shirt enfant SKU : T-S-00011 Enfant 4 500 -25% 60 ✓ Actif 18/05/26 à 21:59  " [ref=e1017]'
+            - 'row "#P12 Jean enfant SKU : JEA-00012 Enfant 8 000 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e1039]'
+            - 'row "#P13 Robe enfant fille SKU : ROB-00013 Enfant 7 000 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e1060]'
+            - 'row "#P14 Short enfant SKU : SHO-00014 Enfant 5 000 — 50 ✓ Actif 18/05/26 à 21:59  " [ref=e1081]'
+            - 'row "#P15 Veste enfant SKU : VES-00015 Enfant 10 000 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e1102]'
+            - 'row "#P16 Pantalon enfant SKU : PAN-00016 Enfant 7 000 — 45 ✓ Actif 18/05/26 à 21:59  " [ref=e1123]'
+            - 'row "#P18 Ensemble survêtement enfant SKU : ENS-00018 Enfant 11 000 — 35 ✓ Actif 18/05/26 à 21:59  " [ref=e1144]'
+            - 'row "#P19 Manteau enfant SKU : MAN-00019 Enfant 14 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e1165]'
+            - 'row "#P20 Pyjama enfant SKU : PYJ-00020 Enfant 5 500 — 50 ✓ Actif 18/05/26 à 21:59  " [ref=e1186]'
+            - 'row "#P21 Robe fleurie femme SKU : ROB-00021 Femme 12 000 -30% 30 ✓ Actif 18/05/26 à 21:59  " [ref=e1207]'
+            - 'row "#P22 T-shirt femme SKU : T-S-00022 Femme 6 500 — 45 ✓ Actif 18/05/26 à 21:59  " [ref=e1229]'
+            - 'row "#P23 Jupe plissée femme SKU : JUP-00023 Femme 10 000 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e1250]'
+            - 'row "#P25 Jean femme slim SKU : JEA-00025 Femme 18 000 -25% 30 ✓ Actif 18/05/26 à 21:59  " [ref=e1271]'
+            - 'row "#P26 Robe de soirée femme SKU : ROB-00026 Femme 25 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e1293]'
+            - 'row "#P27 Veste en jean femme SKU : VES-00027 Femme 15 000 — 25 ✓ Actif 18/05/26 à 21:59  " [ref=e1314]'
+            - 'row "#P28 Legging femme SKU : LEG-00028 Femme 7 000 — 50 ✓ Actif 18/05/26 à 21:59  " [ref=e1335]'
+            - 'row "#P29 Manteau femme SKU : MAN-00029 Femme 30 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e1356]'
+            - 'row "#P31 Chemise classique homme SKU : CHE-00031 Homme 15 000 -20% 25 ✓ Actif 18/05/26 à 21:59  " [ref=e1377]'
+            - 'row "#P32 T-shirt col rond homme SKU : T-S-00032 Homme 6 500 — 50 ✓ Actif 18/05/26 à 21:59  " [ref=e1399]'
+            - 'row "#P33 Jean slim homme SKU : JEA-00033 Homme 18 000 -30% 35 ✓ Actif 18/05/26 à 21:59  " [ref=e1420]'
+            - 'row "#P34 Veste bomber homme SKU : VES-00034 Homme 22 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e1442]'
+            - 'row "#P35 Short sport homme SKU : SHO-00035 Homme 8 000 — 40 ✓ Actif 18/05/26 à 21:59  " [ref=e1463]'
+            - 'row "#P36 Pantalon chino homme SKU : PAN-00036 Homme 16 000 — 30 ✓ Actif 18/05/26 à 21:59  " [ref=e1484]'
+            - 'row "#P37 Blazer homme SKU : BLA-00037 Homme 35 000 — 15 ✓ Actif 18/05/26 à 21:59  " [ref=e1505]'
+            - 'row "#P39 Parka homme SKU : PAR-00039 Homme 28 000 — 20 ✓ Actif 18/05/26 à 21:59  " [ref=e1526]'
+            - 'row "#P40 Costume complet homme SKU : COS-00040 Homme 55 000 — 10 ✓ Actif 18/05/26 à 21:59  " [ref=e1547]'
+        - generic [ref=e1568]:
+          - generic [ref=e1569]: Affichage 1-10 sur 69 produits
+          - generic [ref=e1570]:
+            - link "" [ref=e1571] [cursor=pointer]:
+              - /url: "#"
+            - link "1" [ref=e1573] [cursor=pointer]:
+              - /url: "#"
+            - link "2" [ref=e1574] [cursor=pointer]:
+              - /url: "#"
+            - link "3" [ref=e1575] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e1576] [cursor=pointer]: ...
+            - link "15" [ref=e1577] [cursor=pointer]:
+              - /url: "#"
+            - link "" [ref=e1578] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e1580]:
+      - generic [ref=e1581]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e1582]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e1583]: v1.0.0

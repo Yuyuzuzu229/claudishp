@@ -1,0 +1,5 @@
+[    1391ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.whatsapp.net/rsrc.php/yN/r/fQtw5exLIdT.woff2 @ https://api.whatsapp.com/send/?phone=2290199000001&text&type=phone_number&app_absent=0:8
+[    1828ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://api.whatsapp.com/data/manifest.json:0
+[    1894ms] [ERROR] Manifest fetch from https://api.whatsapp.com/data/manifest.json failed, code 404 @ https://api.whatsapp.com/send/?phone=2290199000001&text&type=phone_number&app_absent=0:0
+[    3339ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://api.whatsapp.com/data/manifest.json:0
+[    3426ms] [ERROR] Manifest fetch from https://api.whatsapp.com/data/manifest.json failed, code 404 @ https://api.whatsapp.com/send/?phone=2290199000001&text&type=phone_number&app_absent=0:0

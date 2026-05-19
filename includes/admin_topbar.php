@@ -4,10 +4,9 @@ $adminName2 = securiser(($_SESSION['user_prenom'] ?? '') . ' ' . ($_SESSION['use
 $adminEmail2 = securiser($_SESSION['user_email'] ?? '');
 ?>
 <div class="dash-topbar">
-    <div class="dash-topbar-search">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Rechercher...">
-    </div>
+    <button class="dash-mobile-toggle" id="dashSidebarToggle" aria-label="Menu" onclick="var s=document.getElementById('dashSidebar'),o=document.getElementById('dashSidebarOverlay');if(s){s.classList.toggle('open');}if(o){o.classList.toggle('open');}document.body.style.overflow=s&&s.classList.contains('open')?'hidden':'';">
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="dash-topbar-date"><?= date('l d F Y', time()) ?></div>
     <a href="<?= BASE_URL ?>/admin/notifications.php" class="dash-topbar-notif" style="text-decoration:none;color:inherit;">
         <i class="fas fa-bell"></i>

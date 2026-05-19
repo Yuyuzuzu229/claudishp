@@ -1,0 +1,187 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Admin
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/index.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Gestion
+        - link " Utilisateurs 3" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+          - generic [ref=e20]: 
+          - text: Utilisateurs
+          - generic [ref=e21]: "3"
+        - link " Produits 69" [ref=e22] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/produits.php
+          - generic [ref=e23]: 
+          - text: Produits
+          - generic [ref=e24]: "69"
+        - link " Catégories" [ref=e25] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/categories.php
+          - generic [ref=e26]: 
+          - text: Catégories
+        - link " Commandes" [ref=e27] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+          - generic [ref=e28]: 
+          - text: Commandes
+        - generic [ref=e29]: Logistique
+        - link " Livraisons" [ref=e30] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+          - generic [ref=e31]: 
+          - text: Livraisons
+        - link " Zones de livraison" [ref=e32] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/zones.php
+          - generic [ref=e33]: 
+          - text: Zones de livraison
+        - link " Livreurs" [ref=e34] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+          - generic [ref=e35]: 
+          - text: Livreurs
+        - generic [ref=e36]: Finance & Comm.
+        - link " Paiements" [ref=e37] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+          - generic [ref=e38]: 
+          - text: Paiements
+        - link " Avis clients" [ref=e39] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/avis.php
+          - generic [ref=e40]: 
+          - text: Avis clients
+        - link " Notifications" [ref=e41] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e42]: 
+          - text: Notifications
+      - generic [ref=e43]:
+        - link " Retourner au site" [ref=e44] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e45]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e46] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e47]: 
+          - text: Déconnexion
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: 
+          - textbox "Rechercher..." [ref=e52]
+        - generic [ref=e53]: Monday 18 May 2026
+        - link "" [ref=e54] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e55]: 
+        - generic [ref=e56] [cursor=pointer]:
+          - generic [ref=e57]: S
+          - text:     
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: Gestion
+          - heading "Catégories" [level=1] [ref=e61]
+          - paragraph [ref=e62]: Gérez les catégories de produits
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Toutes les catégories (6)
+            - button "+ Ajouter une catégorie" [ref=e66] [cursor=pointer]:
+              - generic [ref=e67]: +
+              - text: Ajouter une catégorie
+          - table [ref=e68]:
+            - rowgroup [ref=e69]:
+              - row "ID Nom Description Nb produits Actions" [ref=e70]:
+                - columnheader "ID" [ref=e71]
+                - columnheader "Nom" [ref=e72]
+                - columnheader "Description" [ref=e73]
+                - columnheader "Nb produits" [ref=e74]
+                - columnheader "Actions" [ref=e75]
+            - rowgroup [ref=e76]:
+              - row "#4 Accessoires Sacs, ceintures, bijoux, lunettes 16 produits  " [ref=e77]:
+                - cell "#4" [ref=e78]
+                - cell "Accessoires" [ref=e79]
+                - cell "Sacs, ceintures, bijoux, lunettes" [ref=e80]
+                - cell "16 produits" [ref=e81]:
+                  - generic [ref=e82]: 16 produits
+                - cell " " [ref=e83]:
+                  - generic [ref=e84]:
+                    - link "" [ref=e85] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=4
+                      - generic [ref=e86]: 
+                    - button "" [ref=e88] [cursor=pointer]:
+                      - generic [ref=e89]: 
+              - row "#5 Chaussures Chaussures tous âges 10 produits  " [ref=e90]:
+                - cell "#5" [ref=e91]
+                - cell "Chaussures" [ref=e92]
+                - cell "Chaussures tous âges" [ref=e93]
+                - cell "10 produits" [ref=e94]:
+                  - generic [ref=e95]: 10 produits
+                - cell " " [ref=e96]:
+                  - generic [ref=e97]:
+                    - link "" [ref=e98] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=5
+                      - generic [ref=e99]: 
+                    - button "" [ref=e101] [cursor=pointer]:
+                      - generic [ref=e102]: 
+              - row "#6 électronique tout ce qui relève de l&#039;électricité 0 produits  " [ref=e103]:
+                - cell "#6" [ref=e104]
+                - cell "électronique" [ref=e105]
+                - cell "tout ce qui relève de l&#039;électricité" [ref=e106]
+                - cell "0 produits" [ref=e107]:
+                  - generic [ref=e108]: 0 produits
+                - cell " " [ref=e109]:
+                  - generic [ref=e110]:
+                    - link "" [ref=e111] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=6
+                      - generic [ref=e112]: 
+                    - button "" [ref=e114] [cursor=pointer]:
+                      - generic [ref=e115]: 
+              - row "#3 Enfant Vêtements et accessoires pour enfant 11 produits  " [ref=e116]:
+                - cell "#3" [ref=e117]
+                - cell "Enfant" [ref=e118]
+                - cell "Vêtements et accessoires pour enfant" [ref=e119]
+                - cell "11 produits" [ref=e120]:
+                  - generic [ref=e121]: 11 produits
+                - cell " " [ref=e122]:
+                  - generic [ref=e123]:
+                    - link "" [ref=e124] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=3
+                      - generic [ref=e125]: 
+                    - button "" [ref=e127] [cursor=pointer]:
+                      - generic [ref=e128]: 
+              - row "#1 Femme Vêtements et accessoires pour femme 17 produits  " [ref=e129]:
+                - cell "#1" [ref=e130]
+                - cell "Femme" [ref=e131]
+                - cell "Vêtements et accessoires pour femme" [ref=e132]
+                - cell "17 produits" [ref=e133]:
+                  - generic [ref=e134]: 17 produits
+                - cell " " [ref=e135]:
+                  - generic [ref=e136]:
+                    - link "" [ref=e137] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=1
+                      - generic [ref=e138]: 
+                    - button "" [ref=e140] [cursor=pointer]:
+                      - generic [ref=e141]: 
+              - row "#2 Homme Vêtements et accessoires pour homme 15 produits  " [ref=e142]:
+                - cell "#2" [ref=e143]
+                - cell "Homme" [ref=e144]
+                - cell "Vêtements et accessoires pour homme" [ref=e145]
+                - cell "15 produits" [ref=e146]:
+                  - generic [ref=e147]: 15 produits
+                - cell " " [ref=e148]:
+                  - generic [ref=e149]:
+                    - link "" [ref=e150] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/categories/modifier.php?id=2
+                      - generic [ref=e151]: 
+                    - button "" [ref=e153] [cursor=pointer]:
+                      - generic [ref=e154]: 
+      - generic [ref=e155]:
+        - generic [ref=e156]: v1.0.0 • ClaudiShop Admin
+        - generic [ref=e157]: © 2026 ClaudiShop – Tous droits réservés
+        - generic [ref=e158]: v1.0.0

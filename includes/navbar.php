@@ -21,6 +21,11 @@ if (isLoggedIn() && class_exists('Notification')) {
     $__notif = new Notification();
     $nbNotifUnread = $__notif->getNombreNonLu($_SESSION['user_id']);
 }
+if (!isset($categorie) || !($categorie instanceof Categorie)) {
+    require_once __DIR__ . '/../classes/Categorie.php';
+    $categorie = new Categorie();
+}
+$categoriesNav = $categorie->getForNav();
 ?>
 <div class="announcement-bar">
     Livraison gratuite dès 500&nbsp;000 FCFA d'achat &bull; Paiement <strong>MTN Momo</strong> &amp; <strong>Moov Money</strong>
@@ -31,14 +36,44 @@ if (isLoggedIn() && class_exists('Notification')) {
             <span class="logo-claudi">CLAUDI</span>
             <span class="logo-shop">SHOP</span>
         </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         <nav class="main-nav">
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=1" class="<?= ($currentPage==='boutique.php' && isset($_GET['categorie']) && $_GET['categorie']==1)?'active':'' ?>">Femme</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=2" class="<?= ($currentPage==='boutique.php' && isset($_GET['categorie']) && $_GET['categorie']==2)?'active':'' ?>">Homme</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=3" class="<?= ($currentPage==='boutique.php' && isset($_GET['categorie']) && $_GET['categorie']==3)?'active':'' ?>">Enfant</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=4" class="<?= ($currentPage==='boutique.php' && isset($_GET['categorie']) && $_GET['categorie']==4)?'active':'' ?>">Accessoires</a>
+            <?php foreach ($categoriesNav as $cat): ?>
+            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=<?= $cat['id'] ?>" class="<?= ($currentPage==='boutique.php' && isset($_GET['categorie']) && $_GET['categorie']==$cat['id'])?'active':'' ?>"><?= securiser($cat['nom']) ?></a>
+            <?php endforeach; ?>
             <a href="<?= BASE_URL ?>/pages/boutique.php" class="<?= ($currentPage==='boutique.php' && !isset($_GET['categorie']))?'active':'' ?>">Nouveautés</a>
             <a href="<?= BASE_URL ?>/pages/boutique.php?soldes=1" class="nav-soldes">Soldes</a>
         </nav>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span class="logo-claudi">CLAUDI<span class="logo-shop-mobile">SHOP</span></span>
+                <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fermer">&times;</button>
+            </div>
+            <div class="mobile-nav-links">
+                <?php foreach ($categoriesNav as $cat): ?>
+                <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=<?= $cat['id'] ?>"><?= securiser($cat['nom']) ?></a>
+                <?php endforeach; ?>
+                <a href="<?= BASE_URL ?>/pages/boutique.php">Nouveautés</a>
+                <a href="<?= BASE_URL ?>/pages/boutique.php?soldes=1" class="nav-soldes">Soldes</a>
+            </div>
+            <div class="mobile-nav-footer">
+                <?php if (isLoggedIn()): ?>
+                <a href="<?= BASE_URL ?>/user/dashboard.php" class="mobile-nav-user">
+                    <i class="fas fa-user"></i> Mon compte
+                </a>
+                <a href="<?= BASE_URL ?>/actions/deconnexion.php" class="mobile-nav-logout">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+                <?php else: ?>
+                <a href="<?= BASE_URL ?>/pages/connexion.php" class="mobile-nav-login">
+                    <i class="fas fa-sign-in-alt"></i> Connexion
+                </a>
+                <?php endif; ?>
+            </div>
+        </div>
         <div class="header-search">
             <form method="GET" action="<?= BASE_URL ?>/pages/boutique.php" style="display:flex;width:100%;">
                 <input type="text" name="recherche" placeholder="Rechercher..." value="<?= isset($_GET['recherche']) ? securiser($_GET['recherche']) : '' ?>">

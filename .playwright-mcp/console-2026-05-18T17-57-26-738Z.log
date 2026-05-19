@@ -1,0 +1,10 @@
+[      99ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[     104ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[     132ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   16866ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/index.php:0
+[   18363ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[   18449ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/produits.php:0
+[   33112ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   33112ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   77533ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   77534ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918

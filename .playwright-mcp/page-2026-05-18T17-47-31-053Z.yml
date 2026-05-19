@@ -1,0 +1,47 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: CLAUDISHOP
+      - generic [ref=e6]: Espace client
+    - heading "Bon retour parmi nous !" [level=2] [ref=e7]
+    - paragraph [ref=e8]: Connectez-vous pour accéder à votre espace personnel, vos commandes et vos avis.
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: 
+        - generic [ref=e12]: Suivre vos commandes en temps réel
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - generic [ref=e15]: Paiement MTN MoMo & Moov Money
+      - generic [ref=e16]:
+        - generic [ref=e17]: 
+        - generic [ref=e18]: Livraison rapide partout au Bénin
+    - generic [ref=e19]: © 2026 ClaudiShop – Tous droits réservés
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - heading "Se connecter" [level=2] [ref=e23]
+      - paragraph [ref=e24]: Bienvenue ! Entrez vos identifiants pour continuer.
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: Adresse email
+        - generic [ref=e28]:
+          - generic:
+            - generic: 
+          - textbox "votre@email.com" [active] [ref=e29]: adminclaudishop@gmail.com
+      - generic [ref=e30]:
+        - generic [ref=e31]: Mot de passe
+        - generic [ref=e32]:
+          - generic:
+            - generic: 
+          - textbox "••••••••••••" [ref=e33]: claudishop123
+      - link "Mot de passe oublié ?" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/pages/mot_de_passe_oublie.php
+      - button "Se connecter" [ref=e36] [cursor=pointer]
+    - generic [ref=e37]: ou
+    - generic [ref=e39]:
+      - text: Pas encore de compte ?
+      - link "Créer un compte" [ref=e40] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/pages/inscription.php
+    - link " Retour à la boutique" [ref=e42] [cursor=pointer]:
+      - /url: http://localhost/CLAUDISHOP/index.php
+      - generic [ref=e43]: 
+      - text: Retour à la boutique

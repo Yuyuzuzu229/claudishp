@@ -51,6 +51,7 @@ require_once __DIR__ . '/../includes/header.php';
     }
     </script>
 
+<div id="driver-content">
     <div class="kpi-grid kpi-grid-3" style="margin-bottom:24px;">
         <div class="kpi-card">
             <div><div class="kpi-label">Livraisons en cours</div><div class="kpi-value"><?= count($livraisonsEnCours) ?></div></div>
@@ -146,6 +147,7 @@ require_once __DIR__ . '/../includes/header.php';
     </div>
     <?php endif; ?>
 </div>
+</div>
 
 <script>
 if ('serviceWorker' in navigator) {
@@ -186,5 +188,25 @@ messaging.onMessage(function(payload) {
 });
 </script>
 <?php endif; ?>
+<script>
+(function() {
+    var driverUrl = window.location.href;
+    function pollDriver() {
+        fetch(driverUrl)
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var newContent = doc.getElementById('driver-content');
+                var oldContent = document.getElementById('driver-content');
+                if (newContent && oldContent) {
+                    oldContent.innerHTML = newContent.innerHTML;
+                }
+                setTimeout(pollDriver, 5000);
+            })
+            .catch(function() { setTimeout(pollDriver, 5000); });
+    }
+    setTimeout(pollDriver, 5000);
+})();
+</script>
 </body>
 </html>

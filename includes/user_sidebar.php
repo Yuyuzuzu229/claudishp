@@ -12,7 +12,8 @@ $userInitial = strtoupper(substr($_SESSION['user_prenom'] ?? 'U', 0, 1));
 $userName = securiser(($_SESSION['user_prenom'] ?? '') . ' ' . ($_SESSION['user_nom'] ?? ''));
 $userEmail = securiser($_SESSION['user_email'] ?? '');
 ?>
-<aside class="dash-sidebar">
+<div class="dash-sidebar-overlay" id="dashSidebarOverlay"></div>
+<aside class="dash-sidebar" id="dashSidebar" style="background:#0a0a0a;">
     <div class="dash-sidebar-logo">
         <a href="<?= BASE_URL ?>/index.php" style="text-decoration:none;color:inherit;">
             <div class="dash-logo-text">CLAUDI<span style="font-weight:400;">SHOP</span></div>

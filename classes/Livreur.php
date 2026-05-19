@@ -12,6 +12,13 @@ class Livreur {
         return $this->db->query("SELECT * FROM livreur ORDER BY nom")->fetchAll();
     }
 
+    public function search($q) {
+        $stmt = $this->db->prepare("SELECT * FROM livreur WHERE nom LIKE ? OR telephone LIKE ? OR email LIKE ? ORDER BY nom");
+        $like = "%$q%";
+        $stmt->execute([$like, $like, $like]);
+        return $stmt->fetchAll();
+    }
+
     public function getById($id) {
         $stmt = $this->db->prepare("SELECT * FROM livreur WHERE id = ?");
         $stmt->execute([$id]);

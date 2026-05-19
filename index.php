@@ -231,14 +231,6 @@ $produitsAccessoires = array_slice($produitsAccessoires, 0, 4);
 <section class="section section-animate">
     <div class="container">
         <h2 class="section-title" style="margin-bottom:24px;">Tendances par univers</h2>
-        <div class="filter-tags">
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=1" class="filter-tag">Femme</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=2" class="filter-tag">Homme</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=3" class="filter-tag">Enfant</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=4" class="filter-tag">Accessoires</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php" class="filter-tag">Nouveautés</a>
-            <a href="<?= BASE_URL ?>/pages/boutique.php?soldes=1" class="filter-tag solde">Soldes</a>
-        </div>
         <div class="grid-3 category-cards">
             <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=1" class="category-card" <?php if ($heroFemme && !empty($heroFemme['photo'])): ?>style="background:linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 100%), url('<?= UPLOADS_URL ?>/<?= $heroFemme['photo'] ?>') center/cover no-repeat;color:white;border:none;min-height:200px;justify-content:flex-end;"<?php endif; ?>>
                 <span class="product-badge badge-femme" style="margin-bottom:8px;">Femme</span>

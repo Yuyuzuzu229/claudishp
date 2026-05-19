@@ -6,8 +6,11 @@
     <title><?= isset($pageTitle) ? 'Admin - ' . securiser($pageTitle) . ' | ' : '' ?>CLAUDISHOP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css?v=3">
     <link rel="icon" type="image/svg+xml" href="<?= ASSETS_URL ?>/images/brand/favicon.svg">
+    <script defer src="<?= ASSETS_URL ?>/js/script.js"></script>
+    <script>document.addEventListener('keydown',function(e){if(e.key==='Escape'){var s=document.getElementById('dashSidebar'),o=document.getElementById('dashSidebarOverlay');if(s&&s.classList.contains('open')){s.classList.remove('open');if(o)o.classList.remove('open');document.body.style.overflow='';}}});
+    document.addEventListener('DOMContentLoaded',function(){var t=document.getElementById('dashSidebarToggle'),s=document.getElementById('dashSidebar'),o=document.getElementById('dashSidebarOverlay');function cs(){if(s)s.classList.remove('open');if(o)o.classList.remove('open');document.body.style.overflow='';}if(o)o.addEventListener('click',cs);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&s&&s.classList.contains('open')){cs();}});});</script>
 </head>
 <body>
 

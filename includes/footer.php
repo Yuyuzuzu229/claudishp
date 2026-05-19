@@ -1,3 +1,10 @@
+<?php
+if (!isset($categorie) || !($categorie instanceof Categorie)) {
+    require_once __DIR__ . '/../classes/Categorie.php';
+    $categorie = new Categorie();
+}
+$categoriesFooter = $categorie->getForNav();
+?>
 <footer class="site-footer">
     <div class="container">
         <div class="footer-grid">
@@ -13,10 +20,9 @@
             <div>
                 <h4>Collections</h4>
                 <ul>
-                    <li><a href="<?= BASE_URL ?>/pages/boutique.php?categorie=1">Femmes</a></li>
-                    <li><a href="<?= BASE_URL ?>/pages/boutique.php?categorie=2">Hommes</a></li>
-                    <li><a href="<?= BASE_URL ?>/pages/boutique.php?categorie=3">Enfant</a></li>
-                    <li><a href="<?= BASE_URL ?>/pages/boutique.php?categorie=4">Accessoires</a></li>
+                    <?php foreach ($categoriesFooter as $cat): ?>
+                    <li><a href="<?= BASE_URL ?>/pages/boutique.php?categorie=<?= $cat['id'] ?>"><?= securiser($cat['nom']) ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
             <div>

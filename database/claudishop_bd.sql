@@ -26,6 +26,8 @@ CREATE TABLE utilisateur (
     role ENUM('admin','gestionnaire','responsable_logistique','livreur','user') NOT NULL DEFAULT 'user',
     est_actif BOOLEAN NOT NULL DEFAULT TRUE,
     google_id VARCHAR(255) DEFAULT NULL UNIQUE,
+    reset_token VARCHAR(64) DEFAULT NULL,
+    reset_expire DATETIME DEFAULT NULL,
     date_inscription DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     derniere_connexion DATETIME DEFAULT NULL
 ) ENGINE=InnoDB;

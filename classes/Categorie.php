@@ -30,6 +30,10 @@ class Categorie {
         return $this->db->query("SELECT COUNT(*) FROM categorie WHERE statut = 1")->fetchColumn();
     }
 
+    public function getForNav() {
+        return $this->db->query("SELECT id, nom FROM categorie WHERE statut = 1 ORDER BY nom")->fetchAll();
+    }
+
     public function ajouter($nom, $description, $image = null, $parentId = null) {
         $stmt = $this->db->prepare("INSERT INTO categorie (nom, description, image, parent_id) VALUES (?, ?, ?, ?)");
         return $stmt->execute([$nom, $description, $image, $parentId]);

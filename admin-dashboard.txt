@@ -1,0 +1,29 @@
+- table [ref=e3]:
+  - rowgroup [ref=e4]:
+    - 'row "( ! ) Fatal error: Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Champ ''prenom'' inconnu dans field list in C:\\wamp64\\www\\CLAUDISHOP\\admin\\index.php on line 54" [ref=e5]':
+      - 'columnheader "( ! ) Fatal error: Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Champ ''prenom'' inconnu dans field list in C:\\wamp64\\www\\CLAUDISHOP\\admin\\index.php on line 54" [ref=e6]'
+    - 'row "( ! ) PDOException: SQLSTATE[42S22]: Column not found: 1054 Champ ''prenom'' inconnu dans field list in C:\\wamp64\\www\\CLAUDISHOP\\admin\\index.php on line 54" [ref=e7]':
+      - 'columnheader "( ! ) PDOException: SQLSTATE[42S22]: Column not found: 1054 Champ ''prenom'' inconnu dans field list in C:\\wamp64\\www\\CLAUDISHOP\\admin\\index.php on line 54" [ref=e8]'
+    - row "Call Stack" [ref=e9]:
+      - columnheader "Call Stack" [ref=e10]
+    - row "# Time Memory Function Location" [ref=e11]:
+      - columnheader "#" [ref=e12]
+      - columnheader "Time" [ref=e13]
+      - columnheader "Memory" [ref=e14]
+      - columnheader "Function" [ref=e15]
+      - columnheader "Location" [ref=e16]
+    - 'row "1 0.0208 411272 {main}( ) ...\\index.php:0" [ref=e17]':
+      - cell "1" [ref=e18]
+      - cell "0.0208" [ref=e19]
+      - cell "411272" [ref=e20]
+      - 'cell "{main}( )" [ref=e21]'
+      - cell "...\\index.php:0" [ref=e22]
+    - row "2 0.1542 478608 query ( ) ...\\index.php:54" [ref=e23]:
+      - cell "2" [ref=e24]
+      - cell "0.1542" [ref=e25]
+      - cell "478608" [ref=e26]
+      - cell "query ( )" [ref=e27]:
+        - link "query" [ref=e28] [cursor=pointer]:
+          - /url: http://www.php.net/PDO.query
+        - text: ( )
+      - cell "...\\index.php:54" [ref=e29]

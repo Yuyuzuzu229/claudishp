@@ -1,0 +1,4 @@
+[     401ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/:0
+[   15776ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php:0
+[   34917ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie%5B%5D=4&min_prix=&max_prix=:0
+[  114461ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie%5B%5D=4&min_prix=0&max_prix=0:0

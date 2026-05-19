@@ -15,7 +15,8 @@ $_p = new Produit(); $_nbProduits = $_p->getNombre();
 $_c = new Commande(); $_nbCmdEnCours = $_c->getEnCours();
 $_a = new Avis(); $_nbAvisModeration = $_a->getNombre() - count($_a->getPublies(999999));
 ?>
-<aside class="dash-sidebar" style="background:#0a0a0a;">
+<div class="dash-sidebar-overlay" id="dashSidebarOverlay" onclick="document.getElementById('dashSidebar').classList.remove('open');this.classList.remove('open');document.body.style.overflow='';"></div>
+<aside class="dash-sidebar" id="dashSidebar" style="background:#0a0a0a;">
     <div class="dash-sidebar-logo">
         <a href="<?= BASE_URL ?>/index.php" style="text-decoration:none;color:inherit;">
             <div class="dash-logo-text">CLAUDI<span style="font-weight:400;">SHOP</span></div>

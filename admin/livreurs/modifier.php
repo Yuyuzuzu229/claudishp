@@ -84,9 +84,19 @@ $adminPage = 'livreurs';
                 </div>
                 <div class="form-group" style="margin-top:14px;">
                     <label>Photo</label>
-                    <input type="file" name="photo" class="form-control" accept="image/*">
+                    <div>
+                        <label for="photoLivreurModifInput" class="btn btn-dark" style="cursor:pointer;margin-bottom:0;">Choisir un fichier</label>
+                        <span id="photoLivreurModifFileName" style="margin-left:10px;font-size:.8rem;color:#888;"><?= $livreur['photo'] ? basename($livreur['photo']) : 'Aucune image' ?></span>
+                    </div>
+                    <input type="file" name="photo" id="photoLivreurModifInput" accept="image/*" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px;">
                     <?php if ($livreur['photo']): ?><div style="margin-top:8px;"><img src="<?= UPLOADS_URL . '/' . securiser($livreur['photo']) ?>" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;"></div><?php endif; ?>
                 </div>
+                <script>
+                document.getElementById('photoLivreurModifInput').addEventListener('change', function(e) {
+                    var span = document.getElementById('photoLivreurModifFileName');
+                    if (span && this.files && this.files[0]) span.textContent = this.files[0].name;
+                });
+                </script>
                 <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
                     <a href="<?= BASE_URL ?>/admin/livreurs.php" class="btn btn-outline-dark">Annuler</a>
                     <button type="submit" class="btn btn-dark">Enregistrer</button>

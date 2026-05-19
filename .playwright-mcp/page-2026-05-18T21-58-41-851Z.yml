@@ -1,0 +1,150 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e18]: 
+        - text: Utilisateurs
+        - generic [ref=e19]: "3"
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e21]: 
+        - text: Produits
+        - generic [ref=e22]: "69"
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e24]: 
+        - text: Catégories
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e26]: 
+        - text: Commandes
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e29]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e31]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e33]: 
+        - text: Livreurs
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e36]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e38]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e40]: 
+        - text: Notifications
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e43]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e45]: 
+        - text: Déconnexion
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: Monday 18 May 2026
+      - link "" [ref=e49] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e50]: 
+      - generic [ref=e51] [cursor=pointer]:
+        - generic [ref=e52]: S
+        - text:     
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]: Gestion
+        - heading "Utilisateurs" [level=1] [ref=e56]
+        - paragraph [ref=e57]: Gérez les comptes clients
+      - generic [ref=e58]:
+        - generic [ref=e60]: Tous les utilisateurs (3)
+        - table [ref=e61]:
+          - rowgroup [ref=e62]:
+            - row "ID Nom Email Téléphone Rôle Statut Inscrit le Actions" [ref=e63]:
+              - columnheader "ID" [ref=e64]
+              - columnheader "Nom" [ref=e65]
+              - columnheader "Email" [ref=e66]
+              - columnheader "Téléphone" [ref=e67]
+              - columnheader "Rôle" [ref=e68]
+              - columnheader "Statut" [ref=e69]
+              - columnheader "Inscrit le" [ref=e70]
+              - columnheader "Actions" [ref=e71]
+          - rowgroup [ref=e72]:
+            - row "#14 TS TheVoice Stone stone13@gmail.com 0152528985 user Actif 18/05/2026 " [ref=e73]:
+              - cell "#14" [ref=e74]
+              - cell "TS TheVoice Stone" [ref=e75]:
+                - generic [ref=e76]:
+                  - generic [ref=e77]: TS
+                  - generic [ref=e78]: TheVoice Stone
+              - cell "stone13@gmail.com" [ref=e79]
+              - cell "0152528985" [ref=e80]
+              - cell "user" [ref=e81]:
+                - generic [ref=e82]: user
+              - cell "Actif" [ref=e83]:
+                - generic [ref=e84]: Actif
+              - cell "18/05/2026" [ref=e85]
+              - cell "" [ref=e86]:
+                - button "" [ref=e88] [cursor=pointer]:
+                  - generic [ref=e89]: 
+            - row "#4 UD Uziel de SOUZA melvynosouza@gmail.com 0198922294 user Actif 15/05/2026 " [ref=e90]:
+              - cell "#4" [ref=e91]
+              - cell "UD Uziel de SOUZA" [ref=e92]:
+                - generic [ref=e93]:
+                  - generic [ref=e94]: UD
+                  - generic [ref=e95]: Uziel de SOUZA
+              - cell "melvynosouza@gmail.com" [ref=e96]
+              - cell "0198922294" [ref=e97]
+              - cell "user" [ref=e98]:
+                - generic [ref=e99]: user
+              - cell "Actif" [ref=e100]:
+                - generic [ref=e101]: Actif
+              - cell "15/05/2026" [ref=e102]
+              - cell "" [ref=e103]:
+                - button "" [ref=e105] [cursor=pointer]:
+                  - generic [ref=e106]: 
+            - row "#1 SA Super Admin adminclaudishop@gmail.com +22877000000 Admin Actif 15/05/2026" [ref=e107]:
+              - cell "#1" [ref=e108]
+              - cell "SA Super Admin" [ref=e109]:
+                - generic [ref=e110]:
+                  - generic [ref=e111]: SA
+                  - generic [ref=e112]: Super Admin
+              - cell "adminclaudishop@gmail.com" [ref=e113]
+              - cell "+22877000000" [ref=e114]
+              - cell "Admin" [ref=e115]:
+                - generic [ref=e116]: Admin
+              - cell "Actif" [ref=e117]:
+                - generic [ref=e118]: Actif
+              - cell "15/05/2026" [ref=e119]
+              - cell [ref=e120]
+        - generic [ref=e121]: "Total : 3 utilisateurs"
+    - generic [ref=e122]:
+      - generic [ref=e123]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e124]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e125]: v1.0.0

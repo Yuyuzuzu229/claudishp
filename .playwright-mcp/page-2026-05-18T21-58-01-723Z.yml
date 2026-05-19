@@ -1,0 +1,229 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Admin
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/index.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Gestion
+        - link " Utilisateurs 3" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+          - generic [ref=e20]: 
+          - text: Utilisateurs
+          - generic [ref=e21]: "3"
+        - link " Produits 69" [ref=e22] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/produits.php
+          - generic [ref=e23]: 
+          - text: Produits
+          - generic [ref=e24]: "69"
+        - link " Catégories" [ref=e25] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/categories.php
+          - generic [ref=e26]: 
+          - text: Catégories
+        - link " Commandes" [ref=e27] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+          - generic [ref=e28]: 
+          - text: Commandes
+        - generic [ref=e29]: Logistique
+        - link " Livraisons" [ref=e30] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+          - generic [ref=e31]: 
+          - text: Livraisons
+        - link " Zones de livraison" [ref=e32] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/zones.php
+          - generic [ref=e33]: 
+          - text: Zones de livraison
+        - link " Livreurs" [ref=e34] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+          - generic [ref=e35]: 
+          - text: Livreurs
+        - generic [ref=e36]: Finance & Comm.
+        - link " Paiements" [ref=e37] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+          - generic [ref=e38]: 
+          - text: Paiements
+        - link " Avis clients" [ref=e39] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/avis.php
+          - generic [ref=e40]: 
+          - text: Avis clients
+        - link " Notifications" [ref=e41] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e42]: 
+          - text: Notifications
+      - generic [ref=e43]:
+        - link " Retourner au site" [ref=e44] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e45]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e46] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e47]: 
+          - text: Déconnexion
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]: Monday 18 May 2026
+        - link "" [ref=e51] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e52]: 
+        - generic [ref=e53] [cursor=pointer]:
+          - generic [ref=e54]: S
+          - text:     
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: Tableau de bord
+          - heading "Vue d'ensemble" [level=1] [ref=e58]
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: Commandes totales
+              - generic [ref=e63]: "2"
+              - generic [ref=e64]: ▲ +12% ce mois
+            - generic [ref=e65]: 📋
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: Chiffre d'affaires
+              - generic [ref=e69]: 176 900 FCFA
+              - generic [ref=e70]: ▲ +8% vs mois dernier
+            - generic [ref=e71]: 💰
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]: Clients actifs
+              - generic [ref=e75]: "3"
+              - generic [ref=e76]: ▲ +5 nouveaux aujourd'hui
+            - generic [ref=e77]: 👥
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e80]: Taux de livraison
+              - generic [ref=e81]: 94,2%
+              - generic [ref=e82]: ▼ -0,8% vs semaine passée
+            - generic [ref=e83]: 🚚
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e87]:
+              - generic [ref=e88]: Ventes des 7 derniers jours
+              - generic [ref=e89]: Chiffre d'affaires journalier (FCFA)
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e94]: Mar
+                - generic [ref=e97]: Mer
+                - generic [ref=e100]: Jeu
+                - generic [ref=e103]: Ven
+                - generic [ref=e106]: Sam
+                - generic [ref=e109]: Dim
+                - generic [ref=e112]: Lun
+              - generic [ref=e114]: Ventes journalières
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - generic [ref=e118]: Commandes récentes
+              - link "Voir tout →" [ref=e119] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+            - table [ref=e120]:
+              - rowgroup [ref=e121]:
+                - row "ID Client Montant Statut" [ref=e122]:
+                  - columnheader "ID" [ref=e123]
+                  - columnheader "Client" [ref=e124]
+                  - columnheader "Montant" [ref=e125]
+                  - columnheader "Statut" [ref=e126]
+              - rowgroup [ref=e127]:
+                - row "#0015 TheVoice Stone 111 900 FCFA Livrée" [ref=e128]:
+                  - cell "#0015" [ref=e129]
+                  - cell "TheVoice Stone" [ref=e130]
+                  - cell "111 900 FCFA" [ref=e131]
+                  - cell "Livrée" [ref=e132]:
+                    - generic [ref=e133]: Livrée
+                - row "#0014 Uziel de SOUZA 65 000 FCFA Livrée" [ref=e134]:
+                  - cell "#0014" [ref=e135]
+                  - cell "Uziel de SOUZA" [ref=e136]
+                  - cell "65 000 FCFA" [ref=e137]
+                  - cell "Livrée" [ref=e138]:
+                    - generic [ref=e139]: Livrée
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - generic [ref=e143]: Statuts commandes
+            - generic [ref=e144]:
+              - img [ref=e145]:
+                - generic [ref=e148]: "2"
+                - generic [ref=e149]: commandes
+              - generic [ref=e151]:
+                - text: Livrée
+                - strong [ref=e153]: "2"
+          - generic [ref=e154]:
+            - generic [ref=e156]: Alertes & Activité récente
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - generic [ref=e159]: 🧾
+                - generic [ref=e160]:
+                  - generic [ref=e161]: "Commande #0015"
+                  - generic [ref=e162]: TheVoice Stone — 111 900 FCFA
+                - generic [ref=e163]: Livrée
+              - generic [ref=e164]:
+                - generic [ref=e165]: 🧾
+                - generic [ref=e166]:
+                  - generic [ref=e167]: "Commande #0014"
+                  - generic [ref=e168]: Uziel de SOUZA — 65 000 FCFA
+                - generic [ref=e169]: Livrée
+              - generic [ref=e170]:
+                - generic [ref=e171]: ⚠️
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Stock faible — Jean slim femme
+                  - generic [ref=e174]: Plus que 3 unités restantes
+                - link "Réappro." [ref=e175] [cursor=pointer]:
+                  - /url: http://localhost/CLAUDISHOP/admin/produits.php
+          - generic [ref=e176]:
+            - generic [ref=e178]: Accès rapide aux modules
+            - generic [ref=e179]:
+              - link "👥 Utilisateurs 3" [ref=e180] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+                - generic [ref=e181]: 👥
+                - generic [ref=e182]: Utilisateurs
+                - generic [ref=e183]: "3"
+              - link "📦 Produits 69" [ref=e184] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/produits.php
+                - generic [ref=e185]: 📦
+                - generic [ref=e186]: Produits
+                - generic [ref=e187]: "69"
+              - link "🏷 Catégories" [ref=e188] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/categories.php
+                - generic [ref=e189]: 🏷
+                - generic [ref=e190]: Catégories
+              - link "🧾 Commandes !" [ref=e191] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+                - generic [ref=e192]: 🧾
+                - generic [ref=e193]: Commandes
+                - generic [ref=e194]: "!"
+              - link "🚚 Livraisons" [ref=e195] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+                - generic [ref=e196]: 🚚
+                - generic [ref=e197]: Livraisons
+              - link "🗺 Zones" [ref=e198] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/zones.php
+                - generic [ref=e199]: 🗺
+                - generic [ref=e200]: Zones
+              - link "🏍 Livreurs" [ref=e201] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+                - generic [ref=e202]: 🏍
+                - generic [ref=e203]: Livreurs
+              - link "💳 Paiements" [ref=e204] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+                - generic [ref=e205]: 💳
+                - generic [ref=e206]: Paiements
+              - link "🔔 Notifications" [ref=e207] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+                - generic [ref=e208]: 🔔
+                - generic [ref=e209]: Notifications
+      - generic [ref=e210]:
+        - generic [ref=e211]: v1.0.0 • ClaudiShop Admin
+        - generic [ref=e212]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money
+        - generic [ref=e213]: v1.0.0

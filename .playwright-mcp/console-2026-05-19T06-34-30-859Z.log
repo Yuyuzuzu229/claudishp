@@ -1,0 +1,12 @@
+[     821ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[     832ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[     873ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   14608ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[   14621ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   14636ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   59030ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[   59065ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   59084ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   60393ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie%5B%5D=2&min_prix=10000&max_prix=19977&stock_only=1:0
+[   63864ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie%5B%5D=2&min_prix=10000&max_prix=19977&stock_only=1:0
+[   77736ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?taille%5B%5D=XL&min_prix=10000&max_prix=19977:0

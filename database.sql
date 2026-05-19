@@ -20,6 +20,8 @@ CREATE TABLE `utilisateur` (
   `telephone`        VARCHAR(20) DEFAULT NULL,
   `role`             ENUM('client','admin','gestionnaire','livreur','support','comptable','logistique') NOT NULL DEFAULT 'client',
   `est_actif`        TINYINT(1) NOT NULL DEFAULT 1,
+  `reset_token`      VARCHAR(64) DEFAULT NULL,
+  `reset_expire`     DATETIME DEFAULT NULL,
   `derniere_connexion` DATETIME DEFAULT NULL,
   `date_inscription` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

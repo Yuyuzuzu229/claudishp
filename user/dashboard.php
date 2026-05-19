@@ -42,12 +42,12 @@ $activePage = 'dashboard';
         <h1 class="dash-page-title">Vue d'ensemble</h1>
     </div>
 
-    <div class="kpi-grid">
-        <div class="kpi-card"><div><div class="kpi-label">Commandes totales</div><div class="kpi-value"><?= $nbCommandes ?></div><div class="kpi-sub kpi-trend">+2 ce mois</div></div><i class="fas fa-receipt kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Dépenses totales</div><div class="kpi-value" style="font-size:17px;"><?= formatPrix($totalDepenses) ?></div><div class="kpi-sub kpi-trend">+18% vs mois dernier</div></div><i class="fas fa-dollar-sign kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Livraisons en cours</div><div class="kpi-value"><?= $nbLivraisonsEnCours ?></div><div class="kpi-sub text-muted">En cours de livraison</div></div><i class="fas fa-truck kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Avis donnés</div><div class="kpi-value"><?= $nbAvis ?></div><div class="kpi-sub text-muted">Merci pour vos retours !</div></div><i class="fas fa-star kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Notifications</div><div class="kpi-value"><?= $nbNonLu ?></div><div class="kpi-sub text-muted">Non lues</div></div><i class="fas fa-bell kpi-icon"></i></div>
+    <div class="kpi-grid kpi-grid-5">
+        <div class="kpi-card kpi-card--navy"><div><div class="kpi-label">Commandes totales</div><div class="kpi-value"><?= $nbCommandes ?></div><div class="kpi-sub kpi-trend">+2 ce mois</div></div><i class="fas fa-receipt kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--red"><div><div class="kpi-label">Dépenses totales</div><div class="kpi-value kpi-value--sm"><?= formatPrix($totalDepenses) ?></div><div class="kpi-sub kpi-trend">+18% vs mois dernier</div></div><i class="fas fa-dollar-sign kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--amber"><div><div class="kpi-label">Livraisons en cours</div><div class="kpi-value"><?= $nbLivraisonsEnCours ?></div><div class="kpi-sub text-muted">En cours de livraison</div></div><i class="fas fa-truck kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--green"><div><div class="kpi-label">Avis donnés</div><div class="kpi-value"><?= $nbAvis ?></div><div class="kpi-sub text-muted">Merci pour vos retours !</div></div><i class="fas fa-star kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--blue"><div><div class="kpi-label">Notifications</div><div class="kpi-value"><?= $nbNonLu ?></div><div class="kpi-sub text-muted">Non lues</div></div><i class="fas fa-bell kpi-icon"></i></div>
     </div>
 
     <div class="dash-two-col" style="margin-bottom:18px;">

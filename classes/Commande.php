@@ -24,6 +24,13 @@ class Commande {
         return $stmt->fetchAll();
     }
 
+    public function search($q) {
+        $stmt = $this->db->prepare("SELECT c.*, u.nom, u.prenom FROM commande c JOIN utilisateur u ON c.utilisateur_id = u.id WHERE c.id LIKE ? OR u.nom LIKE ? OR u.prenom LIKE ? ORDER BY c.date_commande DESC");
+        $like = "%$q%";
+        $stmt->execute([$like, $like, $like]);
+        return $stmt->fetchAll();
+    }
+
     public function getNombre() {
         return $this->db->query("SELECT COUNT(*) FROM commande")->fetchColumn();
     }

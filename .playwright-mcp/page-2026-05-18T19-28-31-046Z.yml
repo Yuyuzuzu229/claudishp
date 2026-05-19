@@ -1,0 +1,152 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: Livraison gratuite dès 500 000 FCFA d'achat • Paiement
+    - strong [ref=e3]: MTN Momo
+    - text: "&"
+    - strong [ref=e4]: Moov Money
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "CLAUDI SHOP" [ref=e7] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - text: CLAUDI
+        - generic [ref=e8]: SHOP
+      - navigation [ref=e9]:
+        - link "Accessoires" [ref=e10] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=4
+        - link "Chaussures" [ref=e11] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=5
+        - link "électronique" [ref=e12] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=6
+        - link "Enfant" [ref=e13] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=3
+        - link "Femme" [ref=e14] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=1
+        - link "Homme" [ref=e15] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=2
+        - link "Sport" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=7
+        - link "Nouveautés" [ref=e17] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php
+        - link "Soldes" [ref=e18] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1
+      - generic [ref=e20]:
+        - textbox "Rechercher..." [ref=e21]
+        - button "" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: 
+      - generic [ref=e24]:
+        - generic [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: S
+          - text:     
+        - link " Panier" [ref=e27] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e28]: 
+          - generic [ref=e29]: Panier
+  - generic [ref=e31]:
+    - heading "Foire aux questions" [level=1] [ref=e32]
+    - paragraph [ref=e33]: Les réponses à vos questions les plus fréquentes.
+  - generic [ref=e35]:
+    - button "Quels moyens de paiement acceptez-vous ? +" [ref=e37] [cursor=pointer]
+    - button "Combien de temps faut-il pour être livré ? +" [ref=e39] [cursor=pointer]
+    - button "Puis-je retourner un article ? +" [ref=e41] [cursor=pointer]
+    - button "Comment suivre ma commande ? +" [ref=e43] [cursor=pointer]
+    - button "Proposez-vous des cartes cadeaux ? +" [ref=e45] [cursor=pointer]
+    - button "Comment vous contacter ? +" [ref=e47] [cursor=pointer]
+    - button "Les prix affichés sont-ils TTC ? +" [ref=e49] [cursor=pointer]
+    - button "Puis-je annuler ma commande ? +" [ref=e51] [cursor=pointer]
+  - contentinfo [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: CLAUDISHOP
+          - paragraph [ref=e57]:
+            - text: Mode & accessoires — Homme, Femme, Enfant.
+            - text: Cotonou, Bénin. Livraison partout au Bénin.
+          - generic [ref=e58]:
+            - link "Facebook" [ref=e59] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e60]: 
+            - link "Instagram" [ref=e61] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e62]: 
+            - link "WhatsApp" [ref=e63] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e64]: 
+        - generic [ref=e65]:
+          - heading "Collections" [level=4] [ref=e66]
+          - list [ref=e67]:
+            - listitem [ref=e68]:
+              - link "Accessoires" [ref=e69] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=4
+            - listitem [ref=e70]:
+              - link "Chaussures" [ref=e71] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=5
+            - listitem [ref=e72]:
+              - link "électronique" [ref=e73] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=6
+            - listitem [ref=e74]:
+              - link "Enfant" [ref=e75] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=3
+            - listitem [ref=e76]:
+              - link "Femme" [ref=e77] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=1
+            - listitem [ref=e78]:
+              - link "Homme" [ref=e79] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=2
+            - listitem [ref=e80]:
+              - link "Sport" [ref=e81] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=7
+        - generic [ref=e82]:
+          - heading "Mon compte" [level=4] [ref=e83]
+          - list [ref=e84]:
+            - listitem [ref=e85]:
+              - link "Connexion / Inscription" [ref=e86] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/connexion.php
+            - listitem [ref=e87]:
+              - link "Mes commandes" [ref=e88] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+            - listitem [ref=e89]:
+              - link "Mon panier" [ref=e90] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/panier.php
+            - listitem [ref=e91]:
+              - link "Mes avis" [ref=e92] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+        - generic [ref=e93]:
+          - heading "Aide" [level=4] [ref=e94]
+          - list [ref=e95]:
+            - listitem [ref=e96]:
+              - link "Livraison & retours" [ref=e97] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/livraison_retours.php
+            - listitem [ref=e98]:
+              - link "Guide des tailles" [ref=e99] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/guide_des_tailles.php
+            - listitem [ref=e100]:
+              - link "Politique de retrait" [ref=e101] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/politique_de_retrait.php
+            - listitem [ref=e102]:
+              - link "FAQ" [ref=e103] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/faq.php
+            - listitem [ref=e104]:
+              - link "Aide" [ref=e105] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/pages/aide.php
+            - listitem [ref=e106]:
+              - link "Accès livreur" [ref=e107] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/driver/connexion.php
+        - generic [ref=e108]:
+          - heading "Nous suivre" [level=4] [ref=e109]
+          - list [ref=e110]:
+            - listitem [ref=e111]:
+              - link " Facebook" [ref=e112] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e113]: 
+                - text: Facebook
+            - listitem [ref=e114]:
+              - link " Instagram" [ref=e115] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e116]: 
+                - text: Instagram
+            - listitem [ref=e117]:
+              - link " WhatsApp" [ref=e118] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e119]: 
+                - text: WhatsApp
+      - generic [ref=e120]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money · Guide des tailles disponible en chaque point gratuit

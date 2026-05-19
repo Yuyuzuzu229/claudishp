@@ -1,0 +1,293 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - text: Livraison gratuite dès 500 000 FCFA d'achat • Paiement
+    - strong [ref=e5]: MTN Momo
+    - text: "&"
+    - strong [ref=e6]: Moov Money
+  - banner [ref=e7]:
+    - generic [ref=e8]:
+      - link "CLAUDI SHOP" [ref=e9] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - text: CLAUDI
+        - generic [ref=e10]: SHOP
+      - navigation [ref=e11]:
+        - link "Accessoires" [ref=e12] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=4
+        - link "Chaussures" [ref=e13] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=5
+        - link "électronique" [ref=e14] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=6
+        - link "Enfant" [ref=e15] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=3
+        - link "Femme" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=1
+        - link "Homme" [ref=e17] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=2
+        - link "Sport" [ref=e18] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?categorie=7
+        - link "Nouveautés" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php
+        - link "Soldes" [ref=e20] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1
+      - generic [ref=e22]:
+        - textbox "Rechercher..." [ref=e23]
+        - button "" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 
+      - generic [ref=e26]:
+        - generic [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: S
+          - text:     
+        - link " Panier 1" [ref=e29] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Panier
+          - generic [ref=e32]: "1"
+  - generic [ref=e34]:
+    - complementary [ref=e35]:
+      - heading "Filtres" [level=4] [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Catégorie" [level=4] [ref=e40]
+          - generic [ref=e41] [cursor=pointer]:
+            - checkbox "Accessoires" [ref=e42]
+            - text: Accessoires
+          - generic [ref=e43] [cursor=pointer]:
+            - checkbox "Chaussures" [ref=e44]
+            - text: Chaussures
+          - generic [ref=e45] [cursor=pointer]:
+            - checkbox "électronique" [ref=e46]
+            - text: électronique
+          - generic [ref=e47] [cursor=pointer]:
+            - checkbox "Enfant" [ref=e48]
+            - text: Enfant
+          - generic [ref=e49] [cursor=pointer]:
+            - checkbox "Femme" [ref=e50]
+            - text: Femme
+          - generic [ref=e51] [cursor=pointer]:
+            - checkbox "Homme" [ref=e52]
+            - text: Homme
+          - generic [ref=e53] [cursor=pointer]:
+            - checkbox "Sport" [ref=e54]
+            - text: Sport
+        - generic [ref=e55]:
+          - heading "Taille" [level=4] [ref=e56]
+          - generic [ref=e57] [cursor=pointer]:
+            - checkbox "XS" [ref=e58]
+            - text: XS
+          - generic [ref=e59] [cursor=pointer]:
+            - checkbox "S" [ref=e60]
+            - text: S
+          - generic [ref=e61] [cursor=pointer]:
+            - checkbox "M" [ref=e62]
+            - text: M
+          - generic [ref=e63] [cursor=pointer]:
+            - checkbox "L" [ref=e64]
+            - text: L
+          - generic [ref=e65] [cursor=pointer]:
+            - checkbox "XL" [ref=e66]
+            - text: XL
+          - generic [ref=e67] [cursor=pointer]:
+            - checkbox "XXL" [ref=e68]
+            - text: XXL
+        - generic [ref=e69]:
+          - heading "Prix (FCFA)" [level=4] [ref=e70]
+          - generic [ref=e71]:
+            - spinbutton [ref=e72]
+            - generic [ref=e73]: —
+            - spinbutton [ref=e74]
+        - generic [ref=e75]:
+          - heading "Note clients" [level=4] [ref=e76]
+          - generic [ref=e77] [cursor=pointer]:
+            - checkbox "★★★★★ (5 étoiles)" [ref=e78]
+            - text: ★★★★★ (5 étoiles)
+          - generic [ref=e79] [cursor=pointer]:
+            - checkbox "★★★★☆ (4+ étoiles)" [ref=e80]
+            - text: ★★★★☆ (4+ étoiles)
+          - generic [ref=e81] [cursor=pointer]:
+            - checkbox "★★★☆☆ (3+ étoiles)" [ref=e82]
+            - text: ★★★☆☆ (3+ étoiles)
+        - generic [ref=e83]:
+          - heading "Disponibilité" [level=4] [ref=e84]
+          - generic [ref=e85] [cursor=pointer]:
+            - checkbox "En stock uniquement" [ref=e86]
+            - text: En stock uniquement
+          - generic [ref=e87] [cursor=pointer]:
+            - checkbox "Inclure rupture de stock" [ref=e88]
+            - text: Inclure rupture de stock
+        - button "Appliquer les filtres" [ref=e89] [cursor=pointer]
+    - main [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - link [ref=e93] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=91
+          - generic [ref=e95]:
+            - generic [ref=e96]: Homme
+            - link "NHGTYUIKL.?JNHB" [ref=e97] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=91
+            - generic [ref=e99]: 120 000 FCFA
+            - button " Ajouter au panier" [ref=e101] [cursor=pointer]
+        - generic [ref=e103]:
+          - link [ref=e104] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=41
+          - generic [ref=e106]:
+            - generic [ref=e107]: Femme
+            - link "Jupe courte en jean" [ref=e108] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=41
+            - generic [ref=e110]: 12 500 FCFA
+            - button " Ajouter au panier" [ref=e112] [cursor=pointer]
+        - generic [ref=e114]:
+          - link [ref=e115] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=42
+          - generic [ref=e117]:
+            - generic [ref=e118]: Femme
+            - link "Robe d'été fleurie" [ref=e119] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=42
+            - generic [ref=e121]: 18 500 FCFA
+            - button " Ajouter au panier" [ref=e123] [cursor=pointer]
+        - generic [ref=e125]:
+          - link [ref=e126] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=44
+          - generic [ref=e128]:
+            - generic [ref=e129]: Femme
+            - link "T-shirt basique femme" [ref=e130] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=44
+            - generic [ref=e132]: 7 500 FCFA
+            - button " Ajouter au panier" [ref=e134] [cursor=pointer]
+        - generic [ref=e136]:
+          - link [ref=e137] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=45
+          - generic [ref=e139]:
+            - generic [ref=e140]: Femme
+            - link "Jean slim femme" [ref=e141] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=45
+            - generic [ref=e143]: 18 500 FCFA
+            - button " Ajouter au panier" [ref=e145] [cursor=pointer]
+        - generic [ref=e147]:
+          - link [ref=e148] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=46
+          - generic [ref=e150]:
+            - generic [ref=e151]: Femme
+            - link "Manteau d'hiver femme" [ref=e152] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=46
+            - generic [ref=e154]: 35 000 FCFA
+            - button " Ajouter au panier" [ref=e156] [cursor=pointer]
+        - generic [ref=e158]:
+          - link [ref=e159] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=47
+          - generic [ref=e161]:
+            - generic [ref=e162]: Femme
+            - link "Short en jean femme" [ref=e163] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=47
+            - generic [ref=e165]: 11 000 FCFA
+            - button " Ajouter au panier" [ref=e167] [cursor=pointer]
+        - generic [ref=e169]:
+          - link [ref=e170] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=48
+          - generic [ref=e172]:
+            - generic [ref=e173]: Femme
+            - link "Chemisier blanc femme" [ref=e174] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=48
+            - generic [ref=e176]: 14 500 FCFA
+            - button " Ajouter au panier" [ref=e178] [cursor=pointer]
+        - generic [ref=e180]:
+          - link [ref=e181] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=49
+          - generic [ref=e183]:
+            - generic [ref=e184]: Femme
+            - link "Legging sport femme" [ref=e185] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=49
+            - generic [ref=e187]: 9 500 FCFA
+            - button " Ajouter au panier" [ref=e189] [cursor=pointer]
+        - generic [ref=e191]:
+          - link [ref=e192] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=50
+          - generic [ref=e194]:
+            - generic [ref=e195]: Femme
+            - link "Débardeur femme" [ref=e196] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=50
+            - generic [ref=e198]: 6 500 FCFA
+            - button " Ajouter au panier" [ref=e200] [cursor=pointer]
+        - generic [ref=e202]:
+          - link [ref=e203] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=51
+          - generic [ref=e205]:
+            - generic [ref=e206]: Homme
+            - link "Chemise en lin homme" [ref=e207] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=51
+            - generic [ref=e209]: 15 500 FCFA
+            - button " Ajouter au panier" [ref=e211] [cursor=pointer]
+        - generic [ref=e213]:
+          - link [ref=e214] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=53
+          - generic [ref=e216]:
+            - generic [ref=e217]: Homme
+            - link "Jean droit homme" [ref=e218] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/detail_produit.php?id=53
+            - generic [ref=e220]: 19 500 FCFA
+            - button " Ajouter au panier" [ref=e222] [cursor=pointer]
+      - generic [ref=e224]:
+        - generic:
+          - generic: 
+        - link "1" [ref=e225] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?page=1
+        - link "2" [ref=e226] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?page=2
+        - link "3" [ref=e227] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?page=3
+        - generic [ref=e228]: ...
+        - link "6" [ref=e229] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?page=6
+        - link "" [ref=e230] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/boutique.php?page=2
+          - generic [ref=e231]: 
+  - generic [ref=e232]:
+    - paragraph [ref=e233]: CLAUDI SHOP – Mode & Accessoires Homme / Femme / Enfant – Cotonou, Bénin
+    - paragraph [ref=e234]: © 2026 Claudi Shop · Paiement MTN MoMo & Moov Money · Livraison partout au Bénin
+  - contentinfo [ref=e235]:
+    - generic [ref=e236]:
+      - generic [ref=e237]:
+        - generic [ref=e238]:
+          - generic [ref=e239]: CLAUDISHOP
+          - paragraph [ref=e240]:
+            - text: Mode & accessoires — Homme, Femme, Enfant.
+            - text: Cotonou, Bénin. Livraison partout au Bénin.
+          - generic [ref=e241]:
+            - link "Facebook" [ref=e242] [cursor=pointer]:
+              - /url: "#"
+            - link "Instagram" [ref=e244] [cursor=pointer]:
+              - /url: "#"
+            - link "WhatsApp" [ref=e246] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e248]:
+          - heading "Collections" [level=4] [ref=e249]
+          - list [ref=e250]:
+            - listitem [ref=e251]
+            - listitem [ref=e253]
+            - listitem [ref=e255]
+            - listitem [ref=e257]
+            - listitem [ref=e259]
+            - listitem [ref=e261]
+            - listitem [ref=e263]
+        - generic [ref=e265]:
+          - heading "Mon compte" [level=4] [ref=e266]
+          - list [ref=e267]:
+            - listitem [ref=e268]
+            - listitem [ref=e270]
+            - listitem [ref=e272]
+            - listitem [ref=e274]
+        - generic [ref=e276]:
+          - heading "Aide" [level=4] [ref=e277]
+          - list [ref=e278]:
+            - listitem [ref=e279]
+            - listitem [ref=e281]
+            - listitem [ref=e283]
+            - listitem [ref=e285]
+            - listitem [ref=e287]
+            - listitem [ref=e289]
+        - generic [ref=e291]:
+          - heading "Nous suivre" [level=4] [ref=e292]
+          - list [ref=e293]:
+            - listitem [ref=e294]
+            - listitem [ref=e297]
+            - listitem [ref=e300]
+      - generic [ref=e303]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money · Guide des tailles disponible en chaque point gratuit

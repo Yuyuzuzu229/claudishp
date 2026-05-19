@@ -10,22 +10,44 @@ $produit = new Produit();
 $categorie = new Categorie();
 $categories = $categorie->getAll();
 
-$categorieId = isset($_GET['categorie']) ? intval($_GET['categorie']) : null;
-$recherche   = isset($_GET['recherche']) ? securiser($_GET['recherche']) : null;
-$minPrix     = isset($_GET['min_prix']) ? floatval($_GET['min_prix']) : null;
-$maxPrix     = isset($_GET['max_prix']) ? floatval($_GET['max_prix']) : null;
-$soldes      = isset($_GET['soldes']) ? 1 : 0;
-$pageCourante = max(1, isset($_GET['page']) ? intval($_GET['page']) : 1);
+$categorieId = null;
+$categorieArr = [];
+if (isset($_GET['categorie'])) {
+    if (is_array($_GET['categorie'])) {
+        $categorieArr = array_map('intval', $_GET['categorie']);
+        $categorieId = implode(',', $categorieArr);
+    } elseif (strpos($_GET['categorie'], ',') !== false) {
+        $categorieArr = array_map('intval', explode(',', $_GET['categorie']));
+        $categorieId = $_GET['categorie'];
+    } else {
+        $categorieId = intval($_GET['categorie']);
+        $categorieArr = [$categorieId];
+    }
+}
+$recherche     = isset($_GET['recherche']) ? securiser($_GET['recherche']) : null;
+$minPrix       = (isset($_GET['min_prix']) && $_GET['min_prix'] !== '') ? floatval($_GET['min_prix']) : null;
+$maxPrix       = (isset($_GET['max_prix']) && $_GET['max_prix'] !== '') ? floatval($_GET['max_prix']) : null;
+$soldes        = isset($_GET['soldes']) ? 1 : 0;
+$taillesArr    = isset($_GET['taille']) ? (is_array($_GET['taille']) ? $_GET['taille'] : [$_GET['taille']]) : [];
+$noteMinArr    = isset($_GET['note_min']) ? (is_array($_GET['note_min']) ? $_GET['note_min'] : [$_GET['note_min']]) : [];
+$noteMin       = !empty($noteMinArr) ? min(array_map('intval', $noteMinArr)) : null;
+$stockOnly     = isset($_GET['stock_only']) ? 1 : 0;
+$pageCourante  = max(1, isset($_GET['page']) ? intval($_GET['page']) : 1);
 $perPage = 12;
 
-$produits = $produit->getByCategorieWithFilters($categorieId, $recherche, $minPrix, $maxPrix, null, null, null, null, false, $soldes, $pageCourante, $perPage);
-$totalProduits = $produit->countByCategorieWithFilters($categorieId, $recherche, $minPrix, $maxPrix, null, null, null, null, false, $soldes);
+$produits = $produit->getByCategorieWithFilters($categorieId, $recherche, $minPrix, $maxPrix, $taillesArr, null, null, $noteMin, $stockOnly, $soldes, $pageCourante, $perPage);
+$totalProduits = $produit->countByCategorieWithFilters($categorieId, $recherche, $minPrix, $maxPrix, $taillesArr, null, null, $noteMin, $stockOnly, $soldes);
 $totalPages = max(1, ceil($totalProduits / $perPage));
 if ($pageCourante > $totalPages) { $pageCourante = $totalPages; }
 
 $catNomActif = '';
 if ($categorieId) {
-    foreach ($categories as $c) { if ($c['id'] == $categorieId) { $catNomActif = $c['nom']; break; } }
+    $ids = is_array($categorieArr) ? $categorieArr : [$categorieId];
+    $noms = [];
+    foreach ($categories as $c) {
+        if (in_array($c['id'], $ids)) $noms[] = $c['nom'];
+    }
+    $catNomActif = implode(', ', $noms);
 }
 
 $pageTitle = $catNomActif ? $catNomActif . ' – Boutique' : 'Boutique';
@@ -33,98 +55,53 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/navbar.php';
 ?>
 
-<div class="container" style="padding-top:24px;padding-bottom:48px;">
-    <!-- BREADCRUMB -->
-    <nav class="breadcrumb">
-        <a href="<?= BASE_URL ?>/index.php">Accueil</a>
-        <span class="breadcrumb-sep">/</span>
-        <?php if ($catNomActif): ?>
-        <a href="<?= BASE_URL ?>/pages/boutique.php">Boutique</a>
-        <span class="breadcrumb-sep">/</span>
-        <span><?= securiser($catNomActif) ?></span>
-        <?php else: ?>
-        <span>Boutique</span>
-        <?php endif; ?>
-    </nav>
-
-    <!-- TOOLBAR -->
-    <div class="boutique-toolbar">
-        <div>
-            <h2 style="font-size:22px;font-weight:700;"><?= $catNomActif ? securiser($catNomActif) . ' – Boutique' : 'Tous les produits' ?></h2>
-            <p class="text-muted text-sm" style="margin-top:4px;"><?= $totalProduits ?> articles trouvés</p>
-        </div>
-        <div class="flex items-center gap-3">
-            <?php if ($recherche || $minPrix || $maxPrix): ?>
-            <a href="<?= BASE_URL ?>/pages/boutique.php<?= $categorieId ? '?categorie='.$categorieId : '' ?>" class="text-sm text-muted" style="text-decoration:underline;">Effacer tout</a>
-            <?php endif; ?>
-            <select class="sort-select" onchange="location.href=this.value">
-                <option value="?<?= $categorieId?'categorie='.$categorieId.'&':'' ?>">Nouveautés ▼</option>
-                <option value="?<?= $categorieId?'categorie='.$categorieId.'&':'' ?>tri=prix_asc">Prix croissant</option>
-                <option value="?<?= $categorieId?'categorie='.$categorieId.'&':'' ?>tri=prix_desc">Prix décroissant</option>
-            </select>
-        </div>
-    </div>
-
-    <!-- ACTIVE FILTERS -->
-    <?php if ($recherche || $minPrix || $maxPrix || $categorieId): ?>
-    <div class="active-filters">
-        <?php if ($categorieId && $catNomActif): ?>
-        <div class="active-filter-chip"><?= securiser($catNomActif) ?> <button onclick="location.href='<?= BASE_URL ?>/pages/boutique.php'">✕</button></div>
-        <?php endif; ?>
-        <?php if ($recherche): ?><div class="active-filter-chip">"<?= securiser($recherche) ?>" <button onclick="location.href='<?= BASE_URL ?>/pages/boutique.php<?= $categorieId?'?categorie='.$categorieId:'' ?>'">✕</button></div><?php endif; ?>
-    </div>
-    <?php endif; ?>
-
+<div class="container" style="padding-top:16px;padding-bottom:48px;">
     <div class="boutique-layout">
         <!-- SIDEBAR FILTRES -->
         <aside class="sidebar">
             <div class="sidebar-section">
                 <h4>Filtres</h4>
             </div>
-            <div class="sidebar-section">
-                <h4>Univers</h4>
-                <label class="sidebar-checkbox"><input type="checkbox" <?= $categorieId==1?'checked':'' ?> onchange="location.href='<?= BASE_URL ?>/pages/boutique.php?categorie=1'"> Femme</label>
-                <label class="sidebar-checkbox"><input type="checkbox" <?= $categorieId==2?'checked':'' ?> onchange="location.href='<?= BASE_URL ?>/pages/boutique.php?categorie=2'"> Homme</label>
-                <label class="sidebar-checkbox"><input type="checkbox" <?= $categorieId==3?'checked':'' ?> onchange="location.href='<?= BASE_URL ?>/pages/boutique.php?categorie=3'"> Enfant</label>
-            </div>
-            <div class="sidebar-section">
-                <h4>Catégorie</h4>
-                <a href="<?= BASE_URL ?>/pages/boutique.php" class="sidebar-link <?= !$categorieId?'active':'' ?>">Tous les produits</a>
-                <?php foreach ($categories as $cat): ?>
-                <a href="<?= BASE_URL ?>/pages/boutique.php?categorie=<?= $cat['id'] ?>" class="sidebar-link <?= $categorieId==$cat['id']?'active':'' ?>"><?= securiser($cat['nom']) ?></a>
-                <?php endforeach; ?>
-            </div>
-            <div class="sidebar-section">
-                <h4>Taille</h4>
-                <div class="size-tags">
-                    <?php foreach (['XS','S','M','L','XL','XXL'] as $s): ?>
-                    <div class="size-tag"><?= $s ?></div>
+            <form method="GET" action="<?= BASE_URL ?>/pages/boutique.php">
+                <div class="sidebar-section">
+                    <h4>Catégorie</h4>
+                    <?php foreach ($categories as $cat): ?>
+                    <label class="sidebar-checkbox">
+                        <input type="checkbox" name="categorie[]" value="<?= $cat['id'] ?>" <?= in_array($cat['id'], (array)$categorieArr) ? 'checked' : '' ?>>
+                        <?= securiser($cat['nom']) ?>
+                    </label>
                     <?php endforeach; ?>
                 </div>
-            </div>
-            <div class="sidebar-section">
-                <h4>Prix (FCFA)</h4>
-                <form method="GET" action="<?= BASE_URL ?>/pages/boutique.php">
-                    <?php if ($categorieId): ?><input type="hidden" name="categorie" value="<?= $categorieId ?>"><?php endif; ?>
+                <div class="sidebar-section">
+                    <h4>Taille</h4>
+                    <?php foreach (['XS','S','M','L','XL','XXL'] as $s): ?>
+                    <label class="sidebar-checkbox">
+                        <input type="checkbox" name="taille[]" value="<?= $s ?>" <?= in_array($s, (array)$taillesArr) ? 'checked' : '' ?>>
+                        <?= $s ?>
+                    </label>
+                    <?php endforeach; ?>
+                </div>
+                <div class="sidebar-section">
+                    <h4>Prix (FCFA)</h4>
                     <div class="flex gap-2" style="margin-bottom:8px;">
                         <input type="number" name="min_prix" class="form-control" placeholder="Min" value="<?= $minPrix ?? '' ?>" style="padding:7px 8px;">
                         <span style="line-height:38px;color:var(--gray-400);">—</span>
                         <input type="number" name="max_prix" class="form-control" placeholder="Max" value="<?= $maxPrix ?? '' ?>" style="padding:7px 8px;">
                     </div>
-                    <div class="sidebar-section">
-                        <h4>Note clients</h4>
-                        <label class="sidebar-checkbox"><input type="checkbox"> ★★★★★ (5 étoiles)</label>
-                        <label class="sidebar-checkbox"><input type="checkbox"> ★★★★☆ (4+ étoiles)</label>
-                        <label class="sidebar-checkbox"><input type="checkbox"> ★★★☆☆ (3+ étoiles)</label>
-                    </div>
-                    <div class="sidebar-section">
-                        <h4>Disponibilité</h4>
-                        <label class="sidebar-checkbox"><input type="checkbox" checked> En stock uniquement</label>
-                        <label class="sidebar-checkbox"><input type="checkbox"> Inclure rupture de stock</label>
-                    </div>
-                    <button type="submit" class="btn-apply">Appliquer les filtres</button>
-                </form>
-            </div>
+                </div>
+                <div class="sidebar-section">
+                    <h4>Note clients</h4>
+                    <label class="sidebar-checkbox"><input type="checkbox" name="note_min[]" value="5" <?= in_array('5', (array)$noteMinArr) ? 'checked' : '' ?>> ★★★★★ (5 étoiles)</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" name="note_min[]" value="4" <?= in_array('4', (array)$noteMinArr) ? 'checked' : '' ?>> ★★★★☆ (4+ étoiles)</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" name="note_min[]" value="3" <?= in_array('3', (array)$noteMinArr) ? 'checked' : '' ?>> ★★★☆☆ (3+ étoiles)</label>
+                </div>
+                <div class="sidebar-section">
+                    <h4>Disponibilité</h4>
+                    <label class="sidebar-checkbox"><input type="checkbox" name="stock_only" value="1" <?= $stockOnly ? 'checked' : '' ?>> En stock uniquement</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" name="inclure_rupture" value="1"> Inclure rupture de stock</label>
+                </div>
+                <button type="submit" class="btn-apply">Appliquer les filtres</button>
+            </form>
         </aside>
 
         <!-- PRODUITS -->

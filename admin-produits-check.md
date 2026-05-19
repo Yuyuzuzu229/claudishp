@@ -1,0 +1,114 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - generic [ref=e6]:
+      - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e8]: CLAUDISHOP
+      - generic [ref=e9]: Espace Admin
+    - generic [ref=e10]:
+      - generic [ref=e11]: S
+      - generic [ref=e12]:
+        - generic [ref=e13]: Super Super Admin
+        - generic [ref=e14]: adminclaudishop@gmail.com
+    - navigation [ref=e15]:
+      - link " Dashboard" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e17]: 
+        - text: Dashboard
+      - generic [ref=e18]: Gestion
+      - link " Utilisateurs 3" [ref=e19] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e20]: 
+        - text: Utilisateurs
+        - generic [ref=e21]: "3"
+      - link " Produits 69" [ref=e22] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e23]: 
+        - text: Produits
+        - generic [ref=e24]: "69"
+      - link " Catégories" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e26]: 
+        - text: Catégories
+      - link " Commandes 1" [ref=e27] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e28]: 
+        - text: Commandes
+        - generic [ref=e29]: "1"
+      - generic [ref=e30]: Logistique
+      - link " Livraisons" [ref=e31] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e32]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e33] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e34]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e36]: 
+        - text: Livreurs
+      - generic [ref=e37]: Finance & Comm.
+      - link " Paiements" [ref=e38] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e39]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e40] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e41]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e43]: 
+        - text: Notifications
+    - generic [ref=e44]:
+      - link " Retourner au site" [ref=e45] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e46]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e47] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e48]: 
+        - text: Déconnexion
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]: Monday 18 May 2026
+      - link "" [ref=e52] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e53]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: S
+        - text:     
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: Gestion
+        - heading "Produits" [level=1] [ref=e59]
+        - paragraph [ref=e60]: Gérez votre catalogue de produits
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]
+          - generic [ref=e67]: 
+        - generic [ref=e68]:
+          - generic [ref=e69]
+          - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]
+          - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - generic [ref=e81]
+          - generic [ref=e85]: 
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]
+          - link "+ Ajouter un produit" [ref=e96] [cursor=pointer]:
+            - /url: "#"
+        - table [ref=e98]:
+          - rowgroup [ref=e99]
+          - rowgroup [ref=e110]
+        - generic [ref=e1568]:
+          - generic [ref=e1569]: Affichage 1-10 sur 69 produits
+          - generic [ref=e1570]
+    - generic [ref=e1580]:
+      - generic [ref=e1581]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e1582]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e1583]: v1.0.0

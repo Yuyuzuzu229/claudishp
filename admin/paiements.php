@@ -26,11 +26,11 @@ $adminPage = 'paiements';
     $commandes = $commandeObj->getDernieresCommandes(50);
     $total = $commandeObj->getTotalVentes();
     ?>
-    <div class="kpi-grid kpi-grid-4" style="margin-bottom:20px;">
-        <div class="kpi-card"><div><div class="kpi-label">Total encaissé</div><div class="kpi-value" style="font-size:17px;"><?= formatPrix($total) ?></div></div><i class="fas fa-dollar-sign kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Paiements réussis</div><div class="kpi-value" style="color:var(--success);"><?= count($commandes) ?></div></div><i class="fas fa-check kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">MTN MoMo</div><div class="kpi-value">—</div></div><i class="fas fa-mobile-alt kpi-icon"></i></div>
-        <div class="kpi-card"><div><div class="kpi-label">Moov Money</div><div class="kpi-value">—</div></div><i class="fas fa-mobile-alt kpi-icon"></i></div>
+    <div class="kpi-grid">
+        <div class="kpi-card kpi-card--navy"><div><div class="kpi-label">Total encaissé</div><div class="kpi-value kpi-value--sm"><?= formatPrix($total) ?></div></div><i class="fas fa-dollar-sign kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--green"><div><div class="kpi-label">Paiements réussis</div><div class="kpi-value"><?= count($commandes) ?></div></div><i class="fas fa-check kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--blue"><div><div class="kpi-label">MTN MoMo</div><div class="kpi-value">—</div></div><i class="fas fa-mobile-alt kpi-icon"></i></div>
+        <div class="kpi-card kpi-card--amber"><div><div class="kpi-label">Moov Money</div><div class="kpi-value">—</div></div><i class="fas fa-mobile-alt kpi-icon"></i></div>
     </div>
     <div class="table-card">
         <div class="table-card-header">

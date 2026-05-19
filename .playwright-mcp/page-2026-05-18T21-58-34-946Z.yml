@@ -1,0 +1,231 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Client
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/dashboard.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Mon compte
+        - link " Mon profil" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/profil.php
+          - generic [ref=e20]: 
+          - text: Mon profil
+        - link " Mon panier" [ref=e21] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e22]: 
+          - text: Mon panier
+        - link " Paiement" [ref=e23] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+          - generic [ref=e24]: 
+          - text: Paiement
+        - generic [ref=e25]: Mes commandes
+        - link " Mes commandes" [ref=e26] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+          - generic [ref=e27]: 
+          - text: Mes commandes
+        - link " Suivi livraison" [ref=e28] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/suivi_livraison.php
+          - generic [ref=e29]: 
+          - text: Suivi livraison
+        - generic [ref=e30]: Avis & Communication
+        - link " Mes avis" [ref=e31] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+          - generic [ref=e32]: 
+          - text: Mes avis
+        - link " Mes notifications" [ref=e33] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e34]: 
+          - text: Mes notifications
+      - generic [ref=e35]:
+        - link " Retourner au site" [ref=e36] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e37]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e38] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e39]: 
+          - text: Déconnexion
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: Monday 18 May 2026
+        - link "" [ref=e43] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e44]: 
+        - generic [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]: S
+          - text:      
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: Avis & Communication
+          - heading "Mes notifications" [level=1] [ref=e50]
+          - paragraph [ref=e51]: Consultez toutes les notifications que vous avez reçues.
+        - generic [ref=e52]:
+          - generic [ref=e54]: Toutes les notifications (15)
+          - generic [ref=e55]:
+            - generic [ref=e57]: 
+            - generic [ref=e58]:
+              - generic [ref=e59]: "Nouvelle commande #0015 de TheVoice Stone — 111 900 FCFA"
+              - generic [ref=e60]: Notification de votre compte ClaudiShop.
+            - generic [ref=e61]:
+              - generic [ref=e62]: 01/01/1970
+              - button "" [ref=e64] [cursor=pointer]:
+                - generic [ref=e65]: 
+          - generic [ref=e66]:
+            - generic [ref=e68]: 
+            - generic [ref=e69]:
+              - generic [ref=e70]: "Nouvelle commande #0014 de Uziel Uziel de SOUZA — 65 000 FCFA"
+              - generic [ref=e71]: Notification de votre compte ClaudiShop.
+            - generic [ref=e72]:
+              - generic [ref=e73]: 01/01/1970
+              - button "" [ref=e75] [cursor=pointer]:
+                - generic [ref=e76]: 
+          - generic [ref=e77]:
+            - generic [ref=e79]: 
+            - generic [ref=e80]:
+              - generic [ref=e81]: "Nouvelle commande #0013 de SOUZ — 25 500 FCFA"
+              - generic [ref=e82]: Notification de votre compte ClaudiShop.
+            - generic [ref=e83]:
+              - generic [ref=e84]: 01/01/1970
+              - button "" [ref=e86] [cursor=pointer]:
+                - generic [ref=e87]: 
+          - generic [ref=e88]:
+            - generic [ref=e90]: 
+            - generic [ref=e91]:
+              - generic [ref=e92]: "Nouvelle commande #0012 de SOUZA YUZI — 51 250 FCFA"
+              - generic [ref=e93]: Notification de votre compte ClaudiShop.
+            - generic [ref=e94]:
+              - generic [ref=e95]: 01/01/1970
+              - button "" [ref=e97] [cursor=pointer]:
+                - generic [ref=e98]: 
+          - generic [ref=e99]:
+            - generic [ref=e101]: 
+            - generic [ref=e102]:
+              - generic [ref=e103]: "Nouvelle commande #0011 de zaza — 28 500 FCFA"
+              - generic [ref=e104]: Notification de votre compte ClaudiShop.
+            - generic [ref=e105]:
+              - generic [ref=e106]: 01/01/1970
+              - button "" [ref=e108] [cursor=pointer]:
+                - generic [ref=e109]: 
+          - generic [ref=e110]:
+            - generic [ref=e112]: 
+            - generic [ref=e113]:
+              - generic [ref=e114]: "Nouvelle commande #0010 de zaza — 41 900 FCFA"
+              - generic [ref=e115]: Notification de votre compte ClaudiShop.
+            - generic [ref=e116]:
+              - generic [ref=e117]: 01/01/1970
+              - button "" [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: 
+          - generic [ref=e121]:
+            - generic [ref=e123]: 
+            - generic [ref=e124]:
+              - generic [ref=e125]: "Nouvelle commande #0009 de zaza — 29 375 FCFA"
+              - generic [ref=e126]: Notification de votre compte ClaudiShop.
+            - generic [ref=e127]:
+              - generic [ref=e128]: 01/01/1970
+              - button "" [ref=e130] [cursor=pointer]:
+                - generic [ref=e131]: 
+          - generic [ref=e132]:
+            - generic [ref=e134]: 
+            - generic [ref=e135]:
+              - generic [ref=e136]: "Nouvelle commande #0008 de zaza — 28 000 FCFA"
+              - generic [ref=e137]: Notification de votre compte ClaudiShop.
+            - generic [ref=e138]:
+              - generic [ref=e139]: 01/01/1970
+              - button "" [ref=e141] [cursor=pointer]:
+                - generic [ref=e142]: 
+          - generic [ref=e143]:
+            - generic [ref=e145]: 
+            - generic [ref=e146]:
+              - generic [ref=e147]: "Nouvelle commande #0007 de zaza — 17 500 FCFA"
+              - generic [ref=e148]: Notification de votre compte ClaudiShop.
+            - generic [ref=e149]:
+              - generic [ref=e150]: 01/01/1970
+              - button "" [ref=e152] [cursor=pointer]:
+                - generic [ref=e153]: 
+          - generic [ref=e154]:
+            - generic [ref=e156]: 
+            - generic [ref=e157]:
+              - generic [ref=e158]: "Nouvelle commande #0006 de zaza — 76 500 FCFA"
+              - generic [ref=e159]: Notification de votre compte ClaudiShop.
+            - generic [ref=e160]:
+              - generic [ref=e161]: 01/01/1970
+              - button "" [ref=e163] [cursor=pointer]:
+                - generic [ref=e164]: 
+          - generic [ref=e165]:
+            - generic [ref=e167]: 
+            - generic [ref=e168]:
+              - generic [ref=e169]: "Nouvelle commande #0005 de lala — 35 500 FCFA"
+              - generic [ref=e170]: Notification de votre compte ClaudiShop.
+            - generic [ref=e171]:
+              - generic [ref=e172]: 01/01/1970
+              - button "" [ref=e174] [cursor=pointer]:
+                - generic [ref=e175]: 
+          - generic [ref=e176]:
+            - generic [ref=e178]: 
+            - generic [ref=e179]:
+              - generic [ref=e180]: "Nouvelle commande #0004 de Uziel Uziel de SOUZA — 48 875 FCFA"
+              - generic [ref=e181]: Notification de votre compte ClaudiShop.
+            - generic [ref=e182]:
+              - generic [ref=e183]: 01/01/1970
+              - button "" [ref=e185] [cursor=pointer]:
+                - generic [ref=e186]: 
+          - generic [ref=e187]:
+            - generic [ref=e189]: 
+            - generic [ref=e190]:
+              - generic [ref=e191]: "Nouvelle commande #0003 de SOUZA YUZI — 41 000 FCFA"
+              - generic [ref=e192]: Notification de votre compte ClaudiShop.
+            - generic [ref=e193]:
+              - generic [ref=e194]: 01/01/1970
+              - button "" [ref=e196] [cursor=pointer]:
+                - generic [ref=e197]: 
+          - generic [ref=e198]:
+            - generic [ref=e200]: 
+            - generic [ref=e201]:
+              - generic [ref=e202]: "Nouvelle commande #0002 de SOUZA YUZI — 41 000 FCFA"
+              - generic [ref=e203]: Notification de votre compte ClaudiShop.
+            - generic [ref=e204]:
+              - generic [ref=e205]: 01/01/1970
+              - button "" [ref=e207] [cursor=pointer]:
+                - generic [ref=e208]: 
+          - generic [ref=e209]:
+            - generic [ref=e211]: 
+            - generic [ref=e212]:
+              - generic [ref=e213]: "Nouvelle commande #0001 de Uziel Uziel de SOUZA â€” 58 000 FCFA"
+              - generic [ref=e214]: Notification de votre compte ClaudiShop.
+            - generic [ref=e215]:
+              - generic [ref=e216]: 01/01/1970
+              - button "" [ref=e218] [cursor=pointer]:
+                - generic [ref=e219]: 
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - generic [ref=e222]: 
+            - heading "Besoin d'aide ?" [level=4] [ref=e223]
+            - paragraph [ref=e224]: Consultez notre FAQ ou contactez notre support
+          - generic [ref=e225]:
+            - generic [ref=e226]: 
+            - heading "Retours faciles" [level=4] [ref=e227]
+            - paragraph [ref=e228]: Retournez vos articles sous 7 jours
+          - generic [ref=e229]:
+            - generic [ref=e230]: 
+            - heading "Paiement sécurisé" [level=4] [ref=e231]
+            - paragraph [ref=e232]: Vos paiements sont protégés à 100%
+          - generic [ref=e233]:
+            - generic [ref=e234]: 
+            - heading "Livraison rapide" [level=4] [ref=e235]
+            - paragraph [ref=e236]: Partout au Bénin
+      - generic [ref=e237]:
+        - generic [ref=e238]: v1.0.0 • ClaudiShop
+        - generic [ref=e239]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money
+        - generic [ref=e240]: v1.0.0

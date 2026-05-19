@@ -1,0 +1,2 @@
+[     119ms] [LOG] debug_upload.php chargé @ http://localhost/CLAUDISHOP/admin/debug_upload.php:35
+[     202ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/debug_upload.php:0

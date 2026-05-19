@@ -1,0 +1,157 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Client
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/dashboard.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Mon compte
+      - link " Mon profil" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/profil.php
+        - generic [ref=e18]: 
+        - text: Mon profil
+      - link " Mon panier 1" [ref=e19] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/pages/panier.php
+        - generic [ref=e20]: 
+        - text: Mon panier
+        - generic [ref=e21]: "1"
+      - link " Paiement" [ref=e22] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+        - generic [ref=e23]: 
+        - text: Paiement
+      - generic [ref=e24]: Mes commandes
+      - link " Mes commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+        - generic [ref=e26]: 
+        - text: Mes commandes
+      - link " Suivi livraison" [ref=e27] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/suivi_livraison.php
+        - generic [ref=e28]: 
+        - text: Suivi livraison
+      - generic [ref=e29]: Avis & Communication
+      - link " Mes avis" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+        - generic [ref=e31]: 
+        - text: Mes avis
+      - link " Mes notifications 15" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/notifications.php
+        - generic [ref=e33]: 
+        - text: Mes notifications
+        - generic [ref=e34]: "15"
+    - generic [ref=e35]:
+      - link " Retourner au site" [ref=e36] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e37]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e38] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e39]: 
+        - text: Déconnexion
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]: 
+        - textbox "Rechercher..." [ref=e44]
+      - generic [ref=e45]: Monday 18 May 2026
+      - link " 15" [ref=e46] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/user/notifications.php
+        - generic [ref=e47]: 
+        - generic [ref=e48]: "15"
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: S
+        - text:      
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]: Mon compte
+        - heading "Mon panier" [level=1] [ref=e54]
+        - paragraph [ref=e55]: Vérifiez vos articles et passez votre commande.
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - generic [ref=e60]: Articles dans votre panier (1)
+          - table [ref=e61]:
+            - rowgroup [ref=e62]:
+              - row "Produit Prix unitaire Quantité Total" [ref=e63]:
+                - columnheader "Produit" [ref=e64]
+                - columnheader "Prix unitaire" [ref=e65]
+                - columnheader "Quantité" [ref=e66]
+                - columnheader "Total" [ref=e67]
+                - columnheader [ref=e68]
+            - rowgroup [ref=e69]:
+              - row " Chemise classique homme 12 000 FCFA 15 000 FCFA ✕  1 + 12 000 FCFA " [ref=e70]:
+                - cell " Chemise classique homme" [ref=e71]:
+                  - generic [ref=e72]:
+                    - generic [ref=e74]: 
+                    - generic [ref=e76]: Chemise classique homme
+                - cell "12 000 FCFA 15 000 FCFA ✕" [ref=e77]
+                - cell " 1 +" [ref=e78]:
+                  - generic [ref=e79]:
+                    - button "" [ref=e80] [cursor=pointer]:
+                      - generic [ref=e81]: 
+                    - spinbutton [ref=e82]: "1"
+                    - button "+" [ref=e83] [cursor=pointer]:
+                      - generic [ref=e84]: +
+                - cell "12 000 FCFA" [ref=e85]:
+                  - strong [ref=e86]: 12 000 FCFA
+                - cell "" [ref=e87]:
+                  - link "" [ref=e88] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/actions/supprimer_panier.php?ligne_id=1
+                    - generic [ref=e89]: 
+          - generic [ref=e90]:
+            - link " Continuer mes achats" [ref=e91] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/boutique.php
+              - generic [ref=e92]: 
+              - text: Continuer mes achats
+            - link " Vider le panier" [ref=e93] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/actions/vider_panier.php?panier_id=5
+              - generic [ref=e94]: 
+              - text: Vider le panier
+        - generic [ref=e95]:
+          - heading "Récapitulatif de panier" [level=3] [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]: Sous-total (1 articles)
+            - strong [ref=e99]: 12 000 FCFA
+          - separator [ref=e100]
+          - generic [ref=e101]:
+            - strong [ref=e102]: Total TTC
+            - strong [ref=e103]: 12 000 FCFA
+          - generic [ref=e104]:
+            - generic [ref=e105]: 
+            - generic [ref=e106]:
+              - generic [ref=e107]: Paiement 100% sécurisé
+              - generic [ref=e108]: Vos transactions sont protégées par un chiffrement SSL.
+          - link "Valider panier" [ref=e109] [cursor=pointer]:
+            - /url: http://localhost/CLAUDISHOP/pages/checkout.php
+          - paragraph [ref=e110]:
+            - generic [ref=e111]: 
+            - text: Paiement sécurisé
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - generic [ref=e114]: 
+          - heading "Livraison rapide" [level=4] [ref=e115]
+          - paragraph [ref=e116]: Partout au Bénin
+        - generic [ref=e117]:
+          - generic [ref=e118]: 
+          - heading "Retour facile" [level=4] [ref=e119]
+          - paragraph [ref=e120]: Sous 7 jours
+        - generic [ref=e121]:
+          - generic [ref=e122]: 
+          - heading "Paiement sécurisé" [level=4] [ref=e123]
+          - paragraph [ref=e124]: 100% sécurisé
+        - generic [ref=e125]:
+          - generic [ref=e126]: 
+          - heading "Support client" [level=4] [ref=e127]
+          - paragraph [ref=e128]: 7j/7 à votre écoute
+    - generic [ref=e129]:
+      - generic [ref=e130]: v1.0.0 • ClaudiShop
+      - generic [ref=e131]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money
+      - generic [ref=e132]: v1.0.0

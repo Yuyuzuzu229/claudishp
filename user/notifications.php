@@ -8,11 +8,7 @@ if (!isLoggedIn()) { redirect(BASE_URL . '/pages/connexion.php'); }
 $pageTitle = 'Mes notifications';
 $notifObj = new Notification();
 
-if (isset($_GET['marquer_lu'])) {
-    $notifObj->marquerToutesLues($_SESSION['user_id']);
-    redirect(BASE_URL . '/user/notifications.php');
-}
-
+$notifObj->marquerToutesLues($_SESSION['user_id']);
 $notifications = $notifObj->getByUtilisateur($_SESSION['user_id']);
 $nbNonLu = $notifObj->getNombreNonLu($_SESSION['user_id']);
 
@@ -34,7 +30,7 @@ $activePage = 'notifications';
         <div class="table-card-header">
             <span class="table-card-title">Toutes les notifications (<?= count($notifications) ?>)</span>
             <?php if ($nbNonLu > 0): ?>
-            <a href="?marquer_lu=1" style="font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle"></i> Tout marquer comme lu</a>
+            <span style="font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle"></i> Lues automatiquement</span>
             <?php endif; ?>
         </div>
         <?php if (empty($notifications)): ?>

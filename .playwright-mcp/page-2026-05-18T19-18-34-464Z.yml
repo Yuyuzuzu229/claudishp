@@ -1,0 +1,212 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: CLAUDI SHOP
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Client
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/dashboard.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Mon compte
+        - link " Mon profil" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/profil.php
+          - generic [ref=e20]: 
+          - text: Mon profil
+        - link " Mon panier" [ref=e21] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e22]: 
+          - text: Mon panier
+        - link " Paiement" [ref=e23] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+          - generic [ref=e24]: 
+          - text: Paiement
+        - generic [ref=e25]: Mes commandes
+        - link " Mes commandes" [ref=e26] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+          - generic [ref=e27]: 
+          - text: Mes commandes
+        - link " Suivi livraison" [ref=e28] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/suivi_livraison.php
+          - generic [ref=e29]: 
+          - text: Suivi livraison
+        - generic [ref=e30]: Avis & Communication
+        - link " Mes avis" [ref=e31] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+          - generic [ref=e32]: 
+          - text: Mes avis
+        - link " Mes notifications 15" [ref=e33] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e34]: 
+          - text: Mes notifications
+          - generic [ref=e35]: "15"
+      - generic [ref=e36]:
+        - link " Retourner au site" [ref=e37] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e38]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e39] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e40]: 
+          - text: Déconnexion
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: 
+          - textbox "Rechercher..." [ref=e45]
+        - generic [ref=e46]: Monday 18 May 2026
+        - link " 15" [ref=e47] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/user/notifications.php
+          - generic [ref=e48]: 
+          - generic [ref=e49]: "15"
+        - generic [ref=e50] [cursor=pointer]:
+          - generic [ref=e51]: S
+          - text:      
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: Tableau de bord
+          - heading "Vue d'ensemble" [level=1] [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: Commandes totales
+              - generic [ref=e60]: "0"
+              - generic [ref=e61]: +2 ce mois
+            - generic [ref=e62]: 
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: Dépenses totales
+              - generic [ref=e66]: 0 FCFA
+              - generic [ref=e67]: +18% vs mois dernier
+            - generic [ref=e68]: $
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]: Livraisons en cours
+              - generic [ref=e72]: "0"
+              - generic [ref=e73]: En cours de livraison
+            - generic [ref=e74]: 
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - generic [ref=e77]: Avis donnés
+              - generic [ref=e78]: "0"
+              - generic [ref=e79]: Merci pour vos retours !
+            - generic [ref=e80]: 
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: Notifications
+              - generic [ref=e84]: "15"
+              - generic [ref=e85]: Non lues
+            - generic [ref=e86]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]: Mes commandes récentes
+            - link "Voir tout " [ref=e91] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+              - text: Voir tout
+              - generic [ref=e92]: 
+          - generic [ref=e93]:
+            - paragraph [ref=e94]: Aucune commande.
+            - link "Découvrir" [ref=e95] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/boutique.php
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: Mon panier
+              - generic [ref=e100]: 0 articles
+            - paragraph [ref=e102]: Panier vide.
+            - link "Voir mon panier →" [ref=e104] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/panier.php
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - generic [ref=e107]: Paiements récents
+              - link "Voir tout " [ref=e108] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+                - text: Voir tout
+                - generic [ref=e109]: 
+            - paragraph [ref=e111]: Aucun paiement.
+            - link "Historique des paiements →" [ref=e113] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: Mes avis récents
+              - link "Voir tout " [ref=e117] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+                - text: Voir tout
+                - generic [ref=e118]: 
+            - paragraph [ref=e120]: Aucun avis donné.
+            - link "Tous mes avis →" [ref=e122] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: Notifications récentes
+              - link "Voir tout " [ref=e126] [cursor=pointer]:
+                - /url: http://localhost/CLAUDISHOP/user/notifications.php
+                - text: Voir tout
+                - generic [ref=e127]: 
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - generic [ref=e131]: 
+                - generic [ref=e132]:
+                  - generic [ref=e133]: "Nouvelle commande #0015 de TheVoice Stone — 111"
+                  - generic [ref=e134]: 01/01/1970
+              - generic [ref=e136]:
+                - generic [ref=e138]: 
+                - generic [ref=e140]: 01/01/1970
+              - generic [ref=e142]:
+                - generic [ref=e144]: 
+                - generic [ref=e145]:
+                  - generic [ref=e146]: "Nouvelle commande #0013 de SOUZ — 25 500 FCFA"
+                  - generic [ref=e147]: 01/01/1970
+              - generic [ref=e149]:
+                - generic [ref=e151]: 
+                - generic [ref=e152]:
+                  - generic [ref=e153]: "Nouvelle commande #0012 de SOUZA YUZI — 51 250 F"
+                  - generic [ref=e154]: 01/01/1970
+            - link "Toutes les notifications →" [ref=e157] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/notifications.php
+        - generic [ref=e158]:
+          - generic [ref=e160]: Accès rapide
+          - generic [ref=e161]:
+            - link " Mon profil" [ref=e162] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/profil.php
+              - generic [ref=e163]: 
+              - generic [ref=e164]: Mon profil
+            - link " Mon panier 0" [ref=e165] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/pages/panier.php
+              - generic [ref=e166]: 
+              - generic [ref=e167]: Mon panier
+              - generic [ref=e168]: "0"
+            - link " Paiement" [ref=e169] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/historique_paiement.php
+              - generic [ref=e170]: 
+              - generic [ref=e171]: Paiement
+            - link " Mes commandes" [ref=e172] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/mes_commandes.php
+              - generic [ref=e173]: 
+              - generic [ref=e174]: Mes commandes
+            - link " Suivi livraison" [ref=e175] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/suivi_livraison.php
+              - generic [ref=e176]: 
+              - generic [ref=e177]: Suivi livraison
+            - link " Mes avis" [ref=e178] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/mes_avis.php
+              - generic [ref=e179]: 
+              - generic [ref=e180]: Mes avis
+            - link " Notifications 15" [ref=e181] [cursor=pointer]:
+              - /url: http://localhost/CLAUDISHOP/user/notifications.php
+              - generic [ref=e182]: 
+              - generic [ref=e183]: Notifications
+              - generic [ref=e184]: "15"
+      - generic [ref=e185]:
+        - generic [ref=e186]: v1.0.0 • ClaudiShop
+        - generic [ref=e187]: © 2026 ClaudiShop – Tous droits réservés · Paiement MTN MoMo & Moov Money
+        - generic [ref=e188]: v1.0.0

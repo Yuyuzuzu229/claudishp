@@ -1,0 +1,1718 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "CLAUDISHOP" [ref=e7] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e8]: CLAUDISHOP
+        - generic [ref=e9]: Espace Admin
+      - generic [ref=e10]:
+        - generic [ref=e11]: S
+        - generic [ref=e12]:
+          - generic [ref=e13]: Super Super Admin
+          - generic [ref=e14]: adminclaudishop@gmail.com
+      - navigation [ref=e15]:
+        - link " Dashboard" [ref=e16] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/index.php
+          - generic [ref=e17]: 
+          - text: Dashboard
+        - generic [ref=e18]: Gestion
+        - link " Utilisateurs 3" [ref=e19] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+          - generic [ref=e20]: 
+          - text: Utilisateurs
+          - generic [ref=e21]: "3"
+        - link " Produits 68" [ref=e22] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/produits.php
+          - generic [ref=e23]: 
+          - text: Produits
+          - generic [ref=e24]: "68"
+        - link " Catégories" [ref=e25] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/categories.php
+          - generic [ref=e26]: 
+          - text: Catégories
+        - link " Commandes" [ref=e27] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+          - generic [ref=e28]: 
+          - text: Commandes
+        - generic [ref=e29]: Logistique
+        - link " Livraisons" [ref=e30] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+          - generic [ref=e31]: 
+          - text: Livraisons
+        - link " Zones de livraison" [ref=e32] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/zones.php
+          - generic [ref=e33]: 
+          - text: Zones de livraison
+        - link " Livreurs" [ref=e34] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+          - generic [ref=e35]: 
+          - text: Livreurs
+        - generic [ref=e36]: Finance & Comm.
+        - link " Paiements" [ref=e37] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+          - generic [ref=e38]: 
+          - text: Paiements
+        - link " Avis clients" [ref=e39] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/avis.php
+          - generic [ref=e40]: 
+          - text: Avis clients
+        - link " Notifications" [ref=e41] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e42]: 
+          - text: Notifications
+      - generic [ref=e43]:
+        - link " Retourner au site" [ref=e44] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/index.php
+          - generic [ref=e45]: 
+          - text: Retourner au site
+        - link " Déconnexion" [ref=e46] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+          - generic [ref=e47]: 
+          - text: Déconnexion
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: 
+          - textbox "Rechercher..." [ref=e52]
+        - generic [ref=e53]: Monday 18 May 2026
+        - link "" [ref=e54] [cursor=pointer]:
+          - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+          - generic [ref=e55]: 
+        - generic [ref=e56] [cursor=pointer]:
+          - generic [ref=e57]: S
+          - text:     
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: Gestion
+          - heading "Produits" [level=1] [ref=e61]
+          - paragraph [ref=e62]: Gérez votre catalogue de produits
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: Produits totaux
+              - generic [ref=e67]: "68"
+              - generic [ref=e68]: Tous produits confondus
+            - generic [ref=e69]: 
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: Produits actifs
+              - generic [ref=e73]: "61"
+              - generic [ref=e74]: 90.1% des produits
+            - generic [ref=e75]: 
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: Produits inactifs
+              - generic [ref=e79]: "7"
+              - generic [ref=e80]: 9.9% des produits
+            - generic [ref=e81]: 
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Produits en promo
+              - generic [ref=e85]: "11"
+              - generic [ref=e86]: 16.2% des produits
+            - generic [ref=e87]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]: 
+                - textbox "Rechercher un produit..." [ref=e93]
+              - combobox [ref=e94] [cursor=pointer]:
+                - option "Toutes catégories" [selected]
+                - option "Accessoires"
+                - option "Chaussures"
+                - option "Enfant"
+                - option "Femme"
+                - option "Homme"
+              - combobox [ref=e95] [cursor=pointer]:
+                - option "Statut" [selected]
+                - option "Actif"
+                - option "Inactif"
+              - combobox [ref=e96] [cursor=pointer]:
+                - option "Stock" [selected]
+                - option "En stock"
+                - option "Rupture"
+            - link "+ Ajouter un produit" [ref=e98] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e99]: +
+              - text: Ajouter un produit
+          - table [ref=e100]:
+            - rowgroup [ref=e101]:
+              - row "ID Produit Catégorie Prix (FCFA) Solde Stock Statut Créé le Actions" [ref=e102]:
+                - columnheader [ref=e103]:
+                  - checkbox [ref=e104]
+                - columnheader "ID" [ref=e105]
+                - columnheader "Produit" [ref=e106]
+                - columnheader "Catégorie" [ref=e107]
+                - columnheader "Prix (FCFA)" [ref=e108]
+                - columnheader "Solde" [ref=e109]
+                - columnheader "Stock" [ref=e110]
+                - columnheader "Statut" [ref=e111]
+                - columnheader "Créé le" [ref=e112]
+                - columnheader "Actions" [ref=e113]
+            - rowgroup [ref=e114]:
+              - 'row "#P41 Jupe courte en jean SKU : JUP-00041 Femme 12 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e115]':
+                - cell [ref=e116]:
+                  - checkbox [ref=e117]
+                - cell "#P41" [ref=e118]
+                - 'cell "Jupe courte en jean SKU : JUP-00041" [ref=e119]':
+                  - generic [ref=e122]:
+                    - generic [ref=e123]: Jupe courte en jean
+                    - generic [ref=e124]: "SKU : JUP-00041"
+                - cell "Femme" [ref=e125]
+                - cell "12 500" [ref=e126]
+                - cell "—" [ref=e127]
+                - cell "30" [ref=e128]
+                - cell "✓ Actif" [ref=e129]:
+                  - generic [ref=e130]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e131]
+                - cell " " [ref=e132]:
+                  - generic [ref=e133]:
+                    - link "" [ref=e134] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=41
+                      - generic [ref=e135]: 
+                    - button "" [ref=e136] [cursor=pointer]:
+                      - generic [ref=e137]: 
+              - 'row "#P42 Robe d''été fleurie SKU : ROB-00042 Femme 18 500 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e138]':
+                - cell [ref=e139]:
+                  - checkbox [ref=e140]
+                - cell "#P42" [ref=e141]
+                - 'cell "Robe d''été fleurie SKU : ROB-00042" [ref=e142]':
+                  - generic [ref=e145]:
+                    - generic [ref=e146]: Robe d'été fleurie
+                    - generic [ref=e147]: "SKU : ROB-00042"
+                - cell "Femme" [ref=e148]
+                - cell "18 500" [ref=e149]
+                - cell "—" [ref=e150]
+                - cell "25" [ref=e151]
+                - cell "✓ Actif" [ref=e152]:
+                  - generic [ref=e153]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e154]
+                - cell " " [ref=e155]:
+                  - generic [ref=e156]:
+                    - link "" [ref=e157] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=42
+                      - generic [ref=e158]: 
+                    - button "" [ref=e159] [cursor=pointer]:
+                      - generic [ref=e160]: 
+              - 'row "#P44 T-shirt basique femme SKU : T-S-00044 Femme 7 500 — 50 ✓ Actif 18/05/26 à 17:48  " [ref=e161]':
+                - cell [ref=e162]:
+                  - checkbox [ref=e163]
+                - cell "#P44" [ref=e164]
+                - 'cell "T-shirt basique femme SKU : T-S-00044" [ref=e165]':
+                  - generic [ref=e168]:
+                    - generic [ref=e169]: T-shirt basique femme
+                    - generic [ref=e170]: "SKU : T-S-00044"
+                - cell "Femme" [ref=e171]
+                - cell "7 500" [ref=e172]
+                - cell "—" [ref=e173]
+                - cell "50" [ref=e174]
+                - cell "✓ Actif" [ref=e175]:
+                  - generic [ref=e176]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e177]
+                - cell " " [ref=e178]:
+                  - generic [ref=e179]:
+                    - link "" [ref=e180] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=44
+                      - generic [ref=e181]: 
+                    - button "" [ref=e182] [cursor=pointer]:
+                      - generic [ref=e183]: 
+              - 'row "#P45 Jean slim femme SKU : JEA-00045 Femme 18 500 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e184]':
+                - cell [ref=e185]:
+                  - checkbox [ref=e186]
+                - cell "#P45" [ref=e187]
+                - 'cell "Jean slim femme SKU : JEA-00045" [ref=e188]':
+                  - generic [ref=e191]:
+                    - generic [ref=e192]: Jean slim femme
+                    - generic [ref=e193]: "SKU : JEA-00045"
+                - cell "Femme" [ref=e194]
+                - cell "18 500" [ref=e195]
+                - cell "—" [ref=e196]
+                - cell "35" [ref=e197]
+                - cell "✓ Actif" [ref=e198]:
+                  - generic [ref=e199]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e200]
+                - cell " " [ref=e201]:
+                  - generic [ref=e202]:
+                    - link "" [ref=e203] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=45
+                      - generic [ref=e204]: 
+                    - button "" [ref=e205] [cursor=pointer]:
+                      - generic [ref=e206]: 
+              - 'row "#P46 Manteau d''hiver femme SKU : MAN-00046 Femme 35 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e207]':
+                - cell [ref=e208]:
+                  - checkbox [ref=e209]
+                - cell "#P46" [ref=e210]
+                - 'cell "Manteau d''hiver femme SKU : MAN-00046" [ref=e211]':
+                  - generic [ref=e214]:
+                    - generic [ref=e215]: Manteau d'hiver femme
+                    - generic [ref=e216]: "SKU : MAN-00046"
+                - cell "Femme" [ref=e217]
+                - cell "35 000" [ref=e218]
+                - cell "—" [ref=e219]
+                - cell "15" [ref=e220]
+                - cell "✓ Actif" [ref=e221]:
+                  - generic [ref=e222]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e223]
+                - cell " " [ref=e224]:
+                  - generic [ref=e225]:
+                    - link "" [ref=e226] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=46
+                      - generic [ref=e227]: 
+                    - button "" [ref=e228] [cursor=pointer]:
+                      - generic [ref=e229]: 
+              - 'row "#P47 Short en jean femme SKU : SHO-00047 Femme 11 000 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e230]':
+                - cell [ref=e231]:
+                  - checkbox [ref=e232]
+                - cell "#P47" [ref=e233]
+                - 'cell "Short en jean femme SKU : SHO-00047" [ref=e234]':
+                  - generic [ref=e237]:
+                    - generic [ref=e238]: Short en jean femme
+                    - generic [ref=e239]: "SKU : SHO-00047"
+                - cell "Femme" [ref=e240]
+                - cell "11 000" [ref=e241]
+                - cell "—" [ref=e242]
+                - cell "25" [ref=e243]
+                - cell "✓ Actif" [ref=e244]:
+                  - generic [ref=e245]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e246]
+                - cell " " [ref=e247]:
+                  - generic [ref=e248]:
+                    - link "" [ref=e249] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=47
+                      - generic [ref=e250]: 
+                    - button "" [ref=e251] [cursor=pointer]:
+                      - generic [ref=e252]: 
+              - 'row "#P48 Chemisier blanc femme SKU : CHE-00048 Femme 14 500 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e253]':
+                - cell [ref=e254]:
+                  - checkbox [ref=e255]
+                - cell "#P48" [ref=e256]
+                - 'cell "Chemisier blanc femme SKU : CHE-00048" [ref=e257]':
+                  - generic [ref=e260]:
+                    - generic [ref=e261]: Chemisier blanc femme
+                    - generic [ref=e262]: "SKU : CHE-00048"
+                - cell "Femme" [ref=e263]
+                - cell "14 500" [ref=e264]
+                - cell "—" [ref=e265]
+                - cell "20" [ref=e266]
+                - cell "✓ Actif" [ref=e267]:
+                  - generic [ref=e268]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e269]
+                - cell " " [ref=e270]:
+                  - generic [ref=e271]:
+                    - link "" [ref=e272] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=48
+                      - generic [ref=e273]: 
+                    - button "" [ref=e274] [cursor=pointer]:
+                      - generic [ref=e275]: 
+              - 'row "#P49 Legging sport femme SKU : LEG-00049 Femme 9 500 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e276]':
+                - cell [ref=e277]:
+                  - checkbox [ref=e278]
+                - cell "#P49" [ref=e279]
+                - 'cell "Legging sport femme SKU : LEG-00049" [ref=e280]':
+                  - generic [ref=e283]:
+                    - generic [ref=e284]: Legging sport femme
+                    - generic [ref=e285]: "SKU : LEG-00049"
+                - cell "Femme" [ref=e286]
+                - cell "9 500" [ref=e287]
+                - cell "—" [ref=e288]
+                - cell "40" [ref=e289]
+                - cell "✓ Actif" [ref=e290]:
+                  - generic [ref=e291]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e292]
+                - cell " " [ref=e293]:
+                  - generic [ref=e294]:
+                    - link "" [ref=e295] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=49
+                      - generic [ref=e296]: 
+                    - button "" [ref=e297] [cursor=pointer]:
+                      - generic [ref=e298]: 
+              - 'row "#P50 Débardeur femme SKU : Dé-00050 Femme 6 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e299]':
+                - cell [ref=e300]:
+                  - checkbox [ref=e301]
+                - cell "#P50" [ref=e302]
+                - 'cell "Débardeur femme SKU : Dé-00050" [ref=e303]':
+                  - generic [ref=e306]:
+                    - generic [ref=e307]: Débardeur femme
+                    - generic [ref=e308]: "SKU : Dé-00050"
+                - cell "Femme" [ref=e309]
+                - cell "6 500" [ref=e310]
+                - cell "—" [ref=e311]
+                - cell "30" [ref=e312]
+                - cell "✓ Actif" [ref=e313]:
+                  - generic [ref=e314]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e315]
+                - cell " " [ref=e316]:
+                  - generic [ref=e317]:
+                    - link "" [ref=e318] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=50
+                      - generic [ref=e319]: 
+                    - button "" [ref=e320] [cursor=pointer]:
+                      - generic [ref=e321]: 
+              - 'row "#P51 Chemise en lin homme SKU : CHE-00051 Homme 15 500 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e322]':
+                - cell [ref=e323]:
+                  - checkbox [ref=e324]
+                - cell "#P51" [ref=e325]
+                - 'cell "Chemise en lin homme SKU : CHE-00051" [ref=e326]':
+                  - generic [ref=e329]:
+                    - generic [ref=e330]: Chemise en lin homme
+                    - generic [ref=e331]: "SKU : CHE-00051"
+                - cell "Homme" [ref=e332]
+                - cell "15 500" [ref=e333]
+                - cell "—" [ref=e334]
+                - cell "25" [ref=e335]
+                - cell "✓ Actif" [ref=e336]:
+                  - generic [ref=e337]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e338]
+                - cell " " [ref=e339]:
+                  - generic [ref=e340]:
+                    - link "" [ref=e341] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=51
+                      - generic [ref=e342]: 
+                    - button "" [ref=e343] [cursor=pointer]:
+                      - generic [ref=e344]: 
+              - 'row "#P53 Jean droit homme SKU : JEA-00053 Homme 19 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e345]':
+                - cell [ref=e346]:
+                  - checkbox [ref=e347]
+                - cell "#P53" [ref=e348]
+                - 'cell "Jean droit homme SKU : JEA-00053" [ref=e349]':
+                  - generic [ref=e352]:
+                    - generic [ref=e353]: Jean droit homme
+                    - generic [ref=e354]: "SKU : JEA-00053"
+                - cell "Homme" [ref=e355]
+                - cell "19 500" [ref=e356]
+                - cell "—" [ref=e357]
+                - cell "30" [ref=e358]
+                - cell "✓ Actif" [ref=e359]:
+                  - generic [ref=e360]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e361]
+                - cell " " [ref=e362]:
+                  - generic [ref=e363]:
+                    - link "" [ref=e364] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=53
+                      - generic [ref=e365]: 
+                    - button "" [ref=e366] [cursor=pointer]:
+                      - generic [ref=e367]: 
+              - 'row "#P57 Short de sport homme SKU : SHO-00057 Homme 9 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e368]':
+                - cell [ref=e369]:
+                  - checkbox [ref=e370]
+                - cell "#P57" [ref=e371]
+                - 'cell "Short de sport homme SKU : SHO-00057" [ref=e372]':
+                  - generic [ref=e375]:
+                    - generic [ref=e376]: Short de sport homme
+                    - generic [ref=e377]: "SKU : SHO-00057"
+                - cell "Homme" [ref=e378]
+                - cell "9 500" [ref=e379]
+                - cell "—" [ref=e380]
+                - cell "30" [ref=e381]
+                - cell "✓ Actif" [ref=e382]:
+                  - generic [ref=e383]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e384]
+                - cell " " [ref=e385]:
+                  - generic [ref=e386]:
+                    - link "" [ref=e387] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=57
+                      - generic [ref=e388]: 
+                    - button "" [ref=e389] [cursor=pointer]:
+                      - generic [ref=e390]: 
+              - 'row "#P58 Manteau homme SKU : MAN-00058 Homme 38 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e391]':
+                - cell [ref=e392]:
+                  - checkbox [ref=e393]
+                - cell "#P58" [ref=e394]
+                - 'cell "Manteau homme SKU : MAN-00058" [ref=e395]':
+                  - generic [ref=e398]:
+                    - generic [ref=e399]: Manteau homme
+                    - generic [ref=e400]: "SKU : MAN-00058"
+                - cell "Homme" [ref=e401]
+                - cell "38 000" [ref=e402]
+                - cell "—" [ref=e403]
+                - cell "15" [ref=e404]
+                - cell "✓ Actif" [ref=e405]:
+                  - generic [ref=e406]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e407]
+                - cell " " [ref=e408]:
+                  - generic [ref=e409]:
+                    - link "" [ref=e410] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=58
+                      - generic [ref=e411]: 
+                    - button "" [ref=e412] [cursor=pointer]:
+                      - generic [ref=e413]: 
+              - 'row "#P60 Débardeur sport homme SKU : Dé-00060 Homme 7 000 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e414]':
+                - cell [ref=e415]:
+                  - checkbox [ref=e416]
+                - cell "#P60" [ref=e417]
+                - 'cell "Débardeur sport homme SKU : Dé-00060" [ref=e418]':
+                  - generic [ref=e421]:
+                    - generic [ref=e422]: Débardeur sport homme
+                    - generic [ref=e423]: "SKU : Dé-00060"
+                - cell "Homme" [ref=e424]
+                - cell "7 000" [ref=e425]
+                - cell "—" [ref=e426]
+                - cell "35" [ref=e427]
+                - cell "✓ Actif" [ref=e428]:
+                  - generic [ref=e429]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e430]
+                - cell " " [ref=e431]:
+                  - generic [ref=e432]:
+                    - link "" [ref=e433] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=60
+                      - generic [ref=e434]: 
+                    - button "" [ref=e435] [cursor=pointer]:
+                      - generic [ref=e436]: 
+              - 'row "#P66 Ensemble sport enfant SKU : ENS-00066 Enfant 12 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e437]':
+                - cell [ref=e438]:
+                  - checkbox [ref=e439]
+                - cell "#P66" [ref=e440]
+                - 'cell "Ensemble sport enfant SKU : ENS-00066" [ref=e441]':
+                  - generic [ref=e444]:
+                    - generic [ref=e445]: Ensemble sport enfant
+                    - generic [ref=e446]: "SKU : ENS-00066"
+                - cell "Enfant" [ref=e447]
+                - cell "12 000" [ref=e448]
+                - cell "—" [ref=e449]
+                - cell "20" [ref=e450]
+                - cell "✓ Actif" [ref=e451]:
+                  - generic [ref=e452]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e453]
+                - cell " " [ref=e454]:
+                  - generic [ref=e455]:
+                    - link "" [ref=e456] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=66
+                      - generic [ref=e457]: 
+                    - button "" [ref=e458] [cursor=pointer]:
+                      - generic [ref=e459]: 
+              - 'row "#P70 T-shirt fille enfant SKU : T-S-00070 Enfant 5 500 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e460]':
+                - cell [ref=e461]:
+                  - checkbox [ref=e462]
+                - cell "#P70" [ref=e463]
+                - 'cell "T-shirt fille enfant SKU : T-S-00070" [ref=e464]':
+                  - generic [ref=e467]:
+                    - generic [ref=e468]: T-shirt fille enfant
+                    - generic [ref=e469]: "SKU : T-S-00070"
+                - cell "Enfant" [ref=e470]
+                - cell "5 500" [ref=e471]
+                - cell "—" [ref=e472]
+                - cell "35" [ref=e473]
+                - cell "✓ Actif" [ref=e474]:
+                  - generic [ref=e475]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e476]
+                - cell " " [ref=e477]:
+                  - generic [ref=e478]:
+                    - link "" [ref=e479] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=70
+                      - generic [ref=e480]: 
+                    - button "" [ref=e481] [cursor=pointer]:
+                      - generic [ref=e482]: 
+              - 'row "#P71 Sac à main en cuir SKU : SAC-00071 Accessoires 25 000 -20% 15 ✓ Actif 18/05/26 à 17:48  " [ref=e483]':
+                - cell [ref=e484]:
+                  - checkbox [ref=e485]
+                - cell "#P71" [ref=e486]
+                - 'cell "Sac à main en cuir SKU : SAC-00071" [ref=e487]':
+                  - generic [ref=e490]:
+                    - generic [ref=e491]: Sac à main en cuir
+                    - generic [ref=e492]: "SKU : SAC-00071"
+                - cell "Accessoires" [ref=e493]
+                - cell "25 000" [ref=e494]
+                - cell "-20%" [ref=e495]:
+                  - generic [ref=e496]: "-20%"
+                - cell "15" [ref=e497]
+                - cell "✓ Actif" [ref=e498]:
+                  - generic [ref=e499]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e500]
+                - cell " " [ref=e501]:
+                  - generic [ref=e502]:
+                    - link "" [ref=e503] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=71
+                      - generic [ref=e504]: 
+                    - button "" [ref=e505] [cursor=pointer]:
+                      - generic [ref=e506]: 
+              - 'row "#P72 Sac à dos urbain SKU : SAC-00072 Accessoires 18 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e507]':
+                - cell [ref=e508]:
+                  - checkbox [ref=e509]
+                - cell "#P72" [ref=e510]
+                - 'cell "Sac à dos urbain SKU : SAC-00072" [ref=e511]':
+                  - generic [ref=e514]:
+                    - generic [ref=e515]: Sac à dos urbain
+                    - generic [ref=e516]: "SKU : SAC-00072"
+                - cell "Accessoires" [ref=e517]
+                - cell "18 000" [ref=e518]
+                - cell "—" [ref=e519]
+                - cell "20" [ref=e520]
+                - cell "✓ Actif" [ref=e521]:
+                  - generic [ref=e522]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e523]
+                - cell " " [ref=e524]:
+                  - generic [ref=e525]:
+                    - link "" [ref=e526] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=72
+                      - generic [ref=e527]: 
+                    - button "" [ref=e528] [cursor=pointer]:
+                      - generic [ref=e529]: 
+              - 'row "#P73 Montre homme SKU : MON-00073 Accessoires 22 000 -30% 15 ✓ Actif 18/05/26 à 17:48  " [ref=e530]':
+                - cell [ref=e531]:
+                  - checkbox [ref=e532]
+                - cell "#P73" [ref=e533]
+                - 'cell "Montre homme SKU : MON-00073" [ref=e534]':
+                  - generic [ref=e537]:
+                    - generic [ref=e538]: Montre homme
+                    - generic [ref=e539]: "SKU : MON-00073"
+                - cell "Accessoires" [ref=e540]
+                - cell "22 000" [ref=e541]
+                - cell "-30%" [ref=e542]:
+                  - generic [ref=e543]: "-30%"
+                - cell "15" [ref=e544]
+                - cell "✓ Actif" [ref=e545]:
+                  - generic [ref=e546]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e547]
+                - cell " " [ref=e548]:
+                  - generic [ref=e549]:
+                    - link "" [ref=e550] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=73
+                      - generic [ref=e551]: 
+                    - button "" [ref=e552] [cursor=pointer]:
+                      - generic [ref=e553]: 
+              - 'row "#P75 Ceinture cuir homme SKU : CEI-00075 Accessoires 9 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e554]':
+                - cell [ref=e555]:
+                  - checkbox [ref=e556]
+                - cell "#P75" [ref=e557]
+                - 'cell "Ceinture cuir homme SKU : CEI-00075" [ref=e558]':
+                  - generic [ref=e561]:
+                    - generic [ref=e562]: Ceinture cuir homme
+                    - generic [ref=e563]: "SKU : CEI-00075"
+                - cell "Accessoires" [ref=e564]
+                - cell "9 500" [ref=e565]
+                - cell "—" [ref=e566]
+                - cell "30" [ref=e567]
+                - cell "✓ Actif" [ref=e568]:
+                  - generic [ref=e569]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e570]
+                - cell " " [ref=e571]:
+                  - generic [ref=e572]:
+                    - link "" [ref=e573] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=75
+                      - generic [ref=e574]: 
+                    - button "" [ref=e575] [cursor=pointer]:
+                      - generic [ref=e576]: 
+              - 'row "#P77 Écharpe en laine SKU : ÉC-00077 Accessoires 8 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e577]':
+                - cell [ref=e578]:
+                  - checkbox [ref=e579]
+                - cell "#P77" [ref=e580]
+                - 'cell "Écharpe en laine SKU : ÉC-00077" [ref=e581]':
+                  - generic [ref=e584]:
+                    - generic [ref=e585]: Écharpe en laine
+                    - generic [ref=e586]: "SKU : ÉC-00077"
+                - cell "Accessoires" [ref=e587]
+                - cell "8 500" [ref=e588]
+                - cell "—" [ref=e589]
+                - cell "30" [ref=e590]
+                - cell "✓ Actif" [ref=e591]:
+                  - generic [ref=e592]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e593]
+                - cell " " [ref=e594]:
+                  - generic [ref=e595]:
+                    - link "" [ref=e596] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=77
+                      - generic [ref=e597]: 
+                    - button "" [ref=e598] [cursor=pointer]:
+                      - generic [ref=e599]: 
+              - 'row "#P78 Chapeau casquette SKU : CHA-00078 Accessoires 6 500 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e600]':
+                - cell [ref=e601]:
+                  - checkbox [ref=e602]
+                - cell "#P78" [ref=e603]
+                - 'cell "Chapeau casquette SKU : CHA-00078" [ref=e604]':
+                  - generic [ref=e607]:
+                    - generic [ref=e608]: Chapeau casquette
+                    - generic [ref=e609]: "SKU : CHA-00078"
+                - cell "Accessoires" [ref=e610]
+                - cell "6 500" [ref=e611]
+                - cell "—" [ref=e612]
+                - cell "35" [ref=e613]
+                - cell "✓ Actif" [ref=e614]:
+                  - generic [ref=e615]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e616]
+                - cell " " [ref=e617]:
+                  - generic [ref=e618]:
+                    - link "" [ref=e619] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=78
+                      - generic [ref=e620]: 
+                    - button "" [ref=e621] [cursor=pointer]:
+                      - generic [ref=e622]: 
+              - 'row "#P79 Bijoux collier SKU : BIJ-00079 Accessoires 5 500 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e623]':
+                - cell [ref=e624]:
+                  - checkbox [ref=e625]
+                - cell "#P79" [ref=e626]
+                - 'cell "Bijoux collier SKU : BIJ-00079" [ref=e627]':
+                  - generic [ref=e630]:
+                    - generic [ref=e631]: Bijoux collier
+                    - generic [ref=e632]: "SKU : BIJ-00079"
+                - cell "Accessoires" [ref=e633]
+                - cell "5 500" [ref=e634]
+                - cell "—" [ref=e635]
+                - cell "40" [ref=e636]
+                - cell "✓ Actif" [ref=e637]:
+                  - generic [ref=e638]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e639]
+                - cell " " [ref=e640]:
+                  - generic [ref=e641]:
+                    - link "" [ref=e642] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=79
+                      - generic [ref=e643]: 
+                    - button "" [ref=e644] [cursor=pointer]:
+                      - generic [ref=e645]: 
+              - 'row "#P81 Chaussures homme SKU : CHA-00081 Chaussures 25 000 -35% 20 ✓ Actif 18/05/26 à 17:48  " [ref=e646]':
+                - cell [ref=e647]:
+                  - checkbox [ref=e648]
+                - cell "#P81" [ref=e649]
+                - 'cell "Chaussures homme SKU : CHA-00081" [ref=e650]':
+                  - generic [ref=e653]:
+                    - generic [ref=e654]: Chaussures homme
+                    - generic [ref=e655]: "SKU : CHA-00081"
+                - cell "Chaussures" [ref=e656]
+                - cell "25 000" [ref=e657]
+                - cell "-35%" [ref=e658]:
+                  - generic [ref=e659]: "-35%"
+                - cell "20" [ref=e660]
+                - cell "✓ Actif" [ref=e661]:
+                  - generic [ref=e662]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e663]
+                - cell " " [ref=e664]:
+                  - generic [ref=e665]:
+                    - link "" [ref=e666] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=81
+                      - generic [ref=e667]: 
+                    - button "" [ref=e668] [cursor=pointer]:
+                      - generic [ref=e669]: 
+              - 'row "#P82 Baskets femme SKU : BAS-00082 Chaussures 18 500 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e670]':
+                - cell [ref=e671]:
+                  - checkbox [ref=e672]
+                - cell "#P82" [ref=e673]
+                - 'cell "Baskets femme SKU : BAS-00082" [ref=e674]':
+                  - generic [ref=e677]:
+                    - generic [ref=e678]: Baskets femme
+                    - generic [ref=e679]: "SKU : BAS-00082"
+                - cell "Chaussures" [ref=e680]
+                - cell "18 500" [ref=e681]
+                - cell "—" [ref=e682]
+                - cell "25" [ref=e683]
+                - cell "✓ Actif" [ref=e684]:
+                  - generic [ref=e685]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e686]
+                - cell " " [ref=e687]:
+                  - generic [ref=e688]:
+                    - link "" [ref=e689] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=82
+                      - generic [ref=e690]: 
+                    - button "" [ref=e691] [cursor=pointer]:
+                      - generic [ref=e692]: 
+              - 'row "#P83 Sandales femme SKU : SAN-00083 Chaussures 12 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e693]':
+                - cell [ref=e694]:
+                  - checkbox [ref=e695]
+                - cell "#P83" [ref=e696]
+                - 'cell "Sandales femme SKU : SAN-00083" [ref=e697]':
+                  - generic [ref=e700]:
+                    - generic [ref=e701]: Sandales femme
+                    - generic [ref=e702]: "SKU : SAN-00083"
+                - cell "Chaussures" [ref=e703]
+                - cell "12 000" [ref=e704]
+                - cell "—" [ref=e705]
+                - cell "20" [ref=e706]
+                - cell "✓ Actif" [ref=e707]:
+                  - generic [ref=e708]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e709]
+                - cell " " [ref=e710]:
+                  - generic [ref=e711]:
+                    - link "" [ref=e712] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=83
+                      - generic [ref=e713]: 
+                    - button "" [ref=e714] [cursor=pointer]:
+                      - generic [ref=e715]: 
+              - 'row "#P84 Baskets enfant SKU : BAS-00084 Chaussures 9 500 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e716]':
+                - cell [ref=e717]:
+                  - checkbox [ref=e718]
+                - cell "#P84" [ref=e719]
+                - 'cell "Baskets enfant SKU : BAS-00084" [ref=e720]':
+                  - generic [ref=e723]:
+                    - generic [ref=e724]: Baskets enfant
+                    - generic [ref=e725]: "SKU : BAS-00084"
+                - cell "Chaussures" [ref=e726]
+                - cell "9 500" [ref=e727]
+                - cell "—" [ref=e728]
+                - cell "30" [ref=e729]
+                - cell "✓ Actif" [ref=e730]:
+                  - generic [ref=e731]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e732]
+                - cell " " [ref=e733]:
+                  - generic [ref=e734]:
+                    - link "" [ref=e735] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=84
+                      - generic [ref=e736]: 
+                    - button "" [ref=e737] [cursor=pointer]:
+                      - generic [ref=e738]: 
+              - 'row "#P85 Chaussures habillées homme SKU : CHA-00085 Chaussures 32 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e739]':
+                - cell [ref=e740]:
+                  - checkbox [ref=e741]
+                - cell "#P85" [ref=e742]
+                - 'cell "Chaussures habillées homme SKU : CHA-00085" [ref=e743]':
+                  - generic [ref=e746]:
+                    - generic [ref=e747]: Chaussures habillées homme
+                    - generic [ref=e748]: "SKU : CHA-00085"
+                - cell "Chaussures" [ref=e749]
+                - cell "32 000" [ref=e750]
+                - cell "—" [ref=e751]
+                - cell "15" [ref=e752]
+                - cell "✓ Actif" [ref=e753]:
+                  - generic [ref=e754]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e755]
+                - cell " " [ref=e756]:
+                  - generic [ref=e757]:
+                    - link "" [ref=e758] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=85
+                      - generic [ref=e759]: 
+                    - button "" [ref=e760] [cursor=pointer]:
+                      - generic [ref=e761]: 
+              - 'row "#P86 Tongs homme SKU : TON-00086 Chaussures 3 500 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e762]':
+                - cell [ref=e763]:
+                  - checkbox [ref=e764]
+                - cell "#P86" [ref=e765]
+                - 'cell "Tongs homme SKU : TON-00086" [ref=e766]':
+                  - generic [ref=e769]:
+                    - generic [ref=e770]: Tongs homme
+                    - generic [ref=e771]: "SKU : TON-00086"
+                - cell "Chaussures" [ref=e772]
+                - cell "3 500" [ref=e773]
+                - cell "—" [ref=e774]
+                - cell "40" [ref=e775]
+                - cell "✓ Actif" [ref=e776]:
+                  - generic [ref=e777]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e778]
+                - cell " " [ref=e779]:
+                  - generic [ref=e780]:
+                    - link "" [ref=e781] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=86
+                      - generic [ref=e782]: 
+                    - button "" [ref=e783] [cursor=pointer]:
+                      - generic [ref=e784]: 
+              - 'row "#P87 Mocassins femme SKU : MOC-00087 Chaussures 15 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e785]':
+                - cell [ref=e786]:
+                  - checkbox [ref=e787]
+                - cell "#P87" [ref=e788]
+                - 'cell "Mocassins femme SKU : MOC-00087" [ref=e789]':
+                  - generic [ref=e792]:
+                    - generic [ref=e793]: Mocassins femme
+                    - generic [ref=e794]: "SKU : MOC-00087"
+                - cell "Chaussures" [ref=e795]
+                - cell "15 000" [ref=e796]
+                - cell "—" [ref=e797]
+                - cell "20" [ref=e798]
+                - cell "✓ Actif" [ref=e799]:
+                  - generic [ref=e800]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e801]
+                - cell " " [ref=e802]:
+                  - generic [ref=e803]:
+                    - link "" [ref=e804] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=87
+                      - generic [ref=e805]: 
+                    - button "" [ref=e806] [cursor=pointer]:
+                      - generic [ref=e807]: 
+              - 'row "#P88 Baskets sport SKU : BAS-00088 Chaussures 22 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e808]':
+                - cell [ref=e809]:
+                  - checkbox [ref=e810]
+                - cell "#P88" [ref=e811]
+                - 'cell "Baskets sport SKU : BAS-00088" [ref=e812]':
+                  - generic [ref=e815]:
+                    - generic [ref=e816]: Baskets sport
+                    - generic [ref=e817]: "SKU : BAS-00088"
+                - cell "Chaussures" [ref=e818]
+                - cell "22 000" [ref=e819]
+                - cell "—" [ref=e820]
+                - cell "20" [ref=e821]
+                - cell "✓ Actif" [ref=e822]:
+                  - generic [ref=e823]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e824]
+                - cell " " [ref=e825]:
+                  - generic [ref=e826]:
+                    - link "" [ref=e827] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=88
+                      - generic [ref=e828]: 
+                    - button "" [ref=e829] [cursor=pointer]:
+                      - generic [ref=e830]: 
+              - 'row "#P89 Bottes pluie enfant SKU : BOT-00089 Chaussures 7 500 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e831]':
+                - cell [ref=e832]:
+                  - checkbox [ref=e833]
+                - cell "#P89" [ref=e834]
+                - 'cell "Bottes pluie enfant SKU : BOT-00089" [ref=e835]':
+                  - generic [ref=e838]:
+                    - generic [ref=e839]: Bottes pluie enfant
+                    - generic [ref=e840]: "SKU : BOT-00089"
+                - cell "Chaussures" [ref=e841]
+                - cell "7 500" [ref=e842]
+                - cell "—" [ref=e843]
+                - cell "20" [ref=e844]
+                - cell "✓ Actif" [ref=e845]:
+                  - generic [ref=e846]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e847]
+                - cell " " [ref=e848]:
+                  - generic [ref=e849]:
+                    - link "" [ref=e850] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=89
+                      - generic [ref=e851]: 
+                    - button "" [ref=e852] [cursor=pointer]:
+                      - generic [ref=e853]: 
+              - 'row "#P90 Chaussons maison SKU : CHA-00090 Chaussures 5 500 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e854]':
+                - cell [ref=e855]:
+                  - checkbox [ref=e856]
+                - cell "#P90" [ref=e857]
+                - 'cell "Chaussons maison SKU : CHA-00090" [ref=e858]':
+                  - generic [ref=e861]:
+                    - generic [ref=e862]: Chaussons maison
+                    - generic [ref=e863]: "SKU : CHA-00090"
+                - cell "Chaussures" [ref=e864]
+                - cell "5 500" [ref=e865]
+                - cell "—" [ref=e866]
+                - cell "25" [ref=e867]
+                - cell "✓ Actif" [ref=e868]:
+                  - generic [ref=e869]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e870]
+                - cell " " [ref=e871]:
+                  - generic [ref=e872]:
+                    - link "" [ref=e873] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=90
+                      - generic [ref=e874]: 
+                    - button "" [ref=e875] [cursor=pointer]:
+                      - generic [ref=e876]: 
+              - 'row "#P21 Robe fleurie femme SKU : ROB-00021 Femme 12 000 -30% 30 ✓ Actif 18/05/26 à 17:48  " [ref=e877]':
+                - cell [ref=e878]:
+                  - checkbox [ref=e879]
+                - cell "#P21" [ref=e880]
+                - 'cell "Robe fleurie femme SKU : ROB-00021" [ref=e881]':
+                  - generic [ref=e884]:
+                    - generic [ref=e885]: Robe fleurie femme
+                    - generic [ref=e886]: "SKU : ROB-00021"
+                - cell "Femme" [ref=e887]
+                - cell "12 000" [ref=e888]
+                - cell "-30%" [ref=e889]:
+                  - generic [ref=e890]: "-30%"
+                - cell "30" [ref=e891]
+                - cell "✓ Actif" [ref=e892]:
+                  - generic [ref=e893]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e894]
+                - cell " " [ref=e895]:
+                  - generic [ref=e896]:
+                    - link "" [ref=e897] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=21
+                      - generic [ref=e898]: 
+                    - button "" [ref=e899] [cursor=pointer]:
+                      - generic [ref=e900]: 
+              - 'row "#P22 T-shirt femme SKU : T-S-00022 Femme 6 500 — 45 ✓ Actif 18/05/26 à 17:48  " [ref=e901]':
+                - cell [ref=e902]:
+                  - checkbox [ref=e903]
+                - cell "#P22" [ref=e904]
+                - 'cell "T-shirt femme SKU : T-S-00022" [ref=e905]':
+                  - generic [ref=e908]:
+                    - generic [ref=e909]: T-shirt femme
+                    - generic [ref=e910]: "SKU : T-S-00022"
+                - cell "Femme" [ref=e911]
+                - cell "6 500" [ref=e912]
+                - cell "—" [ref=e913]
+                - cell "45" [ref=e914]
+                - cell "✓ Actif" [ref=e915]:
+                  - generic [ref=e916]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e917]
+                - cell " " [ref=e918]:
+                  - generic [ref=e919]:
+                    - link "" [ref=e920] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=22
+                      - generic [ref=e921]: 
+                    - button "" [ref=e922] [cursor=pointer]:
+                      - generic [ref=e923]: 
+              - 'row "#P23 Jupe plissée femme SKU : JUP-00023 Femme 10 000 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e924]':
+                - cell [ref=e925]:
+                  - checkbox [ref=e926]
+                - cell "#P23" [ref=e927]
+                - 'cell "Jupe plissée femme SKU : JUP-00023" [ref=e928]':
+                  - generic [ref=e931]:
+                    - generic [ref=e932]: Jupe plissée femme
+                    - generic [ref=e933]: "SKU : JUP-00023"
+                - cell "Femme" [ref=e934]
+                - cell "10 000" [ref=e935]
+                - cell "—" [ref=e936]
+                - cell "25" [ref=e937]
+                - cell "✓ Actif" [ref=e938]:
+                  - generic [ref=e939]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e940]
+                - cell " " [ref=e941]:
+                  - generic [ref=e942]:
+                    - link "" [ref=e943] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=23
+                      - generic [ref=e944]: 
+                    - button "" [ref=e945] [cursor=pointer]:
+                      - generic [ref=e946]: 
+              - 'row "#P25 Jean femme slim SKU : JEA-00025 Femme 18 000 -25% 30 ✓ Actif 18/05/26 à 17:48  " [ref=e947]':
+                - cell [ref=e948]:
+                  - checkbox [ref=e949]
+                - cell "#P25" [ref=e950]
+                - 'cell "Jean femme slim SKU : JEA-00025" [ref=e951]':
+                  - generic [ref=e954]:
+                    - generic [ref=e955]: Jean femme slim
+                    - generic [ref=e956]: "SKU : JEA-00025"
+                - cell "Femme" [ref=e957]
+                - cell "18 000" [ref=e958]
+                - cell "-25%" [ref=e959]:
+                  - generic [ref=e960]: "-25%"
+                - cell "30" [ref=e961]
+                - cell "✓ Actif" [ref=e962]:
+                  - generic [ref=e963]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e964]
+                - cell " " [ref=e965]:
+                  - generic [ref=e966]:
+                    - link "" [ref=e967] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=25
+                      - generic [ref=e968]: 
+                    - button "" [ref=e969] [cursor=pointer]:
+                      - generic [ref=e970]: 
+              - 'row "#P26 Robe de soirée femme SKU : ROB-00026 Femme 25 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e971]':
+                - cell [ref=e972]:
+                  - checkbox [ref=e973]
+                - cell "#P26" [ref=e974]
+                - 'cell "Robe de soirée femme SKU : ROB-00026" [ref=e975]':
+                  - generic [ref=e978]:
+                    - generic [ref=e979]: Robe de soirée femme
+                    - generic [ref=e980]: "SKU : ROB-00026"
+                - cell "Femme" [ref=e981]
+                - cell "25 000" [ref=e982]
+                - cell "—" [ref=e983]
+                - cell "15" [ref=e984]
+                - cell "✓ Actif" [ref=e985]:
+                  - generic [ref=e986]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e987]
+                - cell " " [ref=e988]:
+                  - generic [ref=e989]:
+                    - link "" [ref=e990] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=26
+                      - generic [ref=e991]: 
+                    - button "" [ref=e992] [cursor=pointer]:
+                      - generic [ref=e993]: 
+              - 'row "#P27 Veste en jean femme SKU : VES-00027 Femme 15 000 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e994]':
+                - cell [ref=e995]:
+                  - checkbox [ref=e996]
+                - cell "#P27" [ref=e997]
+                - 'cell "Veste en jean femme SKU : VES-00027" [ref=e998]':
+                  - generic [ref=e1001]:
+                    - generic [ref=e1002]: Veste en jean femme
+                    - generic [ref=e1003]: "SKU : VES-00027"
+                - cell "Femme" [ref=e1004]
+                - cell "15 000" [ref=e1005]
+                - cell "—" [ref=e1006]
+                - cell "25" [ref=e1007]
+                - cell "✓ Actif" [ref=e1008]:
+                  - generic [ref=e1009]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1010]
+                - cell " " [ref=e1011]:
+                  - generic [ref=e1012]:
+                    - link "" [ref=e1013] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=27
+                      - generic [ref=e1014]: 
+                    - button "" [ref=e1015] [cursor=pointer]:
+                      - generic [ref=e1016]: 
+              - 'row "#P28 Legging femme SKU : LEG-00028 Femme 7 000 — 50 ✓ Actif 18/05/26 à 17:48  " [ref=e1017]':
+                - cell [ref=e1018]:
+                  - checkbox [ref=e1019]
+                - cell "#P28" [ref=e1020]
+                - 'cell "Legging femme SKU : LEG-00028" [ref=e1021]':
+                  - generic [ref=e1024]:
+                    - generic [ref=e1025]: Legging femme
+                    - generic [ref=e1026]: "SKU : LEG-00028"
+                - cell "Femme" [ref=e1027]
+                - cell "7 000" [ref=e1028]
+                - cell "—" [ref=e1029]
+                - cell "50" [ref=e1030]
+                - cell "✓ Actif" [ref=e1031]:
+                  - generic [ref=e1032]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1033]
+                - cell " " [ref=e1034]:
+                  - generic [ref=e1035]:
+                    - link "" [ref=e1036] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=28
+                      - generic [ref=e1037]: 
+                    - button "" [ref=e1038] [cursor=pointer]:
+                      - generic [ref=e1039]: 
+              - 'row "#P29 Manteau femme SKU : MAN-00029 Femme 30 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e1040]':
+                - cell [ref=e1041]:
+                  - checkbox [ref=e1042]
+                - cell "#P29" [ref=e1043]
+                - 'cell "Manteau femme SKU : MAN-00029" [ref=e1044]':
+                  - generic [ref=e1047]:
+                    - generic [ref=e1048]: Manteau femme
+                    - generic [ref=e1049]: "SKU : MAN-00029"
+                - cell "Femme" [ref=e1050]
+                - cell "30 000" [ref=e1051]
+                - cell "—" [ref=e1052]
+                - cell "15" [ref=e1053]
+                - cell "✓ Actif" [ref=e1054]:
+                  - generic [ref=e1055]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1056]
+                - cell " " [ref=e1057]:
+                  - generic [ref=e1058]:
+                    - link "" [ref=e1059] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=29
+                      - generic [ref=e1060]: 
+                    - button "" [ref=e1061] [cursor=pointer]:
+                      - generic [ref=e1062]: 
+              - 'row "#P31 Chemise classique homme SKU : CHE-00031 Homme 15 000 -20% 25 ✓ Actif 18/05/26 à 17:48  " [ref=e1063]':
+                - cell [ref=e1064]:
+                  - checkbox [ref=e1065]
+                - cell "#P31" [ref=e1066]
+                - 'cell "Chemise classique homme SKU : CHE-00031" [ref=e1067]':
+                  - generic [ref=e1070]:
+                    - generic [ref=e1071]: Chemise classique homme
+                    - generic [ref=e1072]: "SKU : CHE-00031"
+                - cell "Homme" [ref=e1073]
+                - cell "15 000" [ref=e1074]
+                - cell "-20%" [ref=e1075]:
+                  - generic [ref=e1076]: "-20%"
+                - cell "25" [ref=e1077]
+                - cell "✓ Actif" [ref=e1078]:
+                  - generic [ref=e1079]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1080]
+                - cell " " [ref=e1081]:
+                  - generic [ref=e1082]:
+                    - link "" [ref=e1083] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=31
+                      - generic [ref=e1084]: 
+                    - button "" [ref=e1085] [cursor=pointer]:
+                      - generic [ref=e1086]: 
+              - 'row "#P32 T-shirt col rond homme SKU : T-S-00032 Homme 6 500 — 50 ✓ Actif 18/05/26 à 17:48  " [ref=e1087]':
+                - cell [ref=e1088]:
+                  - checkbox [ref=e1089]
+                - cell "#P32" [ref=e1090]
+                - 'cell "T-shirt col rond homme SKU : T-S-00032" [ref=e1091]':
+                  - generic [ref=e1094]:
+                    - generic [ref=e1095]: T-shirt col rond homme
+                    - generic [ref=e1096]: "SKU : T-S-00032"
+                - cell "Homme" [ref=e1097]
+                - cell "6 500" [ref=e1098]
+                - cell "—" [ref=e1099]
+                - cell "50" [ref=e1100]
+                - cell "✓ Actif" [ref=e1101]:
+                  - generic [ref=e1102]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1103]
+                - cell " " [ref=e1104]:
+                  - generic [ref=e1105]:
+                    - link "" [ref=e1106] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=32
+                      - generic [ref=e1107]: 
+                    - button "" [ref=e1108] [cursor=pointer]:
+                      - generic [ref=e1109]: 
+              - 'row "#P33 Jean slim homme SKU : JEA-00033 Homme 18 000 -30% 35 ✓ Actif 18/05/26 à 17:48  " [ref=e1110]':
+                - cell [ref=e1111]:
+                  - checkbox [ref=e1112]
+                - cell "#P33" [ref=e1113]
+                - 'cell "Jean slim homme SKU : JEA-00033" [ref=e1114]':
+                  - generic [ref=e1117]:
+                    - generic [ref=e1118]: Jean slim homme
+                    - generic [ref=e1119]: "SKU : JEA-00033"
+                - cell "Homme" [ref=e1120]
+                - cell "18 000" [ref=e1121]
+                - cell "-30%" [ref=e1122]:
+                  - generic [ref=e1123]: "-30%"
+                - cell "35" [ref=e1124]
+                - cell "✓ Actif" [ref=e1125]:
+                  - generic [ref=e1126]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1127]
+                - cell " " [ref=e1128]:
+                  - generic [ref=e1129]:
+                    - link "" [ref=e1130] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=33
+                      - generic [ref=e1131]: 
+                    - button "" [ref=e1132] [cursor=pointer]:
+                      - generic [ref=e1133]: 
+              - 'row "#P34 Veste bomber homme SKU : VES-00034 Homme 22 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e1134]':
+                - cell [ref=e1135]:
+                  - checkbox [ref=e1136]
+                - cell "#P34" [ref=e1137]
+                - 'cell "Veste bomber homme SKU : VES-00034" [ref=e1138]':
+                  - generic [ref=e1141]:
+                    - generic [ref=e1142]: Veste bomber homme
+                    - generic [ref=e1143]: "SKU : VES-00034"
+                - cell "Homme" [ref=e1144]
+                - cell "22 000" [ref=e1145]
+                - cell "—" [ref=e1146]
+                - cell "20" [ref=e1147]
+                - cell "✓ Actif" [ref=e1148]:
+                  - generic [ref=e1149]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1150]
+                - cell " " [ref=e1151]:
+                  - generic [ref=e1152]:
+                    - link "" [ref=e1153] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=34
+                      - generic [ref=e1154]: 
+                    - button "" [ref=e1155] [cursor=pointer]:
+                      - generic [ref=e1156]: 
+              - 'row "#P35 Short sport homme SKU : SHO-00035 Homme 8 000 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e1157]':
+                - cell [ref=e1158]:
+                  - checkbox [ref=e1159]
+                - cell "#P35" [ref=e1160]
+                - 'cell "Short sport homme SKU : SHO-00035" [ref=e1161]':
+                  - generic [ref=e1164]:
+                    - generic [ref=e1165]: Short sport homme
+                    - generic [ref=e1166]: "SKU : SHO-00035"
+                - cell "Homme" [ref=e1167]
+                - cell "8 000" [ref=e1168]
+                - cell "—" [ref=e1169]
+                - cell "40" [ref=e1170]
+                - cell "✓ Actif" [ref=e1171]:
+                  - generic [ref=e1172]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1173]
+                - cell " " [ref=e1174]:
+                  - generic [ref=e1175]:
+                    - link "" [ref=e1176] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=35
+                      - generic [ref=e1177]: 
+                    - button "" [ref=e1178] [cursor=pointer]:
+                      - generic [ref=e1179]: 
+              - 'row "#P36 Pantalon chino homme SKU : PAN-00036 Homme 16 000 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e1180]':
+                - cell [ref=e1181]:
+                  - checkbox [ref=e1182]
+                - cell "#P36" [ref=e1183]
+                - 'cell "Pantalon chino homme SKU : PAN-00036" [ref=e1184]':
+                  - generic [ref=e1187]:
+                    - generic [ref=e1188]: Pantalon chino homme
+                    - generic [ref=e1189]: "SKU : PAN-00036"
+                - cell "Homme" [ref=e1190]
+                - cell "16 000" [ref=e1191]
+                - cell "—" [ref=e1192]
+                - cell "30" [ref=e1193]
+                - cell "✓ Actif" [ref=e1194]:
+                  - generic [ref=e1195]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1196]
+                - cell " " [ref=e1197]:
+                  - generic [ref=e1198]:
+                    - link "" [ref=e1199] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=36
+                      - generic [ref=e1200]: 
+                    - button "" [ref=e1201] [cursor=pointer]:
+                      - generic [ref=e1202]: 
+              - 'row "#P37 Blazer homme SKU : BLA-00037 Homme 35 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e1203]':
+                - cell [ref=e1204]:
+                  - checkbox [ref=e1205]
+                - cell "#P37" [ref=e1206]
+                - 'cell "Blazer homme SKU : BLA-00037" [ref=e1207]':
+                  - generic [ref=e1210]:
+                    - generic [ref=e1211]: Blazer homme
+                    - generic [ref=e1212]: "SKU : BLA-00037"
+                - cell "Homme" [ref=e1213]
+                - cell "35 000" [ref=e1214]
+                - cell "—" [ref=e1215]
+                - cell "15" [ref=e1216]
+                - cell "✓ Actif" [ref=e1217]:
+                  - generic [ref=e1218]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1219]
+                - cell " " [ref=e1220]:
+                  - generic [ref=e1221]:
+                    - link "" [ref=e1222] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=37
+                      - generic [ref=e1223]: 
+                    - button "" [ref=e1224] [cursor=pointer]:
+                      - generic [ref=e1225]: 
+              - 'row "#P39 Parka homme SKU : PAR-00039 Homme 28 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e1226]':
+                - cell [ref=e1227]:
+                  - checkbox [ref=e1228]
+                - cell "#P39" [ref=e1229]
+                - 'cell "Parka homme SKU : PAR-00039" [ref=e1230]':
+                  - generic [ref=e1233]:
+                    - generic [ref=e1234]: Parka homme
+                    - generic [ref=e1235]: "SKU : PAR-00039"
+                - cell "Homme" [ref=e1236]
+                - cell "28 000" [ref=e1237]
+                - cell "—" [ref=e1238]
+                - cell "20" [ref=e1239]
+                - cell "✓ Actif" [ref=e1240]:
+                  - generic [ref=e1241]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1242]
+                - cell " " [ref=e1243]:
+                  - generic [ref=e1244]:
+                    - link "" [ref=e1245] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=39
+                      - generic [ref=e1246]: 
+                    - button "" [ref=e1247] [cursor=pointer]:
+                      - generic [ref=e1248]: 
+              - 'row "#P40 Costume complet homme SKU : COS-00040 Homme 55 000 — 10 ✓ Actif 18/05/26 à 17:48  " [ref=e1249]':
+                - cell [ref=e1250]:
+                  - checkbox [ref=e1251]
+                - cell "#P40" [ref=e1252]
+                - 'cell "Costume complet homme SKU : COS-00040" [ref=e1253]':
+                  - generic [ref=e1256]:
+                    - generic [ref=e1257]: Costume complet homme
+                    - generic [ref=e1258]: "SKU : COS-00040"
+                - cell "Homme" [ref=e1259]
+                - cell "55 000" [ref=e1260]
+                - cell "—" [ref=e1261]
+                - cell "10" [ref=e1262]
+                - cell "✓ Actif" [ref=e1263]:
+                  - generic [ref=e1264]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1265]
+                - cell " " [ref=e1266]:
+                  - generic [ref=e1267]:
+                    - link "" [ref=e1268] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=40
+                      - generic [ref=e1269]: 
+                    - button "" [ref=e1270] [cursor=pointer]:
+                      - generic [ref=e1271]: 
+              - 'row "#P11 T-shirt enfant SKU : T-S-00011 Enfant 4 500 -25% 60 ✓ Actif 18/05/26 à 17:48  " [ref=e1272]':
+                - cell [ref=e1273]:
+                  - checkbox [ref=e1274]
+                - cell "#P11" [ref=e1275]
+                - 'cell "T-shirt enfant SKU : T-S-00011" [ref=e1276]':
+                  - generic [ref=e1279]:
+                    - generic [ref=e1280]: T-shirt enfant
+                    - generic [ref=e1281]: "SKU : T-S-00011"
+                - cell "Enfant" [ref=e1282]
+                - cell "4 500" [ref=e1283]
+                - cell "-25%" [ref=e1284]:
+                  - generic [ref=e1285]: "-25%"
+                - cell "60" [ref=e1286]
+                - cell "✓ Actif" [ref=e1287]:
+                  - generic [ref=e1288]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1289]
+                - cell " " [ref=e1290]:
+                  - generic [ref=e1291]:
+                    - link "" [ref=e1292] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=11
+                      - generic [ref=e1293]: 
+                    - button "" [ref=e1294] [cursor=pointer]:
+                      - generic [ref=e1295]: 
+              - 'row "#P12 Jean enfant SKU : JEA-00012 Enfant 8 000 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e1296]':
+                - cell [ref=e1297]:
+                  - checkbox [ref=e1298]
+                - cell "#P12" [ref=e1299]
+                - 'cell "Jean enfant SKU : JEA-00012" [ref=e1300]':
+                  - generic [ref=e1303]:
+                    - generic [ref=e1304]: Jean enfant
+                    - generic [ref=e1305]: "SKU : JEA-00012"
+                - cell "Enfant" [ref=e1306]
+                - cell "8 000" [ref=e1307]
+                - cell "—" [ref=e1308]
+                - cell "40" [ref=e1309]
+                - cell "✓ Actif" [ref=e1310]:
+                  - generic [ref=e1311]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1312]
+                - cell " " [ref=e1313]:
+                  - generic [ref=e1314]:
+                    - link "" [ref=e1315] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=12
+                      - generic [ref=e1316]: 
+                    - button "" [ref=e1317] [cursor=pointer]:
+                      - generic [ref=e1318]: 
+              - 'row "#P13 Robe enfant fille SKU : ROB-00013 Enfant 7 000 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e1319]':
+                - cell [ref=e1320]:
+                  - checkbox [ref=e1321]
+                - cell "#P13" [ref=e1322]
+                - 'cell "Robe enfant fille SKU : ROB-00013" [ref=e1323]':
+                  - generic [ref=e1326]:
+                    - generic [ref=e1327]: Robe enfant fille
+                    - generic [ref=e1328]: "SKU : ROB-00013"
+                - cell "Enfant" [ref=e1329]
+                - cell "7 000" [ref=e1330]
+                - cell "—" [ref=e1331]
+                - cell "35" [ref=e1332]
+                - cell "✓ Actif" [ref=e1333]:
+                  - generic [ref=e1334]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1335]
+                - cell " " [ref=e1336]:
+                  - generic [ref=e1337]:
+                    - link "" [ref=e1338] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=13
+                      - generic [ref=e1339]: 
+                    - button "" [ref=e1340] [cursor=pointer]:
+                      - generic [ref=e1341]: 
+              - 'row "#P14 Short enfant SKU : SHO-00014 Enfant 5 000 — 50 ✓ Actif 18/05/26 à 17:48  " [ref=e1342]':
+                - cell [ref=e1343]:
+                  - checkbox [ref=e1344]
+                - cell "#P14" [ref=e1345]
+                - 'cell "Short enfant SKU : SHO-00014" [ref=e1346]':
+                  - generic [ref=e1349]:
+                    - generic [ref=e1350]: Short enfant
+                    - generic [ref=e1351]: "SKU : SHO-00014"
+                - cell "Enfant" [ref=e1352]
+                - cell "5 000" [ref=e1353]
+                - cell "—" [ref=e1354]
+                - cell "50" [ref=e1355]
+                - cell "✓ Actif" [ref=e1356]:
+                  - generic [ref=e1357]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1358]
+                - cell " " [ref=e1359]:
+                  - generic [ref=e1360]:
+                    - link "" [ref=e1361] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=14
+                      - generic [ref=e1362]: 
+                    - button "" [ref=e1363] [cursor=pointer]:
+                      - generic [ref=e1364]: 
+              - 'row "#P15 Veste enfant SKU : VES-00015 Enfant 10 000 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e1365]':
+                - cell [ref=e1366]:
+                  - checkbox [ref=e1367]
+                - cell "#P15" [ref=e1368]
+                - 'cell "Veste enfant SKU : VES-00015" [ref=e1369]':
+                  - generic [ref=e1372]:
+                    - generic [ref=e1373]: Veste enfant
+                    - generic [ref=e1374]: "SKU : VES-00015"
+                - cell "Enfant" [ref=e1375]
+                - cell "10 000" [ref=e1376]
+                - cell "—" [ref=e1377]
+                - cell "25" [ref=e1378]
+                - cell "✓ Actif" [ref=e1379]:
+                  - generic [ref=e1380]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1381]
+                - cell " " [ref=e1382]:
+                  - generic [ref=e1383]:
+                    - link "" [ref=e1384] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=15
+                      - generic [ref=e1385]: 
+                    - button "" [ref=e1386] [cursor=pointer]:
+                      - generic [ref=e1387]: 
+              - 'row "#P16 Pantalon enfant SKU : PAN-00016 Enfant 7 000 — 45 ✓ Actif 18/05/26 à 17:48  " [ref=e1388]':
+                - cell [ref=e1389]:
+                  - checkbox [ref=e1390]
+                - cell "#P16" [ref=e1391]
+                - 'cell "Pantalon enfant SKU : PAN-00016" [ref=e1392]':
+                  - generic [ref=e1395]:
+                    - generic [ref=e1396]: Pantalon enfant
+                    - generic [ref=e1397]: "SKU : PAN-00016"
+                - cell "Enfant" [ref=e1398]
+                - cell "7 000" [ref=e1399]
+                - cell "—" [ref=e1400]
+                - cell "45" [ref=e1401]
+                - cell "✓ Actif" [ref=e1402]:
+                  - generic [ref=e1403]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1404]
+                - cell " " [ref=e1405]:
+                  - generic [ref=e1406]:
+                    - link "" [ref=e1407] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=16
+                      - generic [ref=e1408]: 
+                    - button "" [ref=e1409] [cursor=pointer]:
+                      - generic [ref=e1410]: 
+              - 'row "#P18 Ensemble survêtement enfant SKU : ENS-00018 Enfant 11 000 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e1411]':
+                - cell [ref=e1412]:
+                  - checkbox [ref=e1413]
+                - cell "#P18" [ref=e1414]
+                - 'cell "Ensemble survêtement enfant SKU : ENS-00018" [ref=e1415]':
+                  - generic [ref=e1418]:
+                    - generic [ref=e1419]: Ensemble survêtement enfant
+                    - generic [ref=e1420]: "SKU : ENS-00018"
+                - cell "Enfant" [ref=e1421]
+                - cell "11 000" [ref=e1422]
+                - cell "—" [ref=e1423]
+                - cell "35" [ref=e1424]
+                - cell "✓ Actif" [ref=e1425]:
+                  - generic [ref=e1426]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1427]
+                - cell " " [ref=e1428]:
+                  - generic [ref=e1429]:
+                    - link "" [ref=e1430] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=18
+                      - generic [ref=e1431]: 
+                    - button "" [ref=e1432] [cursor=pointer]:
+                      - generic [ref=e1433]: 
+              - 'row "#P19 Manteau enfant SKU : MAN-00019 Enfant 14 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e1434]':
+                - cell [ref=e1435]:
+                  - checkbox [ref=e1436]
+                - cell "#P19" [ref=e1437]
+                - 'cell "Manteau enfant SKU : MAN-00019" [ref=e1438]':
+                  - generic [ref=e1441]:
+                    - generic [ref=e1442]: Manteau enfant
+                    - generic [ref=e1443]: "SKU : MAN-00019"
+                - cell "Enfant" [ref=e1444]
+                - cell "14 000" [ref=e1445]
+                - cell "—" [ref=e1446]
+                - cell "20" [ref=e1447]
+                - cell "✓ Actif" [ref=e1448]:
+                  - generic [ref=e1449]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1450]
+                - cell " " [ref=e1451]:
+                  - generic [ref=e1452]:
+                    - link "" [ref=e1453] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=19
+                      - generic [ref=e1454]: 
+                    - button "" [ref=e1455] [cursor=pointer]:
+                      - generic [ref=e1456]: 
+              - 'row "#P20 Pyjama enfant SKU : PYJ-00020 Enfant 5 500 — 50 ✓ Actif 18/05/26 à 17:48  " [ref=e1457]':
+                - cell [ref=e1458]:
+                  - checkbox [ref=e1459]
+                - cell "#P20" [ref=e1460]
+                - 'cell "Pyjama enfant SKU : PYJ-00020" [ref=e1461]':
+                  - generic [ref=e1464]:
+                    - generic [ref=e1465]: Pyjama enfant
+                    - generic [ref=e1466]: "SKU : PYJ-00020"
+                - cell "Enfant" [ref=e1467]
+                - cell "5 500" [ref=e1468]
+                - cell "—" [ref=e1469]
+                - cell "50" [ref=e1470]
+                - cell "✓ Actif" [ref=e1471]:
+                  - generic [ref=e1472]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1473]
+                - cell " " [ref=e1474]:
+                  - generic [ref=e1475]:
+                    - link "" [ref=e1476] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=20
+                      - generic [ref=e1477]: 
+                    - button "" [ref=e1478] [cursor=pointer]:
+                      - generic [ref=e1479]: 
+              - 'row "#P1 Sac à main cuir SKU : SAC-00001 Accessoires 25 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e1480]':
+                - cell [ref=e1481]:
+                  - checkbox [ref=e1482]
+                - cell "#P1" [ref=e1483]
+                - 'cell "Sac à main cuir SKU : SAC-00001" [ref=e1484]':
+                  - generic [ref=e1487]:
+                    - generic [ref=e1488]: Sac à main cuir
+                    - generic [ref=e1489]: "SKU : SAC-00001"
+                - cell "Accessoires" [ref=e1490]
+                - cell "25 000" [ref=e1491]
+                - cell "—" [ref=e1492]
+                - cell "15" [ref=e1493]
+                - cell "✓ Actif" [ref=e1494]:
+                  - generic [ref=e1495]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1496]
+                - cell " " [ref=e1497]:
+                  - generic [ref=e1498]:
+                    - link "" [ref=e1499] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=1
+                      - generic [ref=e1500]: 
+                    - button "" [ref=e1501] [cursor=pointer]:
+                      - generic [ref=e1502]: 
+              - 'row "#P2 Montre homme classique SKU : MON-00002 Accessoires 35 000 — 10 ✓ Actif 18/05/26 à 17:48  " [ref=e1503]':
+                - cell [ref=e1504]:
+                  - checkbox [ref=e1505]
+                - cell "#P2" [ref=e1506]
+                - 'cell "Montre homme classique SKU : MON-00002" [ref=e1507]':
+                  - generic [ref=e1510]:
+                    - generic [ref=e1511]: Montre homme classique
+                    - generic [ref=e1512]: "SKU : MON-00002"
+                - cell "Accessoires" [ref=e1513]
+                - cell "35 000" [ref=e1514]
+                - cell "—" [ref=e1515]
+                - cell "10" [ref=e1516]
+                - cell "✓ Actif" [ref=e1517]:
+                  - generic [ref=e1518]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1519]
+                - cell " " [ref=e1520]:
+                  - generic [ref=e1521]:
+                    - link "" [ref=e1522] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=2
+                      - generic [ref=e1523]: 
+                    - button "" [ref=e1524] [cursor=pointer]:
+                      - generic [ref=e1525]: 
+              - 'row "#P3 Lunettes de soleil SKU : LUN-00003 Accessoires 8 500 — 40 ✓ Actif 18/05/26 à 17:48  " [ref=e1526]':
+                - cell [ref=e1527]:
+                  - checkbox [ref=e1528]
+                - cell "#P3" [ref=e1529]
+                - 'cell "Lunettes de soleil SKU : LUN-00003" [ref=e1530]':
+                  - generic [ref=e1533]:
+                    - generic [ref=e1534]: Lunettes de soleil
+                    - generic [ref=e1535]: "SKU : LUN-00003"
+                - cell "Accessoires" [ref=e1536]
+                - cell "8 500" [ref=e1537]
+                - cell "—" [ref=e1538]
+                - cell "40" [ref=e1539]
+                - cell "✓ Actif" [ref=e1540]:
+                  - generic [ref=e1541]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1542]
+                - cell " " [ref=e1543]:
+                  - generic [ref=e1544]:
+                    - link "" [ref=e1545] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=3
+                      - generic [ref=e1546]: 
+                    - button "" [ref=e1547] [cursor=pointer]:
+                      - generic [ref=e1548]: 
+              - 'row "#P4 Ceinture homme cuir SKU : CEI-00004 Accessoires 9 000 — 30 ✓ Actif 18/05/26 à 17:48  " [ref=e1549]':
+                - cell [ref=e1550]:
+                  - checkbox [ref=e1551]
+                - cell "#P4" [ref=e1552]
+                - 'cell "Ceinture homme cuir SKU : CEI-00004" [ref=e1553]':
+                  - generic [ref=e1556]:
+                    - generic [ref=e1557]: Ceinture homme cuir
+                    - generic [ref=e1558]: "SKU : CEI-00004"
+                - cell "Accessoires" [ref=e1559]
+                - cell "9 000" [ref=e1560]
+                - cell "—" [ref=e1561]
+                - cell "30" [ref=e1562]
+                - cell "✓ Actif" [ref=e1563]:
+                  - generic [ref=e1564]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1565]
+                - cell " " [ref=e1566]:
+                  - generic [ref=e1567]:
+                    - link "" [ref=e1568] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=4
+                      - generic [ref=e1569]: 
+                    - button "" [ref=e1570] [cursor=pointer]:
+                      - generic [ref=e1571]: 
+              - 'row "#P6 Sac à dos SKU : SAC-00006 Accessoires 15 000 — 20 ✓ Actif 18/05/26 à 17:48  " [ref=e1572]':
+                - cell [ref=e1573]:
+                  - checkbox [ref=e1574]
+                - cell "#P6" [ref=e1575]
+                - 'cell "Sac à dos SKU : SAC-00006" [ref=e1576]':
+                  - generic [ref=e1579]:
+                    - generic [ref=e1580]: Sac à dos
+                    - generic [ref=e1581]: "SKU : SAC-00006"
+                - cell "Accessoires" [ref=e1582]
+                - cell "15 000" [ref=e1583]
+                - cell "—" [ref=e1584]
+                - cell "20" [ref=e1585]
+                - cell "✓ Actif" [ref=e1586]:
+                  - generic [ref=e1587]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1588]
+                - cell " " [ref=e1589]:
+                  - generic [ref=e1590]:
+                    - link "" [ref=e1591] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=6
+                      - generic [ref=e1592]: 
+                    - button "" [ref=e1593] [cursor=pointer]:
+                      - generic [ref=e1594]: 
+              - 'row "#P7 Portefeuille homme SKU : POR-00007 Accessoires 8 000 — 35 ✓ Actif 18/05/26 à 17:48  " [ref=e1595]':
+                - cell [ref=e1596]:
+                  - checkbox [ref=e1597]
+                - cell "#P7" [ref=e1598]
+                - 'cell "Portefeuille homme SKU : POR-00007" [ref=e1599]':
+                  - generic [ref=e1602]:
+                    - generic [ref=e1603]: Portefeuille homme
+                    - generic [ref=e1604]: "SKU : POR-00007"
+                - cell "Accessoires" [ref=e1605]
+                - cell "8 000" [ref=e1606]
+                - cell "—" [ref=e1607]
+                - cell "35" [ref=e1608]
+                - cell "✓ Actif" [ref=e1609]:
+                  - generic [ref=e1610]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1611]
+                - cell " " [ref=e1612]:
+                  - generic [ref=e1613]:
+                    - link "" [ref=e1614] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=7
+                      - generic [ref=e1615]: 
+                    - button "" [ref=e1616] [cursor=pointer]:
+                      - generic [ref=e1617]: 
+              - 'row "#P8 Chapeau femme SKU : CHA-00008 Accessoires 5 500 — 25 ✓ Actif 18/05/26 à 17:48  " [ref=e1618]':
+                - cell [ref=e1619]:
+                  - checkbox [ref=e1620]
+                - cell "#P8" [ref=e1621]
+                - 'cell "Chapeau femme SKU : CHA-00008" [ref=e1622]':
+                  - generic [ref=e1625]:
+                    - generic [ref=e1626]: Chapeau femme
+                    - generic [ref=e1627]: "SKU : CHA-00008"
+                - cell "Accessoires" [ref=e1628]
+                - cell "5 500" [ref=e1629]
+                - cell "—" [ref=e1630]
+                - cell "25" [ref=e1631]
+                - cell "✓ Actif" [ref=e1632]:
+                  - generic [ref=e1633]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1634]
+                - cell " " [ref=e1635]:
+                  - generic [ref=e1636]:
+                    - link "" [ref=e1637] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=8
+                      - generic [ref=e1638]: 
+                    - button "" [ref=e1639] [cursor=pointer]:
+                      - generic [ref=e1640]: 
+              - 'row "#P9 Bijoux fantaisie SKU : BIJ-00009 Accessoires 4 000 — 60 ✓ Actif 18/05/26 à 17:48  " [ref=e1641]':
+                - cell [ref=e1642]:
+                  - checkbox [ref=e1643]
+                - cell "#P9" [ref=e1644]
+                - 'cell "Bijoux fantaisie SKU : BIJ-00009" [ref=e1645]':
+                  - generic [ref=e1648]:
+                    - generic [ref=e1649]: Bijoux fantaisie
+                    - generic [ref=e1650]: "SKU : BIJ-00009"
+                - cell "Accessoires" [ref=e1651]
+                - cell "4 000" [ref=e1652]
+                - cell "—" [ref=e1653]
+                - cell "60" [ref=e1654]
+                - cell "✓ Actif" [ref=e1655]:
+                  - generic [ref=e1656]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1657]
+                - cell " " [ref=e1658]:
+                  - generic [ref=e1659]:
+                    - link "" [ref=e1660] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=9
+                      - generic [ref=e1661]: 
+                    - button "" [ref=e1662] [cursor=pointer]:
+                      - generic [ref=e1663]: 
+              - 'row "#P10 Montre femme SKU : MON-00010 Accessoires 20 000 — 15 ✓ Actif 18/05/26 à 17:48  " [ref=e1664]':
+                - cell [ref=e1665]:
+                  - checkbox [ref=e1666]
+                - cell "#P10" [ref=e1667]
+                - 'cell "Montre femme SKU : MON-00010" [ref=e1668]':
+                  - generic [ref=e1671]:
+                    - generic [ref=e1672]: Montre femme
+                    - generic [ref=e1673]: "SKU : MON-00010"
+                - cell "Accessoires" [ref=e1674]
+                - cell "20 000" [ref=e1675]
+                - cell "—" [ref=e1676]
+                - cell "15" [ref=e1677]
+                - cell "✓ Actif" [ref=e1678]:
+                  - generic [ref=e1679]: ✓ Actif
+                - cell "18/05/26 à 17:48" [ref=e1680]
+                - cell " " [ref=e1681]:
+                  - generic [ref=e1682]:
+                    - link "" [ref=e1683] [cursor=pointer]:
+                      - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=10
+                      - generic [ref=e1684]: 
+                    - button "" [ref=e1685] [cursor=pointer]:
+                      - generic [ref=e1686]: 
+          - generic [ref=e1687]:
+            - generic [ref=e1688]: Affichage 1-10 sur 68 produits
+            - generic [ref=e1689]:
+              - link "" [ref=e1690] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1691]: 
+              - link "1" [ref=e1692] [cursor=pointer]:
+                - /url: "#"
+              - link "2" [ref=e1693] [cursor=pointer]:
+                - /url: "#"
+              - link "3" [ref=e1694] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e1695] [cursor=pointer]: ...
+              - link "15" [ref=e1696] [cursor=pointer]:
+                - /url: "#"
+              - link "" [ref=e1697] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1698]: 
+      - generic [ref=e1699]:
+        - generic [ref=e1700]: v1.0.0 • ClaudiShop Admin
+        - generic [ref=e1701]: © 2026 ClaudiShop – Tous droits réservés
+        - generic [ref=e1702]: v1.0.0
+  - generic [ref=e1704]:
+    - button "✕" [ref=e1705] [cursor=pointer]
+    - heading "Ajouter un produit" [level=2] [ref=e1706]
+    - generic [ref=e1707]:
+      - generic [ref=e1708]:
+        - generic [ref=e1709]: Nom du produit
+        - textbox [ref=e1710]
+      - generic [ref=e1711]:
+        - generic [ref=e1712]:
+          - generic [ref=e1713]: Prix (FCFA)
+          - spinbutton [ref=e1714]
+        - generic [ref=e1715]:
+          - generic [ref=e1716]: Stock
+          - spinbutton [ref=e1717]
+      - generic [ref=e1718]:
+        - generic [ref=e1719]: Prix soldé (FCFA) (laisser vide si pas de solde)
+        - spinbutton [ref=e1720]
+      - generic [ref=e1721]:
+        - generic [ref=e1722]: Catégorie
+        - combobox [ref=e1723] [cursor=pointer]:
+          - option "Sélectionner..." [selected]
+          - option "Accessoires"
+          - option "Chaussures"
+          - option "Enfant"
+          - option "Femme"
+          - option "Homme"
+      - generic [ref=e1724]:
+        - generic [ref=e1725]: Taille(s) disponibles (optionnel)
+        - 'textbox "Ex: XS, S, M, L, XL — laisser vide pour les accessoires" [ref=e1726]'
+      - generic [ref=e1727]:
+        - generic [ref=e1728]: Description
+        - textbox [ref=e1729]
+      - generic [ref=e1730]:
+        - generic [ref=e1731]: Image du produit
+        - button "Choose File" [active] [ref=e1732]
+      - generic [ref=e1733]:
+        - button "Annuler" [ref=e1734] [cursor=pointer]
+        - button "Ajouter le produit" [ref=e1735] [cursor=pointer]

@@ -1,0 +1,10 @@
+[    9618ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[    9622ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   15897ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[   15906ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[   25986ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[   31685ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[   44670ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/admin/livreurs.php:0
+[   47816ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/admin/livreurs/modifier.php?id=12:0
+[   55321ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/admin/livreurs.php:0
+[  273505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0

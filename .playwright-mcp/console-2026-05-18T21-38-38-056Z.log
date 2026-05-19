@@ -1,0 +1,2 @@
+[      58ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php:0
+[   29881ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie%5B%5D=1&categorie%5B%5D=2&min_prix=&max_prix=&stock_only=1&inclure_rupture=1:0

@@ -1,0 +1,17 @@
+[     127ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/detail_produit.php?id=44:0
+[  982299ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/detail_produit.php?id=44:0
+[ 1003287ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/chemise_lin_homme_new.jpg:0
+[ 1003330ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie=2:0
+[ 1040005ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie=2:0
+[ 1049595ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1:0
+[ 1065157ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/driver/connexion.php:0
+[ 1066596ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1:0
+[ 1297011ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1:0
+[ 1309094ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/debardeur_femme_new.jpg:0
+[ 1309097ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/tshirt_femme_new.jpg:0
+[ 1309099ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/jupe_plissee_new.jpg:0
+[ 1309139ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?categorie=1:0
+[ 1362786ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1:0
+[ 1537146ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php?soldes=1:0
+[ 1548812ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/index.php:0
+[ 1591776ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/boutique.php:0

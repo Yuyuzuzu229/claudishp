@@ -13,6 +13,13 @@ class Utilisateur {
         return $stmt->fetchAll();
     }
 
+    public function search($q) {
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE nom LIKE ? OR prenom LIKE ? OR email LIKE ? OR telephone LIKE ? ORDER BY date_inscription DESC");
+        $like = "%$q%";
+        $stmt->execute([$like, $like, $like, $like]);
+        return $stmt->fetchAll();
+    }
+
     public function getById($id) {
         $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE id = ?");
         $stmt->execute([$id]);

@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - heading "Mise à jour des images produits" [level=1] [ref=e2]
+  - list [ref=e3]:
+    - listitem [ref=e4]: Produit ID 16 → produits/pantalon_enfant.jpg
+    - listitem [ref=e5]: Produit ID 41 → produits/jupe_courte_jean_new.jpg
+    - listitem [ref=e6]: Produit ID 21 → produits/robe_fleurie_femme_new.jpg
+    - listitem [ref=e7]: Produit ID 42 → produits/robe_ete_fleurie_new.jpg
+    - listitem [ref=e8]: Produit ID 44 → produits/tshirt_basique_femme_new.jpg
+    - listitem [ref=e9]: Produit ID 47 → produits/short_jean_femme_new.jpg
+    - listitem [ref=e10]: Produit ID 46 → produits/manteau_hiver_femme_new.jpg
+    - listitem [ref=e11]: Produit ID 15 → produits/veste_enfant_new.jpg
+    - listitem [ref=e12]: Produit ID 48 → produits/chemisier_blanc_femme_new.jpg
+    - listitem [ref=e13]: Produit ID 81 → produits/chaussures_homme_new.jpg
+    - listitem [ref=e14]: Produit ID 18 → produits/ensemble_survetement_enfant_new.jpg
+    - listitem [ref=e15]: Produit ID 8 → produits/chapeau_femme_new.jpg
+    - listitem [ref=e16]: Produit ID 3 → produits/lunettes_new.jpg
+    - listitem [ref=e17]: Produit ID 79 → produits/bijoux_new.jpg
+    - listitem [ref=e18]: Produit ID 14 → produits/short_enfant_new.jpg
+    - listitem [ref=e19]: Produit ID 35 → produits/sport_homme_new.jpg
+    - listitem [ref=e20]: Produit ID 57 → produits/sport_homme_2_new.jpg
+    - listitem [ref=e21]: Produit ID 36 → produits/pantalon_chino_new.jpg
+    - listitem [ref=e22]: Produit ID 23 → produits/jupe_plissee_new.jpg
+    - listitem [ref=e23]: Produit ID 26 → produits/robe_soiree_new.jpg
+    - listitem [ref=e24]: Produit ID 22 → produits/tshirt_femme_new.jpg
+    - listitem [ref=e25]: Produit ID 27 → produits/veste_jean_femme_new.jpg
+    - listitem [ref=e26]: Produit ID 29 → produits/manteau_femme_new.jpg
+    - listitem [ref=e27]: Produit ID 34 → produits/veste_bomber_new.jpg
+    - listitem [ref=e28]: Produit ID 39 → produits/parka_homme_new.jpg
+    - listitem [ref=e29]: Produit ID 50 → produits/debardeur_femme_new.jpg
+    - listitem [ref=e30]: Produit ID 60 → produits/debardeur_sport_new.jpg
+    - listitem [ref=e31]: Produit ID 32 → produits/tshirt_homme_new.jpg
+    - listitem [ref=e32]: Produit ID 37 → produits/blazer_homme_new.jpg
+    - listitem [ref=e33]: Produit ID 40 → produits/costume_homme_new.jpg
+    - listitem [ref=e34]: Produit ID 82 → produits/baskets_femme_new.jpg
+    - listitem [ref=e35]: Produit ID 83 → produits/sandales_femme_new.jpg
+    - listitem [ref=e36]: Produit ID 84 → produits/baskets_enfant_new.jpg
+    - listitem [ref=e37]: Produit ID 85 → produits/chaussures_habillees_new.jpg
+    - listitem [ref=e38]: Produit ID 66 → produits/ensemble_sport_enfant_new.jpg
+    - listitem [ref=e39]: Produit ID 88 → produits/baskets_sport_new.jpg
+    - listitem [ref=e40]: Produit ID 78 → produits/casquette_homme_new.jpg
+    - listitem [ref=e41]: Produit ID 51 → produits/chemise_lin_homme_new.jpg
+    - listitem [ref=e42]: Produit ID 77 → produits/echarpe_laine_new.jpg
+  - paragraph [ref=e43]:
+    - strong [ref=e44]: 39 produits mis à jour.
+  - paragraph [ref=e45]:
+    - link "Retour à l'accueil" [ref=e46] [cursor=pointer]:
+      - /url: ../index.php

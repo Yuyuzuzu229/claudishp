@@ -1,0 +1,266 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e18]: 
+        - text: Utilisateurs
+        - generic [ref=e19]: "3"
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e21]: 
+        - text: Produits
+        - generic [ref=e22]: "69"
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e24]: 
+        - text: Catégories
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e26]: 
+        - text: Commandes
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e29]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e31]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e33]: 
+        - text: Livreurs
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e36]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e38]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e40]: 
+        - text: Notifications
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e43]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e45]: 
+        - text: Déconnexion
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: 
+        - textbox "Rechercher..." [ref=e50]: sac
+      - generic [ref=e51]: Monday 18 May 2026
+      - link "" [ref=e52] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e53]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: S
+        - text:     
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: Gestion
+        - heading "Produits" [level=1] [ref=e59]
+        - paragraph [ref=e60]: Gérez votre catalogue de produits
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: Produits totaux
+            - generic [ref=e65]: "4"
+            - generic [ref=e66]: Tous produits confondus
+          - generic [ref=e67]: 
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Produits actifs
+            - generic [ref=e71]: "4"
+            - generic [ref=e72]: 90.1% des produits
+          - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: Produits inactifs
+            - generic [ref=e77]: "0"
+            - generic [ref=e78]: 9.9% des produits
+          - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - generic [ref=e82]: En promo
+            - generic [ref=e83]: "1"
+            - generic [ref=e84]: 16.2% des produits
+          - generic [ref=e85]: 
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: 
+              - textbox "Rechercher un produit..." [ref=e91]
+            - combobox [ref=e92] [cursor=pointer]:
+              - option "Toutes catégories" [selected]
+              - option "Accessoires"
+              - option "Chaussures"
+              - option "électronique"
+              - option "Enfant"
+              - option "Femme"
+              - option "Homme"
+              - option "Sport"
+            - combobox [ref=e93] [cursor=pointer]:
+              - option "Statut" [selected]
+              - option "Actif"
+              - option "Inactif"
+            - combobox [ref=e94] [cursor=pointer]:
+              - option "Stock" [selected]
+              - option "En stock"
+              - option "Rupture"
+          - link "+ Ajouter un produit" [ref=e96] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e97]: +
+            - text: Ajouter un produit
+        - table [ref=e98]:
+          - rowgroup [ref=e99]:
+            - row "ID Produit Catégorie Prix (FCFA) Solde Stock Statut Créé le Actions" [ref=e100]:
+              - columnheader [ref=e101]:
+                - checkbox [ref=e102]
+              - columnheader "ID" [ref=e103]
+              - columnheader "Produit" [ref=e104]
+              - columnheader "Catégorie" [ref=e105]
+              - columnheader "Prix (FCFA)" [ref=e106]
+              - columnheader "Solde" [ref=e107]
+              - columnheader "Stock" [ref=e108]
+              - columnheader "Statut" [ref=e109]
+              - columnheader "Créé le" [ref=e110]
+              - columnheader "Actions" [ref=e111]
+          - rowgroup [ref=e112]:
+            - 'row "#P71 Sac à main en cuir SKU : SAC-00071 Accessoires 25 000 -20% 15 ✓ Actif 18/05/26 à 21:30  " [ref=e113]':
+              - cell [ref=e114]:
+                - checkbox [ref=e115]
+              - cell "#P71" [ref=e116]
+              - 'cell "Sac à main en cuir SKU : SAC-00071" [ref=e117]':
+                - generic [ref=e120]:
+                  - generic [ref=e121]: Sac à main en cuir
+                  - generic [ref=e122]: "SKU : SAC-00071"
+              - cell "Accessoires" [ref=e123]
+              - cell "25 000" [ref=e124]
+              - cell "-20%" [ref=e125]:
+                - generic [ref=e126]: "-20%"
+              - cell "15" [ref=e127]
+              - cell "✓ Actif" [ref=e128]:
+                - generic [ref=e129]: ✓ Actif
+              - cell "18/05/26 à 21:30" [ref=e130]
+              - cell " " [ref=e131]:
+                - generic [ref=e132]:
+                  - link "" [ref=e133] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=71
+                    - generic [ref=e134]: 
+                  - button "" [ref=e135] [cursor=pointer]:
+                    - generic [ref=e136]: 
+            - 'row "#P72 Sac à dos urbain SKU : SAC-00072 Accessoires 18 000 — 20 ✓ Actif 18/05/26 à 21:30  " [ref=e137]':
+              - cell [ref=e138]:
+                - checkbox [ref=e139]
+              - cell "#P72" [ref=e140]
+              - 'cell "Sac à dos urbain SKU : SAC-00072" [ref=e141]':
+                - generic [ref=e144]:
+                  - generic [ref=e145]: Sac à dos urbain
+                  - generic [ref=e146]: "SKU : SAC-00072"
+              - cell "Accessoires" [ref=e147]
+              - cell "18 000" [ref=e148]
+              - cell "—" [ref=e149]
+              - cell "20" [ref=e150]
+              - cell "✓ Actif" [ref=e151]:
+                - generic [ref=e152]: ✓ Actif
+              - cell "18/05/26 à 21:30" [ref=e153]
+              - cell " " [ref=e154]:
+                - generic [ref=e155]:
+                  - link "" [ref=e156] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=72
+                    - generic [ref=e157]: 
+                  - button "" [ref=e158] [cursor=pointer]:
+                    - generic [ref=e159]: 
+            - 'row "#P1 Sac à main cuir SKU : SAC-00001 Accessoires 25 000 — 15 ✓ Actif 18/05/26 à 21:30  " [ref=e160]':
+              - cell [ref=e161]:
+                - checkbox [ref=e162]
+              - cell "#P1" [ref=e163]
+              - 'cell "Sac à main cuir SKU : SAC-00001" [ref=e164]':
+                - generic [ref=e167]:
+                  - generic [ref=e168]: Sac à main cuir
+                  - generic [ref=e169]: "SKU : SAC-00001"
+              - cell "Accessoires" [ref=e170]
+              - cell "25 000" [ref=e171]
+              - cell "—" [ref=e172]
+              - cell "15" [ref=e173]
+              - cell "✓ Actif" [ref=e174]:
+                - generic [ref=e175]: ✓ Actif
+              - cell "18/05/26 à 21:30" [ref=e176]
+              - cell " " [ref=e177]:
+                - generic [ref=e178]:
+                  - link "" [ref=e179] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=1
+                    - generic [ref=e180]: 
+                  - button "" [ref=e181] [cursor=pointer]:
+                    - generic [ref=e182]: 
+            - 'row "#P6 Sac à dos SKU : SAC-00006 Accessoires 15 000 — 20 ✓ Actif 18/05/26 à 21:30  " [ref=e183]':
+              - cell [ref=e184]:
+                - checkbox [ref=e185]
+              - cell "#P6" [ref=e186]
+              - 'cell "Sac à dos SKU : SAC-00006" [ref=e187]':
+                - generic [ref=e190]:
+                  - generic [ref=e191]: Sac à dos
+                  - generic [ref=e192]: "SKU : SAC-00006"
+              - cell "Accessoires" [ref=e193]
+              - cell "15 000" [ref=e194]
+              - cell "—" [ref=e195]
+              - cell "20" [ref=e196]
+              - cell "✓ Actif" [ref=e197]:
+                - generic [ref=e198]: ✓ Actif
+              - cell "18/05/26 à 21:30" [ref=e199]
+              - cell " " [ref=e200]:
+                - generic [ref=e201]:
+                  - link "" [ref=e202] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/produits/modifier.php?id=6
+                    - generic [ref=e203]: 
+                  - button "" [ref=e204] [cursor=pointer]:
+                    - generic [ref=e205]: 
+        - generic [ref=e206]:
+          - generic [ref=e207]: Affichage 1-4 sur 4 produits
+          - generic [ref=e208]:
+            - link "" [ref=e209] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e210]: 
+            - link "1" [ref=e211] [cursor=pointer]:
+              - /url: "#"
+            - link "2" [ref=e212] [cursor=pointer]:
+              - /url: "#"
+            - link "3" [ref=e213] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e214] [cursor=pointer]: ...
+            - link "15" [ref=e215] [cursor=pointer]:
+              - /url: "#"
+            - link "" [ref=e216] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e217]: 
+    - generic [ref=e218]:
+      - generic [ref=e219]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e220]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e221]: v1.0.0

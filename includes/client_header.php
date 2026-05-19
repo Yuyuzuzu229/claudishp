@@ -44,12 +44,16 @@ function client_icon($name) {
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="stylesheet" href="../assets/css/client.css">
+<script defer src="../assets/js/script.js"></script>
 </head>
 <body>
 <div class="client-layout">
 
+<!-- SIDEBAR OVERLAY FOR MOBILE -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 <!-- CLIENT SIDEBAR -->
-<aside class="client-sidebar">
+<aside class="client-sidebar" id="clientSidebar">
   <div class="sidebar-brand">
     <div>
       <div class="brand-name">CLAUDI<span style="font-size:.55rem;letter-spacing:.12em;color:#9A9A9A;display:block;">SHOP</span></div>
@@ -93,6 +97,9 @@ function client_icon($name) {
 <!-- CLIENT MAIN -->
 <div class="client-main">
   <header class="client-topbar">
+    <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Menu">
+      <span></span>
+    </button>
     <div class="topbar-title">
       <h1><?= htmlspecialchars($client_title) ?></h1>
       <?php if ($client_subtitle): ?><div class="topbar-subtitle"><?= htmlspecialchars($client_subtitle) ?></div><?php endif; ?>

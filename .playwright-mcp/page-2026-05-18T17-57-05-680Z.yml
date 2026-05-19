@@ -1,0 +1,12 @@
+- generic [active] [ref=e1]:
+  - heading "Debug Upload" [level=3] [ref=e2]
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: "Test 1 : input file direct"
+    - button "Choose File" [ref=e5]
+    - separator [ref=e6]
+    - paragraph [ref=e7]: "Test 2 : bouton + input caché"
+    - textbox "Aucun fichier" [ref=e8]
+    - button "Choisir" [ref=e9]
+    - separator [ref=e10]
+    - paragraph [ref=e11]: "Test 3 : vérification JS"
+    - button "Tester JS" [ref=e12]

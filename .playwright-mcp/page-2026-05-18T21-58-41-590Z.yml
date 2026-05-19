@@ -1,0 +1,177 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e18]: 
+        - text: Utilisateurs
+        - generic [ref=e19]: "3"
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e21]: 
+        - text: Produits
+        - generic [ref=e22]: "69"
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e24]: 
+        - text: Catégories
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e26]: 
+        - text: Commandes
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e29]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e31]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e33]: 
+        - text: Livreurs
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e36]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e38]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e40]: 
+        - text: Notifications
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e43]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e45]: 
+        - text: Déconnexion
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: Monday 18 May 2026
+      - link "" [ref=e49] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e50]: 
+      - generic [ref=e51] [cursor=pointer]:
+        - generic [ref=e52]: S
+        - text:     
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]: Logistique
+        - heading "Livreurs" [level=1] [ref=e56]
+        - paragraph [ref=e57]: Gérez votre équipe de livreurs
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: Livreurs (4)
+          - button "+ Ajouter un livreur" [ref=e61] [cursor=pointer]:
+            - generic [ref=e62]: +
+            - text: Ajouter un livreur
+        - table [ref=e63]:
+          - rowgroup [ref=e64]:
+            - row "ID Livreur Téléphone Email Statut Actions" [ref=e65]:
+              - columnheader "ID" [ref=e66]
+              - columnheader "Livreur" [ref=e67]
+              - columnheader "Téléphone" [ref=e68]
+              - columnheader "Email" [ref=e69]
+              - columnheader "Statut" [ref=e70]
+              - columnheader "Actions" [ref=e71]
+          - rowgroup [ref=e72]:
+            - row "#9 ANDOCHE LOLO +229 01 62 40 21 93 melvynosouza@gmail.com Disponible   " [ref=e73]:
+              - cell "#9" [ref=e74]
+              - cell "ANDOCHE LOLO" [ref=e75]:
+                - generic [ref=e77]: ANDOCHE LOLO
+              - cell "+229 01 62 40 21 93" [ref=e78]
+              - cell "melvynosouza@gmail.com" [ref=e79]
+              - cell "Disponible" [ref=e80]:
+                - generic [ref=e81]: Disponible
+              - cell "  " [ref=e82]:
+                - generic [ref=e83]:
+                  - link "" [ref=e84] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/livreurs/modifier.php?id=9
+                    - generic [ref=e85]: 
+                  - button "" [ref=e87] [cursor=pointer]:
+                    - generic [ref=e88]: 
+                  - button "" [ref=e90] [cursor=pointer]:
+                    - generic [ref=e91]: 
+            - row "#11 SOUZA YUZI +229 01 97 11 22 33 yuyuzuzu168@gmail.com Disponible   " [ref=e92]:
+              - cell "#11" [ref=e93]
+              - cell "SOUZA YUZI" [ref=e94]:
+                - generic [ref=e96]: SOUZA YUZI
+              - cell "+229 01 97 11 22 33" [ref=e97]
+              - cell "yuyuzuzu168@gmail.com" [ref=e98]
+              - cell "Disponible" [ref=e99]:
+                - generic [ref=e100]: Disponible
+              - cell "  " [ref=e101]:
+                - generic [ref=e102]:
+                  - link "" [ref=e103] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/livreurs/modifier.php?id=11
+                    - generic [ref=e104]: 
+                  - button "" [ref=e106] [cursor=pointer]:
+                    - generic [ref=e107]: 
+                  - button "" [ref=e109] [cursor=pointer]:
+                    - generic [ref=e110]: 
+            - row "#12 TE Test Livreur +229 01 99 00 00 01 test.livreur@mail.com Disponible   " [ref=e111]:
+              - cell "#12" [ref=e112]
+              - cell "TE Test Livreur" [ref=e113]:
+                - generic [ref=e114]:
+                  - generic [ref=e115]: TE
+                  - generic [ref=e116]: Test Livreur
+              - cell "+229 01 99 00 00 01" [ref=e117]
+              - cell "test.livreur@mail.com" [ref=e118]
+              - cell "Disponible" [ref=e119]:
+                - generic [ref=e120]: Disponible
+              - cell "  " [ref=e121]:
+                - generic [ref=e122]:
+                  - link "" [ref=e123] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/livreurs/modifier.php?id=12
+                    - generic [ref=e124]: 
+                  - button "" [ref=e126] [cursor=pointer]:
+                    - generic [ref=e127]: 
+                  - button "" [ref=e129] [cursor=pointer]:
+                    - generic [ref=e130]: 
+            - row "#10 YA YAYA +229 01 96 06 37 68 yuzimelodie@gmail.com Disponible   " [ref=e131]:
+              - cell "#10" [ref=e132]
+              - cell "YA YAYA" [ref=e133]:
+                - generic [ref=e134]:
+                  - generic [ref=e135]: YA
+                  - generic [ref=e136]: YAYA
+              - cell "+229 01 96 06 37 68" [ref=e137]
+              - cell "yuzimelodie@gmail.com" [ref=e138]
+              - cell "Disponible" [ref=e139]:
+                - generic [ref=e140]: Disponible
+              - cell "  " [ref=e141]:
+                - generic [ref=e142]:
+                  - link "" [ref=e143] [cursor=pointer]:
+                    - /url: http://localhost/CLAUDISHOP/admin/livreurs/modifier.php?id=10
+                    - generic [ref=e144]: 
+                  - button "" [ref=e146] [cursor=pointer]:
+                    - generic [ref=e147]: 
+                  - button "" [ref=e149] [cursor=pointer]:
+                    - generic [ref=e150]: 
+    - generic [ref=e151]:
+      - generic [ref=e152]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e153]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e154]: v1.0.0

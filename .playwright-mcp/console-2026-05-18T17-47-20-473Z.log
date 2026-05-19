@@ -1,0 +1,3 @@
+[     292ms] [WARNING] [GSI_LOGGER]: Failed to render button before calling initialize(). @ https://accounts.google.com/gsi/client:84
+[     299ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0
+[     352ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/pages/connexion.php:0

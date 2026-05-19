@@ -19,8 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 }
 
 $pageTitle = 'Gestion Utilisateurs';
-$utilisateurs = $utilisateurObj->getAll();
-$nbUtilisateurs = $utilisateurObj->getNombre();
+$search = isset($_GET['q']) ? securiser($_GET['q']) : '';
+if ($search) {
+    $utilisateurs = $utilisateurObj->search($search);
+    $nbUtilisateurs = count($utilisateurs);
+} else {
+    $utilisateurs = $utilisateurObj->getAll();
+    $nbUtilisateurs = $utilisateurObj->getNombre();
+}
 require_once __DIR__ . '/../includes/header.php';
 $adminPage = 'utilisateurs';
 ?>

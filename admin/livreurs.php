@@ -62,10 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $pageTitle = 'Gestion Livreurs';
+$search = isset($_GET['q']) ? securiser($_GET['q']) : '';
+if ($search) {
+    $livreurs = $livreurObj->search($search);
+} else {
+    $livreurs = $livreurObj->getAll();
+}
 require_once __DIR__ . '/../includes/header.php';
 $adminPage = 'livreurs';
-
-$livreurs = $livreurObj->getAll();
 ?>
 <div class="dashboard-layout">
 <?php require_once __DIR__ . '/../includes/admin_sidebar.php'; ?>
@@ -166,8 +170,18 @@ $livreurs = $livreurObj->getAll();
                 </div>
                 <div class="form-group" style="margin-top:14px;">
                     <label>Photo</label>
-                    <input type="file" name="photo" class="form-control" accept="image/*">
+                    <div>
+                        <label for="photoLivreurInput" class="btn btn-dark" style="cursor:pointer;margin-bottom:0;">Choisir un fichier</label>
+                        <span id="photoLivreurFileName" style="margin-left:10px;font-size:.8rem;color:#888;">Aucune image</span>
+                    </div>
+                    <input type="file" name="photo" id="photoLivreurInput" accept="image/*" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px;">
                 </div>
+                <script>
+                document.getElementById('photoLivreurInput').addEventListener('change', function(e) {
+                    var span = document.getElementById('photoLivreurFileName');
+                    if (span && this.files && this.files[0]) span.textContent = this.files[0].name;
+                });
+                </script>
                 <div class="flex gap-2 justify-between" style="margin-top:20px;">
                     <button type="button" class="btn btn-outline-dark" onclick="document.getElementById('modalLivreur').style.display='none'">Annuler</button>
                     <button type="submit" class="btn btn-dark">Ajouter</button>

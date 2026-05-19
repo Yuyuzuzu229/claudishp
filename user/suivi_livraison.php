@@ -130,7 +130,6 @@ $activePage = 'suivi';
 <script>
 (function(){
     var currentUrl = window.location.href;
-    var pollId = null;
     function actualiser() {
         fetch(currentUrl)
             .then(function(r){ return r.text(); })
@@ -139,18 +138,13 @@ $activePage = 'suivi';
                 var newContent = doc.getElementById('suivi-content');
                 var oldContent = document.getElementById('suivi-content');
                 if (newContent && oldContent) {
-                    oldContent.style.transition = 'opacity 0.3s ease';
-                    oldContent.style.opacity = '0';
-                    setTimeout(function(){
-                        oldContent.innerHTML = newContent.innerHTML;
-                        oldContent.style.opacity = '1';
-                    }, 300);
+                    oldContent.innerHTML = newContent.innerHTML;
                 }
-                pollId = setTimeout(actualiser, 10000);
+                setTimeout(actualiser, 5000);
             })
-            .catch(function(){ pollId = setTimeout(actualiser, 10000); });
+            .catch(function(){ setTimeout(actualiser, 5000); });
     }
-    pollId = setTimeout(actualiser, 10000);
+    setTimeout(actualiser, 5000);
 })();
 </script>
 </body></html>

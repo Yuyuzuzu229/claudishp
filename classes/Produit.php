@@ -13,6 +13,13 @@ class Produit {
         return $stmt->fetchAll();
     }
 
+    public function search($q) {
+        $stmt = $this->db->prepare("SELECT p.*, c.nom as categorie_nom FROM produit p LEFT JOIN categorie c ON p.categorie_id = c.id WHERE p.nom LIKE ? OR p.description LIKE ? ORDER BY p.date_creation DESC");
+        $like = "%$q%";
+        $stmt->execute([$like, $like]);
+        return $stmt->fetchAll();
+    }
+
     public function getSoldes($limite = 8) {
         $stmt = $this->db->prepare("SELECT p.*, c.nom as categorie_nom FROM produit p LEFT JOIN categorie c ON p.categorie_id = c.id WHERE p.statut = 1 AND p.solde_prix IS NOT NULL AND p.solde_prix > 0 ORDER BY p.date_creation DESC LIMIT ?");
         $stmt->execute([$limite]);
@@ -114,10 +121,35 @@ class Produit {
         $offset = ($page - 1) * $perPage;
         $sql = "SELECT p.*, c.nom as categorie_nom FROM produit p LEFT JOIN categorie c ON p.categorie_id = c.id WHERE p.statut = 1";
         $params = [];
-        if ($categorieId) { $sql .= " AND p.categorie_id = ?"; $params[] = $categorieId; }
+        if ($categorieId) {
+            if (is_string($categorieId) && strpos($categorieId, ',') !== false) {
+                $ids = array_map('intval', explode(',', $categorieId));
+                $ids = array_filter($ids);
+                if (!empty($ids)) {
+                    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                    $sql .= " AND p.categorie_id IN ($placeholders)";
+                    $params = array_merge($params, $ids);
+                }
+            } else {
+                $sql .= " AND p.categorie_id = ?";
+                $params[] = intval($categorieId);
+            }
+        }
         if ($recherche) { $sql .= " AND (p.nom LIKE ? OR p.description LIKE ?)"; $params[] = "%$recherche%"; $params[] = "%$recherche%"; }
         if ($minPrix !== null) { $sql .= " AND p.prix >= ?"; $params[] = $minPrix; }
         if ($maxPrix !== null) { $sql .= " AND p.prix <= ?"; $params[] = $maxPrix; }
+        if ($tailles && is_array($tailles) && !empty($tailles)) {
+            $sizeConditions = [];
+            foreach ($tailles as $t) {
+                $sizeConditions[] = "FIND_IN_SET(?, p.taille_disponible)";
+                $params[] = trim($t);
+            }
+            $sql .= " AND (" . implode(' OR ', $sizeConditions) . ")";
+        }
+        if ($noteMin !== null) {
+            $sql .= " AND (SELECT COALESCE(AVG(note), 0) FROM avis WHERE produit_id = p.id) >= ?";
+            $params[] = $noteMin;
+        }
         if ($stockOnly) { $sql .= " AND p.stock > 0"; }
         if ($soldesOnly) { $sql .= " AND p.solde_prix IS NOT NULL AND p.solde_prix > 0"; }
         $sql .= " ORDER BY p.date_creation DESC LIMIT ? OFFSET ?";
@@ -131,10 +163,35 @@ class Produit {
     public function countByCategorieWithFilters($categorieId = null, $recherche = null, $minPrix = null, $maxPrix = null, $tailles = null, $couleurs = null, $matieres = null, $noteMin = null, $stockOnly = false, $soldesOnly = false) {
         $sql = "SELECT COUNT(*) FROM produit p LEFT JOIN categorie c ON p.categorie_id = c.id WHERE p.statut = 1";
         $params = [];
-        if ($categorieId) { $sql .= " AND p.categorie_id = ?"; $params[] = $categorieId; }
+        if ($categorieId) {
+            if (is_string($categorieId) && strpos($categorieId, ',') !== false) {
+                $ids = array_map('intval', explode(',', $categorieId));
+                $ids = array_filter($ids);
+                if (!empty($ids)) {
+                    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                    $sql .= " AND p.categorie_id IN ($placeholders)";
+                    $params = array_merge($params, $ids);
+                }
+            } else {
+                $sql .= " AND p.categorie_id = ?";
+                $params[] = intval($categorieId);
+            }
+        }
         if ($recherche) { $sql .= " AND (p.nom LIKE ? OR p.description LIKE ?)"; $params[] = "%$recherche%"; $params[] = "%$recherche%"; }
         if ($minPrix !== null) { $sql .= " AND p.prix >= ?"; $params[] = $minPrix; }
         if ($maxPrix !== null) { $sql .= " AND p.prix <= ?"; $params[] = $maxPrix; }
+        if ($tailles && is_array($tailles) && !empty($tailles)) {
+            $sizeConditions = [];
+            foreach ($tailles as $t) {
+                $sizeConditions[] = "FIND_IN_SET(?, p.taille_disponible)";
+                $params[] = trim($t);
+            }
+            $sql .= " AND (" . implode(' OR ', $sizeConditions) . ")";
+        }
+        if ($noteMin !== null) {
+            $sql .= " AND (SELECT COALESCE(AVG(note), 0) FROM avis WHERE produit_id = p.id) >= ?";
+            $params[] = $noteMin;
+        }
         if ($stockOnly) { $sql .= " AND p.stock > 0"; }
         if ($soldesOnly) { $sql .= " AND p.solde_prix IS NOT NULL AND p.solde_prix > 0"; }
         $stmt = $this->db->prepare($sql);

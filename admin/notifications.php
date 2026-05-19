@@ -25,6 +25,7 @@ $adminPage = 'notifications';
         <div>
         <?php
         $notifObj2 = new Notification();
+        $notifObj2->marquerToutesLues($_SESSION['user_id']);
         $notifs = $notifObj2->getAll();
         if (empty($notifs)): ?>
         <div style="padding:32px;text-align:center;color:var(--gray-400);">Aucune notification.</div>

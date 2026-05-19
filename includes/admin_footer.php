@@ -27,6 +27,34 @@ document.querySelectorAll('.btn-delete').forEach(btn => {
         if (!confirm('Confirmer la suppression ?')) e.preventDefault();
     });
 });
+
+// Dashboard sidebar toggle (mobile)
+(function() {
+    var toggle = document.getElementById('dashSidebarToggle');
+    var sidebar = document.getElementById('dashSidebar');
+    var overlay = document.getElementById('dashSidebarOverlay');
+    function openSidebar() {
+        if (sidebar) sidebar.classList.add('open');
+        if (overlay) overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    if (toggle && sidebar) {
+        toggle.addEventListener('click', openSidebar);
+    }
+    if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
+            closeSidebar();
+        }
+    });
+})();
 </script>
 </body>
 </html>

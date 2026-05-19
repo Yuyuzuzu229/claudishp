@@ -1,0 +1,171 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Wampserver" [level=1] [ref=e4]
+      - list [ref=e5]:
+        - listitem [ref=e6]: Apache 2.4
+        - listitem [ref=e7]: "-"
+        - listitem [ref=e8]: MySQL 5 & 8
+        - listitem [ref=e9]: "-"
+        - listitem [ref=e10]: MariaDB 10
+        - listitem [ref=e11]: "-"
+        - listitem [ref=e12]: PHP 5 & 7
+    - list [ref=e13]:
+      - listitem [ref=e14]: Version 3.2.3 - 64bit
+      - listitem [ref=e15]:
+        - combobox [ref=e17]:
+          - option "czech"
+          - option "english"
+          - option "french" [selected]
+          - option "hellenic"
+          - option "macedonian"
+          - option "portuguese"
+          - option "romanian"
+          - option "spanish"
+          - option "turkish"
+        - combobox [ref=e18]:
+          - option "classic" [selected]
+          - option "modern"
+          - option "no-style"
+          - option "simple"
+  - generic [ref=e20]:
+    - heading "Configuration Serveur" [level=2] [ref=e21]
+    - generic [ref=e22]:
+      - term [ref=e23]: "Version Apache :"
+      - definition [ref=e24]:
+        - text: 2.4.46 -
+        - link "Documentation" [ref=e25] [cursor=pointer]:
+          - /url: http://httpd.apache.org/docs/2.4/fr/
+      - term [ref=e26]: "Server Software :"
+      - definition [ref=e27]: "Apache/2.4.46 (Win64) PHP/7.3.21 - Port défini pour Apache : 80"
+      - term [ref=e28]: "Version de PHP :"
+      - definition [ref=e29]:
+        - text: 7.3.21 -
+        - link "Documentation" [ref=e30] [cursor=pointer]:
+          - /url: http://www.php.net/manual/fr/
+      - term [ref=e31]: "Extensions Chargées :"
+      - definition [ref=e32]:
+        - list:
+          - listitem [ref=e33]: apache2handler
+          - listitem [ref=e34]: bcmath
+          - listitem [ref=e35]: bz2
+          - listitem [ref=e36]: calendar
+          - listitem [ref=e37]: com_dotnet
+          - listitem [ref=e38]: Core
+          - listitem [ref=e39]: ctype
+          - listitem [ref=e40]: curl
+          - listitem [ref=e41]: date
+          - listitem [ref=e42]: dom
+          - listitem [ref=e43]: exif
+          - listitem [ref=e44]: fileinfo
+          - listitem [ref=e45]: filter
+          - listitem [ref=e46]: gd
+          - listitem [ref=e47]: gettext
+          - listitem [ref=e48]: gmp
+          - listitem [ref=e49]: hash
+          - listitem [ref=e50]: iconv
+          - listitem [ref=e51]: imap
+          - listitem [ref=e52]: intl
+          - listitem [ref=e53]: json
+          - listitem [ref=e54]: ldap
+          - listitem [ref=e55]: libxml
+          - listitem [ref=e56]: mbstring
+          - listitem [ref=e57]: mysqli
+          - listitem [ref=e58]: mysqlnd
+          - listitem [ref=e59]: openssl
+          - listitem [ref=e60]: pcre
+          - listitem [ref=e61]: PDO
+          - listitem [ref=e62]: pdo_mysql
+          - listitem [ref=e63]: pdo_sqlite
+          - listitem [ref=e64]: Phar
+          - listitem [ref=e65]: phpdbg_webhelper
+          - listitem [ref=e66]: readline
+          - listitem [ref=e67]: Reflection
+          - listitem [ref=e68]: session
+          - listitem [ref=e69]: SimpleXML
+          - listitem [ref=e70]: soap
+          - listitem [ref=e71]: sockets
+          - listitem [ref=e72]: SPL
+          - listitem [ref=e73]: sqlite3
+          - listitem [ref=e74]: standard
+          - listitem [ref=e75]: tokenizer
+          - listitem [ref=e76]: wddx
+          - listitem [ref=e77]: xdebug
+          - listitem [ref=e78]: xml
+          - listitem [ref=e79]: xmlreader
+          - listitem [ref=e80]: xmlrpc
+          - listitem [ref=e81]: xmlwriter
+          - listitem [ref=e82]: xsl
+          - listitem [ref=e83]: Zend OPcache
+          - listitem [ref=e84]: zip
+          - listitem [ref=e85]: zlib
+      - term [ref=e86]: "Version de MySQL :"
+      - definition [ref=e87]:
+        - text: "5.7.31 - Port défini pour MySQL : 3306 - SGBD par défaut -"
+        - link "Documentation MySQL" [ref=e88] [cursor=pointer]:
+          - /url: http://dev.mysql.com/doc/index.html
+      - term [ref=e89]: "Version de MariaDB :"
+      - definition [ref=e90]:
+        - text: "10.4.13 - Port défini pour MariaDB : 3307 -"
+        - link "Documentation MariaDB" [ref=e91] [cursor=pointer]:
+          - /url: http://mariadb.com/kb/fr/documentation-de-mariadb
+        - text: "-"
+        - generic [ref=e92]: MySQL - MariaDB
+  - generic:
+    - generic:
+      - generic [ref=e94]:
+        - heading "Outils" [level=2] [ref=e95]
+        - list [ref=e96]:
+          - listitem [ref=e97]:
+            - link "phpinfo()" [ref=e98] [cursor=pointer]:
+              - /url: "?phpinfo=-1"
+          - listitem [ref=e99]:
+            - link "phpmyadmin" [ref=e100] [cursor=pointer]:
+              - /url: phpmyadmin/
+          - listitem [ref=e101]:
+            - link "Ajouter un Virtual Host" [ref=e102] [cursor=pointer]:
+              - /url: add_vhost.php?lang=french
+      - generic [ref=e103]:
+        - heading "Vos Projets" [level=2] [ref=e104]
+        - list [ref=e105]:
+          - listitem [ref=e106]: boutique-en-ligne
+          - listitem [ref=e107]: CLAUDISHOP
+          - listitem [ref=e108]: Claudishopi
+          - listitem [ref=e109]: COMMANDE
+          - listitem [ref=e110]: concours_examen
+          - listitem [ref=e111]: essai php
+          - listitem [ref=e112]: GESCOURS
+          - listitem [ref=e113]: GESSPORT
+          - listitem [ref=e114]: MUSE
+          - listitem [ref=e115]: PROJET
+          - listitem [ref=e116]: REVISION
+          - listitem [ref=e117]: SITE
+          - listitem [ref=e118]: TEMPLATES
+          - listitem [ref=e119]: TRESOR
+          - listitem [ref=e120]: UCAO
+          - listitem [ref=e121]: Yuz.html
+          - listitem [ref=e122]:
+            - text: Ce sont vos dossiers dans C:/wamp64/www
+            - text: Pour les utiliser comme lien http, il faut les déclarer en tant que VirtualHost
+      - generic [ref=e123]:
+        - heading "Vos Alias" [level=2] [ref=e124]
+        - list [ref=e125]:
+          - listitem [ref=e126]:
+            - link "adminer" [ref=e127] [cursor=pointer]:
+              - /url: adminer/
+          - listitem [ref=e128]:
+            - link "phpmyadmin" [ref=e129] [cursor=pointer]:
+              - /url: phpmyadmin/
+          - listitem [ref=e130]:
+            - link "phpsysinfo" [ref=e131] [cursor=pointer]:
+              - /url: phpsysinfo/
+      - generic [ref=e132]:
+        - heading "Vos VirtualHost" [level=2] [ref=e133]
+        - list [ref=e134]:
+          - listitem [ref=e135]:
+            - link "localhost" [ref=e136] [cursor=pointer]:
+              - /url: http://localhost
+  - list [ref=e138]:
+    - listitem [ref=e139]:
+      - link "Forum Wampserver" [ref=e140] [cursor=pointer]:
+        - /url: http://forum.wampserver.com/list.php?1

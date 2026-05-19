@@ -1,0 +1,34 @@
+[      98ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[     126ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/produits.php:0
+[   87793ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[   90205ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/produits.php:0
+[   93128ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   93128ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   94218ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   94218ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   94789ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   94789ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   95131ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   95131ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   98401ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   98401ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   98618ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   98618ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   98910ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   98910ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   99688ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   99688ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[   99905ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[   99905ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  100386ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[  100386ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  100787ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[  100787ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  101003ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[  101004ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  101226ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[  101226ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  109221ms] [LOG] Bouton cliqué @ http://localhost/CLAUDISHOP/admin/produits.php:1916
+[  109221ms] [LOG] Input trouvé: true @ http://localhost/CLAUDISHOP/admin/produits.php:1918
+[  193269ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/CLAUDISHOP/uploads/produits/placeholder.jpg:0
+[  193965ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost/CLAUDISHOP/admin/produits.php#:0

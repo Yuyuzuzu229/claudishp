@@ -1,0 +1,7 @@
+- generic [active] [ref=e1]:
+  - text: "✓ Admin : admin@claudishop.bj / admin123"
+  - text: "✓ Utilisateur : jean@email.com / user123"
+  - separator [ref=e2]
+  - paragraph [ref=e3]:
+    - link "Aller à la connexion" [ref=e4] [cursor=pointer]:
+      - /url: http://localhost/CLAUDISHOP/pages/connexion.php

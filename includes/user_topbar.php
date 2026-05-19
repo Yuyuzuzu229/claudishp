@@ -9,6 +9,9 @@ if (class_exists('Notification')) {
 $__initial2 = strtoupper(substr($_SESSION['user_prenom'] ?? 'U', 0, 1));
 ?>
 <div class="dash-topbar">
+    <button class="dash-mobile-toggle" id="dashSidebarToggle" aria-label="Menu" onclick="var s=document.getElementById('dashSidebar'),o=document.getElementById('dashSidebarOverlay');if(s){s.classList.toggle('open');}if(o){o.classList.toggle('open');}document.body.style.overflow=s&&s.classList.contains('open')?'hidden':'';">
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="dash-topbar-search">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Rechercher...">

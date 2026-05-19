@@ -1,0 +1,2 @@
+[  134384ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://accounts.google.com/gsi/client:0
+[  134386ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/CLAUDISHOP/pages/connexion.php:0

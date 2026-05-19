@@ -1,0 +1,236 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - link "CLAUDISHOP" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e6]: CLAUDISHOP
+      - generic [ref=e7]: Espace Admin
+    - generic [ref=e8]:
+      - generic [ref=e9]: S
+      - generic [ref=e10]:
+        - generic [ref=e11]: Super Super Admin
+        - generic [ref=e12]: adminclaudishop@gmail.com
+    - navigation [ref=e13]:
+      - link " Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/index.php
+        - generic [ref=e15]: 
+        - text: Dashboard
+      - generic [ref=e16]: Gestion
+      - link " Utilisateurs 3" [ref=e17] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/utilisateurs.php
+        - generic [ref=e18]: 
+        - text: Utilisateurs
+        - generic [ref=e19]: "3"
+      - link " Produits 69" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/produits.php
+        - generic [ref=e21]: 
+        - text: Produits
+        - generic [ref=e22]: "69"
+      - link " Catégories" [ref=e23] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/categories.php
+        - generic [ref=e24]: 
+        - text: Catégories
+      - link " Commandes" [ref=e25] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/commandes.php
+        - generic [ref=e26]: 
+        - text: Commandes
+      - generic [ref=e27]: Logistique
+      - link " Livraisons" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livraisons.php
+        - generic [ref=e29]: 
+        - text: Livraisons
+      - link " Zones de livraison" [ref=e30] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/zones.php
+        - generic [ref=e31]: 
+        - text: Zones de livraison
+      - link " Livreurs" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/livreurs.php
+        - generic [ref=e33]: 
+        - text: Livreurs
+      - generic [ref=e34]: Finance & Comm.
+      - link " Paiements" [ref=e35] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/paiements.php
+        - generic [ref=e36]: 
+        - text: Paiements
+      - link " Avis clients" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/avis.php
+        - generic [ref=e38]: 
+        - text: Avis clients
+      - link " Notifications" [ref=e39] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e40]: 
+        - text: Notifications
+    - generic [ref=e41]:
+      - link " Retourner au site" [ref=e42] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/index.php
+        - generic [ref=e43]: 
+        - text: Retourner au site
+      - link " Déconnexion" [ref=e44] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/actions/deconnexion.php
+        - generic [ref=e45]: 
+        - text: Déconnexion
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: Monday 18 May 2026
+      - link "" [ref=e49] [cursor=pointer]:
+        - /url: http://localhost/CLAUDISHOP/admin/notifications.php
+        - generic [ref=e50]: 
+      - generic [ref=e51] [cursor=pointer]:
+        - generic [ref=e52]: S
+        - text:     
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]: Communication
+        - heading "Notifications" [level=1] [ref=e56]
+        - paragraph [ref=e57]: Toutes les notifications système
+      - generic [ref=e58]:
+        - generic [ref=e60]: Notifications récentes
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e64]: 
+            - generic [ref=e65]:
+              - generic [ref=e66]: Paiement confirmé
+              - generic [ref=e67]: "Votre paiement de 111 900 FCFA pour la commande #15 a été confirmé. Référence : FDP-20260518-A7451D527E"
+              - generic [ref=e68]:
+                - text: 18/05/2026 18:36 ·
+                - generic [ref=e69]: In-app
+          - generic [ref=e70]:
+            - generic [ref=e72]: 
+            - generic [ref=e73]:
+              - generic [ref=e74]: Nouvelle commande
+              - generic [ref=e75]: "Nouvelle commande #0015 de TheVoice Stone — 111 900 FCFA"
+              - generic [ref=e76]:
+                - text: 18/05/2026 18:36 ·
+                - generic [ref=e77]: In-app
+          - generic [ref=e78]:
+            - generic [ref=e80]: 
+            - generic [ref=e81]:
+              - generic [ref=e82]: Paiement confirmé
+              - generic [ref=e83]: "Votre paiement de 65 000 FCFA pour la commande #14 a été confirmé. Référence : FDP-20260518-16790FB04E"
+              - generic [ref=e84]:
+                - text: 18/05/2026 14:25 ·
+                - generic [ref=e85]: In-app
+          - generic [ref=e86]:
+            - generic [ref=e88]: 
+            - generic [ref=e89]:
+              - generic [ref=e90]: Nouvelle commande
+              - generic [ref=e91]: "Nouvelle commande #0014 de Uziel Uziel de SOUZA — 65 000 FCFA"
+              - generic [ref=e92]:
+                - text: 18/05/2026 14:25 ·
+                - generic [ref=e93]: In-app
+          - generic [ref=e94]:
+            - generic [ref=e96]: 
+            - generic [ref=e97]:
+              - generic [ref=e98]: Nouvelle commande
+              - generic [ref=e99]: "Nouvelle commande #0013 de SOUZ — 25 500 FCFA"
+              - generic [ref=e100]:
+                - text: 18/05/2026 11:05 ·
+                - generic [ref=e101]: In-app
+          - generic [ref=e102]:
+            - generic [ref=e104]: 
+            - generic [ref=e105]:
+              - generic [ref=e106]: Nouvelle commande
+              - generic [ref=e107]: "Nouvelle commande #0012 de SOUZA YUZI — 51 250 FCFA"
+              - generic [ref=e108]:
+                - text: 18/05/2026 10:47 ·
+                - generic [ref=e109]: In-app
+          - generic [ref=e110]:
+            - generic [ref=e112]: 
+            - generic [ref=e113]:
+              - generic [ref=e114]: Nouvelle commande
+              - generic [ref=e115]: "Nouvelle commande #0011 de zaza — 28 500 FCFA"
+              - generic [ref=e116]:
+                - text: 18/05/2026 10:44 ·
+                - generic [ref=e117]: In-app
+          - generic [ref=e118]:
+            - generic [ref=e120]: 
+            - generic [ref=e121]:
+              - generic [ref=e122]: Nouvelle commande
+              - generic [ref=e123]: "Nouvelle commande #0010 de zaza — 41 900 FCFA"
+              - generic [ref=e124]:
+                - text: 18/05/2026 10:36 ·
+                - generic [ref=e125]: In-app
+          - generic [ref=e126]:
+            - generic [ref=e128]: 
+            - generic [ref=e129]:
+              - generic [ref=e130]: Nouvelle commande
+              - generic [ref=e131]: "Nouvelle commande #0009 de zaza — 29 375 FCFA"
+              - generic [ref=e132]:
+                - text: 18/05/2026 10:29 ·
+                - generic [ref=e133]: In-app
+          - generic [ref=e134]:
+            - generic [ref=e136]: 
+            - generic [ref=e137]:
+              - generic [ref=e138]: Nouvelle commande
+              - generic [ref=e139]: "Nouvelle commande #0008 de zaza — 28 000 FCFA"
+              - generic [ref=e140]:
+                - text: 18/05/2026 10:25 ·
+                - generic [ref=e141]: In-app
+          - generic [ref=e142]:
+            - generic [ref=e144]: 
+            - generic [ref=e145]:
+              - generic [ref=e146]: Nouvelle commande
+              - generic [ref=e147]: "Nouvelle commande #0007 de zaza — 17 500 FCFA"
+              - generic [ref=e148]:
+                - text: 18/05/2026 10:20 ·
+                - generic [ref=e149]: In-app
+          - generic [ref=e150]:
+            - generic [ref=e152]: 
+            - generic [ref=e153]:
+              - generic [ref=e154]: Nouvelle commande
+              - generic [ref=e155]: "Nouvelle commande #0006 de zaza — 76 500 FCFA"
+              - generic [ref=e156]:
+                - text: 18/05/2026 10:12 ·
+                - generic [ref=e157]: In-app
+          - generic [ref=e158]:
+            - generic [ref=e160]: 
+            - generic [ref=e161]:
+              - generic [ref=e162]: Nouvelle commande
+              - generic [ref=e163]: "Nouvelle commande #0005 de lala — 35 500 FCFA"
+              - generic [ref=e164]:
+                - text: 18/05/2026 10:03 ·
+                - generic [ref=e165]: In-app
+          - generic [ref=e166]:
+            - generic [ref=e168]: 
+            - generic [ref=e169]:
+              - generic [ref=e170]: Nouvelle commande
+              - generic [ref=e171]: "Nouvelle commande #0004 de Uziel Uziel de SOUZA — 48 875 FCFA"
+              - generic [ref=e172]:
+                - text: 18/05/2026 09:58 ·
+                - generic [ref=e173]: In-app
+          - generic [ref=e174]:
+            - generic [ref=e176]: 
+            - generic [ref=e177]:
+              - generic [ref=e178]: Nouvelle commande
+              - generic [ref=e179]: "Nouvelle commande #0003 de SOUZA YUZI — 41 000 FCFA"
+              - generic [ref=e180]:
+                - text: 18/05/2026 08:16 ·
+                - generic [ref=e181]: In-app
+          - generic [ref=e182]:
+            - generic [ref=e184]: 
+            - generic [ref=e185]:
+              - generic [ref=e186]: Nouvelle commande
+              - generic [ref=e187]: "Nouvelle commande #0002 de SOUZA YUZI — 41 000 FCFA"
+              - generic [ref=e188]:
+                - text: 18/05/2026 08:15 ·
+                - generic [ref=e189]: In-app
+          - generic [ref=e190]:
+            - generic [ref=e192]: 
+            - generic [ref=e193]:
+              - generic [ref=e194]: Paiement confirmé
+              - generic [ref=e195]: "Votre paiement de 58 000 FCFA pour la commande #1 a été confirmé. Référence : FDP-20260517-3AD38797C6"
+              - generic [ref=e196]:
+                - text: 18/05/2026 00:01 ·
+                - generic [ref=e197]: In-app
+          - generic [ref=e198]:
+            - generic [ref=e200]: 
+            - generic [ref=e201]:
+              - generic [ref=e202]: Nouvelle commande
+              - generic [ref=e203]: "Nouvelle commande #0001 de Uziel Uziel de SOUZA â€” 58 000 FCFA"
+              - generic [ref=e204]:
+                - text: 18/05/2026 00:01 ·
+                - generic [ref=e205]: In-app
+    - generic [ref=e206]:
+      - generic [ref=e207]: v1.0.0 • ClaudiShop Admin
+      - generic [ref=e208]: © 2026 ClaudiShop – Tous droits réservés
+      - generic [ref=e209]: v1.0.0

@@ -1,0 +1,27 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]: 
+    - heading "Espace livreur" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Connectez-vous pour gérer vos livraisons
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]: 
+        - text: Téléphone
+      - 'textbox "Ex: +229 01 XX XX XX XX" [ref=e13]': adminclaudishop@gmail.com
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: 
+        - text: Mot de passe
+      - textbox [ref=e17]: claudishop123
+    - button " Se connecter" [ref=e18] [cursor=pointer]:
+      - generic [ref=e19]: 
+      - text: Se connecter
+  - paragraph [ref=e20]:
+    - generic [ref=e21]: 
+    - text: Espace réservé aux livreurs ClaudiShop
+  - paragraph [ref=e22]:
+    - link " Retour à l'accueil" [ref=e23] [cursor=pointer]:
+      - /url: http://localhost/CLAUDISHOP/index.php
+      - generic [ref=e24]: 
+      - text: Retour à l'accueil

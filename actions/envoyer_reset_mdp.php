@@ -51,7 +51,11 @@ $message = "
 </html>";
 
 $notifSvc = new NotificationService();
-$notifSvc->envoyerEmail($email, $subject, $message, true);
+$result = $notifSvc->envoyerEmail($email, $subject, $message, true);
 
-$_SESSION['success'] = 'Si cet email existe, un lien de réinitialisation vous a été envoyé.';
+if ($result && $result['success']) {
+    $_SESSION['success'] = 'Un lien de réinitialisation vous a été envoyé par email. Vérifiez votre boîte (pensez aux spams).';
+} else {
+    $_SESSION['success'] = 'Si cet email existe, un lien de réinitialisation vous a été envoyé.';
+}
 redirect(BASE_URL . '/pages/mot_de_passe_oublie.php');

@@ -124,12 +124,84 @@ document.addEventListener('DOMContentLoaded', function () {
     // ── Mobile menu toggle ─────────────────────────────────────────────
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
-    if (menuBtn && mobileNav) {
-        menuBtn.addEventListener('click', function () {
-            const isHidden = mobileNav.style.display === 'none' || !mobileNav.style.display;
-            mobileNav.style.display = isHidden ? 'flex' : 'none';
-        });
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    function openMobileNav() {
+        if (mobileNav) mobileNav.classList.add('open');
+        if (mobileNavOverlay) mobileNavOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
     }
+    function closeMobileNav() {
+        if (mobileNav) mobileNav.classList.remove('open');
+        if (mobileNavOverlay) mobileNavOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', openMobileNav);
+    }
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', closeMobileNav);
+    }
+    if (mobileNavOverlay) {
+        mobileNavOverlay.addEventListener('click', closeMobileNav);
+    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) {
+            closeMobileNav();
+        }
+    });
+
+    // ── Dashboard sidebar toggle (mobile) ────────────────────────────
+    const dashToggle = document.getElementById('dashSidebarToggle');
+    const dashSidebar = document.getElementById('dashSidebar');
+    const dashOverlay = document.getElementById('dashSidebarOverlay');
+    function openDashSidebar() {
+        if (dashSidebar) dashSidebar.classList.add('open');
+        if (dashOverlay) dashOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeDashSidebar() {
+        if (dashSidebar) dashSidebar.classList.remove('open');
+        if (dashOverlay) dashOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    if (dashToggle && dashSidebar) {
+        dashToggle.addEventListener('click', openDashSidebar);
+    }
+    if (dashOverlay) {
+        dashOverlay.addEventListener('click', closeDashSidebar);
+    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && dashSidebar && dashSidebar.classList.contains('open')) {
+            closeDashSidebar();
+        }
+    });
+
+    // ── Client sidebar toggle (mobile) ────────────────────────────────
+    const sidebarToggle = document.getElementById('mobileSidebarToggle');
+    const clientSidebar = document.getElementById('clientSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    function openSidebar() {
+        if (clientSidebar) clientSidebar.classList.add('open');
+        if (sidebarOverlay) sidebarOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+        if (clientSidebar) clientSidebar.classList.remove('open');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    if (sidebarToggle && clientSidebar) {
+        sidebarToggle.addEventListener('click', openSidebar);
+    }
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && clientSidebar && clientSidebar.classList.contains('open')) {
+            closeSidebar();
+        }
+    });
 
     // ── Confirm delete ─────────────────────────────────────────────────
     document.querySelectorAll('[data-confirm]').forEach(function (el) {
