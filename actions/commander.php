@@ -291,6 +291,9 @@ if ($modeRetrait === 'livraison' && !empty($adresseComplete)) {
     while ($admin = $stmt2->fetch()) {
         $adminNotif->envoyerInApp($admin['id'], 'Nouvelle commande', $adminMsg, $commandeId);
     }
+
+    // Rattrapage : si l'affectation inline a échoué, assignation automatique
+    $livraisonObj->assignerAutomatique();
 }
 
 $panier->vider($panierId);
