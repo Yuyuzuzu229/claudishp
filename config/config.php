@@ -5,7 +5,9 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$relativePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+$basePath = str_replace('\\', '/', dirname(__DIR__));
+$docRoot = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? 'C:\\wamp64\\www'), '/');
+$relativePath = str_replace($docRoot, '', $basePath);
 define('BASE_URL', $protocol . '://' . $host . $relativePath);
 define('PUBLIC_URL', BASE_URL);
 define('ASSETS_URL', BASE_URL . '/assets');
