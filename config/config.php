@@ -7,7 +7,7 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https'
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $basePath = str_replace('\\', '/', dirname(__DIR__));
 $docRoot = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? 'C:\\wamp64\\www'), '/');
-$relativePath = str_replace($docRoot, '', $basePath);
+$relativePath = str_ireplace($docRoot, '', $basePath);
 define('BASE_URL', $protocol . '://' . $host . $relativePath);
 define('PUBLIC_URL', BASE_URL);
 define('ASSETS_URL', BASE_URL . '/assets');
