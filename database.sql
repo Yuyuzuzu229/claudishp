@@ -18,7 +18,7 @@ CREATE TABLE `utilisateur` (
   `email`            VARCHAR(180) NOT NULL UNIQUE,
   `mot_de_passe`     VARCHAR(255) NOT NULL,
   `telephone`        VARCHAR(20) DEFAULT NULL,
-  `role`             ENUM('client','admin','gestionnaire','livreur','support','comptable','logistique') NOT NULL DEFAULT 'client',
+  `role`             ENUM('user','admin','gestionnaire','livreur','support','comptable','logistique') NOT NULL DEFAULT 'user',
   `est_actif`        TINYINT(1) NOT NULL DEFAULT 1,
   `google_id`        VARCHAR(255) DEFAULT NULL UNIQUE,
   `reset_token`      VARCHAR(64) DEFAULT NULL,
@@ -359,8 +359,8 @@ INSERT INTO `zone_livraison` (`nom`,`description`,`frais`,`tarif`,`delai_min`,`d
 -- Mots de passe : admin123 / user123
 INSERT INTO `utilisateur` (`nom`,`prenom`,`email`,`mot_de_passe`,`telephone`,`role`,`est_actif`) VALUES
 ('Admin','Super','admin@claudishop.bj','$2y$10$9a7cj1l4u24aIU/B5YaHaeNBDB2W2Bm8JEtNBhA5FxMImC8fwjNYK','+22997000000','admin',1),
-('Dupont','Jean','jean@email.com','$2y$10$m3zRvjYy3Omznt7t2coA0u7zhXgE5t8HUaGP4OrTEqXlJL.giO21O','+22990123456','client',1),
-('K.','Adjoua','adjoua.k@email.com','$2y$10$m3zRvjYy3Omznt7t2coA0u7zhXgE5t8HUaGP4OrTEqXlJL.giO21O','+22990123457','client',1),
+('Dupont','Jean','jean@email.com','$2y$10$m3zRvjYy3Omznt7t2coA0u7zhXgE5t8HUaGP4OrTEqXlJL.giO21O','+22990123456','user',1),
+('K.','Adjoua','adjoua.k@email.com','$2y$10$m3zRvjYy3Omznt7t2coA0u7zhXgE5t8HUaGP4OrTEqXlJL.giO21O','+22990123457','user',1),
 ('M.','Didier','didier.m@mail.com','$2y$10$m3zRvjYy3Omznt7t2coA0u7zhXgE5t8HUaGP4OrTEqXlJL.giO21O','+22990445566','gestionnaire',1);
 
 INSERT INTO `livreur` (`nom`,`telephone`,`email`,`mot_de_passe`,`vehicule`,`statut`,`est_actif`,`date_embauche`) VALUES
