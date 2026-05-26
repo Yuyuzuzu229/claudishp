@@ -1,19 +1,30 @@
 <?php
+// Inclusion du fichier de configuration principal
 require_once __DIR__ . '/../config/config.php';
+// Inclusion de la classe Produit
 require_once __DIR__ . '/../classes/Produit.php';
+// Inclusion de la classe Categorie
 require_once __DIR__ . '/../classes/Categorie.php';
+// Inclusion de la classe Notification
 require_once __DIR__ . '/../classes/Notification.php';
 
+// Vérification que l'utilisateur est connecté et a le rôle administrateur, sinon redirection vers la page de connexion
 if (!isLoggedIn() || !isAdmin()) { redirect(BASE_URL . '/pages/connexion.php'); }
 
+// Définition du titre de la page
 $pageTitle = 'Gestion Produits';
+// Instanciation des objets Produit et Categorie
 $produitObj = new Produit();
 $categorieObj = new Categorie();
 
+// Vérification si le formulaire a été soumis en méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération de l'action à effectuer
     $action = $_POST['action'] ?? '';
 
+    // Si l'action est d'ajouter un produit
     if ($action === 'ajouter') {
+        // Récupération et sécurisation des champs du formulaire
         $nom = securiser($_POST['nom'] ?? '');
         $prix = floatval($_POST['prix'] ?? 0);
         $stock = intval($_POST['stock'] ?? 0);
@@ -22,15 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $taille = securiser($_POST['taille'] ?? '');
         $soldePrix = !empty($_POST['solde_prix']) ? floatval($_POST['solde_prix']) : null;
 
+        // Upload de la photo du produit
         $photo = null;
+        // Vérification si un fichier a été téléchargé sans erreur
         if (!empty($_FILES['photo']['name']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
             $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
             $nomFichier = 'prod_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
             $dest = UPLOADS_DIR . '/produits/' . $nomFichier;
+            // Création du répertoire de destination s'il n'existe pas
             if (!is_dir(UPLOADS_DIR . '/produits')) mkdir(UPLOADS_DIR . '/produits', 0777, true);
+            // Déplacement du fichier téléchargé vers le répertoire de destination
             if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) $photo = 'produits/' . $nomFichier;
         }
 
+        // Si le nom et le prix sont valides, ajout du produit, sinon message d'erreur
         if ($nom && $prix > 0) {
             $produitObj->ajouter($nom, $description, $prix, $stock, $categorieId, $photo, $taille, null, null, $soldePrix, null);
             $_SESSION['success'] = 'Produit ajouté avec succès.';
@@ -40,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect(BASE_URL . '/admin/produits.php');
     }
 
+    // Si l'action est de supprimer un produit
     if ($action === 'supprimer') {
         $id = intval($_POST['id'] ?? 0);
         if ($id > 0) {
@@ -52,7 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Récupération du terme de recherche depuis l'URL, ou chaîne vide par défaut
 $search = isset($_GET['q']) ? securiser($_GET['q']) : '';
+// Si un terme de recherche est fourni, recherche des produits, sinon récupération de tous les produits
 if ($search) {
     $produits = $produitObj->search($search);
     $nbTotal = count($produits);
@@ -60,9 +79,12 @@ if ($search) {
     $produits = $produitObj->getAll();
     $nbTotal = $produitObj->getNombre();
 }
+// Récupération de toutes les catégories
 $categories = $categorieObj->getAll();
 
+// Inclusion de l'en-tête HTML du site
 require_once __DIR__ . '/../includes/header.php';
+// Définition de la page active pour le menu d'administration
 $adminPage = 'produits';
 ?>
 <div class="dashboard-layout">
@@ -76,10 +98,11 @@ $adminPage = 'produits';
         <p class="dash-page-sub">Gérez votre catalogue de produits</p>
     </div>
 
+    <!-- Affichage des messages de succès ou d'erreur éventuels -->
     <?php if (isset($_SESSION['success'])): ?><div class="alert alert-success"><?= securiser($_SESSION['success']); unset($_SESSION['success']); ?></div><?php endif; ?>
     <?php if (isset($_SESSION['error'])): ?><div class="alert alert-danger"><?= securiser($_SESSION['error']); unset($_SESSION['error']); ?></div><?php endif; ?>
 
-    <!-- KPI -->
+    <!-- KPI : Indicateurs clés de performance pour les produits -->
     <div class="kpi-grid">
         <div class="kpi-card kpi-card--navy"><div><div class="kpi-label">Produits totaux</div><div class="kpi-value"><?= $nbTotal ?></div><div class="kpi-sub text-muted">Tous produits confondus</div></div><i class="fas fa-tag kpi-icon"></i></div>
         <div class="kpi-card kpi-card--green"><div><div class="kpi-label">Produits actifs</div><div class="kpi-value"><?= round($nbTotal * 0.9) ?></div><div class="kpi-sub text-muted">90.1% des produits</div></div><i class="fas fa-check-circle kpi-icon"></i></div>
@@ -94,9 +117,9 @@ $adminPage = 'produits';
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Rechercher un produit..." id="searchProd">
                 </div>
-                <select class="sort-select">
-                    <option>Toutes catégories</option>
-                    <?php foreach ($categories as $cat): ?><option><?= securiser($cat['nom']) ?></option><?php endforeach; ?>
+                <select class="sort-select" onchange="filtrerProduits(this.value)">
+                    <option value="">Toutes catégories</option>
+                    <?php foreach ($categories as $cat): ?><option value="<?= securiser($cat['nom']) ?>"><?= securiser($cat['nom']) ?></option><?php endforeach; ?>
                 </select>
 
             </div>
@@ -112,6 +135,7 @@ $adminPage = 'produits';
                     <th>Catégorie</th>
                     <th>Prix (FCFA)</th>
                     <th>Solde</th>
+                    <th>Stock</th>
                     <th>Taille</th>
                     <th>Créé le</th>
                     <th>Actions</th>
@@ -119,12 +143,15 @@ $adminPage = 'produits';
             </thead>
             <tbody>
             <?php if (empty($produits)): ?>
-            <tr><td colspan="8" style="text-align:center;padding:32px;color:var(--gray-400);">Aucun produit.</td></tr>
+            <!-- Si aucun produit n'est trouvé, affichage d'un message par défaut -->
+            <tr><td colspan="9" style="text-align:center;padding:32px;color:var(--gray-400);">Aucun produit.</td></tr>
             <?php else: foreach ($produits as $prod): ?>
-            <tr>
+            <!-- Boucle d'affichage de chaque produit dans une ligne du tableau -->
+            <tr data-categorie="<?= securiser($prod['categorie_nom'] ?? '') ?>">
                 <td class="text-xs text-muted">#P<?= $prod['id'] ?></td>
                 <td>
                     <div class="flex gap-2 items-center">
+                        <!-- Affichage de la vignette du produit ou d'une icône par défaut -->
                         <div class="admin-thumb" <?php if (!empty($prod['photo'])): ?>style="background-image:url('<?= UPLOADS_URL ?>/<?= $prod['photo'] ?>');background-size:cover;background-position:center;"<?php endif; ?>><?php if (empty($prod['photo'])): ?><i class="fas fa-image"></i><?php endif; ?></div>
                         <div>
                             <div class="text-sm font-semibold"><?= securiser($prod['nom']) ?></div>
@@ -135,11 +162,14 @@ $adminPage = 'produits';
                 <td class="text-sm"><?= securiser($prod['categorie_nom'] ?? '—') ?></td>
                 <td class="text-sm font-semibold"><?= number_format($prod['prix'],0,',',' ') ?></td>
                 <td class="text-sm"><?php if (!empty($prod['solde_prix']) && $prod['solde_prix'] > 0): ?><span class="badge badge-danger">-<?= round((1 - $prod['solde_prix']/$prod['prix'])*100) ?>%</span><?php else: ?><span class="text-muted">—</span><?php endif; ?></td>
+                <td class="text-sm"><?php $s = intval($prod['stock'] ?? 0); ?><?php if ($s <= 0): ?><span class="badge badge-danger">Rupture</span><?php elseif ($s <= 5): ?><span class="badge badge-warning" style="background:var(--warning);color:#fff;"><?= $s ?></span><?php else: ?><span class="badge badge-success" style="background:var(--success);color:#fff;"><?= $s ?></span><?php endif; ?></td>
                 <td class="text-sm"><?= !empty($prod['taille_disponible']) ? securiser($prod['taille_disponible']) : '<span class="text-muted">—</span>' ?></td>
                 <td class="text-xs text-muted"><?= date('d/m/y \à H:i', strtotime($prod['date_ajout'] ?? 'now')) ?></td>
                 <td>
                     <div class="flex gap-1">
+                        <!-- Lien vers la page de modification du produit -->
                         <a href="<?= BASE_URL ?>/admin/produits/modifier.php?id=<?= $prod['id'] ?>" class="action-btn" title="Modifier"><i class="fas fa-pencil-alt"></i></a>
+                        <!-- Formulaire de suppression du produit avec confirmation -->
                         <form method="POST" onsubmit="return confirm('Supprimer ce produit ?')" style="display:inline;">
             <input type="hidden" name="action" value="supprimer">
             <input type="hidden" name="id" value="<?= $prod['id'] ?>">
@@ -151,6 +181,7 @@ $adminPage = 'produits';
             <?php endforeach; endif; ?>
             </tbody>
         </table>
+        <!-- Pied du tableau avec pagination statique et compteur -->
         <div style="padding:12px 16px;border-top:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center;">
             <span class="text-xs text-muted">Affichage 1-<?= min(count($produits),10) ?> sur <?= $nbTotal ?> produits</span>
             <div class="pagination" style="margin-top:0;">
@@ -169,7 +200,7 @@ $adminPage = 'produits';
 </div>
 </div>
 
-<!-- MODAL AJOUTER PRODUIT -->
+<!-- MODAL AJOUTER PRODUIT : Fenêtre modale pour l'ajout d'un nouveau produit -->
 <div id="modalAjouterProduit" class="modal-overlay" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
     <div class="modal-box">
         <button class="modal-close" onclick="document.getElementById('modalAjouterProduit').style.display='none'">✕</button>
@@ -194,6 +225,7 @@ $adminPage = 'produits';
                 <input type="file" name="photo" id="photoInput" accept="image/*" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px;">
             </div>
             <script>
+            <!-- Écouteur d'événement pour afficher le nom du fichier sélectionné pour la photo du produit -->
             document.getElementById('photoInput').addEventListener('change', function(e) {
                 var span = document.getElementById('photoFileName');
                 if (span && this.files && this.files[0]) span.textContent = this.files[0].name;
@@ -207,4 +239,15 @@ $adminPage = 'produits';
     </div>
 </div>
 
+<script>
+function filtrerProduits(categorie) {
+    document.querySelectorAll('tbody tr').forEach(function(tr) {
+        if (!categorie || tr.dataset.categorie === categorie) {
+            tr.style.display = '';
+        } else {
+            tr.style.display = 'none';
+        }
+    });
+}
+</script>
 </body></html>

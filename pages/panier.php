@@ -1,30 +1,40 @@
 <?php
+// Inclusion du fichier de configuration principal
 require_once __DIR__ . '/../config/config.php';
+// Inclusion des classes nécessaires
 require_once __DIR__ . '/../classes/Panier.php';
 require_once __DIR__ . '/../classes/Produit.php';
 require_once __DIR__ . '/../classes/Notification.php';
 
+// Définition du titre de la page
 $pageTitle = 'Mon panier';
+// Instanciation de l'objet Panier
 $panierObj = new Panier();
 
+// Vérification si l'utilisateur est un invité (non connecté)
 $isGuest = !isLoggedIn();
 
+// Récupération des données du panier selon le statut de l'utilisateur
 if ($isGuest) {
+    // Récupération du panier depuis la session pour les invités
     $lignes = $panierObj->guestGetLignes();
     $total = $panierObj->guestCalculerTotal();
     $nbArticles = $panierObj->guestGetNombreArticles();
 } else {
+    // Récupération du panier depuis la base de données pour les utilisateurs connectés
     $panierId = $panierObj->getPanierActif($_SESSION['user_id']);
     $lignes = $panierObj->getLignes($panierId);
     $total = $panierObj->calculerTotal($panierId);
     $nbArticles = $panierObj->getNombreArticles($panierId);
 }
 
+// Inclusion de l'en-tête HTML
 require_once __DIR__ . '/../includes/header.php';
 $activePage = 'panier';
 ?>
 
-<?php if (!$isGuest): /* Dashboard layout for logged-in users */ ?>
+<?php // Affichage en mode tableau de bord si l'utilisateur est connecté ?>
+<?php if (!$isGuest): ?>
 <div class="dashboard-layout">
 <?php require_once __DIR__ . '/../includes/user_sidebar.php'; ?>
 <div class="dash-main">
@@ -35,9 +45,11 @@ $activePage = 'panier';
         <h1 class="dash-page-title">Mon panier</h1>
         <p class="dash-page-sub">Vérifiez vos articles et passez votre commande.</p>
     </div>
-<?php else: /* Public layout for guests */ ?>
+<?php // Affichage en mode public (invité) ?>
+<?php else: ?>
 <?php require_once __DIR__ . '/../includes/navbar.php'; ?>
 <div class="container" style="padding-top:32px;padding-bottom:60px;">
+    <!-- Fil d'Ariane -->
     <div class="breadcrumb">
         <a href="<?= BASE_URL ?>/index.php">Accueil</a>
         <span class="breadcrumb-sep">/</span>
@@ -47,16 +59,20 @@ $activePage = 'panier';
     <p class="text-muted" style="margin-bottom:28px;">Révisez vos articles avant de commander.</p>
 <?php endif; ?>
 
+    <?php // Affichage des messages de succès/erreur stockés en session ?>
     <?php if (isset($_SESSION['success'])): ?><div class="alert alert-success"><?= securiser($_SESSION['success']); unset($_SESSION['success']); ?></div><?php endif; ?>
     <?php if (isset($_SESSION['error'])): ?><div class="alert alert-danger"><?= securiser($_SESSION['error']); unset($_SESSION['error']); ?></div><?php endif; ?>
 
+    <?php // Vérification si le panier est vide ?>
     <?php if (empty($lignes)): ?>
+    <!-- Message et lien vers la boutique si le panier est vide -->
     <div class="empty-state" style="border:1px solid var(--gray-200);">
         <i class="fas fa-shopping-cart"></i>
         <p>Votre panier est vide.</p>
         <a href="<?= BASE_URL ?>/pages/boutique.php" class="btn btn-dark">Découvrir nos produits</a>
     </div>
     <?php else: ?>
+    <!-- Grille d'affichage du contenu du panier -->
     <div class="checkout-layout">
         <div>
             <div class="table-card">
@@ -66,7 +82,9 @@ $activePage = 'panier';
                 <table>
                     <thead><tr><th>Produit</th><th>Prix unitaire</th><th>Quantité</th><th>Total</th><th></th></tr></thead>
                     <tbody>
+                    <?php // Boucle sur chaque ligne du panier ?>
                     <?php foreach ($lignes as $i => $ligne):
+                        // Détermination de l'identifiant de la ligne selon le mode (session ou BDD)
                         $ligneId = $isGuest ? $i : $ligne['id'];
                     ?>
                     <tr>
@@ -75,10 +93,13 @@ $activePage = 'panier';
                                 <div class="panier-table-img"><i class="fas fa-tshirt"></i></div>
                                 <div>
                                     <div class="text-sm font-semibold"><?= securiser($ligne['nom']) ?></div>
+                                    <?php if (!empty($ligne['taille'])): ?><div class="text-xs text-muted">Taille : <?= securiser($ligne['taille']) ?></div><?php endif; ?>
                                 </div>
                             </div>
                         </td>
+                        <?php // Colonne : prix unitaire (avec ou sans solde) ?>
                         <td><?php if (!empty($ligne['solde_prix']) && $ligne['solde_prix'] > 0): ?><span class="prix-solde"><?= formatPrix($ligne['prix_unitaire']) ?></span> <span class="prix-barre"><?= formatPrix($ligne['prix_actuel']) ?></span><?php else: ?><?= formatPrix($ligne['prix_unitaire']) ?><?php endif; ?></td>
+                        <?php // Colonne : contrôle de quantité ?>
                         <td>
                             <form method="POST" action="<?= BASE_URL ?>/actions/modifier_panier.php" class="qty-control">
                                 <input type="hidden" name="ligne_id" value="<?= $ligneId ?>">
@@ -87,18 +108,22 @@ $activePage = 'panier';
                                 <button type="button" class="qty-btn" onclick="var inp=this.previousElementSibling;inp.value=Math.min(<?= $ligne['stock'] ?>,parseInt(inp.value)+1);this.closest('form').submit();"><i class="fas fa-plus"></i></button>
                             </form>
                         </td>
+                        <?php // Colonne : total par ligne ?>
                         <td><strong><?= formatPrix($ligne['prix_unitaire'] * $ligne['quantite']) ?></strong></td>
+                        <?php // Colonne : bouton de suppression ?>
                         <td><a href="<?= BASE_URL ?>/actions/supprimer_panier.php?ligne_id=<?= $ligneId ?>" style="color:var(--gray-400);font-size:14px;" onclick="return confirm('Supprimer cet article ?')"><i class="fas fa-trash"></i></a></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
+                <!-- Pied du tableau : liens pour continuer les achats ou vider le panier -->
                 <div class="flex justify-between" style="padding:14px 16px;border-top:1px solid var(--gray-100);">
                     <a href="<?= BASE_URL ?>/pages/boutique.php" class="btn btn-outline-dark btn-sm"><i class="fas fa-arrow-left"></i> Continuer mes achats</a>
                     <a href="<?= BASE_URL ?>/actions/vider_panier.php<?= $isGuest ? '' : '?panier_id=' . $panierId ?>" style="font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:6px;" onclick="return confirm('Vider le panier ?')"><i class="fas fa-trash"></i> Vider le panier</a>
                 </div>
             </div>
         </div>
+        <!-- Colonne récapitulatif du panier -->
         <div class="panier-recap">
             <h3>Récapitulatif de panier</h3>
             <div class="recap-row"><span class="text-muted">Sous-total (<?= $nbArticles ?> articles)</span><strong><?= formatPrix($total) ?></strong></div>
@@ -114,6 +139,7 @@ $activePage = 'panier';
     </div>
     <?php endif; ?>
 
+    <!-- Section des avantages -->
     <div class="why-buy" style="margin-top:28px;">
         <div class="why-buy-item"><i class="fas fa-truck"></i><h4>Livraison rapide</h4><p>Partout au Bénin</p></div>
         <div class="why-buy-item"><i class="fas fa-undo"></i><h4>Retour facile</h4><p>Sous 7 jours</p></div>
@@ -121,7 +147,8 @@ $activePage = 'panier';
         <div class="why-buy-item"><i class="fas fa-headset"></i><h4>Support client</h4><p>7j/7 à votre écoute</p></div>
     </div>
 
-<?php if (!$isGuest): /* Close dashboard layout */ ?>
+<?php // Fermeture des balises du layout dashboard (utilisateur connecté) ?>
+<?php if (!$isGuest): ?>
 </div>
 <div class="dash-footer">
     <span>v1.0.0 &bull; ClaudiShop</span>
@@ -130,8 +157,11 @@ $activePage = 'panier';
 </div>
 </div>
 </div>
-<?php else: /* Close public layout */ ?>
+<?php // Fermeture du layout public (invité) ?>
+<?php else: ?>
 </div>
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php
+// Inclusion du pied de page pour le mode invité
+require_once __DIR__ . '/../includes/footer.php'; ?>
 <?php endif; ?>
 </body></html>

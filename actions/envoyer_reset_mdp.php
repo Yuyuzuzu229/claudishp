@@ -1,38 +1,48 @@
 <?php
+// Inclusion des fichiers de configuration, base de données et service de notification
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../classes/NotificationService.php';
 
+// Vérifie si la requête est de type POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect(BASE_URL . '/pages/connexion.php');
 }
 
+// Récupère et nettoie l'email
 $email = trim($_POST['email'] ?? '');
+// Vérifie que l'email est valide
 if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['error'] = 'Email invalide.';
     redirect(BASE_URL . '/pages/mot_de_passe_oublie.php');
 }
 
+// Récupère la connexion PDO et cherche l'utilisateur par email
 $pdo = getPdo();
 $stmt = $pdo->prepare("SELECT id, nom, prenom FROM utilisateur WHERE email = ? AND est_actif = 1");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
+// Si l'utilisateur n'existe pas, affiche un message générique (sécurité)
 if (!$user) {
     $_SESSION['success'] = 'Si cet email existe, un lien de réinitialisation vous a été envoyé.';
     redirect(BASE_URL . '/pages/mot_de_passe_oublie.php');
 }
 
+// Génère un token aléatoire sécurisé et une date d'expiration (30 minutes)
 $token = bin2hex(random_bytes(32));
 $expire = date('Y-m-d H:i:s', strtotime('+30 minutes'));
 
+// Enregistre le token et l'expiration en base
 $stmt = $pdo->prepare("UPDATE utilisateur SET reset_token = ?, reset_expire = ? WHERE id = ?");
 $stmt->execute([$token, $expire, $user['id']]);
 
+// Construit le lien de réinitialisation
 $resetLink = BASE_URL . '/pages/reset_mdp.php?token=' . $token;
 $nom = securiser($user['prenom'] . ' ' . $user['nom']);
 $subject = 'Réinitialisation de votre mot de passe ClaudiShop';
 
+// Template HTML de l'email de réinitialisation
 $message = "
 <!DOCTYPE html>
 <html>
@@ -50,12 +60,15 @@ $message = "
 </body>
 </html>";
 
+// Instancie le service de notification et envoie l'email
 $notifSvc = new NotificationService();
 $result = $notifSvc->envoyerEmail($email, $subject, $message, true);
 
+// Affiche un message selon le résultat de l'envoi
 if ($result && $result['success']) {
     $_SESSION['success'] = 'Un lien de réinitialisation vous a été envoyé par email. Vérifiez votre boîte (pensez aux spams).';
 } else {
     $_SESSION['success'] = 'Si cet email existe, un lien de réinitialisation vous a été envoyé.';
 }
+// Redirige vers la page mot de passe oublié
 redirect(BASE_URL . '/pages/mot_de_passe_oublie.php');

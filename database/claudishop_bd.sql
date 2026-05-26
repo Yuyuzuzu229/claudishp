@@ -13,6 +13,8 @@ DROP TABLE IF EXISTS ligne_panier;
 DROP TABLE IF EXISTS panier;
 DROP TABLE IF EXISTS produit;
 DROP TABLE IF EXISTS categorie;
+DROP TABLE IF EXISTS hero_collection;
+DROP TABLE IF EXISTS configuration_boutique;
 DROP TABLE IF EXISTS zone_livraison;
 DROP TABLE IF EXISTS utilisateur;
 
@@ -199,6 +201,38 @@ CREATE TABLE adresse (
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+CREATE TABLE configuration_boutique (
+    id INT NOT NULL DEFAULT 1,
+    latitude DECIMAL(10,7) NOT NULL DEFAULT 0.0000000,
+    longitude DECIMAL(10,7) NOT NULL DEFAULT 0.0000000,
+    adresse VARCHAR(255) NOT NULL DEFAULT '',
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO configuration_boutique (id, latitude, longitude, adresse)
+VALUES (1, 6.3650, 2.4330, 'Wologede, Mairie, Cotonou')
+ON DUPLICATE KEY UPDATE id = id;
+
+CREATE TABLE hero_collection (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    titre VARCHAR(200) NOT NULL,
+    tag VARCHAR(100) NOT NULL DEFAULT '',
+    type ENUM('categorie','produits') NOT NULL DEFAULT 'categorie',
+    categorie_id INT UNSIGNED DEFAULT NULL,
+    produit_ids TEXT DEFAULT NULL,
+    statut TINYINT(1) NOT NULL DEFAULT 1,
+    ordre INT NOT NULL DEFAULT 0,
+    date_creation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY idx_hero_cat (categorie_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO hero_collection (titre, tag, type, categorie_id, produit_ids, statut, ordre) VALUES
+('Collection Printemps', 'Tendance', 'categorie', 1, NULL, 1, 0),
+('Nouvelle Saison', 'Nouveauté', 'categorie', 2, NULL, 1, 1)
+ON DUPLICATE KEY UPDATE id = id;
+
 INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, telephone, role) VALUES
 ('Admin', 'Super', 'admin@claudishop.com', '$2y$10$kNXT/dB6x31v8Rt5DYpq.uxqPrDOpIm363i1NQZETQfMmNXFauDkS', '+22877000000', 'admin');
 
@@ -210,9 +244,22 @@ INSERT INTO categorie (nom, description) VALUES
 ('Chaussures', 'Chaussures tous âges');
 
 INSERT INTO zone_livraison (nom, description, tarif) VALUES
-('Cotonou Zone A', 'Couvre Akpakpa à Dantokpa', 2500),
-('Parakou Centre', 'Zone municipale centrale', 3000),
-('Calavi Campus', 'Focus sur UAC', 2000);
+('Cotonou - Zone 1', 'Akpakpa, Fidjrossè, Agblangandan', 2000),
+('Cotonou - Zone 2', 'Védoko, Cadjehoun, Haie Vive', 2000),
+('Cotonou - Zone 3', 'Mairie, Gbegamey, Missessin', 2000),
+('Cotonou - Zone 4', 'Dantokpa, Centre-ville, St Michel', 2000),
+('Abomey-Calavi - Zone 1', 'Calavi Centre, UAC', 2500),
+('Abomey-Calavi - Zone 2', 'Zogbadje, Kpota, Tankpè', 2500),
+('Abomey-Calavi - Zone 3', 'Godomey, Togoudo', 2500),
+('Parakou', 'Parakou Centre et périphérie', 3500),
+('Porto-Novo - Zone 1', 'Porto-Novo Centre', 2500),
+('Porto-Novo - Zone 2', 'Dokèkpo, Adjara', 2500),
+('Bohicon / Abomey', 'Bohicon et Abomey', 3000),
+('Ouidah / Grand-Popo', 'Ouidah Grand-Popo', 3500),
+('Lokossa / Dogbo', 'Lokossa Dogbo', 3500),
+('Cové / Dassa / Savalou', 'Cové Dassa Savalou', 3500),
+('Kandi / Malanville', 'Kandi Malanville', 4500),
+('Natitingou / Djougou', 'Natitingou Djougou', 4000);
 
 INSERT INTO produit (nom, description, prix, stock, categorie_id, taille_disponible, couleur) VALUES
 ('Robe Wax fleurie', 'Magnifique robe en wax africain', 18500, 18, 1, 'S à XL', 'Multicolore'),

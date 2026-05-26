@@ -1,0 +1,17 @@
+/.playwright-mcp/
+/logs/
+/vendor/
+/node_modules/
+*.log
+*.zip
+*.sql
+analyze.ps1
+analyze_images.php
+get_products.php
+check_db.php
+snap-*.txt
+diagnostic.php
+fix_accounts.php
+restaurer_essentiel.sql
+verifier.php
+test_email.php

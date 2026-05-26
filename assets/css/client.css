@@ -1,60 +1,78 @@
 /* ============================================
    CLAUDISHOP - Client Layout Stylesheet
+   Feuille de style pour la mise en page de l'espace client
 ============================================ */
 
-/* ======= ANNOUNCEMENT BAR ======= */
+/* ======= BARRE D'ANNONCE ======= */
+/* Style de la barre d'annonce en haut du site client */
 .announcement-bar {
   background: var(--black); color: var(--white);
   text-align: center; padding: 8px 20px;
   font-size: 0.78rem; letter-spacing: 0.03em;
 }
+/* Style du texte en surbrillance dans la barre d'annonce */
 .announcement-bar span { color: var(--gold); font-weight: 500; }
 
-/* ======= PUBLIC HEADER ======= */
+/* ======= EN-TÊTE PUBLIC ======= */
+/* Conteneur de l'en-tête public (sticky en haut) */
 .public-header {
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
   position: sticky; top: 0; z-index: 100;
 }
+/* Ligne principale de l'en-tête */
 .header-main {
   max-width: 1280px; margin: 0 auto;
   padding: 0 24px;
   display: flex; align-items: center; gap: 20px;
   height: 56px;
 }
+/* Logo dans l'en-tête */
 .header-logo {
   font-family: var(--font-display);
   font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em;
   color: var(--black); line-height: 1;
   display: flex; flex-direction: column;
 }
+/* Sous-texte du logo */
 .header-logo span { font-size: 0.55rem; letter-spacing: 0.18em; color: var(--gray-400); text-transform: uppercase; }
 
+/* Navigation principale de l'en-tête */
 .header-nav { flex: 1; display: flex; align-items: center; gap: 2px; }
+/* Liens de navigation */
 .header-nav a {
   padding: 8px 14px; font-size: 0.85rem; font-weight: 400;
   color: var(--gray-600); border-radius: var(--radius);
   transition: all 0.15s; white-space: nowrap;
 }
+/* Effet de survol des liens de navigation */
 .header-nav a:hover { color: var(--black); }
+/* Lien actif de navigation */
 .header-nav a.active { color: var(--black); font-weight: 500; }
+/* Lien des soldes en rouge */
 .header-nav a.soldes { color: var(--red); font-weight: 600; }
 
+/* Champ de recherche dans l'en-tête */
 .header-search {
   flex: 0 0 200px; position: relative;
 }
+/* Input de recherche */
 .header-search input {
   width: 100%; padding: 7px 12px 7px 32px;
   border: 1px solid var(--gray-200); border-radius: 20px;
   font-size: 0.82rem; outline: none; background: var(--gray-100);
 }
+/* État focus du champ de recherche */
 .header-search input:focus { background: var(--white); border-color: var(--gray-400); }
+/* Icône de recherche positionnée dans l'input */
 .header-search .search-icon {
   position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
   color: var(--gray-400);
 }
 
+/* Actions dans l'en-tête (connexion, panier) */
 .header-actions { display: flex; align-items: center; gap: 4px; }
+/* Bouton d'action individuel */
 .header-action-btn {
   display: flex; flex-direction: column; align-items: center;
   padding: 6px 10px; border-radius: var(--radius);
@@ -62,8 +80,11 @@
   transition: all 0.15s; gap: 2px; border: none; background: none;
   text-decoration: none;
 }
+/* Effet de survol du bouton d'action */
 .header-action-btn:hover { color: var(--black); background: var(--gray-100); }
+/* Conteneur d'icône avec position relative */
 .header-action-btn .icon-wrap { position: relative; }
+/* Compteur du panier sur l'icône */
 .header-cart-count {
   position: absolute; top: -5px; right: -7px;
   background: var(--black); color: var(--white);
@@ -72,73 +93,96 @@
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ======= PUBLIC FOOTER ======= */
+/* ======= PIED DE PAGE PUBLIC ======= */
+/* Conteneur du pied de page public */
 .public-footer { border-top: 1px solid var(--gray-200); margin-top: 60px; }
+/* Grille principale du pied de page */
 .footer-main {
   max-width: 1280px; margin: 0 auto;
   padding: 40px 24px 28px;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 32px;
 }
+/* Logo de la marque dans le pied de page */
 .footer-brand .brand-logo {
   font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
   margin-bottom: 8px;
 }
+/* Paragraphe dans la marque */
 .footer-brand p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.6; }
+/* Adresse dans le pied de page */
 .footer-brand .footer-address { font-size: 0.78rem; color: var(--gray-400); margin-top: 10px; }
+/* Contact dans le pied de page */
 .footer-brand .footer-contact { font-size: 0.78rem; color: var(--gray-400); }
 
+/* Colonne du pied de page */
 .footer-col h5 {
   font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px;
 }
+/* Liste des liens dans une colonne */
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+/* Liens dans la colonne */
 .footer-col ul li a { font-size: 0.82rem; color: var(--gray-600); transition: color 0.15s; }
+/* Effet de survol des liens */
 .footer-col ul li a:hover { color: var(--black); }
+/* Conteneur des icônes sociales */
 .footer-social { display: flex; gap: 8px; margin-top: 4px; }
+/* Bouton de réseau social */
 .social-btn {
   width: 30px; height: 30px; border-radius: 50%;
   border: 1px solid var(--gray-200); background: none;
   display: flex; align-items: center; justify-content: center;
   color: var(--gray-600); cursor: pointer; transition: all 0.15s; font-size: 0.75rem;
 }
+/* Effet de survol du bouton social */
 .social-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
 
+/* Section newsletter dans le pied de page */
 .footer-newsletter {
   background: var(--black); color: var(--white);
   padding: 40px 24px; text-align: center;
 }
+/* Titre de la newsletter */
 .footer-newsletter h3 {
   font-family: var(--font-display); font-size: 1.4rem; color: var(--white);
   margin-bottom: 6px;
 }
+/* Sous-titre de la newsletter */
 .footer-newsletter p { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 18px; }
+/* Formulaire de la newsletter */
 .newsletter-form {
   display: flex; gap: 0; max-width: 400px; margin: 0 auto;
   border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius);
   overflow: hidden;
 }
+/* Champ de saisie de la newsletter */
 .newsletter-form input {
   flex: 1; padding: 10px 16px; background: transparent;
   border: none; outline: none; color: var(--white); font-size: 0.85rem;
 }
+/* Texte indicatif du champ newsletter */
 .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+/* Bouton d'inscription à la newsletter */
 .newsletter-form button {
   padding: 10px 20px; background: var(--gold); color: var(--white);
   border: none; font-size: 0.82rem; font-weight: 500; cursor: pointer;
   white-space: nowrap;
 }
 
+/* Barre inférieure du pied de page */
 .footer-bottom {
   border-top: 1px solid var(--gray-200);
   padding: 14px 24px; font-size: 0.72rem; color: var(--gray-400);
   text-align: center;
 }
 
-/* ======= CLIENT PORTAL LAYOUT ======= */
+/* ======= MISE EN PAGE DU PORTAIL CLIENT ======= */
+/* Conteneur principal de la mise en page client */
 .client-layout {
   display: flex; min-height: 100vh;
 }
 
+/* Barre latérale du client */
 .client-sidebar {
   width: 240px; min-height: 100vh;
   background: var(--white); border-right: 1px solid var(--gray-200);
@@ -147,160 +191,219 @@
   display: flex; flex-direction: column;
 }
 
+/* Marque dans la barre latérale */
 .client-sidebar .sidebar-brand {
   padding: 18px 20px;
   border-bottom: 1px solid var(--gray-200);
   display: flex; align-items: center; gap: 8px;
 }
+/* Nom de la marque dans la sidebar */
 .client-sidebar .brand-name {
   font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
 }
+/* Badge "ESPACE CLIENT" dans la sidebar */
 .client-sidebar .brand-space {
   font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--gold);
   border: 1px solid var(--gold); border-radius: 2px; padding: 2px 6px;
 }
 
+/* Section utilisateur dans la barre latérale */
 .client-sidebar .sidebar-user {
   padding: 14px 20px;
   border-bottom: 1px solid var(--gray-200);
 }
+/* Nom de l'utilisateur dans la sidebar */
 .client-sidebar .user-name { font-size: 0.88rem; font-weight: 600; }
+/* Email de l'utilisateur dans la sidebar */
 .client-sidebar .user-email { font-size: 0.72rem; color: var(--gray-400); }
 
+/* Conteneur de navigation dans la sidebar */
 .client-sidebar .sidebar-nav { flex: 1; padding: 10px 0; }
 
+/* Libellé de section dans la navigation */
 .client-sidebar .nav-section-label {
   padding: 10px 20px 4px;
   font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--gray-400);
 }
 
+/* Élément de navigation individuel */
 .client-sidebar .nav-item {
   display: flex; align-items: center; gap: 10px;
   padding: 9px 20px; font-size: 0.875rem;
   color: var(--gray-600); cursor: pointer;
   transition: all 0.15s; text-decoration: none;
 }
+/* Effet de survol d'un élément de navigation */
 .client-sidebar .nav-item:hover { background: var(--gray-100); color: var(--black); }
+/* Élément de navigation actif */
 .client-sidebar .nav-item.active { background: var(--black); color: var(--white); font-weight: 500; }
+/* Badge de notification sur un élément de navigation */
 .client-sidebar .nav-item .nav-badge {
   margin-left: auto; background: var(--gold); color: var(--white);
   font-size: 0.68rem; font-weight: 600; padding: 1px 6px;
   border-radius: 10px;
 }
+/* Badge sur un élément actif */
 .client-sidebar .nav-item.active .nav-badge { background: rgba(255,255,255,0.2); }
 
+/* Pied de la barre latérale */
 .client-sidebar .sidebar-footer {
   padding: 10px 0; border-top: 1px solid var(--gray-200);
 }
+/* Version dans le pied de la sidebar */
 .client-sidebar .sidebar-version { padding: 8px 20px; font-size: 0.68rem; color: var(--gray-400); }
 
+/* Zone de contenu principal à côté de la sidebar */
 .client-main { margin-left: 240px; flex: 1; display: flex; flex-direction: column; }
 
+/* Barre supérieure du client */
 .client-topbar {
   height: 64px; padding: 0 28px;
   background: var(--white); border-bottom: 1px solid var(--gray-200);
   display: flex; align-items: center; gap: 16px;
   position: sticky; top: 0; z-index: 50;
 }
+/* Titre dans la topbar */
 .client-topbar .topbar-title { flex: 1; }
+/* Titre h1 dans la topbar */
 .client-topbar h1 { font-family: var(--font-body); font-size: 1.3rem; font-weight: 600; }
+/* Sous-titre dans la topbar */
 .client-topbar .topbar-subtitle { font-size: 0.78rem; color: var(--gray-400); }
 
+/* Contenu principal du client */
 .client-content { flex: 1; padding: 28px; }
 
+/* Pied de page du client */
 .client-footer {
   padding: 14px 28px; border-top: 1px solid var(--gray-200);
   font-size: 0.75rem; color: var(--gray-400); text-align: center;
 }
 
-/* ======= PRODUCT CARDS ======= */
+/* ======= CARTES PRODUITS ======= */
+/* Grille d'affichage des produits */
 .products-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
+/* Carte individuelle d'un produit */
 .product-card {
   border: 1px solid var(--gray-200); border-radius: var(--radius-md);
   overflow: hidden; background: var(--white);
   transition: all 0.2s; cursor: pointer;
 }
+/* Effet de survol d'une carte produit */
 .product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+/* Zoom de l'image au survol */
 .product-card:hover .product-image { transform: scale(1.03); }
 
+/* Conteneur de l'image du produit avec ratio 3:4 */
 .product-image-wrap { overflow: hidden; aspect-ratio: 3/4; position: relative; }
+/* Image du produit */
 .product-image {
   width: 100%; height: 100%; object-fit: cover;
   background: var(--gray-100);
   display: flex; align-items: center; justify-content: center;
   color: var(--gray-400); transition: transform 0.3s ease;
 }
+/* Badges superposés sur l'image du produit */
 .product-badges { position: absolute; top: 8px; left: 8px; display: flex; gap: 4px; flex-wrap: wrap; }
+/* Style d'un badge individuel */
 .product-badge {
   padding: 3px 8px; font-size: 0.68rem; font-weight: 600;
   border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em;
 }
+/* Badge pour la catégorie Femme */
 .product-badge.femme { background: #F0E6FF; color: #6B21A8; }
+/* Badge pour la catégorie Homme */
 .product-badge.homme { background: #E0F0FF; color: #1E40AF; }
+/* Badge pour la catégorie Enfant */
 .product-badge.enfant { background: #E0FAF0; color: #065F46; }
+/* Badge pour les soldes */
 .product-badge.soldes { background: var(--red); color: var(--white); }
 
+/* Informations du produit sous l'image */
 .product-info { padding: 14px; }
+/* Nom du produit */
 .product-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 4px; }
+/* Tailles disponibles du produit */
 .product-sizes { font-size: 0.72rem; color: var(--gray-400); margin-bottom: 8px; }
+/* Prix du produit */
 .product-price { font-weight: 600; font-size: 0.95rem; }
+/* Ancien prix barré */
 .product-old-price { font-size: 0.8rem; color: var(--gray-400); text-decoration: line-through; margin-right: 6px; }
+/* Prix soldé en rouge */
 .product-sale-price { color: var(--red); }
 
+/* Bouton d'ajout au panier */
 .product-add-btn {
   width: 100%; padding: 9px;
   background: var(--black); color: var(--white);
   border: none; border-radius: var(--radius); font-size: 0.82rem;
   font-weight: 500; cursor: pointer; transition: all 0.2s; margin-top: 10px;
 }
+/* Effet de survol du bouton d'ajout */
 .product-add-btn:hover { background: var(--dark); }
+/* Bouton désactivé quand le produit est en rupture */
 .product-add-btn.rupture { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
 
-/* ======= FILTERS PANEL ======= */
+/* ======= PANNEAU DE FILTRES ======= */
+/* Conteneur du panneau de filtres */
 .filters-panel {
   background: var(--white); border: 1px solid var(--gray-200);
   border-radius: var(--radius-md); padding: 20px;
   position: sticky; top: 80px;
 }
+/* Titre du panneau de filtres */
 .filters-title { font-size: 1rem; font-weight: 600; margin-bottom: 18px; }
+/* Groupe de filtres individuel */
 .filter-group { margin-bottom: 20px; }
+/* Titre d'un groupe de filtres */
 .filter-group-title { font-size: 0.78rem; font-weight: 600; margin-bottom: 10px; }
 
+/* Case à cocher d'un filtre */
 .filter-checkbox {
   display: flex; align-items: center; gap: 8px;
   font-size: 0.82rem; color: var(--gray-600);
   margin-bottom: 6px; cursor: pointer;
 }
+/* Input de la case à cocher */
 .filter-checkbox input { accent-color: var(--black); }
 
+/* Boutons de sélection de taille */
 .size-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+/* Bouton de taille individuel */
 .size-btn {
   padding: 5px 10px; border: 1.5px solid var(--gray-200);
   border-radius: var(--radius); font-size: 0.78rem; font-weight: 500;
   cursor: pointer; transition: all 0.15s; background: none;
 }
+/* Effet de survol du bouton de taille */
 .size-btn:hover { border-color: var(--black); }
+/* Bouton de taille actif */
 .size-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
 
+/* Plage de prix pour le filtre */
 .price-range { display: flex; gap: 8px; align-items: center; }
+/* Champ de saisie de la plage de prix */
 .price-range input {
   flex: 1; padding: 7px 10px;
   border: 1px solid var(--gray-200); border-radius: var(--radius);
   font-size: 0.82rem; outline: none;
 }
 
+/* Échantillons de couleurs */
 .color-swatches { display: flex; gap: 6px; flex-wrap: wrap; }
+/* Échantillon de couleur individuel */
 .color-swatch {
   width: 22px; height: 22px; border-radius: 50%;
   border: 2px solid transparent; cursor: pointer;
   transition: all 0.15s;
 }
+/* Échantillon actif ou survolé */
 .color-swatch.active, .color-swatch:hover { border-color: var(--black); }
 
+/* Bouton d'application des filtres */
 .filter-apply-btn {
   width: 100%; padding: 10px;
   background: var(--black); color: var(--white);
@@ -309,136 +412,182 @@
   margin-top: 8px;
 }
 
-/* ======= CART ======= */
+/* ======= PANIER ======= */
+/* Ligne d'un article dans le panier */
 .cart-row {
   display: grid; grid-template-columns: 80px 1fr auto auto auto;
   gap: 16px; align-items: center;
   padding: 16px 0; border-bottom: 1px solid var(--gray-100);
 }
+/* Suppression de la bordure pour la dernière ligne */
 .cart-row:last-child { border-bottom: none; }
+/* Image de l'article dans le panier */
 .cart-img {
   width: 70px; height: 85px; border-radius: var(--radius);
   background: var(--gray-100); display: flex;
   align-items: center; justify-content: center; color: var(--gray-400);
   overflow: hidden;
 }
+/* Nom du produit dans le panier */
 .cart-product-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 4px; }
+/* Attributs du produit dans le panier */
 .cart-product-attrs { font-size: 0.78rem; color: var(--gray-400); }
 
+/* Contrôle de quantité */
 .qty-control {
   display: flex; align-items: center; gap: 10px;
   border: 1px solid var(--gray-200); border-radius: var(--radius);
   padding: 4px 8px;
 }
+/* Bouton du contrôle de quantité */
 .qty-btn {
   background: none; border: none; font-size: 1rem;
   cursor: pointer; color: var(--gray-600); line-height: 1;
   padding: 2px 4px;
 }
+/* Effet de survol du bouton quantité */
 .qty-btn:hover { color: var(--black); }
+/* Valeur affichée de la quantité */
 .qty-val { font-size: 0.9rem; font-weight: 500; min-width: 20px; text-align: center; }
 
-/* ======= ORDER SUMMARY ======= */
+/* ======= RÉCAPITULATIF DE COMMANDE ======= */
+/* Conteneur du récapitulatif de commande */
 .order-summary {
   background: var(--white); border: 1px solid var(--gray-200);
   border-radius: var(--radius-md); padding: 20px; position: sticky; top: 80px;
 }
+/* Ligne du récapitulatif */
 .summary-line {
   display: flex; justify-content: space-between;
   font-size: 0.875rem; padding: 8px 0;
   border-bottom: 1px solid var(--gray-100);
 }
+/* Suppression de la bordure pour la dernière ligne de récap */
 .summary-line:last-of-type { border-bottom: none; }
+/* Total du récapitulatif */
 .summary-total {
   display: flex; justify-content: space-between;
   padding: 14px 0 0; margin-top: 8px;
   border-top: 2px solid var(--black);
 }
+/* Libellé du total */
 .summary-total .label { font-size: 0.9rem; font-weight: 600; }
+/* Montant du total */
 .summary-total .amount { font-size: 1.3rem; font-weight: 700; }
 
-/* ======= DELIVERY TRACKING ======= */
+/* ======= SUIVI DE LIVRAISON ======= */
+/* Étapes de suivi de livraison */
 .track-steps {
   display: flex; align-items: center; gap: 0;
   margin: 20px 0; overflow: hidden;
 }
+/* Étape individuelle de suivi */
 .track-step {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; position: relative;
 }
+/* Ligne de connexion entre les étapes */
 .track-step::before {
   content: ''; position: absolute;
   top: 18px; left: 50%; right: -50%;
   height: 2px; background: var(--gray-200); z-index: 0;
 }
+/* Masquer la ligne après la dernière étape */
 .track-step:last-child::before { display: none; }
+/* Ligne colorée pour une étape terminée */
 .track-step.done::before { background: var(--black); }
+/* Point indicateur d'une étape */
 .track-dot {
   width: 36px; height: 36px; border-radius: 50%;
   border: 2px solid var(--gray-200); background: var(--white);
   display: flex; align-items: center; justify-content: center;
   z-index: 1; font-size: 0.85rem;
 }
+/* Point pour une étape terminée */
 .track-step.done .track-dot { background: var(--black); border-color: var(--black); color: var(--white); }
+/* Point pour l'étape en cours */
 .track-step.current .track-dot { border-color: var(--gold); color: var(--gold); }
+/* Libellé de l'étape */
 .track-label { font-size: 0.72rem; font-weight: 500; margin-top: 8px; text-align: center; color: var(--gray-600); }
+/* Libellé pour les étapes terminées ou en cours */
 .track-step.done .track-label, .track-step.current .track-label { color: var(--black); }
 
-/* ======= MAP PLACEHOLDER ======= */
+/* ======= EMPLACEMENT CARTE ======= */
+/* Emplacement pour l'affichage d'une carte */
 .map-placeholder {
   width: 100%; height: 320px; background: #e8ede8;
   border-radius: var(--radius-md); overflow: hidden; position: relative;
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ======= TABS ======= */
+/* ======= ONGLETS ======= */
+/* Conteneur d'onglets */
 .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray-200); margin-bottom: 20px; }
+/* Bouton d'onglet individuel */
 .tab-btn {
   padding: 10px 20px; background: none; border: none;
   font-size: 0.875rem; font-weight: 500; color: var(--gray-600);
   cursor: pointer; position: relative; transition: color 0.15s;
 }
+/* Onglet actif */
 .tab-btn.active { color: var(--black); }
+/* Indicateur sous l'onglet actif */
 .tab-btn.active::after {
   content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
   height: 2px; background: var(--black);
 }
 
-/* ======= REVIEWS ======= */
+/* ======= AVIS ======= */
+/* Carte d'un avis client */
 .review-card {
   padding: 18px 20px; border: 1px solid var(--gray-200);
   border-radius: var(--radius-md); margin-bottom: 12px;
 }
+/* En-tête d'un avis */
 .review-header {
   display: flex; justify-content: space-between;
   align-items: flex-start; margin-bottom: 8px;
 }
+/* Métadonnées de l'avis */
 .review-meta { font-size: 0.8rem; color: var(--gray-600); }
+/* Texte de l'avis */
 .review-text { font-size: 0.875rem; line-height: 1.6; }
 
-/* ======= BREADCRUMB ======= */
+/* ======= FIL D'ARIANE ======= */
+/* Navigation de type fil d'Ariane */
 .breadcrumb-nav { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--gray-400); margin-bottom: 16px; }
+/* Liens du fil d'Ariane */
 .breadcrumb-nav a { color: var(--gray-400); }
+/* Effet de survol des liens */
 .breadcrumb-nav a:hover { color: var(--black); }
+/* Séparateur dans le fil d'Ariane */
 .breadcrumb-nav .sep { color: var(--gray-300); }
+/* Élément courant du fil d'Ariane */
 .breadcrumb-nav .current { color: var(--gray-800); }
 
-/* ======= FEATURES BAR ======= */
+/* ======= BARRE DE FONCTIONNALITÉS ======= */
+/* Grille des fonctionnalités */
 .features-bar {
   display: grid; grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--gray-200); margin-top: 40px;
 }
+/* Élément individuel de fonctionnalité */
 .feature-item {
   padding: 24px; display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 8px;
   border-right: 1px solid var(--gray-200);
 }
+/* Suppression de la bordure droite pour le dernier élément */
 .feature-item:last-child { border-right: none; }
+/* Icône de la fonctionnalité */
 .feature-icon { color: var(--gray-600); margin-bottom: 4px; }
+/* Titre de la fonctionnalité */
 .feature-title { font-size: 0.85rem; font-weight: 600; }
+/* Sous-titre de la fonctionnalité */
 .feature-sub { font-size: 0.75rem; color: var(--gray-400); }
 
-/* ======= MOBILE SIDEBAR TOGGLE ======= */
+/* ======= BASCULE DE LA SIDEBAR SUR MOBILE ======= */
+/* Bouton de bascule de la sidebar en mode mobile */
 .mobile-sidebar-toggle {
     display: none;
     width: 36px;
@@ -451,6 +600,7 @@
     justify-content: center;
     flex-shrink: 0;
 }
+/* Ligne du bouton hamburger */
 .mobile-sidebar-toggle span {
     display: block;
     width: 16px;
@@ -459,6 +609,7 @@
     border-radius: 2px;
     position: relative;
 }
+/* Lignes avant et après pour former le hamburger */
 .mobile-sidebar-toggle span::before,
 .mobile-sidebar-toggle span::after {
     content: '';
@@ -469,9 +620,12 @@
     background: var(--black);
     border-radius: 2px;
 }
+/* Position de la ligne du haut */
 .mobile-sidebar-toggle span::before { top: -5px; }
+/* Position de la ligne du bas */
 .mobile-sidebar-toggle span::after { top: 5px; }
 
+/* Overlay de la sidebar pour mobile */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -481,16 +635,19 @@
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+/* Overlay visible */
 .sidebar-overlay.open {
     display: block;
     opacity: 1;
 }
 
+/* Sidebar ouverte sur mobile */
 .client-sidebar.open {
     transform: translateX(0);
 }
 
 /* ======= RESPONSIVE ======= */
+/* Styles adaptatifs pour tablettes (max 1024px) */
 @media (max-width: 1024px) {
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -498,6 +655,7 @@
   .header-search { flex: 0 0 160px; }
   .topbar-date { font-size: 0.75rem; }
 }
+/* Styles adaptatifs pour mobiles (max 768px) */
 @media (max-width: 768px) {
   .mobile-sidebar-toggle { display: flex; }
   .header-main { padding: 0 16px; height: 50px; gap: 12px; }
@@ -511,6 +669,7 @@
   .product-name { font-size: 0.82rem; }
   .product-price { font-size: 0.85rem; }
   .product-add-btn { padding: 7px; font-size: 0.75rem; }
+  /* Sidebar cachée par défaut sur mobile, révélée au clic */
   .client-sidebar { 
     transform: translateX(-100%); 
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -546,6 +705,7 @@
   .tab-btn { padding: 8px 12px; font-size: 0.8rem; }
 }
 
+/* Styles adaptatifs pour très petits écrans (max 480px) */
 @media (max-width: 480px) {
   .products-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .product-name { font-size: 0.78rem; }

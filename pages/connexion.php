@@ -1,14 +1,22 @@
 <?php
+// Inclusion du fichier de configuration principal
 require_once __DIR__ . '/../config/config.php';
+// Inclusion de la classe Utilisateur pour la gestion des comptes
 require_once __DIR__ . '/../classes/Utilisateur.php';
+// Inclusion du fichier de configuration mail
 require_once __DIR__ . '/../config/mail.php';
 
+// Redirection vers le tableau de bord si l'utilisateur est déjà connecté
 if (isLoggedIn()) { redirect(BASE_URL . '/user/dashboard.php'); }
 
+// Définition du titre de la page
 $pageTitle = 'Connexion';
+// Inclusion de l'en-tête HTML
 require_once __DIR__ . '/../includes/header.php';
 ?>
+<!-- Structure de la page de connexion (deux colonnes) -->
 <div class="connexion-layout">
+    <!-- Colonne gauche : présentation de la marque -->
     <div class="connexion-left">
         <div style="margin-bottom:48px;">
             <div style="font-size:22px;font-weight:900;color:white;margin-bottom:4px;">CLAUDI<span style="font-weight:400;">SHOP</span></div>
@@ -25,11 +33,14 @@ require_once __DIR__ . '/../includes/header.php';
             &copy; <?= date('Y') ?> ClaudiShop &ndash; Tous droits réservés
         </div>
     </div>
+    <!-- Colonne droite : formulaire de connexion -->
     <div class="connexion-right">
         <div style="max-width:380px;width:100%;">
+            <?php // Affichage des messages d'erreur stockés en session ?>
             <?php if (isset($_SESSION['error'])): ?>
             <div class="alert alert-danger"><?= securiser($_SESSION['error']); unset($_SESSION['error']); ?></div>
             <?php endif; ?>
+            <?php // Affichage des messages de succès stockés en session ?>
             <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success"><?= securiser($_SESSION['success']); unset($_SESSION['success']); ?></div>
             <?php endif; ?>
@@ -39,6 +50,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <p class="text-muted text-sm">Bienvenue ! Entrez vos identifiants pour continuer.</p>
             </div>
 
+            <?php // Formulaire de connexion envoyé vers actions/connexion.php ?>
             <form method="POST" action="<?= BASE_URL ?>/actions/connexion.php">
                 <div class="form-group">
                     <label>Adresse email</label>
@@ -60,18 +72,22 @@ require_once __DIR__ . '/../includes/header.php';
                 <button type="submit" class="btn btn-dark btn-block btn-lg" style="margin-top:8px;">Se connecter</button>
             </form>
 
+            <!-- Séparateur "ou" -->
             <div style="margin-top:16px;position:relative;text-align:center;">
                 <div style="border-top:1px solid var(--gray-100);"></div>
                 <span style="position:relative;top:-10px;background:white;padding:0 12px;font-size:12px;color:var(--gray-400);">ou</span>
             </div>
+            <?php // Conteneur pour le bouton Google Sign-In ?>
             <div id="gSignInWrapper" style="text-align:center;margin-top:4px;">
                 <div class="g_id_signin"></div>
             </div>
 
+            <?php // Lien vers la page d'inscription ?>
             <div style="text-align:center;margin-top:24px;">
                 <span class="text-muted text-sm">Pas encore de compte ? </span>
                 <a href="<?= BASE_URL ?>/pages/inscription.php" style="font-size:13px;font-weight:600;color:var(--dark);">Créer un compte</a>
             </div>
+            <?php // Lien retour à la boutique ?>
             <div style="text-align:center;margin-top:16px;">
                 <a href="<?= BASE_URL ?>/index.php" style="font-size:12px;color:var(--gray-400);"><i class="fas fa-arrow-left" style="margin-right:4px;"></i>Retour à la boutique</a>
             </div>
@@ -79,10 +95,14 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
     </div>
 </div>
+<?php // Chargement asynchrone de la bibliothèque Google Sign-In ?>
 <script src="https://accounts.google.com/gsi/client" defer></script>
 <script>
+<?php // Récupération de l'ID client Google depuis la constante PHP ?>
 var gClientId = '<?= GOOGLE_CLIENT_ID ?>';
+<?php // Fonction de callback appelée après authentification Google ?>
 function handleCredentialResponse(response) {
+    <?php // Création d'un formulaire caché pour envoyer le token au serveur ?>
     var f = document.createElement('form');
     f.method = 'POST';
     f.action = '<?= BASE_URL ?>/actions/google_login.php';
@@ -94,9 +114,12 @@ function handleCredentialResponse(response) {
     document.body.appendChild(f);
     f.submit();
 }
+<?php // Fonction de polling pour attendre le chargement de la bibliothèque Google ?>
 (function pollGoogle(retries) {
+    <?php // Vérification si l'API Google est disponible ?>
     if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
         var el = document.querySelector('.g_id_signin');
+        <?php // Initialisation et rendu du bouton Google ?>
         if (!el || !gClientId) return;
         google.accounts.id.initialize({
             client_id: gClientId,
@@ -107,8 +130,10 @@ function handleCredentialResponse(response) {
             shape: 'rectangular', text: 'signin_with', width: 280
         });
     } else if (retries > 0) {
+        <?php // Nouvelle tentative après 500ms si le SDK n'est pas encore chargé ?>
         setTimeout(function(){ pollGoogle(retries - 1); }, 500);
     } else {
+        <?php // Affichage d'un message si le SDK ne se charge pas après 60 tentatives ?>
         document.getElementById('gSignInWrapper').innerHTML =
             '<p style="font-size:12px;color:var(--gray-400);">Connexion Google indisponible</p>';
     }

@@ -1,23 +1,65 @@
 <?php
+// Inclusion du fichier de configuration principal
 require_once __DIR__ . '/../config/config.php';
+// Inclusion de la classe Produit
 require_once __DIR__ . '/../classes/Produit.php';
+// Inclusion de la classe Categorie
 require_once __DIR__ . '/../classes/Categorie.php';
+// Inclusion de la classe Commande
 require_once __DIR__ . '/../classes/Commande.php';
+// Inclusion de la classe Utilisateur
 require_once __DIR__ . '/../classes/Utilisateur.php';
+// Inclusion de la classe Paiement
 require_once __DIR__ . '/../classes/Paiement.php';
+// Inclusion de la classe Avis
 require_once __DIR__ . '/../classes/Avis.php';
+// Inclusion de la classe Livraison
+require_once __DIR__ . '/../classes/Livraison.php';
+// Inclusion de la classe Notification
 require_once __DIR__ . '/../classes/Notification.php';
 
+// Vérification que l'utilisateur est connecté et a le rôle administrateur, sinon redirection vers la page de connexion
 if (!isLoggedIn() || !isAdmin()) { redirect(BASE_URL . '/pages/connexion.php'); }
 
+// Définition du titre de la page
 $pageTitle = 'Dashboard Admin';
+// Instanciation de l'objet Produit
 $produitObj = new Produit();
+// Instanciation de l'objet Categorie
 $categorieObj = new Categorie();
+// Instanciation de l'objet Commande
 $commandeObj = new Commande();
+// Instanciation de l'objet Utilisateur
 $utilisateurObj = new Utilisateur();
+// Instanciation de l'objet Paiement
 $paiementObj = new Paiement();
+// Instanciation de l'objet Avis
 $avisObj = new Avis();
+// Instanciation de l'objet Livraison
+$livraisonObj = new Livraison();
 
+// Définition des périodes pour les KPI comparatifs
+$debutMois = date('Y-m-01 00:00:00');
+$finMois = date('Y-m-t 23:59:59');
+$debutMoisPrec = date('Y-m-01 00:00:00', strtotime('-1 month'));
+$finMoisPrec = date('Y-m-t 23:59:59', strtotime('-1 month'));
+
+// Stats comparatives
+$commandesMois = $commandeObj->getNombreByPeriode($debutMois, $finMois);
+$commandesMoisPrec = $commandeObj->getNombreByPeriode($debutMoisPrec, $finMoisPrec);
+$evolCommandes = $commandesMoisPrec > 0 ? round(($commandesMois - $commandesMoisPrec) / $commandesMoisPrec * 100) : ($commandesMois > 0 ? 100 : 0);
+
+$ventesMois = $commandeObj->getTotalVentesByPeriode($debutMois, $finMois);
+$ventesMoisPrec = $commandeObj->getTotalVentesByPeriode($debutMoisPrec, $finMoisPrec);
+$evolVentes = $ventesMoisPrec > 0 ? round(($ventesMois - $ventesMoisPrec) / $ventesMoisPrec * 100) : ($ventesMois > 0 ? 100 : 0);
+
+$utilisateursMois = $utilisateurObj->getNombreByPeriode($debutMois, $finMois);
+$utilisateursMoisPrec = $utilisateurObj->getNombreByPeriode($debutMoisPrec, $finMoisPrec);
+$evolUtilisateurs = $utilisateursMoisPrec > 0 ? round(($utilisateursMois - $utilisateursMoisPrec) / $utilisateursMoisPrec * 100) : ($utilisateursMois > 0 ? 100 : 0);
+
+$tauxLivraison = $livraisonObj->getTauxLivraison();
+
+// Récupération des statistiques générales pour les KPI du tableau de bord
 $stats = [
     'produits' => $produitObj->getNombre(),
     'categories' => $categorieObj->getNombre(),
@@ -28,24 +70,37 @@ $stats = [
     'avis' => $avisObj->getNombre(),
 ];
 
+// Récupération des 6 dernières commandes pour l'affichage dans le tableau récent
 $dernieresCommandes = $commandeObj->getDernieresCommandes(6);
 
+// Connexion à la base de données via PDO
 $pdo = getPdo();
+// Requête SQL : récupération des produits dont le stock est faible (entre 1 et 5), triés par stock croissant, limité à 3
 $stockFaible = $pdo->query("SELECT id, nom, stock FROM produit WHERE stock <= 5 AND stock > 0 ORDER BY stock ASC LIMIT 3")->fetchAll();
+// Requête SQL : comptage des commandes groupé par statut
 $statsStatuts = $pdo->query("SELECT statut, COUNT(*) as nb FROM commande GROUP BY statut")->fetchAll();
+// Évite la division par zéro si aucune commande n'existe
 $totalCmd = $stats['commandes'] ?: 1;
 $statutPourcent = [];
+// Boucle de calcul du pourcentage de chaque statut par rapport au total des commandes
 foreach ($statsStatuts as $s) {
     $statutPourcent[$s['statut']] = round($s['nb'] / $totalCmd * 100);
 }
+// Requête SQL : récupération des ventes des 7 derniers jours, groupées par jour (hors commandes annulées)
 $ventes7jRaw = $pdo->query("SELECT DATE(date_commande) as jour, SUM(montant_total) as total FROM commande WHERE date_commande >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND statut != 'Annulée' GROUP BY DATE(date_commande) ORDER BY jour")->fetchAll();
 $ventesMax = 1;
+// Boucle pour déterminer le montant de vente maximum sur la période (pour l'échelle du graphique)
 foreach ($ventes7jRaw as $v) if ($v['total'] > $ventesMax) $ventesMax = $v['total'];
+// Requête SQL : récupération des 3 derniers avis publiés avec les informations utilisateur et produit associées
 $derniersAvis = $pdo->query("SELECT a.*, u.nom, u.prenom, p.nom as produit_nom FROM avis a JOIN utilisateur u ON a.utilisateur_id = u.id JOIN produit p ON a.produit_id = p.id WHERE a.statut = 'Publié' ORDER BY a.date_creation DESC LIMIT 3")->fetchAll();
+// Requête SQL : récupération des 3 dernières notifications avec les informations utilisateur associées
 $dernieresNotifs = $pdo->query("SELECT n.*, u.nom, u.prenom FROM notification n LEFT JOIN utilisateur u ON n.utilisateur_id = u.id ORDER BY n.date_envoi DESC LIMIT 3")->fetchAll();
+// Requête SQL : récupération des 3 derniers paiements avec le nom complet du client
 $derniersPaiements = $pdo->query("SELECT p.*, c.nom_complet FROM paiement p JOIN commande c ON p.commande_id = c.id ORDER BY p.date_paiement DESC LIMIT 3")->fetchAll();
 
+// Inclusion de l'en-tête HTML du site
 require_once __DIR__ . '/../includes/header.php';
+// Définition de la page active pour le menu d'administration
 $adminPage = 'dashboard';
 ?>
 <style>
@@ -160,13 +215,13 @@ tr:hover td { background:var(--bg); }
         <h1 class="dash-page-title">Vue d'ensemble</h1>
     </div>
 
-    <!-- KPI -->
+    <!-- KPI : Affichage des indicateurs clés de performance -->
     <div class="kpi-grid">
         <div class="kpi-card kpi-card--navy">
             <div>
                 <div class="kpi-card__label">Commandes totales</div>
                 <div class="kpi-card__value"><?= number_format($stats['commandes']) ?></div>
-                <div class="kpi-card__trend kpi-card__trend--up">▲ +12% ce mois</div>
+                <div class="kpi-card__trend <?= $evolCommandes >= 0 ? 'kpi-card__trend--up' : 'kpi-card__trend--down' ?>"><?= $evolCommandes >= 0 ? '▲' : '▼' ?> <?= abs($evolCommandes) ?>% ce mois</div>
             </div>
             <div class="kpi-card__icon">📋</div>
         </div>
@@ -174,7 +229,7 @@ tr:hover td { background:var(--bg); }
             <div>
                 <div class="kpi-card__label">Chiffre d'affaires</div>
                 <div class="kpi-card__value kpi-card__value--sm"><?= formatPrix($stats['total_ventes']) ?></div>
-                <div class="kpi-card__trend kpi-card__trend--up">▲ +8% vs mois dernier</div>
+                <div class="kpi-card__trend <?= $evolVentes >= 0 ? 'kpi-card__trend--up' : 'kpi-card__trend--down' ?>"><?= $evolVentes >= 0 ? '▲' : '▼' ?> <?= abs($evolVentes) ?>% vs mois dernier</div>
             </div>
             <div class="kpi-card__icon">💰</div>
         </div>
@@ -182,22 +237,22 @@ tr:hover td { background:var(--bg); }
             <div>
                 <div class="kpi-card__label">Clients actifs</div>
                 <div class="kpi-card__value"><?= number_format($stats['utilisateurs']) ?></div>
-                <div class="kpi-card__trend kpi-card__trend--up">▲ +5 nouveaux aujourd'hui</div>
+                <div class="kpi-card__trend <?= $evolUtilisateurs >= 0 ? 'kpi-card__trend--up' : 'kpi-card__trend--down' ?>"><?= $evolUtilisateurs >= 0 ? '▲' : '▼' ?> <?= abs($evolUtilisateurs) ?>% ce mois</div>
             </div>
             <div class="kpi-card__icon">👥</div>
         </div>
         <div class="kpi-card kpi-card--amber">
             <div>
                 <div class="kpi-card__label">Taux de livraison</div>
-                <div class="kpi-card__value">94,2%</div>
-                <div class="kpi-card__trend kpi-card__trend--down">▼ -0,8% vs semaine passée</div>
+                <div class="kpi-card__value"><?= number_format($tauxLivraison, 1) ?>%</div>
+                <div class="kpi-card__trend">Taux de livraison global</div>
             </div>
             <div class="kpi-card__icon">🚚</div>
         </div>
     </div>
 
     <div class="row-2">
-        <!-- GRAPHE -->
+        <!-- GRAPHE : Histogramme des ventes des 7 derniers jours -->
         <div class="card">
             <div class="card__header">
                 <div>
@@ -208,14 +263,22 @@ tr:hover td { background:var(--bg); }
             <div class="chart-wrap">
                 <div class="chart-bars" id="chart-ventes7j">
                     <?php
+                    // Tableau des abréviations des jours de la semaine
                     $days = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+                    // Boucle sur les 7 derniers jours pour générer les barres du graphique
                     for ($i = 6; $i >= 0; $i--):
+                        // Calcul de la date du jour courant dans la boucle
                         $d = date('Y-m-d', strtotime("-$i days"));
                         $jourData = null;
+                        // Recherche des données de vente pour ce jour précis
                         foreach ($ventes7jRaw as $v) { if ($v['jour'] === $d) { $jourData = $v; break; } }
+                        // Calcul de la hauteur de la barre en pourcentage par rapport au max
                         $h = $jourData ? round($jourData['total'] / $ventesMax * 100) : 0;
+                        // Formatage du montant pour l'affichage dans l'infobulle
                         $montant = $jourData ? formatPrix($jourData['total']) : '—';
+                        // Calcul de l'index du jour pour récupérer son libellé
                         $idx = (int)date('N') - $i - 1;
+                        // Ajustement si l'index devient négatif
                         if ($idx < 0) $idx += 7;
                         $dayLabel = $days[$idx];
                     ?>
@@ -233,7 +296,7 @@ tr:hover td { background:var(--bg); }
             </div>
         </div>
 
-        <!-- COMMANDES RECENTES -->
+        <!-- COMMANDES RECENTES : Tableau des dernières commandes -->
         <div class="card">
             <div class="card__header">
                 <span class="card__title">Commandes récentes</span>
@@ -243,8 +306,10 @@ tr:hover td { background:var(--bg); }
                 <thead><tr><th>ID</th><th>Client</th><th>Montant</th><th>Statut</th></tr></thead>
                 <tbody>
                 <?php if (empty($dernieresCommandes)): ?>
+                <!-- Si aucune commande n'existe, affichage d'un message par défaut -->
                 <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--text-3);">Aucune commande.</td></tr>
                 <?php else: foreach ($dernieresCommandes as $cmd): ?>
+                <!-- Boucle d'affichage de chaque commande dans une ligne du tableau -->
                 <tr>
                     <td style="font-weight:600;">#<?= str_pad($cmd['id'],4,'0',STR_PAD_LEFT) ?></td>
                     <td><?= securiser(($cmd['prenom'] ?? '') . ' ' . ($cmd['nom'] ?? '')) ?></td>
@@ -258,17 +323,21 @@ tr:hover td { background:var(--bg); }
     </div>
 
     <div class="row-3">
-        <!-- STATUTS COMMANDES / DONUT -->
+        <!-- STATUTS COMMANDES / DONUT : Graphique en anneau des statuts des commandes -->
         <div class="card">
             <div class="card__header"><span class="card__title">Statuts commandes</span></div>
             <div class="card__body" style="display:flex;gap:24px;align-items:center;">
                 <svg width="160" height="160" viewBox="0 0 180 180" id="donut-commandes" style="flex-shrink:0;">
                     <circle cx="90" cy="90" r="70" fill="none" stroke="#f0f0f0" stroke-width="28"/>
                     <?php
+                    // Couleurs attribuées à chaque statut dans le donut
                     $couleursDonut = ['#2ecc71','#f39c12','#e74c3c','#3498db','#95a5a6','#9b59b6'];
+                    // Circonférence du cercle pour le calcul des dasharray
                     $circ = 2 * M_PI * 70;
                     $offset = 0;
+                    // Boucle de création des segments du donut pour chaque statut
                     foreach ($statsStatuts as $si => $s):
+                        // Calcul de la longueur du segment proportionnelle au nombre de commandes
                         $dash = ($s['nb'] / $totalCmd) * $circ;
                         $col = $couleursDonut[$si % count($couleursDonut)];
                     ?>
@@ -292,11 +361,12 @@ tr:hover td { background:var(--bg); }
             </div>
         </div>
 
-        <!-- ALERTES -->
+        <!-- ALERTES : Liste des alertes et activités récentes -->
         <div class="card">
             <div class="card__header"><span class="card__title">Alertes &amp; Activité récente</span></div>
             <div class="alert-list">
                 <?php if (!empty($dernieresCommandes)): foreach (array_slice($dernieresCommandes,0,3) as $cmd): ?>
+                <!-- Affichage des 3 dernières commandes comme alertes -->
                 <div class="alert-item">
                     <div class="alert-item__icon">🧾</div>
                     <div class="alert-item__body">
@@ -307,6 +377,7 @@ tr:hover td { background:var(--bg); }
                 </div>
                 <?php endforeach; endif; ?>
                 <?php if (!empty($stockFaible)): foreach ($stockFaible as $p): ?>
+                <!-- Affichage des alertes de stock faible -->
                 <div class="alert-item">
                     <div class="alert-item__icon">⚠️</div>
                     <div class="alert-item__body">
@@ -317,6 +388,7 @@ tr:hover td { background:var(--bg); }
                 </div>
                 <?php endforeach; endif; ?>
                 <?php if (!empty($derniersAvis)): foreach (array_slice($derniersAvis,0,3) as $av): ?>
+                <!-- Affichage des 3 derniers avis clients -->
                 <div class="alert-item">
                     <div class="alert-item__icon">⭐</div>
                     <div class="alert-item__body">
@@ -326,12 +398,13 @@ tr:hover td { background:var(--bg); }
                 </div>
                 <?php endforeach; endif; ?>
                 <?php if (empty($dernieresCommandes) && empty($stockFaible) && empty($derniersAvis)): ?>
+                <!-- Message affiché si aucune activité récente n'est disponible -->
                 <p style="padding:16px;color:var(--text-3);font-size:.8rem;">Aucune activité récente.</p>
                 <?php endif; ?>
             </div>
         </div>
 
-        <!-- ACCÈS RAPIDE -->
+        <!-- ACCÈS RAPIDE : Grille de liens rapides vers les modules d'administration -->
         <div class="card">
             <div class="card__header"><span class="card__title">Accès rapide aux modules</span></div>
             <div class="quick-grid">
@@ -378,6 +451,7 @@ tr:hover td { background:var(--bg); }
         </div>
     </div>
 </div>
+<!-- Pied de page du tableau de bord -->
 <div class="dash-footer">
     <span>v1.0.0 &bull; ClaudiShop Admin</span>
     <span>&copy; <?= date('Y') ?> ClaudiShop &ndash; Tous droits réservés &middot; Paiement MTN MoMo &amp; Moov Money</span>

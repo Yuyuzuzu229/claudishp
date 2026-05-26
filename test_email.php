@@ -1,52 +1,64 @@
 <?php
+// Inclusion de la configuration et du service de notification
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/classes/NotificationService.php';
 
+// Variables de résultat
 $result = null;
 $error = null;
 $debug = [];
 
+// Traitement du formulaire soumis en POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $mode = $_POST['mode'] ?? 'html';
     
+    // Vérification que l'email n'est pas vide
     if (!empty($email)) {
-        // Test de connexion SMTP direct
+        // Test de connexion SMTP direct (pas-à-pas)
+
+        // Débogage : informations de configuration SMTP
         $debug['smtp_host'] = SMTP_HOST;
         $debug['smtp_port'] = SMTP_PORT;
         $debug['smtp_user'] = SMTP_USER;
         $debug['smtp_pass_length'] = strlen(SMTP_PASS ?? '');
         
-        // Test 1 : connexion socket
+        // Test 1 : connexion socket au serveur SMTP
         $debug['step1_connect'] = false;
         $socket = @stream_socket_client("tcp://" . SMTP_HOST . ":" . SMTP_PORT, $errno, $errstr, 10);
+        // Si la connexion socket réussit
         if ($socket) {
             $debug['step1_connect'] = true;
+            // Lecture du greeting du serveur
             $greeting = @fgets($socket, 512);
             $debug['step1_greeting'] = $greeting ? trim($greeting) : 'pas de réponse';
             
-            // Test 2 : EHLO
+            // Test 2 : envoi de la commande EHLO
             @fwrite($socket, "EHLO claudishop\r\n");
             usleep(200000);
             $ehloResp = '';
+            // Lecture des réponses jusqu'à la fin de la réponse EHLO
             while ($line = @fgets($socket, 512)) {
                 $ehloResp .= $line;
                 if (isset($line[3]) && $line[3] === ' ') break;
             }
             $debug['step2_ehlo'] = trim($ehloResp);
             
-            // Test 3 : STARTTLS
+            // Test 3 : demande de STARTTLS (passage en TLS)
             @fwrite($socket, "STARTTLS\r\n");
             usleep(200000);
             $starttlsResp = @fgets($socket, 512);
             $debug['step3_starttls'] = $starttlsResp ? trim($starttlsResp) : 'pas de réponse';
             
+            // Si STARTTLS est accepté (code 220)
             if ($starttlsResp && strpos($starttlsResp, '220') === 0) {
+                // Activation du chiffrement TLS
                 $tlsOk = @stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
                 $debug['step4_tls'] = $tlsOk ? 'OK' : 'ÉCHEC';
                 
+                // Si TLS est activé avec succès
                 if ($tlsOk) {
-                    // Re-EHLO after TLS
+                    // Ré-envoi de EHLO après l'établissement de TLS
                     @fwrite($socket, "EHLO claudishop\r\n");
                     usleep(200000);
                     $ehlo2Resp = '';
@@ -56,19 +68,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     $debug['step5_ehlo2'] = trim($ehlo2Resp);
                     
-                    // Test 4 : AUTH LOGIN
+                    // Test 4 : authentification AUTH LOGIN
                     @fwrite($socket, "AUTH LOGIN\r\n");
                     usleep(200000);
                     $authResp = @fgets($socket, 512);
                     $debug['step6_auth_login'] = $authResp ? trim($authResp) : 'pas de réponse';
                     
+                    // Si AUTH LOGIN est accepté (code 334)
                     if ($authResp && strpos($authResp, '334') === 0) {
+                        // Envoi du nom d'utilisateur (encodé en base64)
                         @fwrite($socket, base64_encode(SMTP_USER) . "\r\n");
                         usleep(200000);
                         $userResp = @fgets($socket, 512);
                         $debug['step7_auth_user'] = $userResp ? trim($userResp) : 'pas de réponse';
                         
+                        // Si l'utilisateur est accepté (code 334)
                         if ($userResp && strpos($userResp, '334') === 0) {
+                            // Envoi du mot de passe (encodé en base64)
                             @fwrite($socket, base64_encode(SMTP_PASS) . "\r\n");
                             usleep(200000);
                             $passResp = '';
@@ -88,15 +104,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $debug['step4_tls'] = 'NON (STARTTLS refusé)';
             }
             
+            // Fermeture de la connexion SMTP
             @fwrite($socket, "QUIT\r\n");
             @fclose($socket);
         } else {
+            // Erreur de connexion socket
             $debug['step1_error'] = "Erreur socket: [$errno] $errstr";
         }
         
-        // Envoyer l'email via NotificationService
+        // Envoi de l'email via NotificationService
         $notifSvc = new NotificationService();
+        // Si le mode est HTML (email riche)
         if ($mode === 'html') {
+            // Données de commande fictives pour le test
             $commandeData = [
                 'id' => 999,
                 'nom_complet' => 'Client Test',
@@ -116,9 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ['nom' => 'Robe Wax fleurie', 'quantite' => 2, 'prix_unitaire' => 18500],
                 ['nom' => 'Sac à main cuir', 'quantite' => 1, 'prix_unitaire' => 22000],
             ];
+            // Construction et envoi de l'email HTML de test
             $html = $notifSvc->construireEmailLivraisonHtml($commandeData, $livreur, $token, $lignes);
             $r = $notifSvc->envoyerEmail($email, '[TEST] Nouvelle livraison ClaudiShop #CMD-000999', $html, true);
         } else {
+            // Envoi d'un email texte brut de test
             $msg = "TEST LIVRAISON\nClient: Client Test (+22990123456)\nAdresse: Wologede, Cotonou\nPosition: https://www.openstreetmap.org/?mlat=6.3650&mlon=2.4330&zoom=15\nTotal: 25 000 FCFA";
             $r = $notifSvc->envoyerEmail($email, '[TEST] Livraison ClaudiShop #CMD-000999', $msg, false);
         }
@@ -128,6 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Lecture des dernières lignes du fichier de log des emails
 $logFile = __DIR__ . '/logs/notifications/email_' . date('Y-m-d') . '.log';
 $lastLog = '';
 if (file_exists($logFile)) {
@@ -135,6 +158,7 @@ if (file_exists($logFile)) {
     $lastLog = implode('', array_slice($lines, -10));
 }
 
+// Lecture des dernières lignes du fichier de debug SMTP
 $debugLogFile = __DIR__ . '/logs/notifications/smtp_debug_' . date('Y-m-d') . '.log';
 $smtpDebugLog = '';
 if (file_exists($debugLogFile)) {
@@ -168,6 +192,7 @@ if (file_exists($debugLogFile)) {
 <div class="card">
   <h1>📧 Test d'envoi d'email livraison</h1>
   
+  <!-- Formulaire de test -->
   <form method="post">
     <label>Email destinataire</label>
     <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" placeholder="ex: moussa.t@claudishop.com" required>
@@ -185,10 +210,12 @@ if (file_exists($debugLogFile)) {
     <button type="submit">🚀 Envoyer l'email de test</button>
   </form>
   
+  <!-- Affichage des erreurs -->
   <?php if ($error): ?>
     <div class="error"><?= htmlspecialchars($error) ?></div>
   <?php endif; ?>
   
+  <!-- Affichage du résultat de l'envoi -->
   <?php if ($result !== null): ?>
     <div class="<?= $result['success'] ? 'success' : 'error' ?>">
       <strong><?= $result['success'] ? '✅ ENVOYÉ' : '❌ ÉCHEC' ?></strong><br>
@@ -196,6 +223,7 @@ if (file_exists($debugLogFile)) {
     </div>
   <?php endif; ?>
   
+  <!-- Informations de configuration SMTP -->
   <div class="info">
     <strong>Config SMTP :</strong><br>
     Hôte: <?= SMTP_HOST ?>:<?= SMTP_PORT ?><br>
@@ -203,6 +231,7 @@ if (file_exists($debugLogFile)) {
     Expéditeur: <?= SMTP_FROM ?> (<?= SMTP_FROM_NAME ?>)
   </div>
 
+  <!-- Affichage du débogage SMTP pas-à-pas -->
   <?php if (!empty($debug)): ?>
   <h3>🔍 Debug SMTP pas-à-pas</h3>
   <pre>=== Connexion socket ===
@@ -234,11 +263,13 @@ if (file_exists($debugLogFile)) {
   <?php endif; ?>
 </div>
 
+<!-- Dernières lignes du log email -->
 <div class="card">
   <h2>📋 Dernier log email</h2>
   <pre><?= htmlspecialchars($lastLog ?: 'Aucun log pour aujourd\'hui') ?></pre>
 </div>
 
+<!-- Debug SMTP détaillé si disponible -->
 <?php if ($smtpDebugLog): ?>
 <div class="card">
   <h2>🔧 Debug SMTP détaillé (NotificationService)</h2>

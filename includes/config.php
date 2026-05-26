@@ -3,11 +3,12 @@
 // CLAUDISHOP - Configuration & Données de démonstration
 // ============================================================
 
+// Définition des constantes de configuration du site
 define('SITE_NAME', 'ClaudiShop');
 define('SITE_URL', 'http://localhost/claudishop');
 define('CURRENCY', 'FCFA');
 
-// --- Données fictives produits ---
+// --- Données fictives produits - Tableau des produits en stock ---
 $produits = [
     ['id'=>1,'nom'=>'Robe Wax fleurie','categorie'=>'Femme','prix'=>32500,'stock'=>18,'statut'=>'actif','sku'=>'RWX-00142','image'=>''],
     ['id'=>2,'nom'=>'Chemise Homme Slim','categorie'=>'Homme','prix'=>18000,'stock'=>35,'statut'=>'actif','sku'=>'CHS-00141','image'=>''],
@@ -23,7 +24,7 @@ $produits = [
     ['id'=>12,'nom'=>'Robe longue imprimée','categorie'=>'Femme','prix'=>24500,'stock'=>22,'statut'=>'actif','sku'=>'RLI-00131','image'=>''],
 ];
 
-// --- Données fictives commandes ---
+// --- Données fictives commandes - Liste des commandes clients ---
 $commandes = [
     ['id'=>'#C-4822','client'=>'Adjoua K.','initiales'=>'AK','date'=>'13/05/26 10:30','montant'=>'95 000','paiement'=>'MTN Moov','statut_paiement'=>'Payé','statut_commande'=>'Livrée'],
     ['id'=>'#C-4821','client'=>'Didier M.','initiales'=>'DM','date'=>'13/05/26 10:30','montant'=>'32 000','paiement'=>'MTN Moov','statut_paiement'=>'Payé','statut_commande'=>'En route'],
@@ -34,7 +35,7 @@ $commandes = [
     ['id'=>'#C-4815','client'=>'Brice H.','initiales'=>'BH','date'=>'13/05/26 10:30','montant'=>'44 500','paiement'=>'Cartes','statut_paiement'=>'En attente','statut_commande'=>'En préparation'],
 ];
 
-// --- Utilisateurs ---
+// --- Utilisateurs - Liste des utilisateurs du système ---
 $utilisateurs = [
     ['id'=>'#U248','initiales'=>'AK','nom'=>'Adjoua K.','email'=>'adjoua.k@mail.com','role'=>'Administrateur','statut'=>'Actif','derniere_connexion'=>'13/05/26 à 09:45'],
     ['id'=>'#U247','initiales'=>'DM','nom'=>'Didier M.','email'=>'didier.m@mail.com','role'=>'Gestionnaire','statut'=>'Actif','derniere_connexion'=>'13/05/26 à 08:32'],
@@ -46,7 +47,7 @@ $utilisateurs = [
     ['id'=>'#U241','initiales'=>'CM','nom'=>'Cécile M.','email'=>'cecile.m@mail.com','role'=>'Support client','statut'=>'Actif','derniere_connexion'=>'08/05/26 à 09:10'],
 ];
 
-// --- Livraisons ---
+// --- Livraisons - Liste des livraisons en cours ---
 $livraisons = [
     ['id'=>'#L-9960','commande'=>'#C-4822','initiales'=>'AK','client'=>'Adjoua K.','zone'=>'Cotonou Zone 1','livreur'=>'Paul D.','date_prevue'=>'14/05/26','frais'=>'2 500','statut'=>'En attente'],
     ['id'=>'#L-9961','commande'=>'#C-4821','initiales'=>'DM','client'=>'Didier M.','zone'=>'Cotonou Zone 1','livreur'=>'Jean-Pierre K.','date_prevue'=>'14/05/26','frais'=>'2 500','statut'=>'Prêt à expédier'],
@@ -56,7 +57,7 @@ $livraisons = [
     ['id'=>'#L-9966','commande'=>'#C-4816','initiales'=>'FS','client'=>'Fatou S.','zone'=>'Abomey-Calavi','livreur'=>'Non assigné','date_prevue'=>'14/05/26','frais'=>'2 500','statut'=>'Livrée'],
 ];
 
-// --- Zones de livraison ---
+// --- Zones de livraison - Zones disponibles avec frais ---
 $zones = [
     ['id'=>1,'nom'=>'Cotonou Zone 1','description'=>'Centre-ville et Plateau','frais'=>'1 500','statut'=>'Actif','nb_commandes'=>48],
     ['id'=>2,'nom'=>'Cotonou Zone 2','description'=>'Akpakpa, Aidjèdo, Cadjèhoun','frais'=>'2 000','statut'=>'Actif','nb_commandes'=>36],
@@ -65,7 +66,7 @@ $zones = [
     ['id'=>5,'nom'=>'Parakou','description'=>'Nord Bénin – ville principale','frais'=>'5 000','statut'=>'Inactif','nb_commandes'=>7],
 ];
 
-// --- Livreurs ---
+// --- Livreurs - Liste des livreurs disponibles ---
 $livreurs = [
     ['id'=>1,'nom'=>'Paul Dossou','telephone'=>'+229 97 11 22 33','email'=>'paul.d@mail.com','vehicule'=>'Moto','zone'=>'Cotonou Zone 1','statut'=>'Disponible','est_actif'=>true,'date_embauche'=>'01/01/2025'],
     ['id'=>2,'nom'=>'Jean-Pierre Koudé','telephone'=>'+229 97 44 55 66','email'=>'jp.k@mail.com','vehicule'=>'Moto','zone'=>'Cotonou Zone 1, Zone 2','statut'=>'En livraison','est_actif'=>true,'date_embauche'=>'15/02/2025'],
@@ -73,7 +74,7 @@ $livreurs = [
     ['id'=>4,'nom'=>'Sènan Houngbé','telephone'=>'+229 96 77 88 99','email'=>'senan.h@mail.com','vehicule'=>'Moto','zone'=>'Porto-Novo','statut'=>'Inactif','est_actif'=>false,'date_embauche'=>'05/04/2025'],
 ];
 
-// --- Avis clients ---
+// --- Avis clients - Liste des avis laissés par les clients ---
 $avis = [
     ['id'=>1,'client'=>'Adjoua K.','initiales'=>'AK','produit'=>'T-shirt Oversize Noir','note'=>5,'commentaire'=>'Très bonne qualité de tissu, je recommande !','date'=>'13/05/2026','statut'=>'Publié'],
     ['id'=>2,'client'=>'Didier M.','initiales'=>'DM','produit'=>'Chemise lin blanc','note'=>4,'commentaire'=>'Chemise de qualité, taille conforme. Paiement Moov OK.','date'=>'12/05/2026','statut'=>'Publié'],
@@ -81,7 +82,7 @@ $avis = [
     ['id'=>4,'client'=>'Moussa K.','initiales'=>'MK','produit'=>'Basket cuir mixte','note'=>3,'commentaire'=>'Produit correct mais livraison un peu longue.','date'=>'10/05/2026','statut'=>'Refusé'],
 ];
 
-// --- Catégories ---
+// --- Catégories - Liste des catégories de produits ---
 $categories = [
     ['id'=>1,'nom'=>'Femme','description'=>'Vêtements et accessoires femme','nb_produits'=>58,'statut'=>'Actif'],
     ['id'=>2,'nom'=>'Homme','description'=>'Vêtements et accessoires homme','nb_produits'=>42,'statut'=>'Actif'],
@@ -91,7 +92,7 @@ $categories = [
     ['id'=>6,'nom'=>'Soldes','description'=>'Articles en promotion','nb_produits'=>7,'statut'=>'Inactif'],
 ];
 
-// --- Paiements ---
+// --- Paiements - Liste des transactions de paiement ---
 $paiements = [
     ['id'=>'#P-1284','commande'=>'#C-4822','client'=>'Adjoua K.','montant'=>'95 000','mode'=>'MTN MoMo','statut'=>'Confirmé','date'=>'13/05/26 10:32','reference'=>'MTN-2026-84921'],
     ['id'=>'#P-1283','commande'=>'#C-4821','client'=>'Didier M.','montant'=>'32 500','mode'=>'MTN MoMo','statut'=>'Confirmé','date'=>'13/05/26 09:18','reference'=>'MTN-2026-84820'],
@@ -100,8 +101,11 @@ $paiements = [
     ['id'=>'#P-1280','commande'=>'#C-4818','client'=>'Fatou S.','montant'=>'22 000','mode'=>'Moov Money','statut'=>'Confirmé','date'=>'11/05/26 11:20','reference'=>'MOV-2026-70088'],
 ];
 
-// Helpers
+// Helpers - Fonctions utilitaires pour l'affichage des badges et états
+
+// Fonction de rendu du badge de statut d'une commande
 function badge_statut_commande($statut) {
+    // Tableau associatif liant chaque statut à une classe CSS
     $map = [
         'Livrée'         => 'badge-green',
         'En route'       => 'badge-blue',
@@ -110,11 +114,15 @@ function badge_statut_commande($statut) {
         'Annulée'        => 'badge-red',
         'Confirmée'      => 'badge-blue',
     ];
+    // Récupération de la classe CSS, avec valeur par défaut 'badge-gray'
     $cls = $map[$statut] ?? 'badge-gray';
+    // Retour du HTML du badge
     return "<span class='badge $cls'>$statut</span>";
 }
 
+// Fonction de rendu du badge de statut d'un paiement
 function badge_paiement($statut) {
+    // Tableau associatif liant chaque statut à une classe CSS
     $map = [
         'Confirmé'   => 'badge-green',
         'Payé'       => 'badge-green',
@@ -125,25 +133,34 @@ function badge_paiement($statut) {
     return "<span class='badge $cls'>$statut</span>";
 }
 
+// Fonction de rendu du badge de statut d'un utilisateur
 function badge_statut_user($statut) {
+    // Si le statut est 'Actif', on affiche un badge vert avec coche
+    // Sinon, on affiche un badge gris inactif
     return $statut === 'Actif'
-        ? "<span class='badge badge-green'>✓ Actif</span>"
-        : "<span class='badge badge-gray'>○ Inactif</span>";
+        ? "<span class='badge badge-green'>&#10003; Actif</span>"
+        : "<span class='badge badge-gray'>&#9679; Inactif</span>";
 }
 
+// Fonction de rendu du badge de statut d'un avis
 function badge_avis($statut) {
+    // Tableau associatif liant chaque statut à une classe CSS
     $map = ['Publié'=>'badge-green','En modération'=>'badge-orange','Refusé'=>'badge-red'];
     $cls = $map[$statut] ?? 'badge-gray';
     return "<span class='badge $cls'>$statut</span>";
 }
 
+// Fonction générant un affichage d'étoiles de notation
 function stars($n) {
     $out = '';
-    for($i=1;$i<=5;$i++) $out .= $i<=$n ? '★' : '☆';
+    // Boucle pour construire la chaîne d'étoiles pleines et vides
+    for($i=1;$i<=5;$i++) $out .= $i<=$n ? '&#9733;' : '&#9734;';
     return "<span class='stars'>$out</span>";
 }
 
+// Fonction de rendu d'un avatar avec initiales
 function initials_avatar($initiales, $size=32) {
+    // Retourne un div circulaire avec les initiales centrées
     return "<div class='avatar' style='width:{$size}px;height:{$size}px;border-radius:50%;background:#1A1A1A;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:".($size*0.38)."px;font-weight:600;'>$initiales</div>";
 }
 ?>

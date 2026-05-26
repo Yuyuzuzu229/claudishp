@@ -1,10 +1,16 @@
 <?php
+// Définition de la page active pour le menu client
 $client_page = 'commandes';
+// Titre de la page
 $client_title = 'Mes commandes';
+// Sous-titre affiché dans l'en-tête client
 $client_subtitle = 'Retrouvez ici la liste de toutes vos commandes passées.';
+// Inclusion de l'en-tête client
 include '../includes/client_header.php';
+// Inclusion de la configuration
 include '../includes/config.php';
 
+// Tableau des commandes du client
 $mes_commandes = [
   ['id'=>'#CMD-000125','date'=>'13/05/2026 à 10:15','statut'=>'Livrée','montant'=>'145 000','mode_retrait'=>'Livraison','paiement'=>'MTN MoMo'],
   ['id'=>'#CMD-000118','date'=>'08/05/2026 à 14:05','statut'=>'Livrée','montant'=>'89 000','mode_retrait'=>'Retrait en boutique','paiement'=>'Moov Money'],
@@ -16,8 +22,10 @@ $mes_commandes = [
 ?>
 
 <div class="card card-lg">
+  <!-- En-tête avec titre et filtre par statut -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
     <h3 style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;">Toutes vos commandes (<?= count($mes_commandes) ?>)</h3>
+    <!-- Menu déroulant pour filtrer les commandes par statut -->
     <select class="form-select form-control" style="width:180px;font-size:.82rem;">
       <option>Filtrer par statut</option>
       <option>Livrée</option>
@@ -30,6 +38,7 @@ $mes_commandes = [
 
   <div class="table-wrapper">
     <table class="table">
+      <!-- En-tête du tableau des commandes -->
       <thead>
         <tr>
           <th>ID Commande</th>
@@ -42,11 +51,13 @@ $mes_commandes = [
         </tr>
       </thead>
       <tbody>
+        <!-- Boucle d'affichage de chaque commande -->
         <?php foreach($mes_commandes as $cmd): ?>
         <tr>
           <td style="font-weight:600;color:#0A0A0A;"><?= $cmd['id'] ?></td>
           <td style="color:#5A5A5A;"><?= $cmd['date'] ?></td>
           <td>
+            <!-- Mappage des statuts vers les classes CSS de badge -->
             <?php
             $smap = [
               'Livrée'         => 'badge-green',
@@ -57,6 +68,7 @@ $mes_commandes = [
             ];
             $cls = $smap[$cmd['statut']] ?? 'badge-gray';
             $dot = ['Livrée'=>'●','En route'=>'●','En préparation'=>'●','Confirmée'=>'●','Annulée'=>'●'];
+            // Affichage du badge de statut avec le point coloré
             echo "<span class='badge $cls'>{$dot[$cmd['statut']]} {$cmd['statut']}</span>";
             ?>
           </td>

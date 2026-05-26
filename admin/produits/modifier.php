@@ -1,19 +1,30 @@
 <?php
+// Inclusion du fichier de configuration principal (remonte de 2 niveaux jusqu'à la racine)
 require_once __DIR__ . '/../../config/config.php';
+// Inclusion de la classe Produit
 require_once __DIR__ . '/../../classes/Produit.php';
+// Inclusion de la classe Categorie
 require_once __DIR__ . '/../../classes/Categorie.php';
 
+// Vérification que l'utilisateur est connecté et a le rôle administrateur, sinon redirection vers la page de connexion
 if (!isLoggedIn() || !isAdmin()) { redirect(BASE_URL . '/pages/connexion.php'); }
 
+// Récupération et conversion de l'identifiant du produit depuis l'URL
 $id = intval($_GET['id'] ?? 0);
+// Instanciation des objets Produit et Categorie
 $produitObj = new Produit();
 $categorieObj = new Categorie();
+// Récupération des données du produit par son identifiant
 $produit = $produitObj->getById($id);
+// Récupération de toutes les catégories
 $categories = $categorieObj->getAll();
 
+// Si le produit n'existe pas, enregistrement d'un message d'erreur et redirection
 if (!$produit) { $_SESSION['error'] = 'Produit introuvable.'; redirect(BASE_URL . '/admin/produits.php'); }
 
+// Vérification si le formulaire a été soumis en méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération et sécurisation des champs du formulaire
     $nom = securiser($_POST['nom'] ?? '');
     $prix = floatval($_POST['prix'] ?? 0);
     $stock = intval($_POST['stock'] ?? 0);
@@ -22,17 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $taille = securiser($_POST['taille'] ?? '');
     $soldePrix = !empty($_POST['solde_prix']) ? floatval($_POST['solde_prix']) : null;
 
+    // Upload de la photo du produit
     $photo = null;
+    // Vérification si un fichier a été téléchargé sans erreur
     if (!empty($_FILES['photo']['name']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
         $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
         $nomFichier = 'prod_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
         $dest = UPLOADS_DIR . '/produits/' . $nomFichier;
+        // Création du répertoire de destination s'il n'existe pas
         if (!is_dir(UPLOADS_DIR . '/produits')) mkdir(UPLOADS_DIR . '/produits', 0777, true);
+        // Déplacement du fichier téléchargé vers le répertoire de destination
         if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) {
             $photo = 'produits/' . $nomFichier;
         }
     }
 
+    // Si le nom et le prix sont valides, modification du produit, sinon message d'erreur
     if ($nom && $prix > 0) {
         $produitObj->modifier($id, $nom, $description, $prix, $stock, $categorieId, $photo, $taille, null, null, $soldePrix);
         $_SESSION['success'] = 'Produit modifié avec succès.';
@@ -42,8 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect(BASE_URL . '/admin/produits.php');
 }
 
+// Définition du titre de la page
 $pageTitle = 'Modifier un produit';
+// Inclusion de l'en-tête HTML du site
 require_once __DIR__ . '/../../includes/header.php';
+// Définition de la page active pour le menu d'administration
 $adminPage = 'produits';
 ?>
 <div class="dashboard-layout">
@@ -60,6 +79,7 @@ $adminPage = 'produits';
         </div>
     </div>
 
+    <!-- Affichage des messages d'erreur ou de succès éventuels -->
     <?php if (isset($_SESSION['error'])): ?><div class="alert alert-danger"><?= securiser($_SESSION['error']); unset($_SESSION['error']); ?></div><?php endif; ?>
     <?php if (isset($_SESSION['success'])): ?><div class="alert alert-success"><?= securiser($_SESSION['success']); unset($_SESSION['success']); ?></div><?php endif; ?>
 
@@ -86,6 +106,7 @@ $adminPage = 'produits';
                     <?php if ($produit['photo']): ?><div style="margin-top:8px;"><img src="<?= UPLOADS_URL . '/' . securiser($produit['photo']) ?>" alt="" style="width:60px;height:60px;border-radius:6px;object-fit:cover;"></div><?php endif; ?>
                 </div>
                 <script>
+                <!-- Écouteur d'événement pour afficher le nom du fichier sélectionné pour la photo -->
                 document.getElementById('photoProduitModifInput').addEventListener('change', function(e) {
                     var span = document.getElementById('photoProduitModifFileName');
                     if (span && this.files && this.files[0]) span.textContent = this.files[0].name;

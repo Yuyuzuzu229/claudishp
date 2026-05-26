@@ -1,0 +1,11 @@
+{
+    "name": "claudishop/app",
+    "description": "ClaudiShop - E-commerce application",
+    "require": {
+        "php": ">=8.0",
+        "fedapay/fedapay-php": "^0.4"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

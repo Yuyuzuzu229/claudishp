@@ -1,32 +1,54 @@
-/* ── STATIC PAGES (Aide, Livraison, Guide tailles, etc.) ── */
+/* ── PAGES STATIQUES (Aide, Livraison, Guide tailles, etc.) ── */
+/* Feuille de style pour les pages statiques du site */
+
+/* Bannière d'en-tête des pages statiques */
 .page-banner {
     background: var(--dark);
     color: white;
     padding: 52px 0 40px;
     text-align: center;
 }
+/* Titre h1 dans la bannière */
 .page-banner h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+/* Paragraphe dans la bannière */
 .page-banner p { font-size: 14px; color: var(--gray-400); max-width: 540px; margin: 0 auto; }
+
+/* Contenu principal de la page statique */
 .page-content { padding: 48px 0 64px; max-width: 800px; margin: 0 auto; }
+/* Section individuelle dans la page */
 .page-section { margin-bottom: 36px; }
+/* Titre h2 d'une section */
 .page-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--gray-200); }
+/* Paragraphe dans une section */
 .page-section p { font-size: 14px; color: var(--gray-600); line-height: 1.8; margin-bottom: 12px; }
+/* Titre h3 dans une section */
 .page-section h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+/* Liste dans une section */
 .page-list { padding-left: 20px; margin-bottom: 14px; }
+/* Élément de liste */
 .page-list li { font-size: 14px; color: var(--gray-600); line-height: 1.8; margin-bottom: 4px; }
 
-/* Size guide tables */
+/* Tableaux du guide des tailles */
 .size-guide-table-wrapper { overflow-x: auto; margin: 12px 0; }
 .size-guide-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 400px; }
+/* En-tête du tableau du guide des tailles */
 .size-guide-table th { background: var(--gray-50); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-600); border-bottom: 1px solid var(--gray-200); }
+/* Cellule du tableau du guide des tailles */
 .size-guide-table td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); }
+/* Surbrillance au survol d'une ligne */
 .size-guide-table tr:hover td { background: var(--gray-50); }
 
-/* FAQ */
+/* FAQ - Questions fréquentes */
 .faq-item { border-bottom: 1px solid var(--gray-100); padding: 18px 0; }
+/* Question de la FAQ */
 .faq-q { font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; position: relative; padding-right: 30px; }
+/* Icône plus après la question */
 .faq-q::after { content: '+'; position: absolute; right: 0; font-size: 18px; font-weight: 300; color: var(--gray-400); transition: transform 0.2s; }
+/* Rotation de l'icône quand la question est ouverte */
 .faq-q.open::after { transform: rotate(45deg); }
+/* Réponse de la FAQ (cachée par défaut) */
 .faq-a { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-top: 8px; display: none; }
+/* Réponse visible quand ouverte */
 .faq-a.open { display: block; }
+/* Lien dans la réponse */
 .faq-a a { color: var(--color-primary); text-decoration: underline; }

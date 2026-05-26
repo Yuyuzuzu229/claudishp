@@ -1,11 +1,14 @@
 /* ============================================
    CLAUDISHOP - Main Stylesheet
+   Feuille de style principale
    Couleurs : blanc, noir, doré #C9A03D
    Typo : Cormorant Garamond + DM Sans
 ============================================ */
 
+/* Importation des polices Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
+/* Définition des variables CSS personnalisées (design tokens) */
 :root {
   --gold: #C9A03D;
   --gold-light: #E8C96A;
@@ -38,10 +41,13 @@
   --radius-lg: 12px;
 }
 
+/* Réinitialisation universelle du box-sizing */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Taille de base de la police au niveau du document */
 html { font-size: 15px; scroll-behavior: smooth; }
 
+/* Style du corps de page */
 body {
   font-family: var(--font-body);
   color: var(--black);
@@ -50,28 +56,41 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Liens : héritage de la couleur et suppression du soulignement */
 a { color: inherit; text-decoration: none; }
+/* Boutons : curseur pointeur et police du corps */
 button { cursor: pointer; font-family: var(--font-body); }
+/* Champs de formulaire : police du corps */
 input, select, textarea { font-family: var(--font-body); }
+/* Images responsives */
 img { max-width: 100%; display: block; }
 
-/* ======= TYPOGRAPHY ======= */
+/* ======= TYPOGRAPHIE ======= */
+/* Titres avec police d'affichage */
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; }
 h1 { font-size: 2.4rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.4rem; }
 h4 { font-size: 1.1rem; }
 
-/* ======= UTILITIES ======= */
+/* ======= UTILITAIRES ======= */
+/* Texte en couleur dorée */
 .text-gold { color: var(--gold); }
+/* Texte atténué */
 .text-muted { color: var(--gray-400); font-size: 0.85rem; }
+/* Texte petit */
 .text-sm { font-size: 0.85rem; }
+/* Texte très petit */
 .text-xs { font-size: 0.75rem; }
+/* Police d'affichage */
 .font-display { font-family: var(--font-display); }
+/* Poids de police 500 */
 .fw-500 { font-weight: 500; }
+/* Poids de police 600 */
 .fw-600 { font-weight: 600; }
 
-/* ======= BUTTONS ======= */
+/* ======= BOUTONS ======= */
+/* Style de base des boutons */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 22px;
@@ -80,55 +99,77 @@ h4 { font-size: 1.1rem; }
   transition: all 0.2s ease;
   white-space: nowrap;
 }
+/* Bouton primaire (noir) */
 .btn-primary {
   background: var(--black); color: var(--white);
 }
+/* Effet de survol du bouton primaire */
 .btn-primary:hover { background: var(--dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
 
+/* Bouton doré */
 .btn-gold {
   background: var(--gold); color: var(--white);
 }
+/* Effet de survol du bouton doré */
 .btn-gold:hover { background: var(--gold-dark); }
 
+/* Bouton avec contour */
 .btn-outline {
   background: transparent; color: var(--black);
   border: 1.5px solid var(--gray-200);
 }
+/* Effet de survol du bouton contour */
 .btn-outline:hover { border-color: var(--black); }
 
+/* Bouton petit */
 .btn-sm { padding: 7px 14px; font-size: 0.8rem; }
+/* Bouton grand */
 .btn-lg { padding: 14px 32px; font-size: 0.95rem; }
+/* Bouton pleine largeur */
 .btn-block { width: 100%; justify-content: center; }
 
+/* Bouton icône uniquement */
 .btn-icon {
   background: none; border: none;
   padding: 6px; border-radius: var(--radius);
   color: var(--gray-600);
   transition: all 0.15s;
 }
+/* Effet de survol du bouton icône */
 .btn-icon:hover { background: var(--gray-100); color: var(--black); }
 
 /* ======= BADGES ======= */
+/* Style de base des badges */
 .badge {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 3px 10px; border-radius: 20px;
   font-size: 0.75rem; font-weight: 500;
 }
+/* Badge vert */
 .badge-green { background: var(--green-light); color: var(--green); }
+/* Badge orange */
 .badge-orange { background: var(--orange-light); color: var(--orange); }
+/* Badge rouge */
 .badge-red { background: var(--red-light); color: var(--red); }
+/* Badge bleu */
 .badge-blue { background: var(--blue-light); color: var(--blue); }
+/* Badge gris */
 .badge-gray { background: var(--gray-100); color: var(--gray-600); }
+/* Badge doré */
 .badge-gold { background: #FFF8E6; color: var(--gold-dark); }
 
-/* ======= FORMS ======= */
+/* ======= FORMULAIRES ======= */
+/* Groupe de formulaire */
 .form-group { margin-bottom: 18px; }
+/* Libellé de formulaire */
 .form-label {
   display: block; margin-bottom: 6px;
   font-size: 0.82rem; font-weight: 500; color: var(--gray-800);
 }
+/* Indicateur de champ obligatoire */
 .form-label .required { color: var(--red); }
 
+/* Contrôle de formulaire standard */
 .form-control {
   width: 100%; padding: 10px 14px;
   border: 1.5px solid var(--gray-200);
@@ -137,26 +178,35 @@ h4 { font-size: 1.1rem; }
   transition: border-color 0.2s;
   outline: none;
 }
+/* État focus du contrôle */
 .form-control:focus { border-color: var(--black); }
+/* Texte indicatif du contrôle */
 .form-control::placeholder { color: var(--gray-400); }
 
+/* Sélecteur de formulaire personnalisé */
 .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235A5A5A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
 
+/* Zone de texte redimensionnable */
 textarea.form-control { resize: vertical; min-height: 100px; }
 
-/* ======= CARDS ======= */
+/* ======= CARTES ======= */
+/* Carte standard */
 .card {
   background: var(--white); border: 1px solid var(--gray-200);
   border-radius: var(--radius-md); padding: 20px;
 }
+/* Carte large */
 .card-lg { padding: 28px; }
 
-/* ======= TABLE ======= */
+/* ======= TABLEAU ======= */
+/* Conteneur de tableau avec défilement horizontal */
 .table-wrapper { overflow-x: auto; }
+/* Tableau standard */
 .table {
   width: 100%; border-collapse: collapse;
   font-size: 0.875rem;
 }
+/* En-tête de tableau */
 .table th {
   text-align: left; padding: 12px 16px;
   font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
@@ -164,22 +214,28 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   border-bottom: 1px solid var(--gray-200);
   white-space: nowrap;
 }
+/* Cellule de tableau */
 .table td {
   padding: 14px 16px;
   border-bottom: 1px solid var(--gray-100);
   vertical-align: middle;
   color: var(--gray-800);
 }
+/* Surbrillance de ligne au survol */
 .table tr:hover td { background: var(--gray-100); }
+/* Suppression de la bordure pour la dernière ligne */
 .table tr:last-child td { border-bottom: none; }
 
+/* Conteneur d'actions dans le tableau */
 .table-actions { display: flex; gap: 4px; align-items: center; }
 
 /* ======= PAGINATION ======= */
+/* Conteneur de pagination */
 .pagination {
   display: flex; align-items: center; gap: 4px;
   justify-content: center; padding: 16px 0;
 }
+/* Bouton de page */
 .page-btn {
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
@@ -187,14 +243,18 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   font-size: 0.85rem; background: var(--white); color: var(--gray-600);
   cursor: pointer; transition: all 0.15s;
 }
+/* Effet de survol du bouton de page */
 .page-btn:hover { border-color: var(--black); color: var(--black); }
+/* Bouton de page actif */
 .page-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
 
 /* ======= TOAST ======= */
+/* Conteneur des notifications toast */
 .toast-container {
   position: fixed; top: 20px; right: 20px;
   z-index: 9999; display: flex; flex-direction: column; gap: 10px;
 }
+/* Notification toast individuelle */
 .toast {
   min-width: 280px; padding: 14px 18px;
   border-radius: var(--radius-md);
@@ -204,16 +264,21 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   font-size: 0.875rem;
   animation: slideIn 0.3s ease;
 }
+/* Toast de succès avec bordure verte */
 .toast-success { border-left: 4px solid var(--green); }
+/* Toast d'erreur avec bordure rouge */
 .toast-error { border-left: 4px solid var(--red); }
+/* Toast d'information avec bordure bleue */
 .toast-info { border-left: 4px solid var(--blue); }
 
+/* Animation d'apparition des toasts */
 @keyframes slideIn {
   from { transform: translateX(100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* ======= MODAL ======= */
+/* ======= MODALE ======= */
+/* Fond d'écran de la modale */
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.5);
@@ -221,45 +286,55 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   align-items: center; justify-content: center;
   padding: 20px;
 }
+/* Boîte de la modale */
 .modal {
   background: var(--white); border-radius: var(--radius-lg);
   max-width: 540px; width: 100%;
   box-shadow: var(--shadow-lg);
 }
+/* En-tête de la modale */
 .modal-header {
   padding: 20px 24px; border-bottom: 1px solid var(--gray-200);
   display: flex; align-items: center; justify-content: space-between;
 }
+/* Corps de la modale */
 .modal-body { padding: 24px; }
+/* Pied de la modale */
 .modal-footer {
   padding: 16px 24px; border-top: 1px solid var(--gray-200);
   display: flex; gap: 10px; justify-content: flex-end;
 }
 
-/* ======= CHECKBOX ======= */
+/* ======= CASE À COCHER ======= */
+/* Conteneur d'une case à cocher */
 .checkbox-wrapper {
   display: flex; align-items: center; gap: 8px; cursor: pointer;
 }
+/* Style de la case à cocher */
 .checkbox-wrapper input[type="checkbox"] {
   width: 16px; height: 16px; accent-color: var(--black); cursor: pointer;
 }
 
-/* ======= PRODUCT IMAGE PLACEHOLDER ======= */
+/* ======= EMPLACEMENT IMAGE PRODUIT ======= */
+/* Emplacement pour les images de produit */
 .img-placeholder {
   background: var(--gray-100);
   display: flex; align-items: center; justify-content: center;
   color: var(--gray-400);
 }
 
-/* ======= STAR RATING ======= */
+/* ======= ÉTOILES DE NOTATION ======= */
+/* Affichage des étoiles en doré */
 .stars { color: var(--gold); letter-spacing: 2px; }
 
 /* ======= RESPONSIVE ======= */
+/* Styles adaptatifs pour tablettes (max 1024px) */
 @media (max-width: 1024px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   .container { padding: 0 20px; }
 }
+/* Styles adaptatifs pour mobiles (max 768px) */
 @media (max-width: 768px) {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.3rem; }
@@ -277,6 +352,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   .pagination { gap: 2px; }
   .page-btn { width: 30px; height: 30px; font-size: 0.8rem; }
 }
+/* Styles adaptatifs pour très petits écrans (max 480px) */
 @media (max-width: 480px) {
   h1 { font-size: 1.3rem; }
   h2 { font-size: 1.1rem; }

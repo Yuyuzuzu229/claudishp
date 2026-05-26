@@ -1,32 +1,45 @@
 <?php
+// Inclusion du fichier de configuration principal
 require_once __DIR__ . '/../config/config.php';
+// Définition du titre de la page
 $pageTitle = 'Livraison & Retours';
+// Définition des feuilles de style supplémentaires
 $pageStyles = [BASE_URL . '/assets/css/pages.css'];
+// Inclusion de l'en-tête HTML et de la barre de navigation
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/navbar.php';
 ?>
+<!-- Bannière principale de la page Livraison & Retours -->
 <div class="page-banner"><div class="container"><h1>Livraison &amp; Retours</h1><p>Tout savoir sur nos conditions de livraison et d'échange.</p></div></div>
+<!-- Conteneur du contenu de la page -->
 <div class="container page-content">
+    <!-- Section : Informations sur la livraison -->
     <div class="page-section">
         <h2>Livraison</h2>
         <p>Nous livrons partout au Bénin. Les délais de livraison sont de 24h à 72h ouvrées selon votre localisation. La livraison est gratuite pour toute commande de 500 000 FCFA ou plus.</p>
+        <!-- Liste des zones et délais de livraison -->
         <ul class="page-list">
             <li><strong>Cotonou &amp; périphéries :</strong> 24h – 48h</li>
             <li><strong>Autres villes du Bénin :</strong> 48h – 72h</li>
             <li><strong>Livraison gratuite :</strong> dès 500 000 FCFA d'achat</li>
         </ul>
     </div>
+    <!-- Section : Informations sur les retours et échanges -->
     <div class="page-section">
         <h2>Retours &amp; Échanges</h2>
         <p>Vous disposez de <strong>7 jours</strong> après réception pour retourner ou échanger un article. Les articles doivent être dans leur état d'origine, non portés et avec leurs étiquettes.</p>
         <p><strong>Procédure :</strong></p>
+        <!-- Liste ordonnée des étapes de retour -->
         <ol class="page-list">
             <li>Contactez-nous via WhatsApp ou email pour initier le retour.</li>
             <li>Emballez l'article dans son emballage d'origine.</li>
             <li>Nous vous indiquons l'adresse de retour.</li>
             <li>L'échange est traité sous 48h après réception.</li>
         </ol>
+        <!-- Note sur les frais de retour -->
         <p><em>Note : Les frais de retour sont à la charge du client sauf en cas d'erreur de notre part.</em></p>
     </div>
 </div>
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php
+// Inclusion du pied de page
+require_once __DIR__ . '/../includes/footer.php'; ?>

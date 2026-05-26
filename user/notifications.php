@@ -8,6 +8,18 @@ if (!isLoggedIn()) { redirect(BASE_URL . '/pages/connexion.php'); }
 $pageTitle = 'Mes notifications';
 $notifObj = new Notification();
 
+// Traitement des actions de suppression
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? '';
+    if ($action === 'supprimer' && !empty($_POST['id'])) {
+        $notifObj->supprimer(intval($_POST['id']));
+    } elseif ($action === 'supprimer_plusieurs' && !empty($_POST['ids'])) {
+        $ids = array_map('intval', (array)$_POST['ids']);
+        $notifObj->supprimerPlusieursByUser($ids, $_SESSION['user_id']);
+    }
+    redirect(BASE_URL . '/user/notifications.php');
+}
+
 $notifObj->marquerToutesLues($_SESSION['user_id']);
 $notifications = $notifObj->getByUtilisateur($_SESSION['user_id']);
 $nbNonLu = $notifObj->getNombreNonLu($_SESSION['user_id']);
@@ -29,9 +41,20 @@ $activePage = 'notifications';
     <div class="table-card">
         <div class="table-card-header">
             <span class="table-card-title">Toutes les notifications (<?= count($notifications) ?>)</span>
-            <?php if ($nbNonLu > 0): ?>
-            <span style="font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle"></i> Lues automatiquement</span>
-            <?php endif; ?>
+            <div style="display:flex;align-items:center;gap:10px;">
+                <?php if ($nbNonLu > 0): ?>
+                <span style="font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle"></i> Lues automatiquement</span>
+                <?php endif; ?>
+                <?php if (!empty($notifications)): ?>
+                <label style="font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                    <input type="checkbox" id="select-all" onchange="toggleAll(this)">
+                    Tout sélectionner
+                </label>
+                <button class="btn btn-outline-dark btn-sm" id="btn-delete-selected" onclick="deleteSelected()" style="display:none;">
+                    <i class="fas fa-trash"></i> Supprimer
+                </button>
+                <?php endif; ?>
+            </div>
         </div>
         <?php if (empty($notifications)): ?>
         <div style="padding:48px;text-align:center;">
@@ -66,7 +89,8 @@ $activePage = 'notifications';
             elseif ($diff < 86400) $timeAgo = 'Il y a '.round($diff/3600).' heures';
             else $timeAgo = date('d/m/Y', $ts);
         ?>
-        <div class="notif-item <?= !$n['lu'] ? 'unread' : '' ?>" style="gap:14px;padding:16px 20px;">
+        <div class="notif-item <?= !$n['lu'] ? 'unread' : '' ?>" style="gap:10px;padding:16px 20px;">
+            <input type="checkbox" class="notif-check" value="<?= $n['id'] ?>" style="flex-shrink:0;" onchange="updateDeleteBtn()">
             <div class="notif-icon"><i class="fas <?= $icon ?>"></i></div>
             <div class="notif-content" style="flex:1;">
                 <div class="notif-title"><?= securiser($n['message']) ?></div>
@@ -79,12 +103,22 @@ $activePage = 'notifications';
             <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
                 <span class="notif-time"><?= $timeAgo ?></span>
                 <?php if (!$n['lu']): ?><div class="notif-dot"></div><?php else: ?><div style="width:7px;height:7px;border-radius:50%;background:var(--gray-200);"></div><?php endif; ?>
-                <button style="border:none;background:none;color:var(--gray-400);cursor:pointer;font-size:14px;"><i class="fas fa-ellipsis-v"></i></button>
+                <form method="POST" onsubmit="return confirm('Supprimer cette notification ?')">
+                    <input type="hidden" name="action" value="supprimer">
+                    <input type="hidden" name="id" value="<?= $n['id'] ?>">
+                    <button type="submit" class="action-btn danger" title="Supprimer" style="border:none;background:none;color:var(--gray-400);cursor:pointer;font-size:14px;padding:2px 4px;"><i class="fas fa-times"></i></button>
+                </form>
             </div>
         </div>
         <?php endforeach; ?>
         <?php endif; ?>
     </div>
+
+    <!-- Formulaire caché pour la suppression groupée -->
+    <form method="POST" id="form-bulk-delete" style="display:none;">
+        <input type="hidden" name="action" value="supprimer_plusieurs">
+        <div id="bulk-ids-container"></div>
+    </form>
 
     <div class="why-buy" style="margin-top:28px;">
         <div class="why-buy-item"><i class="fas fa-box"></i><h4>Besoin d'aide ?</h4><p>Consultez notre FAQ ou contactez notre support</p></div>
@@ -100,4 +134,36 @@ $activePage = 'notifications';
 </div>
 </div>
 </div>
+
+<script>
+function toggleAll(master) {
+    document.querySelectorAll('.notif-check').forEach(function(cb) {
+        cb.checked = master.checked;
+    });
+    updateDeleteBtn();
+}
+
+function updateDeleteBtn() {
+    var checked = document.querySelectorAll('.notif-check:checked').length;
+    var btn = document.getElementById('btn-delete-selected');
+    if (btn) btn.style.display = checked > 0 ? 'inline-flex' : 'none';
+}
+
+function deleteSelected() {
+    var checked = document.querySelectorAll('.notif-check:checked');
+    if (checked.length === 0) return;
+    if (!confirm('Supprimer ces ' + checked.length + ' notification(s) ?')) return;
+
+    var container = document.getElementById('bulk-ids-container');
+    container.innerHTML = '';
+    checked.forEach(function(cb) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'ids[]';
+        input.value = cb.value;
+        container.appendChild(input);
+    });
+    document.getElementById('form-bulk-delete').submit();
+}
+</script>
 </body></html>

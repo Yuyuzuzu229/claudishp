@@ -1,9 +1,14 @@
 <?php
+// Définition de la page active pour le menu client
 $client_page = 'notifications';
+// Titre de la page
 $client_title = 'Mes notifications';
+// Sous-titre affiché dans l'en-tête client
 $client_subtitle = 'Consultez vos dernières alertes et messages.';
+// Inclusion de l'en-tête client
 include '../includes/client_header.php';
 
+// Tableau des notifications
 $notifications = [
   ['type'=>'commande','icon'=>'📦','titre'=>'Commande #CMD-000125 livrée','message'=>'Votre commande a été livrée avec succès. Merci pour votre confiance !','date'=>'13/05/2026 à 14:32','lu'=>false],
   ['type'=>'paiement','icon'=>'💳','titre'=>'Paiement confirmé','message'=>'Votre paiement de 145 000 FCFA via MTN MoMo a été confirmé.','date'=>'13/05/2026 à 10:18','lu'=>false],
@@ -13,9 +18,11 @@ $notifications = [
   ['type'=>'avis','icon'=>'⭐','titre'=>'Donnez votre avis','message'=>'Vous avez récemment acheté des Sneakers Blanches. Partagez votre expérience !','date'=>'09/05/2026 à 10:00','lu'=>true],
 ];
 
+// Calcul du nombre de notifications non lues
 $nb_non_lus = count(array_filter($notifications, fn($n) => !$n['lu']));
 ?>
 
+<!-- En-tête avec compteur de notifications non lues et bouton "Tout marquer comme lu" -->
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
   <div style="display:flex;align-items:center;gap:10px;">
     <span style="font-size:.85rem;color:#5A5A5A;"><?= $nb_non_lus ?> notification(s) non lue(s)</span>
@@ -24,17 +31,20 @@ $nb_non_lus = count(array_filter($notifications, fn($n) => !$n['lu']));
 </div>
 
 <div class="card" style="padding:0;overflow:hidden;">
+  <!-- Boucle d'affichage de chaque notification -->
   <?php foreach($notifications as $idx => $notif): ?>
   <div id="notif-<?= $idx ?>" style="display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border-bottom:1px solid #F5F5F5;background:<?= !$notif['lu'] ? '#FAFAF8' : '#fff' ?>;transition:background .3s;cursor:pointer;" onclick="marquerLu(<?= $idx ?>)">
-    <!-- Icône -->
+    <!-- Icône de la notification -->
     <div style="width:42px;height:42px;border-radius:10px;background:<?= !$notif['lu'] ? '#FFF8E6' : '#F5F5F5' ?>;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">
       <?= $notif['icon'] ?>
     </div>
 
-    <!-- Contenu -->
+    <!-- Contenu : titre et message -->
     <div style="flex:1;min-width:0;">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+        <!-- Titre en gras si non lu -->
         <span style="font-size:.88rem;font-weight:<?= !$notif['lu'] ? '600' : '500' ?>;color:#0A0A0A;"><?= htmlspecialchars($notif['titre']) ?></span>
+        <!-- Point jaune indicateur de non-lu -->
         <?php if(!$notif['lu']): ?>
         <span style="width:8px;height:8px;border-radius:50%;background:#C9A03D;flex-shrink:0;"></span>
         <?php endif; ?>
@@ -42,27 +52,33 @@ $nb_non_lus = count(array_filter($notifications, fn($n) => !$n['lu']));
       <div style="font-size:.8rem;color:#5A5A5A;line-height:1.5;"><?= htmlspecialchars($notif['message']) ?></div>
     </div>
 
-    <!-- Date -->
+    <!-- Date de la notification -->
     <div style="font-size:.72rem;color:#9A9A9A;white-space:nowrap;flex-shrink:0;"><?= $notif['date'] ?></div>
   </div>
   <?php endforeach; ?>
 </div>
 
 <script>
+// Fonction pour marquer une notification comme lue
 function marquerLu(idx){
   const el = document.getElementById('notif-'+idx);
   el.style.background = '#fff';
+  // Supprime le point indicateur de non-lu
   const dot = el.querySelector('[style*="border-radius:50%"]');
   if(dot) dot.remove();
+  // Repasse le titre en poids normal
   const title = el.querySelector('[style*="font-weight"]');
   if(title) title.style.fontWeight = '500';
 }
+// Fonction pour marquer toutes les notifications comme lues
 function marquerToutes(){
   document.querySelectorAll('[id^="notif-"]').forEach(el=>{
     el.style.background='#fff';
+    // Supprime tous les points indicateurs
     const dot=el.querySelector('[style*="border-radius:50%;background:#C9A03D"]');
     if(dot)dot.remove();
   });
+  // Met à jour le texte du bouton
   document.querySelector('[onclick="marquerToutes()"]').textContent='✓ Tout lu';
 }
 </script>

@@ -1,19 +1,29 @@
 <?php
+// Inclusion du fichier de configuration principal (remonte de 2 niveaux jusqu'à la racine)
 require_once __DIR__ . '/../../config/config.php';
+// Inclusion de la classe ZoneLivraison
 require_once __DIR__ . '/../../classes/ZoneLivraison.php';
 
+// Vérification que l'utilisateur est connecté et a le rôle administrateur, sinon redirection vers la page de connexion
 if (!isLoggedIn() || !isAdmin()) { redirect(BASE_URL . '/pages/connexion.php'); }
 
+// Récupération et conversion de l'identifiant de la zone depuis l'URL
 $id = intval($_GET['id'] ?? 0);
+// Instanciation de l'objet ZoneLivraison
 $zoneObj = new ZoneLivraison();
+// Récupération des données de la zone par son identifiant
 $zone = $zoneObj->getById($id);
 
+// Si la zone n'existe pas, enregistrement d'un message d'erreur et redirection
 if (!$zone) { $_SESSION['error'] = 'Zone introuvable.'; redirect(BASE_URL . '/admin/zones.php'); }
 
+// Vérification si le formulaire a été soumis en méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération et sécurisation du nom, de la description et du tarif
     $nom = securiser($_POST['nom'] ?? '');
     $description = securiser($_POST['description'] ?? '');
     $tarif = floatval($_POST['tarif'] ?? 0);
+    // Si le nom et le tarif sont valides, modification de la zone, sinon message d'erreur
     if ($nom && $tarif >= 0) {
         $zoneObj->modifier($id, $nom, $description, $tarif);
         $_SESSION['success'] = 'Zone modifiée avec succès.';
@@ -23,8 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect(BASE_URL . '/admin/zones.php');
 }
 
+// Définition du titre de la page
 $pageTitle = 'Modifier une zone';
+// Inclusion de l'en-tête HTML du site
 require_once __DIR__ . '/../../includes/header.php';
+// Définition de la page active pour le menu d'administration
 $adminPage = 'zones';
 ?>
 <div class="dashboard-layout">

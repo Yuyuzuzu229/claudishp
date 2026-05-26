@@ -381,3 +381,43 @@ INSERT INTO `produit` (`nom`,`description`,`prix`,`stock`,`qte_alerte`,`sku`,`ca
 ('Ensemble Wax enfant','Ensemble deux pièces en Wax pour enfant',8900,30,10,'EWX-00135',3,1,'3,4,5,6,7,8','produits/robe_enfant.jpg'),
 ('Jean Slim Fit','Jean slim en denim de qualité',21500,19,5,'JNS-00134',2,1,'28,30,32,34,36','produits/jean.jpg'),
 ('Ceinture en cuir','Ceinture cuire véritable, boucle dorée',9900,31,5,'CEN-00133',4,1,'','produits/ceinture.jpg');
+
+-- ============================================================
+-- TABLE : configuration_boutique
+-- Position GPS et adresse de la boutique modifiable depuis l'admin
+-- ============================================================
+CREATE TABLE IF NOT EXISTS `configuration_boutique` (
+  `id`         INT UNSIGNED NOT NULL DEFAULT 1,
+  `latitude`   DECIMAL(10,7) NOT NULL DEFAULT 0.0000000,
+  `longitude`  DECIMAL(10,7) NOT NULL DEFAULT 0.0000000,
+  `adresse`    VARCHAR(255) NOT NULL DEFAULT '',
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `configuration_boutique` (`id`, `latitude`, `longitude`, `adresse`)
+VALUES (1, 6.3650, 2.4330, 'Wologede, Mairie, Cotonou')
+ON DUPLICATE KEY UPDATE `id` = `id`;
+
+-- ============================================================
+-- TABLE : hero_collection
+-- Blocs de la bannière d'accueil (gérable par l'admin)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS `hero_collection` (
+  `id`           INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `titre`        VARCHAR(200) NOT NULL,
+  `tag`          VARCHAR(100) NOT NULL DEFAULT '',
+  `type`         ENUM('categorie','produits') NOT NULL DEFAULT 'categorie',
+  `categorie_id` INT UNSIGNED DEFAULT NULL,
+  `produit_ids`  TEXT DEFAULT NULL,
+  `statut`       TINYINT(1) NOT NULL DEFAULT 1,
+  `ordre`        INT NOT NULL DEFAULT 0,
+  `date_creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_hero_cat` (`categorie_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `hero_collection` (`titre`, `tag`, `type`, `categorie_id`, `produit_ids`, `statut`, `ordre`) VALUES
+('Collection Printemps', 'Tendance', 'categorie', 1, NULL, 1, 0),
+('Nouvelle Saison', 'Nouveauté', 'categorie', 2, NULL, 1, 1)
+ON DUPLICATE KEY UPDATE id = id;

@@ -93,7 +93,10 @@ $categoriesNav = $categorie->getForNav();
                     <a href="<?= BASE_URL ?>/admin/index.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">
                         <i class="fas fa-th-large" style="width:16px;text-align:center;"></i> Administration
                     </a>
-                    <?php endif; ?>
+                    <a href="<?= BASE_URL ?>/user/profil.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">
+                        <i class="fas fa-user" style="width:16px;text-align:center;"></i> Mon profil
+                    </a>
+                    <?php else: ?>
                     <a href="<?= BASE_URL ?>/user/dashboard.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">
                         <i class="fas fa-th-large" style="width:16px;text-align:center;"></i> Dashboard
                     </a>
@@ -103,6 +106,7 @@ $categoriesNav = $categorie->getForNav();
                     <a href="<?= BASE_URL ?>/user/mes_commandes.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">
                         <i class="fas fa-receipt" style="width:16px;text-align:center;"></i> Mes commandes
                     </a>
+                    <?php endif; ?>
                     <div style="border-top:1px solid var(--gray-100);"></div>
                     <a href="<?= BASE_URL ?>/actions/deconnexion.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--danger, #DC2626);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">
                         <i class="fas fa-sign-out-alt" style="width:16px;text-align:center;"></i> Déconnexion
