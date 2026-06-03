@@ -1,8 +1,8 @@
-// Activation du moteur de réécriture Apache
+# Activation du moteur de réécriture Apache
 RewriteEngine On
-// Condition : le fichier demandé n'existe pas
+# Condition : le fichier demandé n'existe pas
 RewriteCond %{REQUEST_FILENAME} !-f
-// Condition : le dossier demandé n'existe pas
+# Condition : le dossier demandé n'existe pas
 RewriteCond %{REQUEST_FILENAME} !-d
-// Règle : redirige toutes les requêtes vers index.php avec le paramètre endpoint
+# Règle : redirige toutes les requêtes vers index.php avec le paramètre endpoint
 RewriteRule ^(.*)$ index.php?endpoint=$1 [QSA,L]

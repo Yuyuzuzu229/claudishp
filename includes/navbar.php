@@ -87,7 +87,12 @@ $categoriesNav = $categorie->getForNav();
                 <div class="nav-avatar-dropdown" id="nav-avatar-menu" style="display:none;position:absolute;top:calc(100% + 8px);right:0;background:white;border:1px solid var(--gray-200);border-radius:6px;box-shadow:0 10px 25px rgba(0,0,0,0.1);min-width:200px;z-index:1000;overflow:hidden;">
                     <div style="padding:12px 14px;border-bottom:1px solid var(--gray-100);">
                         <div class="text-sm font-semibold"><?= securiser(($_SESSION['user_prenom'] ?? '') . ' ' . ($_SESSION['user_nom'] ?? '')) ?></div>
-                        <div class="text-xs text-muted"><?= securiser($_SESSION['user_email'] ?? '') ?></div>
+                        <?php
+                        $_navEmail = $_SESSION['user_email'] ?? '';
+                        $_navPhone = $_SESSION['user_telephone'] ?? '';
+                        $_navPhoneOnly = (strpos($_navEmail, 'tel-') === 0) && (substr($_navEmail, -17) === '@claudishop.local');
+                        ?>
+                        <div class="text-xs text-muted"><?= securiser($_navPhoneOnly ? $_navPhone : $_navEmail) ?></div>
                     </div>
                     <?php if (isAdmin()): ?>
                     <a href="<?= BASE_URL ?>/admin/index.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">

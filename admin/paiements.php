@@ -57,7 +57,7 @@ $adminPage = 'paiements';
                 <td class="text-xs text-muted">#<?= str_pad($cmd['id'],4,'0',STR_PAD_LEFT) ?></td>
                 <td class="text-sm"><?= securiser(($cmd['prenom']??'').' '.($cmd['nom']??'')) ?></td>
                 <td class="text-sm font-semibold"><?= formatPrix($cmd['montant_total']) ?></td>
-                <td class="text-sm text-muted"><?= securiser($cmd['mode_paiement']??'MTN MoMo') ?></td>
+                <td class="text-sm text-muted"><?= renderModePaiement($cmd['mode_paiement']??'') ?></td>
                 <td><span class="badge badge-success">Réussi</span></td>
                 <td class="text-xs text-muted"><?= date('d/m/y H:i', strtotime($cmd['date_commande'])) ?></td>
             </tr>

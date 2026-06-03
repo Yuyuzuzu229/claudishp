@@ -68,7 +68,7 @@ require_once __DIR__ . '/../includes/navbar.php';
             </div>
             <div class="recap-row">
                 <span class="text-muted">Paiement</span>
-                <strong><?= securiser($paiement['mode']) ?></strong>
+                <strong><?= renderModePaiement($paiement['mode'] ?? '') ?></strong>
             </div>
             <div class="recap-row">
                 <span class="text-muted">Statut</span>

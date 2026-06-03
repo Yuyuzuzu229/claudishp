@@ -75,9 +75,7 @@ $ville = securiser($_POST['ville'] ?? '');
 $nomComplet = securiser($_POST['nom_complet'] ?? '');
 $telephoneClient = securiser($_POST['telephone'] ?? '');
 $zoneId = !empty($_POST['zone_id']) ? intval($_POST['zone_id']) : null;
-$modePaiementRaw = $_POST['mode_paiement'] ?? 'MTN Mobile Money';
-$modesPaiement = ['MTN MoMo' => 'MTN Mobile Money', 'Moov Money' => 'Moov Money'];
-$modePaiement = $modesPaiement[$modePaiementRaw] ?? 'MTN Mobile Money';
+$modePaiement = securiser($_POST['mode_paiement'] ?? 'Kkiapay');
 $instructions = securiser($_POST['instructions'] ?? '');
 $telephonePaiement = securiser($_POST['telephone_paiement'] ?? $telephoneClient);
 $latitude = $_POST['latitude'] ?? null;
@@ -186,6 +184,9 @@ $reference = 'KKP-' . date('Ymd') . '-' . strtoupper(substr(bin2hex(random_bytes
 $pdo = getPdo();
 $stmt = $pdo->prepare("INSERT INTO paiement (commande_id, montant, mode, telephone_paiement, reference_transaction) VALUES (?, ?, ?, ?, ?)");
 $stmt->execute([$commandeId, $montantTotal, $modePaiement, $telephonePaiement, $reference]);
+
+// Initialise le mode_paiement dans commande (sera mis à jour par le callback Kkiapay)
+$pdo->prepare("UPDATE commande SET mode_paiement = ? WHERE id = ?")->execute([$modePaiement, $commandeId]);
 
 // ── CRÉATION LIVRAISON ──
 $livraisonId = null;

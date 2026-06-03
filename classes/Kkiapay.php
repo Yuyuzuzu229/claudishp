@@ -45,6 +45,7 @@ class Kkiapay {
 
         $status = $response['status'] ?? '';
         $montant = $response['amount'] ?? 0;
+        $sourceCommonName = $response['source_common_name'] ?? '';
 
         return [
             'success' => $status === 'SUCCESS',
@@ -52,6 +53,7 @@ class Kkiapay {
             'montant' => $montant,
             'telephone' => $response['account'] ?? '',
             'reference' => $response['transactionId'] ?? $transactionId,
+            'source_common_name' => $sourceCommonName,
             'message' => $status === 'SUCCESS' ? 'Paiement Kkiapay confirmé.' : 'Paiement Kkiapay ' . $status
         ];
     }

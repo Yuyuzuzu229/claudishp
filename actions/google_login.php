@@ -96,7 +96,7 @@ if ($user) {
     $_SESSION['user_prenom'] = $u['prenom'];
     $_SESSION['user_email'] = $u['email'];
     $_SESSION['user_role'] = $u['role'];
-    redirect(BASE_URL . '/user/dashboard.php');
+    redirect(BASE_URL . '/index.php');
 }
 
 // Cherche si un utilisateur existe avec cet email (sans google_id)
@@ -120,7 +120,7 @@ if ($existing) {
     $_SESSION['user_prenom'] = $u['prenom'];
     $_SESSION['user_email'] = $u['email'];
     $_SESSION['user_role'] = $u['role'];
-    redirect(BASE_URL . '/user/dashboard.php');
+    redirect(BASE_URL . '/index.php');
 }
 
 // Si aucun compte n'existe, crée un nouvel utilisateur avec un mot de passe aléatoire
@@ -136,4 +136,4 @@ $_SESSION['user_email'] = $email;
 $_SESSION['user_role'] = 'user';
 
 // Redirige vers le dashboard
-redirect(BASE_URL . '/user/dashboard.php');
+redirect(BASE_URL . '/index.php');

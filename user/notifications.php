@@ -82,12 +82,7 @@ $activePage = 'notifications';
             elseif (strpos($msg,'offre')!==false || strpos($msg,'promo')!==false || strpos($msg,'remise')!==false) $icon = 'fa-tag';
             elseif (strpos($msg,'paiement')!==false || strpos($msg,'confirmé')!==false) $icon = 'fa-shield-alt';
             elseif (strpos($msg,'bienvenu')!==false || strpos($msg,'inscrit')!==false) $icon = 'fa-gift';
-            $timeAgo = '';
-            $ts = strtotime($n['date_envoi']);
-            $diff = time() - $ts;
-            if ($diff < 3600) $timeAgo = 'Il y a '.round($diff/60).' min';
-            elseif ($diff < 86400) $timeAgo = 'Il y a '.round($diff/3600).' heures';
-            else $timeAgo = date('d/m/Y', $ts);
+
         ?>
         <div class="notif-item <?= !$n['lu'] ? 'unread' : '' ?>" style="gap:10px;padding:16px 20px;">
             <input type="checkbox" class="notif-check" value="<?= $n['id'] ?>" style="flex-shrink:0;" onchange="updateDeleteBtn()">
@@ -101,7 +96,6 @@ $activePage = 'notifications';
                 </div>
             </div>
             <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-                <span class="notif-time"><?= $timeAgo ?></span>
                 <?php if (!$n['lu']): ?><div class="notif-dot"></div><?php else: ?><div style="width:7px;height:7px;border-radius:50%;background:var(--gray-200);"></div><?php endif; ?>
                 <form method="POST" onsubmit="return confirm('Supprimer cette notification ?')">
                     <input type="hidden" name="action" value="supprimer">

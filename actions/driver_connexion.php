@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Récupère et normalise le téléphone et le mot de passe
-$telephone = normaliserTelephone($_POST['telephone'] ?? '');
+$telephone = normaliserTelephone(trim($_POST['telephone'] ?? ''));
 $password = $_POST['mot_de_passe'] ?? '';
 
 // Vérifie que les champs ne sont pas vides

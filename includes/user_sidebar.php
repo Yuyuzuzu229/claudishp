@@ -18,8 +18,11 @@ if (isLoggedIn()) {
 $userInitial = strtoupper(substr($_SESSION['user_prenom'] ?? 'U', 0, 1));
 // Sécurisation du nom complet de l'utilisateur
 $userName = securiser(($_SESSION['user_prenom'] ?? '') . ' ' . ($_SESSION['user_nom'] ?? ''));
-// Sécurisation de l'email de l'utilisateur
-$userEmail = securiser($_SESSION['user_email'] ?? '');
+// Sécurisation du contact (email si vrai email, téléphone si phone-only)
+$userEmailSidebar = $_SESSION['user_email'] ?? '';
+$userPhoneSidebar = $_SESSION['user_telephone'] ?? '';
+$isPhoneOnlySidebar = (strpos($userEmailSidebar, 'tel-') === 0) && (substr($userEmailSidebar, -17) === '@claudishop.local');
+$userContact = $isPhoneOnlySidebar ? securiser($userPhoneSidebar) : securiser($userEmailSidebar);
 ?>
 <!-- Overlay pour la barre latérale sur mobile -->
 <div class="dash-sidebar-overlay" id="dashSidebarOverlay"></div>
@@ -38,7 +41,7 @@ $userEmail = securiser($_SESSION['user_email'] ?? '');
         <div class="dash-user-avatar"><?= $userInitial ?></div>
         <div>
             <div class="dash-user-name"><?= $userName ?></div>
-            <div class="dash-user-email"><?= $userEmail ?></div>
+            <div class="dash-user-email"><?= $userContact ?></div>
         </div>
     </div>
     <!-- Navigation de la barre latérale -->

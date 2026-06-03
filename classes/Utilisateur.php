@@ -42,6 +42,12 @@ class Utilisateur {
         return $stmt->fetch();
     }
 
+    public function getByTelephone($telephone) {
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE telephone = ?");
+        $stmt->execute([$telephone]);
+        return $stmt->fetch();
+    }
+
     // Retourne le nombre total d'utilisateurs
     public function getNombre() {
         return $this->db->query("SELECT COUNT(*) FROM utilisateur")->fetchColumn();
@@ -58,11 +64,19 @@ class Utilisateur {
         return $this->db->query("SELECT COUNT(*) FROM utilisateur WHERE est_actif = 1")->fetchColumn();
     }
 
-    // Inscrit un nouvel utilisateur : vérifie l'unicité de l'email, hache le mot de passe, et connecte automatiquement
+    // Inscrit un nouvel utilisateur : vérifie l'unicité de l'email/téléphone, hache le mot de passe, et connecte automatiquement
     public function inscrire($nom, $prenom, $email, $motDePasse, $telephone, $role = 'user') {
-        // Vérifie si l'email est déjà utilisé
-        if ($this->getByEmail($email)) {
+        // Vérifie si l'email est déjà utilisé (si fourni)
+        if (!empty($email) && $this->getByEmail($email)) {
             return ['success' => false, 'message' => 'Cet email est déjà utilisé.'];
+        }
+        // Vérifie si le téléphone est déjà utilisé (si fourni)
+        if (!empty($telephone) && $this->getByTelephone($telephone)) {
+            return ['success' => false, 'message' => 'Ce numéro de téléphone est déjà utilisé.'];
+        }
+        // Génère un email unique pour les inscriptions sans email
+        if (empty($email) && !empty($telephone)) {
+            $email = 'tel-' . preg_replace('/[^0-9]/', '', $telephone) . '@claudishop.local';
         }
         // Hachage du mot de passe avec BCRYPT
         $hash = password_hash($motDePasse, PASSWORD_BCRYPT);
@@ -79,16 +93,20 @@ class Utilisateur {
         $_SESSION['user_prenom'] = $prenom;
         $_SESSION['user_nom'] = $nom;
         $_SESSION['user_role'] = $role;
+        $_SESSION['user_telephone'] = $telephone;
         return ['success' => true, 'message' => 'Inscription réussie.'];
     }
 
-    // Connecte un utilisateur : vérifie email + mot de passe, puis initialise la session
-    public function connecter($email, $motDePasse) {
-        // Récupération de l'utilisateur par email
-        $user = $this->getByEmail($email);
+    // Connecte un utilisateur : vérifie email/téléphone + mot de passe, puis initialise la session
+    public function connecter($identifiant, $motDePasse) {
+        // Récupération de l'utilisateur par email ou téléphone
+        $user = $this->getByEmail($identifiant);
+        if (!$user) {
+            $user = $this->getByTelephone($identifiant);
+        }
         // Si l'utilisateur n'existe pas OU que le mot de passe est incorrect
         if (!$user || !password_verify($motDePasse, $user['mot_de_passe'])) {
-            return ['success' => false, 'message' => 'Email ou mot de passe incorrect.'];
+            return ['success' => false, 'message' => 'Email/téléphone ou mot de passe incorrect.'];
         }
         // Si le compte est désactivé, on refuse la connexion
         if (!$user['est_actif']) {
@@ -100,6 +118,7 @@ class Utilisateur {
         $_SESSION['user_prenom'] = $user['prenom'];
         $_SESSION['user_nom'] = $user['prenom'] . ' ' . $user['nom'];
         $_SESSION['user_role'] = $user['role'];
+        $_SESSION['user_telephone'] = $user['telephone'];
         // Mise à jour de la date de dernière connexion
         $this->updateDerniereConnexion($user['id']);
         return ['success' => true, 'role' => $user['role']];

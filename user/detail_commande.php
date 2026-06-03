@@ -228,7 +228,7 @@ if ($isGuestMode): ?>
                 <div class="table-card-header"><span class="table-card-title">Informations</span></div>
                 <div style="padding:16px;">
                     <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de retrait</span><span class="text-sm font-semibold"><?= securiser($commande['mode_retrait'] ?? '—') ?></span></div>
-                    <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de paiement</span><span class="text-sm font-semibold"><?= $modePaiement ? securiser($modePaiement) : '—' ?></span></div>
+                    <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de paiement</span><span class="text-sm font-semibold"><?= $modePaiement ? renderModePaiement($modePaiement) : '—' ?></span></div>
                     <div class="flex justify-between" style="padding:8px 0;"><span class="text-muted text-sm">Statut</span><?= getStatutBadge($commande['statut']) ?></div>
                 </div>
             </div>
@@ -424,7 +424,7 @@ if ($isGuestMode): ?>
                 <div class="table-card-header"><span class="table-card-title">Informations</span></div>
                 <div style="padding:16px;">
                     <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de retrait</span><span class="text-sm font-semibold"><?= securiser($commande['mode_retrait'] ?? '—') ?></span></div>
-                    <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de paiement</span><span class="text-sm font-semibold"><?= $modePaiement ? securiser($modePaiement) : '—' ?></span></div>
+                    <div class="flex justify-between" style="padding:8px 0;border-bottom:1px solid var(--gray-100);"><span class="text-muted text-sm">Mode de paiement</span><span class="text-sm font-semibold"><?= $modePaiement ? renderModePaiement($modePaiement) : '—' ?></span></div>
                     <div class="flex justify-between" style="padding:8px 0;"><span class="text-muted text-sm">Statut</span><?= getStatutBadge($commande['statut']) ?></div>
                 </div>
             </div>

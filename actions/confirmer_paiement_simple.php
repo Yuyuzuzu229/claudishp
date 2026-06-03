@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../classes/Kkiapay.php';
 require_once __DIR__ . '/../classes/Notification.php';
 require_once __DIR__ . '/../config/database.php';
 
@@ -25,20 +26,24 @@ if (!$paiement) {
     redirect(BASE_URL . '/index.php');
 }
 
+$kkiapay = new Kkiapay();
+
+if ($kkiapay->estConfigure()) {
+    $_SESSION['error'] = 'Mode simulation désactivé : utilisez le widget Kkiapay pour payer.';
+    redirect(BASE_URL . '/pages/paiement_kkiapay.php?commande_id=' . $commandeId);
+}
+
 $reference = 'SIM-' . date('Ymd') . '-' . strtoupper(substr(bin2hex(random_bytes(8)), 0, 10));
 
-$stmt = $pdo->prepare("UPDATE paiement SET statut = 'Confirmé', reference_transaction = ?, date_paiement = NOW() WHERE id = ?");
+$stmt = $pdo->prepare("UPDATE paiement SET statut = 'Simulation', reference_transaction = ?, date_paiement = NOW() WHERE id = ?");
 $stmt->execute([$reference, $paiementId]);
-
-$stmt = $pdo->prepare("UPDATE commande SET statut = 'Confirmée' WHERE id = ?");
-$stmt->execute([$commandeId]);
 
 $notif = new Notification();
 $notif->creer(
     $_SESSION['user_id'],
-    'Paiement confirmé',
-    'Votre paiement de ' . formatPrix($paiement['montant_total']) . ' a été confirmé. Réf : ' . $reference
+    'Paiement simulé',
+    'Votre paiement de ' . formatPrix($paiement['montant_total']) . ' a été enregistré (simulation). Réf : ' . $reference
 );
 
-$_SESSION['success'] = 'Paiement effectué avec succès !';
+$_SESSION['success'] = 'Paiement enregistré (simulation). En attente de confirmation par l\'administrateur.';
 redirect(BASE_URL . '/user/detail_commande.php?id=' . $commandeId);

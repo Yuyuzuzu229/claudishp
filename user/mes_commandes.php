@@ -81,7 +81,7 @@ $activePage = 'commandes';
                 <td><?= getStatutBadge($cmd['statut']) ?></td>
                 <td><strong><?= formatPrix($cmd['montant_total']) ?></strong></td>
                 <td class="text-muted"><?= securiser($cmd['mode_retrait'] ?? 'Livraison') ?></td>
-                <td class="text-muted"><?= securiser($cmd['mode_paiement'] ?? 'MTN MoMo') ?></td>
+                <td class="text-muted"><?= renderModePaiement($cmd['mode_paiement'] ?? '') ?></td>
                 <td>
                     <!-- Lien vers le détail de la commande -->
                     <a href="<?= BASE_URL ?>/user/detail_commande.php?id=<?= $cmd['id'] ?>" style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--gray-600);"><i class="fas fa-eye"></i> Voir</a>

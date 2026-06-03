@@ -45,7 +45,7 @@ class Notification {
     // Crée une nouvelle notification pour un utilisateur avec un titre, un message, un canal et éventuellement un identifiant de commande
     public function creer($utilisateurId, $titre, $message, $canal = 'In-app', $commandeId = null) {
         // Préparation de la requête d'insertion
-        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id, date_envoi) VALUES (?, ?, ?, ?, ?, NOW())");
         // Exécution de l'insertion avec les paramètres fournis
         return $stmt->execute([$utilisateurId, $titre, $message, $canal, $commandeId]);
     }

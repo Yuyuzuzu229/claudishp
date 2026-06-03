@@ -11,12 +11,26 @@ if (!isLoggedIn() || $_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Récupère et sécurise les données du formulaire de profil
 $nom = securiser($_POST['nom']);
 $prenom = securiser($_POST['prenom']);
-$email = securiser($_POST['email']);
-$telephone = securiser($_POST['telephone'] ?? '');
 $nouveauMdp = $_POST['nouveau_mdp'] ?? '';
 
 // Instancie Utilisateur
 $utilisateur = new Utilisateur();
+
+// Récupère l'utilisateur actuel pour savoir s'il est inscrit par téléphone
+$currentUser = $utilisateur->getById($_SESSION['user_id']);
+$isPhoneOnly = $currentUser && (strpos($currentUser['email'] ?? '', 'tel-') === 0) && (substr($currentUser['email'] ?? '', -17) === '@claudishop.local');
+
+if ($isPhoneOnly) {
+    // Inscription par téléphone : pas de champ email, on garde l'email auto-généré
+    $email = $currentUser['email'];
+    $indicatif = securiser($_POST['indicatif'] ?? '+229');
+    $telephone = $indicatif . preg_replace('/[^0-9]/', '', securiser($_POST['telephone'] ?? ''));
+} else {
+    // Inscription par email
+    $email = securiser($_POST['email'] ?? '');
+    $indicatif = securiser($_POST['indicatif'] ?? '+229');
+    $telephone = $indicatif . preg_replace('/[^0-9]/', '', securiser($_POST['telephone'] ?? ''));
+}
 
 // Si un nouveau mot de passe est fourni, le change
 if (!empty($nouveauMdp)) {

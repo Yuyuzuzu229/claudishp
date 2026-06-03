@@ -5,7 +5,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../classes/Utilisateur.php';
 
 // Redirection vers le tableau de bord si l'utilisateur est déjà connecté
-if (isLoggedIn()) { redirect(BASE_URL . '/user/dashboard.php'); }
+if (isLoggedIn()) { redirect(BASE_URL . '/index.php'); }
 
 // Récupération de l'email prérempli depuis l'URL (optionnel)
 $presetEmail = isset($_GET['email']) ? securiser($_GET['email']) : '';
@@ -36,6 +36,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div style="max-width:420px;width:100%;">
             <?php // Affichage des messages d'erreur stockés en session ?>
             <?php if (isset($_SESSION['error'])): ?><div class="alert alert-danger"><?= securiser($_SESSION['error']); unset($_SESSION['error']); ?></div><?php endif; ?>
+            <?php if (isset($_SESSION['flash'])): ?><div class="alert alert-<?= $_SESSION['flash']['type'] ?? 'danger' ?>"><?= securiser($_SESSION['flash']['message'] ?? ''); unset($_SESSION['flash']); ?></div><?php endif; ?>
 
             <div style="margin-bottom:28px;">
                 <h2 style="font-size:22px;font-weight:700;margin-bottom:6px;">Créer un compte</h2>
@@ -43,7 +44,7 @@ require_once __DIR__ . '/../includes/header.php';
             </div>
 
             <?php // Formulaire d'inscription envoyé vers actions/inscription.php ?>
-            <form method="POST" action="<?= BASE_URL ?>/actions/inscription.php">
+            <form method="POST" action="<?= BASE_URL ?>/actions/inscription.php" onsubmit="var r=document.getElementById('regFieldTel');if(r.style.display!=='none'){document.getElementById('regEmailInput').disabled=true}else{document.getElementById('regTelInput').disabled=true};document.querySelectorAll('#reg-form input').forEach(i=>i.value=i.value.trim())" id="reg-form">
                 <div class="grid-2" style="gap:12px;">
                     <div class="form-group" style="margin-bottom:12px;">
                         <label>Nom</label>
@@ -54,18 +55,26 @@ require_once __DIR__ . '/../includes/header.php';
                         <input type="text" name="prenom" class="form-control" placeholder="Votre prénom" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Adresse email</label>
-                    <div class="input-with-icon">
-                        <span class="icon"><i class="fas fa-envelope"></i></span>
-                        <input type="email" name="email" class="form-control" placeholder="votre@email.com" value="<?= $presetEmail ?>" required>
+                <div style="display:flex;gap:8px;margin-bottom:12px;">
+                    <button type="button" id="regTabEmail" class="btn-tab active" onclick="switchRegTab('email')" style="flex:1;padding:8px;border:1px solid var(--gray-200);border-radius:6px;background:var(--gray-50);cursor:pointer;font-size:13px;font-weight:600;"><i class="fas fa-envelope"></i> Email</button>
+                    <button type="button" id="regTabTel" class="btn-tab" onclick="switchRegTab('tel')" style="flex:1;padding:8px;border:1px solid var(--gray-200);border-radius:6px;background:transparent;cursor:pointer;font-size:13px;font-weight:600;color:var(--gray-400);"><i class="fas fa-phone"></i> Téléphone</button>
+                </div>
+                <div id="regFieldEmail">
+                    <div class="form-group">
+                        <label>Adresse email</label>
+                        <div class="input-with-icon">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <input type="email" name="email" class="form-control" id="regEmailInput" placeholder="votre@email.com" value="<?= $presetEmail ?>">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Téléphone</label>
-                    <div class="flex gap-2">
-                        <select class="form-control" style="width:90px;flex-shrink:0;"><option>+229</option><option>+228</option><option>+225</option></select>
-                        <input type="tel" name="telephone" class="form-control" placeholder="01 XX XX XX XX" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');if(this.value.length>0&&!this.value.startsWith('01'))this.value='01'+this.value.replace(/^0+/,'')">
+                <div id="regFieldTel" style="display:none;">
+                    <div class="form-group">
+                        <label>Numéro de téléphone</label>
+                        <div class="input-with-icon">
+                            <span class="icon"><i class="fas fa-phone"></i></span>
+                            <input type="tel" name="telephone" class="form-control" id="regTelInput" placeholder="+229 01 XX XX XX XX" inputmode="numeric" oninput="var p='',d=this.value.replace(/[^0-9\+]/g,'');if(d[0]==='+'){var m=d.match(/^(\+22[589])/);if(m){p=m[1]+' ';d=d.slice(m[1].length)}else{p='+';d=d.slice(1)}}d=d.replace(/[^0-9]/g,'').slice(0,10);if(d.length>2)d=d.slice(0,2)+' '+d.slice(2);if(d.length>5)d=d.slice(0,5)+' '+d.slice(5);if(d.length>8)d=d.slice(0,8)+' '+d.slice(8);this.value=p+d">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -84,6 +93,27 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
                 <button type="submit" class="btn btn-dark btn-block btn-lg" style="margin-top:8px;">Créer mon compte</button>
             </form>
+            <script>
+            function switchRegTab(tab) {
+                var emailField = document.getElementById('regFieldEmail');
+                var telField = document.getElementById('regFieldTel');
+                var tabEmail = document.getElementById('regTabEmail');
+                var tabTel = document.getElementById('regTabTel');
+                var emailInput = document.getElementById('regEmailInput');
+                var telInput = document.getElementById('regTelInput');
+                if (tab === 'email') {
+                    emailField.style.display = ''; telField.style.display = 'none';
+                    tabEmail.style.background = 'var(--gray-50)'; tabEmail.style.color = 'inherit';
+                    tabTel.style.background = 'transparent'; tabTel.style.color = 'var(--gray-400)';
+                    emailInput.required = true; telInput.required = false; emailInput.focus();
+                } else {
+                    emailField.style.display = 'none'; telField.style.display = '';
+                    tabTel.style.background = 'var(--gray-50)'; tabTel.style.color = 'inherit';
+                    tabEmail.style.background = 'transparent'; tabEmail.style.color = 'var(--gray-400)';
+                    telInput.required = true; emailInput.required = false; telInput.focus();
+                }
+            }
+            </script>
 
             <?php // Lien vers la page de connexion ?>
             <div style="text-align:center;margin-top:20px;">

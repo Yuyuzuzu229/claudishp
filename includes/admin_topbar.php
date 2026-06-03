@@ -5,8 +5,11 @@
 $userInitialAdmin2 = strtoupper(substr($_SESSION['user_prenom'] ?? 'A', 0, 1));
 // Sécurisation du nom complet de l'utilisateur
 $adminName2 = securiser(($_SESSION['user_prenom'] ?? '') . ' ' . ($_SESSION['user_nom'] ?? ''));
-// Sécurisation de l'email de l'utilisateur
-$adminEmail2 = securiser($_SESSION['user_email'] ?? '');
+// Sécurisation du contact (email pour les vrais emails, téléphone pour les phone-only)
+$adminEmail2 = $_SESSION['user_email'] ?? '';
+$adminPhone2 = $_SESSION['user_telephone'] ?? '';
+$isPhoneOnly2 = (strpos($adminEmail2, 'tel-') === 0) && (substr($adminEmail2, -17) === '@claudishop.local');
+$adminContact2 = $isPhoneOnly2 ? securiser($adminPhone2) : securiser($adminEmail2);
 ?>
 <!-- Barre supérieure du tableau de bord -->
 <div class="dash-topbar">
@@ -29,7 +32,7 @@ $adminEmail2 = securiser($_SESSION['user_email'] ?? '');
             <!-- En-tête du menu : nom et email de l'utilisateur -->
             <div style="padding:12px 14px;border-bottom:1px solid var(--gray-100);">
                 <div class="text-sm font-semibold"><?= $adminName2 ?></div>
-                <div class="text-xs text-muted"><?= $adminEmail2 ?></div>
+                <div class="text-xs text-muted"><?= $adminContact2 ?></div>
             </div>
             <!-- Lien vers l'administration -->
             <a href="<?= BASE_URL ?>/admin/index.php" style="display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--dark);text-decoration:none;font-size:13px;transition:background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background=''">

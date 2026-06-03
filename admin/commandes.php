@@ -74,7 +74,7 @@ $adminPage = 'commandes';
                 <td class="text-sm font-semibold"><?= formatPrix($cmd['montant_total']) ?></td>
                 <td><?= getStatutBadge($cmd['statut']) ?></td>
                 <td class="text-sm text-muted"><?= securiser($cmd['mode_retrait']??'Livraison') ?></td>
-                <td class="text-sm text-muted"><?= securiser($cmd['mode_paiement']??'MTN MoMo') ?></td>
+                <td class="text-sm text-muted"><?= renderModePaiement($cmd['mode_paiement']??'') ?></td>
                 <td class="text-xs text-muted"><?= date('d/m/y H:i', strtotime($cmd['date_commande'])) ?></td>
                 <td><div class="flex gap-1">
                     <!-- Lien vers le détail de la commande -->

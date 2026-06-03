@@ -69,7 +69,7 @@ $adminPage = 'notifications';
                 <div class="notif-title"><?= securiser($n['titre'] ?? 'Notification') ?></div>
                 <div class="notif-sub"><?= securiser(mb_substr($n['message'],0,150)) ?></div>
                 <div class="notif-time">
-                    <?= date('d/m/Y H:i',strtotime($n['date_envoi'] ?? $n['date_creation'])) ?>
+                    <?php $ts = strtotime($n['date_envoi'] ?? ''); if ($ts && $ts > strtotime('2000-01-01')): ?><?= date('d/m/Y H:i', $ts) ?><?php else: ?><span style="color:var(--gray-400)">Date inconnue</span><?php endif; ?>
                     &middot; <span class="badge badge-<?= $n['canal'] === 'WhatsApp' ? 'success' : ($n['canal'] === 'Email' ? 'info' : 'secondary') ?>"><?= $n['canal'] ?></span>
                     &middot; <?= securiser(($n['prenom'] ?? '') . ' ' . ($n['nom'] ?? '')) ?>
                 </div>

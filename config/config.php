@@ -3,6 +3,7 @@
 // Active le rapport d'erreurs tout en masquant les avertissements et notices
 // pour ne pas perturber l'affichage du site en production
 error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+header('Content-Type: text/html; charset=utf-8');
 
 // ── DÉTECTION DE L'ENVIRONNEMENT ───────────────────────────────────
 // Détecte si la connexion utilise HTTPS ou HTTP
@@ -242,6 +243,19 @@ function renderPrix($prix, $soldePrix = null) {
     return '<span class="prix-normal">' . formatPrix($prix) . '</span>';
 }
 
+// ── FONCTION : renderModePaiement ─────────────────────────────────
+// Affiche le mode de paiement de façon lisible
+function renderModePaiement($mode) {
+    if (empty($mode)) return '—';
+    $modes = [
+        'mtn-benin' => 'MTN Mobile Money',
+        'moov-benin' => 'Moov Money',
+        'wave-benin' => 'Wave',
+        'Kkiapay' => 'Kkiapay',
+    ];
+    return $modes[strtolower($mode)] ?? $mode;
+}
+
 // ── FONCTION : normaliserTelephone ────────────────────────────────
 // Formate un numéro de téléphone pour WhatsApp (wa.me)
 // Gère les formats locaux du Bénin (+229) et du Togo (+228)
@@ -409,6 +423,7 @@ function getStatutBadge($statut) {
         'Non lue'          => '<span class="badge badge-info">Non lue</span>',
         'Lue'              => '<span class="badge badge-secondary">Lue</span>',
         'Envoyé'           => '<span class="badge badge-success">Envoyé</span>',
+        'Simulation'       => '<span class="badge badge-warning">Simulation</span>',
     ];
     // Retourne le badge correspondant au statut, ou un badge générique avec le statut échappé si non trouvé
     return $badges[$statut] ?? '<span class="badge badge-secondary">' . htmlspecialchars($statut, ENT_QUOTES, 'UTF-8') . '</span>';

@@ -62,7 +62,7 @@ $activePage = 'paiement';
                 <td class="text-muted text-sm"><?= date('d/m/Y \à H:i', strtotime($cmd['date_commande'])) ?></td>
                 <td><span class="badge badge-success">Réussi</span></td>
                 <td><strong><?= formatPrix($cmd['montant_total']) ?></strong></td>
-                <td class="text-muted"><?= securiser($cmd['mode_paiement'] ?? 'MTN MoMo') ?></td>
+                <td class="text-muted"><?= renderModePaiement($cmd['mode_paiement'] ?? '') ?></td>
                 <td><a href="<?= BASE_URL ?>/user/detail_commande.php?id=<?= $cmd['id'] ?>" style="color:var(--gray-600);font-size:12px;">#CMD-<?= str_pad($cmd['id'],6,'0',STR_PAD_LEFT) ?></a></td>
             </tr>
             <?php endforeach; ?>

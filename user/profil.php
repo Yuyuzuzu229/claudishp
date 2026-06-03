@@ -17,6 +17,15 @@ $pageTitle = 'Mon profil';
 $utilisateur = new Utilisateur();
 // Récupération des données de l'utilisateur connecté
 $user = $utilisateur->getById($_SESSION['user_id']);
+// Détection : inscription par téléphone (email auto-généré)
+$phoneOnly = (strpos($user['email'] ?? '', 'tel-') === 0) && (substr($user['email'] ?? '', -17) === '@claudishop.local');
+// Extraction de l'indicatif et du numéro depuis le téléphone stocké (format: +22901XXXXXXXX)
+$indicatif_user = '+229';
+$numero_user = $user['telephone'] ?? '';
+if (preg_match('/^(\+\d{3})\s?(\d[\d\s]*)$/', $user['telephone'] ?? '', $m)) {
+    $indicatif_user = $m[1];
+    $numero_user = $m[2];
+}
 
 // Inclusion de l'en-tête HTML
 require_once __DIR__ . '/../includes/header.php';
@@ -79,8 +88,11 @@ $adminPage = 'profil';
                 <div style="display:inline-block;border:1px solid var(--gray-200);padding:2px 10px;font-size:11px;color:var(--gray-500);border-radius:20px;margin:6px 0;">Membre depuis <?= date('F Y', strtotime($user['date_inscription'])) ?></div>
                 <!-- Email et téléphone -->
                 <div class="flex gap-3" style="margin-top:4px;">
+                    <?php if ($phoneOnly): ?>
+                    <span class="text-sm text-muted"><i class="fas fa-phone" style="margin-right:5px;"></i><?= securiser($indicatif_user . ' ' . $numero_user) ?></span>
+                    <?php else: ?>
                     <span class="text-sm text-muted"><i class="fas fa-envelope" style="margin-right:5px;"></i><?= securiser($user['email']) ?></span>
-                    <span class="text-sm text-muted"><i class="fas fa-phone" style="margin-right:5px;"></i><?= securiser($user['telephone'] ?? '') ?></span>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -103,28 +115,45 @@ $adminPage = 'profil';
                         <input type="text" name="prenom" class="form-control" value="<?= securiser($user['prenom']) ?>" required>
                     </div>
                 </div>
-                <!-- Champ email -->
-                <div class="form-group">
-                    <label><i class="fas fa-envelope" style="margin-right:6px;color:var(--gray-400);"></i>Email</label>
-                    <input type="email" name="email" class="form-control" value="<?= securiser($user['email']) ?>" required>
-                </div>
                 <!-- Champ mot de passe (optionnel) -->
                 <div class="form-group">
                     <label><i class="fas fa-lock" style="margin-right:6px;color:var(--gray-400);"></i>Mot de passe</label>
                     <input type="password" name="nouveau_mdp" class="form-control" placeholder="Laisser vide pour ne pas modifier">
                 </div>
+                <?php if ($phoneOnly): ?>
+                <!-- Champ téléphone unique (inscription par téléphone) -->
+                <div class="form-group" style="margin-bottom:0;">
+                    <label><i class="fas fa-phone" style="margin-right:6px;color:var(--gray-400);"></i>Téléphone</label>
+                    <div class="flex gap-2">
+                        <?php $indicatifs = ['+229', '+228', '+225']; ?>
+                        <select name="indicatif" class="form-control" style="width:100px;flex-shrink:0;">
+                            <?php foreach ($indicatifs as $ind): ?>
+                            <option value="<?= $ind ?>" <?= $indicatif_user === $ind ? 'selected' : '' ?>><?= $ind ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                    </div>
+                </div>
+                <?php else: ?>
+                <!-- Champ email -->
+                <div class="form-group">
+                    <label><i class="fas fa-envelope" style="margin-right:6px;color:var(--gray-400);"></i>Email</label>
+                    <input type="email" name="email" class="form-control" value="<?= securiser($user['email']) ?>" required>
+                </div>
                 <!-- Champ téléphone avec indicatif -->
                 <div class="form-group" style="margin-bottom:0;">
                     <label><i class="fas fa-phone" style="margin-right:6px;color:var(--gray-400);"></i>Téléphone</label>
                     <div class="flex gap-2">
-                        <select class="form-control" style="width:100px;flex-shrink:0;">
-                            <option>+229</option>
-                            <option>+228</option>
-                            <option>+225</option>
+                        <?php $indicatifs = ['+229', '+228', '+225']; ?>
+                        <select name="indicatif" class="form-control" style="width:100px;flex-shrink:0;">
+                            <?php foreach ($indicatifs as $ind): ?>
+                            <option value="<?= $ind ?>" <?= $indicatif_user === $ind ? 'selected' : '' ?>><?= $ind ?></option>
+                            <?php endforeach; ?>
                         </select>
-                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($user['telephone'] ?? '') ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');if(this.value.length>0&&!this.value.startsWith('01'))this.value='01'+this.value.replace(/^0+/,'')">
+                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
                     </div>
                 </div>
+                <?php endif; ?>
                 <!-- Bouton de soumission -->
                 <div style="text-align:right;margin-top:24px;">
                     <button type="submit" class="btn btn-dark">Enregistrer les modifications</button>

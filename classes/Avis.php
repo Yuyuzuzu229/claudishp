@@ -77,10 +77,9 @@ class Avis {
         return $stmt->fetchColumn() > 0;
     }
 
-    // Récupère les produits achetés par un utilisateur mais pour lesquels il n'a pas encore donné d'avis
+    // Récupère les produits achetés par un utilisateur pour lesquels il peut donner un avis
     public function getProduitsAchetables($userId) {
-        // Prépare une requête complexe qui sélectionne les produits distincts des commandes validées
-        // en excluant ceux pour lesquels l'utilisateur a déjà donné un avis
+        // Prépare une requête qui sélectionne les produits distincts des commandes validées
         $stmt = $this->db->prepare("
             SELECT DISTINCT p.id, p.nom, p.photo, p.prix
             FROM ligne_commande lc
@@ -88,13 +87,10 @@ class Avis {
             JOIN produit p ON lc.produit_id = p.id
             WHERE c.utilisateur_id = ?
               AND c.statut IN ('Confirmée','En préparation','En route','En livraison','Livrée')
-              AND lc.produit_id NOT IN (
-                  SELECT produit_id FROM avis WHERE utilisateur_id = ?
-              )
             ORDER BY p.nom
         ");
-        // Exécute avec l'ID utilisateur (deux fois pour la clause principale et la sous-requête)
-        $stmt->execute([$userId, $userId]);
+        // Exécute avec l'ID utilisateur
+        $stmt->execute([$userId]);
         // Retourne toutes les lignes
         return $stmt->fetchAll();
     }
@@ -117,8 +113,8 @@ class Avis {
 
     // Ajoute un nouvel avis et met à jour la note moyenne du produit
     public function ajouter($produitId, $utilisateurId, $note, $commentaire) {
-        // Insère un nouvel avis avec le statut 'Publié' par défaut
-        $stmt = $this->db->prepare("INSERT INTO avis (produit_id, utilisateur_id, note, commentaire, statut) VALUES (?, ?, ?, ?, 'Publié')");
+        // Insère un nouvel avis avec le statut 'En modération' par défaut
+        $stmt = $this->db->prepare("INSERT INTO avis (produit_id, utilisateur_id, note, commentaire, statut) VALUES (?, ?, ?, ?, 'En modération')");
         $result = $stmt->execute([$produitId, $utilisateurId, $note, $commentaire]);
         // Si l'insertion a réussi, met à jour la note moyenne du produit
         if ($result) $this->mettreAJourNoteMoyenne($produitId);

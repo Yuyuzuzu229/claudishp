@@ -5,7 +5,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 
 // Redirection vers le tableau de bord si l'utilisateur est déjà connecté
-if (isLoggedIn()) { redirect(BASE_URL . '/user/dashboard.php'); }
+if (isLoggedIn()) { redirect(BASE_URL . '/index.php'); }
 
 // Récupération du token de réinitialisation depuis l'URL
 $token = $_GET['token'] ?? '';

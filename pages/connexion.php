@@ -7,7 +7,7 @@ require_once __DIR__ . '/../classes/Utilisateur.php';
 require_once __DIR__ . '/../config/mail.php';
 
 // Redirection vers le tableau de bord si l'utilisateur est déjà connecté
-if (isLoggedIn()) { redirect(BASE_URL . '/user/dashboard.php'); }
+if (isLoggedIn()) { redirect(BASE_URL . '/index.php'); }
 
 // Définition du titre de la page
 $pageTitle = 'Connexion';
@@ -51,12 +51,23 @@ require_once __DIR__ . '/../includes/header.php';
             </div>
 
             <?php // Formulaire de connexion envoyé vers actions/connexion.php ?>
-            <form method="POST" action="<?= BASE_URL ?>/actions/connexion.php">
+            <form method="POST" action="<?= BASE_URL ?>/actions/connexion.php" onsubmit="var l=document.getElementById('loginFieldTel');if(l.style.display!=='none'){document.getElementById('emailInput').disabled=true}else{document.getElementById('telInput').disabled=true};document.querySelectorAll('input').forEach(i=>i.value=i.value.trim())">
                 <div class="form-group">
-                    <label>Adresse email</label>
-                    <div class="input-with-icon">
-                        <span class="icon"><i class="fas fa-envelope"></i></span>
-                        <input type="email" name="email" class="form-control" placeholder="votre@email.com" required autofocus>
+                    <div style="display:flex;gap:8px;margin-bottom:8px;">
+                        <button type="button" id="tabEmail" class="btn-tab active" onclick="switchLoginTab('email')" style="flex:1;padding:8px;border:1px solid var(--gray-200);border-radius:6px;background:var(--gray-50);cursor:pointer;font-size:13px;font-weight:600;"><i class="fas fa-envelope"></i> Email</button>
+                        <button type="button" id="tabTel" class="btn-tab" onclick="switchLoginTab('tel')" style="flex:1;padding:8px;border:1px solid var(--gray-200);border-radius:6px;background:transparent;cursor:pointer;font-size:13px;font-weight:600;color:var(--gray-400);"><i class="fas fa-phone"></i> Téléphone</button>
+                    </div>
+                    <div id="loginFieldEmail">
+                        <div class="input-with-icon">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <input type="text" name="identifiant" class="form-control" id="emailInput" placeholder="votre@email.com" autofocus>
+                        </div>
+                    </div>
+                    <div id="loginFieldTel" style="display:none;">
+                        <div class="input-with-icon">
+                            <span class="icon"><i class="fas fa-phone"></i></span>
+                            <input type="text" name="identifiant" class="form-control" id="telInput" placeholder="01 XX XX XX XX" inputmode="numeric" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -71,6 +82,27 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
                 <button type="submit" class="btn btn-dark btn-block btn-lg" style="margin-top:8px;">Se connecter</button>
             </form>
+            <script>
+            function switchLoginTab(tab) {
+                var emailField = document.getElementById('loginFieldEmail');
+                var telField = document.getElementById('loginFieldTel');
+                var tabEmail = document.getElementById('tabEmail');
+                var tabTel = document.getElementById('tabTel');
+                var emailInput = document.getElementById('emailInput');
+                var telInput = document.getElementById('telInput');
+                if (tab === 'email') {
+                    emailField.style.display = ''; telField.style.display = 'none';
+                    tabEmail.style.background = 'var(--gray-50)'; tabEmail.style.color = 'inherit';
+                    tabTel.style.background = 'transparent'; tabTel.style.color = 'var(--gray-400)';
+                    emailInput.required = true; telInput.required = false; emailInput.focus();
+                } else {
+                    emailField.style.display = 'none'; telField.style.display = '';
+                    tabTel.style.background = 'var(--gray-50)'; tabTel.style.color = 'inherit';
+                    tabEmail.style.background = 'transparent'; tabEmail.style.color = 'var(--gray-400)';
+                    telInput.required = true; emailInput.required = false; telInput.focus();
+                }
+            }
+            </script>
 
             <!-- Séparateur "ou" -->
             <div style="margin-top:16px;position:relative;text-align:center;">

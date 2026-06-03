@@ -45,7 +45,7 @@ class NotificationService {
         $waUrl = 'https://wa.me/' . $digits . '?text=' . rawurlencode($message);
 
         // Stocker la notification en base (pour historique)
-        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id) VALUES (NULL, ?, ?, 'WhatsApp', NULL)");
+        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id, date_envoi) VALUES (NULL, ?, ?, 'WhatsApp', NULL, NOW())");
         $stmt->execute([$titre, "Cliquez pour ouvrir WhatsApp : " . $waUrl]);
 
         // Journaliser l'envoi WhatsApp
@@ -544,7 +544,7 @@ class NotificationService {
      */
     public function envoyerInApp($userId, $titre, $message, $commandeId = null) {
         // Insertion d'une notification avec le canal 'In-app'
-        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id) VALUES (?, ?, ?, 'In-app', ?)");
+        $stmt = $this->db->prepare("INSERT INTO notification (utilisateur_id, titre, message, canal, commande_id, date_envoi) VALUES (?, ?, ?, 'In-app', ?, NOW())");
         return $stmt->execute([$userId ?: null, $titre, $message, $commandeId]);
     }
 

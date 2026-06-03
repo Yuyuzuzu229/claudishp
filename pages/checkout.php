@@ -157,30 +157,14 @@ require_once __DIR__ . '/../includes/navbar.php';
                         <label>Téléphone <span style="color:var(--danger);">*</span></label>
                         <div class="flex gap-2">
                             <select class="form-control" style="width:90px;flex-shrink:0;"><option>+229</option><option>+228</option><option>+225</option></select>
-                            <input type="tel" name="telephone" class="form-control" placeholder="01 XX XX XX XX" value="<?= securiser($_SESSION['guest_telephone'] ?? '') ?>" required pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');if(this.value.length>0&&!this.value.startsWith('01'))this.value='01'+this.value.replace(/^0+/,'')">
+                            <input type="tel" name="telephone" class="form-control" placeholder="01 XX XX XX XX" value="<?= securiser($_SESSION['guest_telephone'] ?? '') ?>" required pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION MODE DE PAIEMENT -->
-            <div class="table-card">
-                <div class="table-card-header"><span class="table-card-title">Mode de paiement</span></div>
-                <div style="padding:20px;display:flex;flex-direction:column;gap:10px;">
-                    <?php // Option MTN Mobile Money (sélectionnée par défaut) ?>
-                    <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--gray-200);cursor:pointer;">
-                        <input type="radio" name="mode_paiement" value="MTN MoMo" checked style="accent-color:var(--dark);">
-                        <div><div class="font-semibold text-sm">MTN Mobile Money</div><div class="text-xs text-muted">Paiement sécurisé via MTN MoMo</div></div>
-                        <i class="fas fa-mobile-alt" style="margin-left:auto;font-size:20px;color:var(--warning);"></i>
-                    </label>
-                    <?php // Option Moov Money ?>
-                    <label style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--gray-200);cursor:pointer;">
-                        <input type="radio" name="mode_paiement" value="Moov Money" style="accent-color:var(--dark);">
-                        <div><div class="font-semibold text-sm">Moov Money</div><div class="text-xs text-muted">Paiement sécurisé via Moov Money</div></div>
-                        <i class="fas fa-mobile-alt" style="margin-left:auto;font-size:20px;color:var(--info);"></i>
-                    </label>
-                </div>
-            </div>
+            <!-- Paiement via Kkiapay (opérateur choisi dans le widget) -->
+            <input type="hidden" name="mode_paiement" value="Kkiapay">
         </div>
 
         <!-- COLONNE DROITE : RÉCAPITULATIF DE COMMANDE -->
@@ -303,12 +287,14 @@ require_once __DIR__ . '/../includes/navbar.php';
     }
 
     // Fonction de géocodage inversé via Nominatim
+    var _geoxhr = null;
     function reverseGeocode(lat, lng, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' + lat + '&lon=' + lng + '&accept-language=fr', true);
-        xhr.onload = function () { if (xhr.status === 200) { var data = JSON.parse(xhr.responseText); callback(data.display_name || null); } else { callback(null); } };
-        xhr.onerror = function () { callback(null); };
-        xhr.send();
+        if (_geoxhr) { _geoxhr.abort(); }
+        _geoxhr = new XMLHttpRequest();
+        _geoxhr.open('GET', 'https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' + lat + '&lon=' + lng + '&accept-language=fr', true);
+        _geoxhr.onload = function () { if (_geoxhr.status === 200) { try { var data = JSON.parse(_geoxhr.responseText); callback(data.display_name || null); } catch(e) { callback(null); } } else { callback(null); } };
+        _geoxhr.onerror = function () { callback(null); };
+        _geoxhr.send();
     }
 
     // Fonction de détection de la zone de livraison par proximité
@@ -340,20 +326,30 @@ require_once __DIR__ . '/../includes/navbar.php';
 
     // Fonction de démarrage de la géolocalisation automatique
     function demarrerGeoloc() {
-        // Vérification du support de la géolocalisation
+        // Si déjà localisé, réafficher la carte sans relancer le GPS
+        if (btnGeoloc.classList.contains('active') && userLat && userLng) {
+            manualFields.style.display = 'none';
+            mapContainer.style.display = 'block';
+            setTimeout(function () { if (map) map.invalidateSize(); }, 200);
+            return;
+        }
         if (!navigator.geolocation) { ouvrirCarteManuelle(); return; }
         btnGeoloc.disabled = true; btnGeoloc.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Localisation...';
-        // Appel à l'API de géolocalisation du navigateur
         navigator.geolocation.getCurrentPosition(function (pos) {
             userLat = pos.coords.latitude; userLng = pos.coords.longitude;
+            // Rejeter les positions trop éloignées de la boutique (> 2 degrés ≈ 220 km)
+            if (Math.abs(userLat - SHOP_LAT) > 2 || Math.abs(userLng - SHOP_LNG) > 2) {
+                btnGeoloc.disabled = false; btnGeoloc.innerHTML = '<i class="fas fa-location-dot"></i> Me géolocaliser';
+                ouvrirCarteManuelle();
+                return;
+            }
             inputLat.value = userLat; inputLng.value = userLng;
             manualFields.style.display = 'none'; initMap(userLat, userLng); detectZone(userLat, userLng);
             btnGeoloc.disabled = false; btnGeoloc.innerHTML = '<i class="fas fa-location-dot"></i> Me géolocaliser'; btnGeoloc.classList.add('active');
         }, function (err) {
-            // Gestion des erreurs de géolocalisation
             btnGeoloc.disabled = false; btnGeoloc.innerHTML = '<i class="fas fa-location-dot"></i> Me géolocaliser';
             if (err.code === 1) ouvrirCarteManuelle(); else { alert('Erreur de localisation.'); ouvrirCarteManuelle(); }
-        }, { enableHighAccuracy: true, timeout: 10000 });
+        }, { enableHighAccuracy: true, timeout: 8000, maximumAge: 30000 });
     }
 
     // Fonction d'ouverture de la carte manuelle (clic sur la carte)
@@ -361,7 +357,8 @@ require_once __DIR__ . '/../includes/navbar.php';
         manualFields.style.display = 'none'; btnGeoloc.classList.add('active');
         if (!map) initMap(SHOP_LAT, SHOP_LNG); else { mapContainer.style.display = 'block'; setTimeout(function () { map.invalidateSize(); }, 200); }
         geolocInfo.innerHTML = '<span style="color:var(--warning);font-weight:600;">👆 Cliquez sur la carte pour placer votre position</span><br><span class="text-muted">Vous pouvez aussi faire glisser le marqueur.</span>';
-        // Écouteur de clic sur la carte pour placer un marqueur
+        // Écouteur de clic sur la carte pour placer un marqueur (éviter les doublons)
+        map.off('click');
         map.on('click', function (e) {
             userLat = e.latlng.lat; userLng = e.latlng.lng;
             inputLat.value = userLat; inputLng.value = userLng;
@@ -408,8 +405,9 @@ require_once __DIR__ . '/../includes/navbar.php';
                 // Réafficher la section géolocalisation si livraison
                 if (sectionGeoloc) sectionGeoloc.style.display = 'block';
                 // Réafficher les groupes selon le dernier choix actif
-                if (btnGeoloc.classList.contains('active')) { if (geoGroup) geoGroup.style.display = 'block'; }
-                else if (manualGroup && manualGroup.dataset.wasOpen) { manualGroup.style.display = 'block'; }
+                if (btnGeoloc.classList.contains('active')) {
+                    if (geoGroup) { geoGroup.style.display = 'block'; if (map) setTimeout(function () { map.invalidateSize(); }, 200); }
+                } else if (manualGroup && manualGroup.dataset.wasOpen) { manualGroup.style.display = 'block'; }
             }
         });
     });

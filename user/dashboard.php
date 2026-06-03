@@ -182,7 +182,7 @@ $activePage = 'dashboard';
                 <?php if (empty($notifications)): ?><p class="text-muted text-sm" style="padding:14px 16px;">Aucune notification.</p>
                 <?php // Affichage des notifications ?>
                 <?php else: foreach ($notifications as $n): ?>
-                <div class="notif-item <?= !$n['lu']?'unread':'' ?>"><div class="notif-icon"><i class="fas fa-bell"></i></div><div class="notif-content"><div class="notif-title text-sm"><?= securiser(substr($n['message'],0,50)) ?></div><div class="notif-time"><?= date('d/m/Y',strtotime($n['date_creation'])) ?></div></div><?php if (!$n['lu']): ?><div class="notif-dot"></div><?php endif; ?></div>
+                <div class="notif-item <?= !$n['lu']?'unread':'' ?>"><div class="notif-icon"><i class="fas fa-bell"></i></div><div class="notif-content"><div class="notif-title text-sm"><?= securiser(substr($n['message'],0,50)) ?></div></div><?php if (!$n['lu']): ?><div class="notif-dot"></div><?php endif; ?></div>
                 <?php endforeach; endif; ?>
             </div>
             <!-- Lien vers toutes les notifications -->

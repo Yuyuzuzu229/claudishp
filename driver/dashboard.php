@@ -84,7 +84,7 @@ require_once __DIR__ . '/../includes/header.php';
                     <?php endif; ?>
                 </div>
             </div>
-            <i class="fas fa-toggle-on kpi-icon"></i>
+            <i class="fas fa-clock kpi-icon"></i>
         </div>
 
     </div>

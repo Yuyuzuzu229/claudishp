@@ -30,6 +30,29 @@
     <meta name="theme-color" content="#1f2937">
     <!-- Chargement différé du fichier JavaScript principal -->
     <script defer src="<?= ASSETS_URL ?>/js/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('input, textarea').forEach(function(el) {
+            el.addEventListener('blur', function() { this.value = this.value.trim(); });
+            el.addEventListener('input', function() {
+                if (this.tagName === 'TEXTAREA') return;
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                var trimmed = this.value.trimStart();
+                var diff = this.value.length - trimmed.length;
+                this.value = trimmed;
+                if (this === document.activeElement) {
+                    this.setSelectionRange(Math.max(0, start - diff), Math.max(0, end - diff));
+                }
+            });
+        });
+        document.querySelectorAll('form').forEach(function(f) {
+            f.addEventListener('submit', function() {
+                this.querySelectorAll('input, textarea').forEach(function(i) { i.value = i.value.trim(); });
+            });
+        });
+    });
+    </script>
     <!-- Métadonnées pour l'application web mobile -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">

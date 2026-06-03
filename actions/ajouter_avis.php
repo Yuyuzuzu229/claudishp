@@ -23,6 +23,5 @@ if ($note < 1 || $note > 5) {
 $avis = new Avis();
 $avis->ajouter($produitId, $_SESSION['user_id'], $note, $commentaire);
 
-// Message de succès et redirection vers la page des avis de l'utilisateur
-$_SESSION['success'] = 'Votre avis a été soumis.';
+$_SESSION['success'] = 'Votre avis a été soumis et sera visible après approbation par l\'administrateur.';
 redirect(BASE_URL . '/user/mes_avis.php');
