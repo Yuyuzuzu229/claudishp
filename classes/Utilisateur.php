@@ -43,7 +43,7 @@ class Utilisateur {
     }
 
     public function getByTelephone($telephone) {
-        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE telephone = ?");
+        $stmt = $this->db->prepare("SELECT * FROM utilisateur WHERE REPLACE(telephone, ' ', '') = ?");
         $stmt->execute([$telephone]);
         return $stmt->fetch();
     }
@@ -102,7 +102,9 @@ class Utilisateur {
         // Récupération de l'utilisateur par email ou téléphone
         $user = $this->getByEmail($identifiant);
         if (!$user) {
-            $user = $this->getByTelephone($identifiant);
+            // Normalise le téléphone (supprime les espaces) avant la recherche
+            $telClean = preg_replace('/\s+/', '', $identifiant);
+            $user = $this->getByTelephone($telClean);
         }
         // Si l'utilisateur n'existe pas OU que le mot de passe est incorrect
         if (!$user || !password_verify($motDePasse, $user['mot_de_passe'])) {

@@ -66,7 +66,7 @@ require_once __DIR__ . '/../includes/header.php';
                     <div id="loginFieldTel" style="display:none;">
                         <div class="input-with-icon">
                             <span class="icon"><i class="fas fa-phone"></i></span>
-                            <input type="text" name="identifiant" class="form-control" id="telInput" placeholder="01 XX XX XX XX" inputmode="numeric" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                            <input type="text" name="identifiant" class="form-control" id="telInput" placeholder="+229 01 XX XX XX XX" inputmode="numeric" oninput="var p='',d=this.value.replace(/[^0-9\+]/g,'');if(d[0]==='+'){var m=d.match(/^(\+22[589])/);if(m){p=m[1]+' ';d=d.slice(m[1].length)}else{p='+';d=d.slice(1)}}d=d.replace(/[^0-9]/g,'').slice(0,10);if(d.length>2)d=d.slice(0,2)+' '+d.slice(2);if(d.length>5)d=d.slice(0,5)+' '+d.slice(5);if(d.length>8)d=d.slice(0,8)+' '+d.slice(8);if(d.length>11)d=d.slice(0,11)+' '+d.slice(11);this.value=p+d">
                         </div>
                     </div>
                 </div>

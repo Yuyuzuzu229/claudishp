@@ -73,7 +73,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <label>Numéro de téléphone</label>
                         <div class="input-with-icon">
                             <span class="icon"><i class="fas fa-phone"></i></span>
-                            <input type="tel" name="telephone" class="form-control" id="regTelInput" placeholder="+229 01 XX XX XX XX" inputmode="numeric" oninput="var p='',d=this.value.replace(/[^0-9\+]/g,'');if(d[0]==='+'){var m=d.match(/^(\+22[589])/);if(m){p=m[1]+' ';d=d.slice(m[1].length)}else{p='+';d=d.slice(1)}}d=d.replace(/[^0-9]/g,'').slice(0,10);if(d.length>2)d=d.slice(0,2)+' '+d.slice(2);if(d.length>5)d=d.slice(0,5)+' '+d.slice(5);if(d.length>8)d=d.slice(0,8)+' '+d.slice(8);this.value=p+d">
+                            <input type="tel" name="telephone" class="form-control" id="regTelInput" placeholder="+229 01 XX XX XX XX" inputmode="numeric" oninput="var p='',d=this.value.replace(/[^0-9\+]/g,'');if(d[0]==='+'){var m=d.match(/^(\+22[589])/);if(m){p=m[1]+' ';d=d.slice(m[1].length)}else{p='+';d=d.slice(1)}}d=d.replace(/[^0-9]/g,'').slice(0,10);if(d.length>2)d=d.slice(0,2)+' '+d.slice(2);if(d.length>5)d=d.slice(0,5)+' '+d.slice(5);if(d.length>8)d=d.slice(0,8)+' '+d.slice(8);if(d.length>11)d=d.slice(0,11)+' '+d.slice(11);this.value=p+d">
                         </div>
                     </div>
                 </div>

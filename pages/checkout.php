@@ -156,8 +156,7 @@ require_once __DIR__ . '/../includes/navbar.php';
                     <div class="form-group" style="margin-bottom:0;">
                         <label>Téléphone <span style="color:var(--danger);">*</span></label>
                         <div class="flex gap-2">
-                            <select class="form-control" style="width:90px;flex-shrink:0;"><option>+229</option><option>+228</option><option>+225</option></select>
-                            <input type="tel" name="telephone" class="form-control" placeholder="01 XX XX XX XX" value="<?= securiser($_SESSION['guest_telephone'] ?? '') ?>" required pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                            <input type="tel" name="telephone" class="form-control" placeholder="+229 01 XX XX XX XX" value="<?= securiser($_SESSION['guest_telephone'] ?? '') ?>" required inputmode="numeric" oninput="var p='',d=this.value.replace(/[^0-9\+]/g,'');if(d[0]==='+'){var m=d.match(/^(\+22[589])/);if(m){p=m[1]+' ';d=d.slice(m[1].length)}else{p='+';d=d.slice(1)}}d=d.replace(/[^0-9]/g,'').slice(0,10);if(d.length>2)d=d.slice(0,2)+' '+d.slice(2);if(d.length>5)d=d.slice(0,5)+' '+d.slice(5);if(d.length>8)d=d.slice(0,8)+' '+d.slice(8);if(d.length>11)d=d.slice(0,11)+' '+d.slice(11);this.value=p+d">
                         </div>
                     </div>
                 </div>

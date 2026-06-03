@@ -131,7 +131,7 @@ $adminPage = 'profil';
                             <option value="<?= $ind ?>" <?= $indicatif_user === $ind ? 'selected' : '' ?>><?= $ind ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);if(v.length>11)v=v.slice(0,11)+' '+v.slice(11);this.value=v">
                     </div>
                 </div>
                 <?php else: ?>
@@ -150,7 +150,7 @@ $adminPage = 'profil';
                             <option value="<?= $ind ?>" <?= $indicatif_user === $ind ? 'selected' : '' ?>><?= $ind ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);this.value=v">
+                        <input type="tel" name="telephone" class="form-control" value="<?= securiser($numero_user) ?>" pattern="01[0-9\s]{8,}" inputmode="numeric" title="Format: 01 XX XX XX XX" oninput="var v=this.value.replace(/[^0-9]/g,'').slice(0,10);if(v.length>0&&v!=='01'&&!v.startsWith('01'))v='01'+v.replace(/^0+/,'');if(v.length>2)v=v.slice(0,2)+' '+v.slice(2);if(v.length>5)v=v.slice(0,5)+' '+v.slice(5);if(v.length>8)v=v.slice(0,8)+' '+v.slice(8);if(v.length>11)v=v.slice(0,11)+' '+v.slice(11);this.value=v">
                     </div>
                 </div>
                 <?php endif; ?>
