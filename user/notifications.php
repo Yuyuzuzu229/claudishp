@@ -83,7 +83,7 @@ $activePage = 'notifications';
             elseif (strpos($msg,'paiement')!==false || strpos($msg,'confirmé')!==false) $icon = 'fa-shield-alt';
             elseif (strpos($msg,'bienvenu')!==false || strpos($msg,'inscrit')!==false) $icon = 'fa-gift';
             $timeAgo = '';
-            $ts = strtotime($n['date_creation']);
+            $ts = strtotime($n['date_envoi']);
             $diff = time() - $ts;
             if ($diff < 3600) $timeAgo = 'Il y a '.round($diff/60).' min';
             elseif ($diff < 86400) $timeAgo = 'Il y a '.round($diff/3600).' heures';
